@@ -1,0 +1,15 @@
+# Django
+__pycache__/
+*.pyc
+*.pyo
+
+# SQLite database
+db.sqlite3
+
+# Virtual Environment
+workflix_admin_venv/
+workflix_app_venv/
+
+# Media
+media/
+
