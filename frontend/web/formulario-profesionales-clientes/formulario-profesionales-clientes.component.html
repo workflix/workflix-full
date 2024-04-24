@@ -1,0 +1,140 @@
+
+<div class="center-form">
+    <form [formGroup]="forma" (ngSubmit)="guardar()">
+      <div class="form">
+        <h2 class="encabezado-2">Formulario Registro Profesional</h2>
+  
+        <div class="controls">
+  
+          <input 
+                 type="text"
+                 formControlName="nombre"
+                 [class.is-invalid] = "nombreNoValido"
+                 placeholder="Nombre">
+  
+          <small *ngIf="nombreNoValido" class="text-danger">Ingrese su nombre mínimo 4 letras</small>
+  
+          <span class="barra"></span>
+          <label>Nombre/s</label>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+        
+        <div class="controls">
+  
+          <input 
+                 type="text"
+                 formControlName="apellido"
+                 [class.is-invalid] = "apellidoNoValido"
+                 placeholder="Apellido">
+  
+          <small *ngIf="apellidoNoValido" class="text-danger">Ingrese su apellido mínimo 3 letras</small>
+          
+          <span
+            class="barra"
+          ></span>
+          <label>Apellido/s</label>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+  
+        <div class="controls">
+  
+          <input 
+               type="email"
+               formControlName="correo"
+               [class.is-invalid] = "correoNoValido"
+               placeholder="Correo electrónico">
+  
+          <small *ngIf="correoNoValido" class="text-danger">Ingrese un correo electrónico válido</small>
+               
+          <span class="barra"></span>
+          <label>Mail</label>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+  
+        <div class="controls">
+  
+            <input 
+                   type="text"
+                   formControlName="Direccion"
+                   [class.is-invalid] = ""
+                   placeholder="Direccion">
+    
+            <small *ngIf="nombreNoValido" class="text-danger">Ingrese su Direccion de su casa</small>
+    
+            <span class="barra"></span>
+            <label> Direccion </label>
+            <div class="no-valido text-danger d-none"></div>
+          </div>  
+  
+        
+          <div class="controls">
+  
+            <input 
+                   type="text"
+                   formControlName="Localiad"
+                   [class.is-invalid] = ""
+                   placeholder="Localidad">
+    
+            <small *ngIf="nombreNoValido" class="text-danger">Ingrese su Localidad donde vive</small>
+    
+            <span class="barra"></span>
+            <label> Localidad </label>
+            <div class="no-valido text-danger d-none"></div>
+          </div>  
+       
+  
+          <div class="controls">
+  
+            <input 
+                   type="number"
+                   formControlName="DNI"
+                   [class.is-invalid] = ""
+                   placeholder="DNI">
+    
+            <small *ngIf="nombreNoValido" class="text-danger">Ingrese su DNI </small>
+    
+            <span class="barra"></span>
+            <label> DNI </label>
+            <div class="no-valido text-danger d-none"></div>
+          </div>  
+
+          <div class="controls">
+  
+            <input 
+                   type="number"
+                   formControlName="telefono"
+                   [class.is-invalid] = ""
+                   placeholder="Telefono">
+    
+            <small *ngIf="nombreNoValido" class="text-danger">Ingrese su numero de telefono </small>
+    
+            <span class="barra"></span>
+            <label> Numero de Telefono </label>
+            <div class="no-valido text-danger d-none"></div>
+          </div>  
+
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="input-group col-md-8">
+              <button type="submit" class="boton-form">
+                Regístrate
+              </button>
+              <button type="button" class="boton-form" (click)="limpiar()">
+                Limpiar
+              </button>
+            </div>
+          </div>
+     
+          <p class="parrafo"><a href="/login">¿Ya tienes cuenta?</a></p>
+  
+      </div>
+    </form>
+  </div>
+  
+  <pre>
+    {{forma.value | json}}
+  </pre>
+  
+  
+  

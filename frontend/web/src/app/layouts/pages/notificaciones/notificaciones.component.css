@@ -1,0 +1,12 @@
+:host {
+    display: block;
+    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+
+  h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+    margin-top: 28px;
+  }
+  

@@ -1,0 +1,129 @@
+<main id="main" class="main">
+ 
+    <section class="section profile">
+       <div class="row">
+        
+          <div class="col-xl-8">
+             <div class="card">
+                <div class="card-body pt-3">
+                   <ul class="nav nav-tabs nav-tabs-bordered">
+                      <li class="nav-item"> <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Información General</button></li>
+                      <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Editar perfil</button></li>
+                      <li class="nav-item"> <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Carga-Servicios</button></li>
+                     
+                   </ul>
+                   <div class="tab-content pt-2">
+                     
+                      <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                         <h5 class="card-title">A cerca de</h5>
+                         <p class="small fst-italic">"Pintora profesional con experiencia en proyectos residenciales y comerciales. Ofrezco servicios de alta calidad, atención al detalle y soluciones efectivas. Confiable, eficiente y comprometida.".</p>
+                         <h5 class="card-title">Detalles de perfil</h5>
+                         <ng-container *ngIf="usuario"> 
+
+                         <div class="row">
+                            <div class="col-lg-3 col-md-4 label ">NOMBRE Y APELLIDO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.nombre }} {{ usuario.apellido }}</div>
+                         </div>
+                         <div class="row">
+                            <div class="col-lg-3 col-md-4 label">CORREO ELECTRÓNICO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.email }}</div>
+                         </div>
+                         <div class="row">
+                            <div class="col-lg-3 col-md-4 label">DIRECCIÓN:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.direccion }}</div>
+                         </div>
+                         <div class="row">
+                            <div class="col-lg-3 col-md-4 label">País</div>
+                            <div class="col-lg-9 col-md-8">Argentina</div>
+                         </div>
+                         
+                         <div class="row">
+                            <div class="col-lg-3 col-md-4 label">TELÉFONO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.telefono }}</div>
+                         </div>
+                         <div class="row">
+                            <div class="col-lg-3 col-md-4 label">NOMBRE DE USUARIO:</div>
+                            <div class="col-lg-9 col-md-8">{{ usuario.usuario }}</div>
+                         </div>
+                        </ng-container>
+                      </div>
+                      <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                         <form>
+                            <div class="row mb-3">
+                               <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Imagen de perfil</label>
+                               <div class="col-md-8 col-lg-9">
+                                  <img src="assets/img/profile-img.png" alt="Perfil">
+                                  <div class="pt-2"> <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a> <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a></div>
+                               </div>
+                            </div>
+                            <ng-container *ngIf="usuario">
+                              <div class="row">
+                                 <div class="column">
+                                   <form class="container-fluid" [formGroup]="perfilForm" (ngSubmit)="onSubmit(perfilForm.value)">
+                                     <label for="mail">Correo electrónico:</label><br>
+                                     <input class="form-control" type="email" formControlName="mail" id="mail" name="mail" placeholder="Nuevo correo electrónico" value="{{usuario.email}}" required>
+                                     <div *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)" class="text-danger">
+                                       <div *ngIf="mail?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                       <div *ngIf="mail?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                       <div *ngIf="mail?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                     </div>
+                     
+                                     <label for="adress">Domicilio:</label><br>
+                                     <input class="form-control" type="text" formControlName="adress" id="adress" placeholder="Nuevo domicilio" value="{{usuario.direccion}}" required>
+                                     <div *ngIf="adress?.invalid && (adress?.dirty || adress?.touched)" class="text-danger">
+                                       <div *ngIf="adress?.errors?.['required']">Se requiere un domicilio.</div>
+                                       <div *ngIf="adress?.errors?.['maxlength']">El domicilio debe tener un máximo de 40 caracteres.</div>
+                                     </div>
+                     
+                                     <label for="password">Contraseña:</label><br>
+                                     <input class="form-control" type="password" formControlName="password" id="password" placeholder="Nueva contraseña" value="{{usuario.clave}}" required>
+                                     <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
+                                       <div *ngIf="password?.errors?.['required']">Se requiere una contraseña.</div>
+                                       <div *ngIf="password?.errors?.['minlength']">La contraseña debe tener más de 6 caracteres.</div>
+                                       <div *ngIf="password?.errors?.['maxlength']">La contraseña debe tener un máximo de 20 caracteres.</div>
+                                     </div>
+                     
+                                     <label for="phone">Teléfono:</label><br>
+                                     <input class="form-control" type="tel" formControlName="phone" id="phone" placeholder="Nuevo teléfono" value="{{usuario.telefono}}" required>
+                                     <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="text-danger">
+                                       <div *ngIf="phone?.errors?.['required']">Se requiere un número de teléfono.</div>
+                                       <div *ngIf="phone?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
+                                       <div *ngIf="phone?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
+                                     </div>
+                     
+                                     <br>
+                                     <div class="text-center"> <button class="btn btn-primary" [disabled]="!perfilForm.valid" type="submit">Guardar</button></div>
+                                   </form>
+                                 </div>
+                               </div>
+
+                              
+
+                            </ng-container>     
+
+
+                           
+                         </form>
+                      </div>
+                      <div class="tab-pane fade pt-3" id="profile-settings">
+                         <form>
+                            <div class="row mb-3">
+                               
+                               <div class="col-md-8 col-lg-9">
+                                  
+
+                                    <app-cat-servicios></app-cat-servicios>
+
+                               </div>
+                            </div>
+                            
+                         </form>
+                      </div>
+                      
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </section>
+ </main>

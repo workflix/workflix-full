@@ -1,0 +1,27 @@
+:host {
+    display: block;
+    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+ .ng-valid:not(form).ng-touched {
+   border-bottom: 5px solid #42a948;
+ }
+ 
+ .ng-invalid:not(form).ng-touched {
+   border-bottom: 5px solid #a94442;
+ }

@@ -1,0 +1,38 @@
+<main id="main" class="main">
+
+
+    <section class="section dashboard">
+        <div class="row">
+           <div class="col-lg-8">
+              <div class="row">
+                 <div class="col-xxl-4 col-md-6">
+
+    <div class="card">
+        <div class="filter">
+           <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+              <li class="dropdown-header text-start">
+                 <h6>Filter</h6>
+              </li>
+              <li><a class="dropdown-item" href="#">Hoy</a></li>
+              <li><a class="dropdown-item" href="#">Este mes</a></li>
+              <li><a class="dropdown-item" href="#">Este año</a></li>
+           </ul>
+        </div>
+        <div class="card-body">
+           <h5 class="card-title">Notidicaciones <span>| mes</span></h5>
+           <div class="activity">
+              <div *ngFor="let t of lista; let i=index" class="activity-item d-flex">
+                 <div class="activite-label">{{t.tiempo}}</div>
+                 <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
+                 <div class="activity-content"> {{ t.actividad }} <a href="#" class="fw-bold text-dark">revisar</a></div>
+              </div>          
+              
+           </div>
+        </div>
+     </div>
+
+     </div></div></div></div>
+     </section>
+  
+</main>

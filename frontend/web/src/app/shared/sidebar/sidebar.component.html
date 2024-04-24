@@ -1,0 +1,90 @@
+<aside  id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+    <ng-container *ngIf="!usuario">
+      <li class="nav-heading">Usuario</li>
+      <li class="nav-item"> <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-file-earmark-person-fill"></i><span>Usuario</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+        <ul id="components-nav" class="btn-toggle-nav list-unstyled fw-normal pb-1 collapse list-group " data-bs-parent="#sidebar-nav" style="list-style-type: none;">
+
+
+            <li class="list-group-item list-group-item-action list-group-item-light"> <a [routerLink]="['/login']" > <i></i><span>Login</span> </a></li>
+            <li class="list-group-item list-group-item-action list-group-item-light"> <a [routerLink]="['/registro']" > <i></i><span>Registro</span> </a></li>
+
+        </ul>
+      </li>
+
+
+    </ng-container>
+    <ng-container *ngIf="usuario">
+    <section class="section profile">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+              <img src="assets/img/avatar.png" width="70" height="70" alt="Profile" class="rounded-circle">
+              <ng-container *ngIf="usuario">
+                <br>
+
+                <h3>{{ usuario.nombre }} {{ usuario.apellido }}</h3>
+
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ng-container *ngIf="!esUsuarioAdministrador()">
+      <li class="nav-heading">Dashboard</li>
+      <li class="nav-item"> <a class="nav-link " routerLink="/dashboardUsuario" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>DasUsuario</span> </a></li>
+      <li class="nav-item"> <a class="nav-link " routerLink="/carro" (click)="onClickEnlace()"><i class="bi bi-cart3"></i><span>Carrito</span> </a></li>
+      <li class="nav-item"> <a class="nav-link " routerLink="/serviciosAgregar" (click)="onClickEnlace()"><i class="bi bi-nut"></i><span>Ofrecer un servicio</span> </a></li>
+
+    </ng-container>
+
+      <ng-container *ngIf="esUsuarioAdministrador()">
+        <li class="nav-heading">Usuario Administrador</li>
+        <li class="nav-item"> <a class="nav-link " routerLink="/dashboard" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Dashboard</span> </a></li>
+        <li class="nav-item"> <a class="nav-link " routerLink="/config-Admin" (click)="onClickEnlace()"><i class="bi bi-gear"></i> <span>Configuración</span> </a></li>
+
+
+      </ng-container>
+      <!--
+      <li class="nav-item"> <a class="nav-link " routerLink="/serviciosVendidos" (click)="onClickEnlace()"> <i class="bi bi-grid"></i> <span>Ventas</span> </a></li>
+      -->
+
+
+
+
+
+
+    </ng-container>
+    <br>
+    <li class="nav-heading">Opciones</li>
+
+    <ng-container *ngIf="usuario">
+    <li class="nav-item"> <a class="nav-link collapsed" routerLink="/notificaciones" (click)="onClickEnlace()"> <i class="bi bi-envelope"></i> <span>Notificaciones</span> </a></li>
+    <li class="nav-item"> <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-file-earmark-person-fill"></i><span>Perfil</span><i class="bi bi-chevron-down ms-auto"></i> </a>
+      <ul id="components-nav" class="btn-toggle-nav list-unstyled fw-normal pb-1 collapse list-group " data-bs-parent="#sidebar-nav" style="list-style-type: none;">
+
+
+          <li class="list-group-item list-group-item-action list-group-item-light"> <a routerLink="/perfilUsuario" (click)="onClickEnlace()" > <i></i><span>Información General</span> </a></li>
+
+      </ul>
+    </li>
+
+    <li class="nav-item"> <a class="nav-link collapsed" routerLink="/pagos" (click)="onClickEnlace()" > <i class="bi bi-credit-card"></i><span>Pagos</span></a></li>
+    <li class="nav-item"> <a class="nav-link collapsed" routerLink="/comentarios" (click)="onClickEnlace()" > <i class="bi bi-chat-right"></i><span>Comentarios</span></a></li>
+    </ng-container>
+
+
+
+    <li class="nav-item"> <a class="nav-link collapsed" routerLink="/preguntasFrecuentes" (click)="onClickEnlace()" ><i class="bi bi-question-circle"></i><span>Preguntas frecuentes</span> </a></li>
+
+    <ng-container *ngIf="usuario">
+      <li class="nav-item"> <a class="nav-link collapsed" [routerLink]="['/']" (click)="logout()" > <i class="bi bi-box-arrow-in-right"></i><span>Salir</span> </a></li>
+    </ng-container>
+
+  </ul>
+
+</aside>

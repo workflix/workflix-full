@@ -1,0 +1,7 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+a{text-decoration:none;}
+
+.card {
+    background-color: rgb(187, 212, 147);
+}

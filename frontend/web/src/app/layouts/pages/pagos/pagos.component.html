@@ -1,0 +1,64 @@
+<main id="main" class="main">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-11">
+                <div class="card card0 rounded-0">
+                    <div class="row">
+                        <div class="col-md-5 d-md-block d-none p-0 box">
+                            <div class="card rounded-0 border-0 card1" id="bill">
+                                <h3 id="heading1">Resumen de pagos</h3>
+                                
+                               
+                                <div class="row">
+                                    <div class="col-md-12 red-bg">
+                                        <p class="bill-date" id="total-label">Precio total</p>
+                                        <h2 class="bill-head" id="total">$ 123.000</h2>
+                                        <small class="bill-date" id="total-label">Incluye impuestos</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-7 col-sm-12 p-0 box">
+                            <div class="card rounded-0 border-0 card2" id="paypage">
+                                <div class="form-card">
+                                    <h2 id="heading2" class="text-danger">Pétodo de pago</h2>
+                                    <div class="radio-group">
+                                        <div class='radio' data-value="credit"><img src="https://i.imgur.com/28akQFX.jpg" width="200px" height="60px"></div>
+                                        <div class='radio' data-value="paypal"><img src="https://logotipoz.com/wp-content/uploads/2021/10/version-horizontal-large-logo-mercado-pago.webp" width="200px" height="60px"></div>
+                                        <br>
+                                    </div>
+                                    <label class="pay">Nombre de tarjeta</label>
+                                    <input type="text" name="holdername" placeholder="Ingrese su nombre">
+                                    <div class="row">
+                                        <div class="col-8 col-md-6">
+                                            <label class="pay">Número de tarjeta</label>
+                                            <input type="text" name="cardno" id="cr_no" placeholder="0000-0000-0000-0000" minlength="19" maxlength="19">
+                                        </div>
+                                        <div class="col-4 col-md-6">
+                                            <label class="pay">CVV</label>
+                                            <input type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;" class="placeicon" minlength="3" maxlength="3">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="pay">Fecha expiración</label>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5" maxlength="5">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="submit" value="Realizar pago &nbsp; &#xf178;" class="btn btn-info placeicon">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

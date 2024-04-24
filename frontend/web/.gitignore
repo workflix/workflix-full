@@ -1,0 +1,8 @@
+# Angular
+/dist/
+/*.js
+/*.js.map
+.angular
+# Node modules
+node_modules/
+

@@ -1,0 +1,87 @@
+[
+    {
+      "id": 1,
+      "profesion": "Plomero",
+      "nombre": "Juan Pérez",
+      "descripcion": "Plomería general, industrial, arreglos menores y planificación de obras.",
+      "imagen": "profesional-1.jpg"
+    },
+    {
+      "id": 2,
+      "profesion": "Electricista",
+      "nombre": "Cosme Fulanito",
+      "descripcion": "Electricista Matriculado especialista en soluciones, instalaciones y obras.",
+      "imagen": "profesional-2.jpg"
+    },
+    {
+      "id": 3,
+      "profesion": "Albañil",
+      "nombre": "Homero Thompson",
+      "descripcion": "Oficial de obra, construcciones, casas y edificios. Trabajo en altura",
+      "imagen": "profesional-3.jpg"
+    },
+    {
+      "id": 4,
+      "profesion": "Pintor",
+      "nombre": "Ricardo Tapia",
+      "descripcion": "Pintura en general, paredes de enduido, pintura de edificios. ______.",
+      "imagen": "profesional-4.jpg"
+    },
+    {
+      "id": 5,
+      "profesion": "Plomero",
+      "nombre": "Juan Pérez",
+      "descripcion": "Plomería general, industrial, arreglos menores y planificación de obras.",
+      "imagen": "profesional-1.jpg"
+    },
+    {
+      "id": 6,
+      "profesion": "Electricista",
+      "nombre": "Cosme Fulanito",
+      "descripcion": "Electricista Matriculado especialista en soluciones, instalaciones y obras.",
+      "imagen": "profesional-2.jpg"
+    },
+    {
+      "id": 7,
+      "profesion": "Albañil",
+      "nombre": "Homero Thompson",
+      "descripcion": "Oficial de obra, construcciones, casas y edificios. Trabajo en altura",
+      "imagen": "profesional-3.jpg"
+    },
+    {
+      "id": 8,
+      "profesion": "Pintor",
+      "nombre": "Ricardo Tapia",
+      "descripcion": "Pintura en general, paredes de enduido, pintura de edificios. ______.",
+      "imagen": "profesional-4.jpg"
+    },
+    {
+      "id": 9,
+      "profesion": "Plomero",
+      "nombre": "Juan Pérez",
+      "descripcion": "Plomería general, industrial, arreglos menores y planificación de obras.",
+      "imagen": "profesional-1.jpg"
+    },
+    {
+      "id": 10,
+      "profesion": "Electricista",
+      "nombre": "Cosme Fulanito",
+      "descripcion": "Electricista Matriculado especialista en soluciones, instalaciones y obras.",
+      "imagen": "profesional-2.jpg"
+    },
+    {
+      "id": 11,
+      "profesion": "Albañil",
+      "nombre": "Homero Thompson",
+      "descripcion": "Oficial de obra, construcciones, casas y edificios. Trabajo en altura",
+      "imagen": "profesional-3.jpg"
+    },
+    {
+      "id": 12,
+      "profesion": "Pintor",
+      "nombre": "Ricardo Tapia",
+      "descripcion": "Pintura en general, paredes de enduido, pintura de edificios. ______.",
+      "imagen": "profesional-4.jpg"
+    }
+  ]
+  

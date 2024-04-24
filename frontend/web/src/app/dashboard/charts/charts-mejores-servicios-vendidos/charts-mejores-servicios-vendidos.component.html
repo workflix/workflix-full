@@ -1,0 +1,37 @@
+<div class="card top-selling overflow-auto">
+    <div class="filter">
+       <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+          <li class="dropdown-header text-start">
+             <h6>Filter</h6>
+          </li>
+          <li><a class="dropdown-item" href="#">Hoy</a></li>
+          <li><a class="dropdown-item" href="#">Este mes</a></li>
+          <li><a class="dropdown-item" href="#">Este año</a></li>
+       </ul>
+    </div>
+    <div class="card-body pb-0">
+       <h5 class="card-title">Mejores servicios vendidos <span>| Mes</span></h5>
+       <table class="table table-borderless">
+          <thead>
+             <tr>
+                <th scope="col">Preview</th>
+                <th scope="col">Productos</th>
+                
+                <th scope="col">Ventas</th>
+                <th scope="col">Ingresos</th>
+             </tr>
+          </thead>
+          <tbody>
+             <tr *ngFor="let t of lista; let i=index">
+                <th scope="row"><a href="#"><img src={{t.imagen}} alt=""></a></th>
+                <td><a href="#" class="text-primary fw-bold">{{t.servicio}}</a></td>
+                
+                <td class="fw-bold">{{t.ventas}}</td>
+                <td>${{t.ingresos}}</td>
+             </tr>
+             
+          </tbody>
+       </table>
+    </div>
+ </div>
