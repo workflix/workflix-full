@@ -1,11 +1,19 @@
-![logo-workflix](https://github.com/workflix/workflix-full/assets/106571110/8a969d15-8e4d-4968-ae69-7aa45ed06d71)
 
+<p align="center">
+ <a href="https://ibb.co/0tpbGxN"><img src="https://i.ibb.co/xHKT7Nv/logo-workflix.png" alt="logo-workflix" border="0" width="320" height="100"></a>
+</p>
+<div>
 Proyecto Worflix 2024
-</div>
+
 Incluye Sitio Web y App Móvil
+</div>
 
 ### Integrantes:
+
+_Scrum Master:_
 * ALVAREZ, Natalia Beatriz
+
+_Developer Team:_
 * DELGADO, Marcelo Enrique
 * DÍAZ, Yandira
 * GIMÉNEZ, Diego Fabian
