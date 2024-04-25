@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.ui.perfil_terminos.terminosCondiciones">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="347dp"
+        android:layout_height="559dp"
+        android:layout_marginStart="28dp"
+        android:text="@string/t_rminos_y_condiciones_xa_xa_bienvenido_a_nombre_de_la_empresa_una_plataforma_digital_que_conecta_a_usuarios_con_proveedores_de_servicios_al_acceder_y_utilizar_nuestra_aplicaci_n_y_plataforma_en_adelante_quot_la_plataforma_quot_aceptas_los_siguientes_t_rminos_y_condiciones_xa_xa_aceptaci_n_de_t_rminos_xa_al_acceder_o_utilizar_nuestra_plataforma_aceptas_estos_t_rminos_y_condiciones_en_su_totalidad_si_no_est_s_de_acuerdo_con_alguno_de_estos_t_rminos_por_favor_no_uses_nuestra_plataforma_xa_xa_descripci_n_del_servicio_xa_nuestra_plataforma_permite_a_los_usuarios_explorar_solicitar_y_adquirir_una_variedad_de_servicios_ofrecidos_por_terceros_proveedores_estos_servicios_pueden_incluir_entre_otros_asesoramiento_transporte_entrega_de_productos_limpieza_y_m_s_xa_xa_registro_y_cuenta_de_usuario_xa_para_acceder_a_ciertas_funcionalidades_de_la_plataforma_es_necesario_crear_una_cuenta_de_usuario_al_registrarte_garantizas_que_la_informaci_n_proporcionada_es_precisa_y_completa_eres_responsable_de_mantener_la_confidencialidad_de_tus_credenciales_de_inicio_de_sesi_n_xa_xa_conducta_del_usuario_xa_te_comprometes_a_utilizar_la_plataforma_de_manera_tica_y_legal_no_debes_utilizarla_para_actividades_il_citas_fraudulentas_difamatorias_o_que_infrinjan_derechos_de_terceros"
+        app:layout_constraintBottom_toTopOf="@+id/btn_Cerrar_sesion2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="VisualLintLongText" />
+
+    <Button
+        android:id="@+id/btn_Cerrar_sesion2"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="233dp"
+        android:layout_height="48dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/azul"
+        android:onClick="aceptar"
+        android:text="@string/aceptar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.973" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

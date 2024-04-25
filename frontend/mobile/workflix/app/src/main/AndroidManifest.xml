@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Workflix"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".views.ui.dashboard_admin.DashboardAdminVistaActivity"
+            android:exported="false"
+            android:label="Administradores"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:exported="false"
+            android:label="Servicios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.adapters.ServicioActivity"
+            android:exported="false"
+            android:label="Editar Servicios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardServiciosActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.dashboard_admin.DashboardUsuariosActivity"
+            android:exported="false"
+            android:label="Usuarios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.adapters.UsuarioActivity"
+            android:exported="false"
+            android:label="Editar Usuarios"
+            android:parentActivityName=".views.ui.dashboard_admin.DashboardUsuariosActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.dashboard_admin.DashboardUsuariosActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.dashboard_admin.DashboardActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".views.ui.perfil_terminos.terminosCondiciones"
+            android:exported="false"
+            android:label="Terminos y Condiciones"
+            android:parentActivityName=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.perfil_terminos.PerfilTerminosActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:exported="false"
+            android:label="Dashboard"
+            android:parentActivityName=".views.MainActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.MainActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.catalogo.CatalogoActivity"
+            android:exported="false"
+            android:label="Catalogo de Profesionales"
+            android:parentActivityName=".views.ui.catalogo.CatalogoActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.catalogo.CatalogoActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.restablecer.RestablecerActivity"
+            android:exported="false"
+            android:label="Restablecer"
+            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.login.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.perfil.Perfil"
+            android:exported="false"
+            android:label="Editar Perfil"
+            android:parentActivityName=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.perfil_terminos.PerfilTerminosActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.eliminar_cuenta.EliminarCuentaActivity"
+            android:exported="false"
+            android:label="Eliminar Cuenta"
+            android:parentActivityName=".views.ui.perfil.Perfil"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.perfil.Perfil" />
+        </activity>
+        <activity
+            android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:exported="false"
+            android:label="Perfil"
+            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.login.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.register.RegisterActivity"
+            android:exported="false"
+            android:label="Registro"
+            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:screenOrientation="sensor"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.ui.login.LoginActivity" />
+        </activity>
+        <activity
+            android:name=".views.ui.login.LoginActivity"
+            android:exported="false"
+            android:label="Login"
+            android:parentActivityName=".views.MainActivity"
+            android:theme="@style/Theme.Workflix2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.MainActivity" />
+        </activity>
+        <activity
+            android:name=".views.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.ui.catalogo.TarjetaAmpliadaActivity"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

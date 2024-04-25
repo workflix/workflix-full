@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">workflix</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Ingrese su correo</string>
+    <string name="prompt_password">Ingrese su clave</string>
+    <string name="prompt_password2">Repita su clave</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="ver_profesionales">Ver Profesionales</string>
+    <string name="enviar">Enviar</string>
+    <string name="ofrecer_servicios">Ofrecer Servicios</string>
+    <string name="action_sign_in_short">Iniciar</string>
+
+    <string name="contact">Formulario de contacto</string>
+    <string name="sobre_nosotros">¿Quienes somos y qué es WorkFlix?</string>
+    <string name="descripcion">Encuentra profesionales confiables para tus necesidades de mantenimiento en casa u oficina. Contacta, obtén presupuestos transparentes y mantén tu privacidad. Explora categorías; todos los profesionales son verificados y calificados por otros usuarios.</string>
+    <string name="desarrollado_por">
+¡Hola a todos! Somos un grupo apasionado de estudiantes del ISPC y estamos emocionados de presentarles WorkFlix, una aplicación que hemos diseñado pensando en su comodidad.</string>
+
+    <string name="perfil">Editar perfil</string>
+    <string name="perfil2">Publicar Servicio</string>
+    <string name="cerrar">Cerrar Sesión</string>
+    <string name="terminos">Terminos y condiciones</string>
+    <string name="welcome">"Bienvenido "</string>
+    <string name="invalid_username">No es un correo válido</string>
+    <string name="invalid_password">La clave debe tener >5 caracteres</string>
+    <string name="login_failed">"Login failed"</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="restablecer">Ingrese su correo y recibirá un mail con los pasos a seguir</string>
+
+
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="Editar_perfil">Editar Perfil</string>
+    <string name="Cambiar_Foto">Cambiar Foto</string>
+    <string name="Editar_datos">Editar Datos</string>
+    <string name="Eliminar_Cuenta">Eliminar Cuenta</string>
+    <string name="Cerrar_sesion">Cerrar Sesion</string>
+    <string name="Nombre_Apellido">Nombre y Apellido</string>
+    <string name="Servicio">Tipo de servicios</string>
+    <string name="actualizar_perfil">Actualizar Perfil</string>
+    <string name="aceptar">Aceptar</string>
+
+    <string name="Enviar"></string>
+    <string name="t_rminos_y_condiciones_xa_xa_bienvenido_a_nombre_de_la_empresa_una_plataforma_digital_que_conecta_a_usuarios_con_proveedores_de_servicios_al_acceder_y_utilizar_nuestra_aplicaci_n_y_plataforma_en_adelante_quot_la_plataforma_quot_aceptas_los_siguientes_t_rminos_y_condiciones_xa_xa_aceptaci_n_de_t_rminos_xa_al_acceder_o_utilizar_nuestra_plataforma_aceptas_estos_t_rminos_y_condiciones_en_su_totalidad_si_no_est_s_de_acuerdo_con_alguno_de_estos_t_rminos_por_favor_no_uses_nuestra_plataforma_xa_xa_descripci_n_del_servicio_xa_nuestra_plataforma_permite_a_los_usuarios_explorar_solicitar_y_adquirir_una_variedad_de_servicios_ofrecidos_por_terceros_proveedores_estos_servicios_pueden_incluir_entre_otros_asesoramiento_transporte_entrega_de_productos_limpieza_y_m_s_xa_xa_registro_y_cuenta_de_usuario_xa_para_acceder_a_ciertas_funcionalidades_de_la_plataforma_es_necesario_crear_una_cuenta_de_usuario_al_registrarte_garantizas_que_la_informaci_n_proporcionada_es_precisa_y_completa_eres_responsable_de_mantener_la_confidencialidad_de_tus_credenciales_de_inicio_de_sesi_n_xa_xa_conducta_del_usuario_xa_te_comprometes_a_utilizar_la_plataforma_de_manera_tica_y_legal_no_debes_utilizarla_para_actividades_il_citas_fraudulentas_difamatorias_o_que_infrinjan_derechos_de_terceros">Términos y Condiciones:\n\nBienvenido a [Nombre de la Empresa], una plataforma digital que conecta a usuarios con proveedores de servicios. Al acceder y utilizar nuestra aplicación y plataforma (en adelante, \"la Plataforma\"), aceptas los siguientes términos y condiciones:\n\nAceptación de Términos:\nAl acceder o utilizar nuestra Plataforma, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguno de estos términos, por favor, no uses nuestra Plataforma.\n\nDescripción del Servicio:\nNuestra Plataforma permite a los usuarios explorar, solicitar y adquirir una variedad de servicios ofrecidos por terceros proveedores. Estos servicios pueden incluir, entre otros, asesoramiento, transporte, entrega de productos, limpieza, y más.\n\n</string>
+
+    <string name="ingresarCelu">Ingrese su número de celular sin \"0\", ni \"15\"</string>
+    <string name="textoCel">Ingrese su número de celular sin \"0\", ni \"15\"</string>
+    <string name="nombreRegistro">Ingrese su nombre</string>
+    <string name="apellidoRegistro">Ingrese su apellido</string>
+    <string name="correoRegistro">Ingrese su de correo</string>
+    <string name="celularRegistro">Ingrese su celular</string>
+
+    <string name="logo_app">Imagen de Logo de Workflix</string>
+
+</resources>

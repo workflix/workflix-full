@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Estilo para esquinas redondeadas en la parte inferior de un botón -->
+    <style name="RoundedBottomCorners">
+        <item name="android:topLeftRadius">0dp</item>
+        <item name="android:topRightRadius">0dp</item>
+        <item name="android:bottomLeftRadius">26dp</item>
+        <item name="android:bottomRightRadius">26dp</item>
+    </style>
+
+    <style name="RoundedTopCorners">
+        <item name="android:topLeftRadius">26dp</item>
+        <item name="android:topRightRadius">26dp</item>
+        <item name="android:bottomLeftRadius">0dp</item>
+        <item name="android:bottomRightRadius">0dp</item>
+    </style>
+
+    <!-- Estilo para esquinas redondeadas con radio de 8dp -->
+    <style name="RoundedCorners8dp">
+        <item name="cornerSize">8dp</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- Estilo para un fondo circular -->
+    <style name="circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <!-- Estilo para SearchView -->
+    <style name="SearchViewStyle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+    </style>
+
+</resources>

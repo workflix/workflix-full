@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="datos_spinner">
+        <item>Seleccione Tipo de Usuario</item>
+        <item>Usuario Cliente</item>
+        <item>Usuario Visitante</item>
+    </string-array>
+</resources>
