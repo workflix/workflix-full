@@ -13,7 +13,7 @@ import { TipoUsuario, Usuario } from '../modelos/modelo.usuario';
 export class UsuariosService {
   private API_URL = environment.API_URL;
   private registracionUrl: string = `${this.API_URL}/auth/signup/`;
-  private usuariosUrl: string = `${this.API_URL}/usuarios/`;
+  private usuariosUrl: string = `${this.API_URL}/usuarios/listar`;
 
   constructor(private http: HttpClient) {
   }

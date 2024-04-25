@@ -1,0 +1,27 @@
+<div class="main_div">
+                            <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
+                           <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+                            <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3" *ngFor="let user of users; trackBy: trackById">
+                            <div class="col">
+                              <div class="card h-100 shadow-sm">
+                                <img src="../../../../assets/images/foto_mujer.jpg"   class="card-img-top" alt="...">
+                                <div class="label-top shadow-sm">{{user.nombre}} {{user.apellido}}</div>
+                                 <div class="card-body">
+                                   <div class="clearfix mb-3">
+                                     <span class="float-start price-hp">12354.00&euro;</span>
+                                     <span class="float-end"> <a class="text-muted small" href="#">Reviews</a> </span>
+                                  </div>
+                                  <h5 class="card-title">{{user.descripcion}} Contactar en: {{user.telefono}}</h5>
+                                    <div class="text-center my-4">
+                                      <a href="#" class="btn btn-warning">Ver profesional</a>
+                                    </div>
+                                    <div class="clearfix mb-1">
+                                      <span class="float-start"><i class="far fa-question-circle"></i></span>
+                                      <span class="float-end"><i class="fas fa-plus"></i></span>
+                                     </div>
+                                     </div>
+                                    </div>
+                                  </div>
+                             </div>
+                              </div>
+  </div>
