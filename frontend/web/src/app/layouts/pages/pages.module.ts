@@ -26,6 +26,7 @@ import { ServicioCargaComponent } from './servicio-carga/servicio-carga.componen
 import { ServiciosAgregarComponent } from './servicios-agregar/servicios-agregar.component';
 import { ServiciosCatComponent } from './servicios-cat/servicios-cat.component';
 import { ServiciosVendidosComponent } from './servicios-vendidos/servicios-vendidos.component';
+import { CardsComponent } from './cards/cards.component';
 
 
 
@@ -60,6 +61,7 @@ import { ServiciosVendidosComponent } from './servicios-vendidos/servicios-vendi
           ServiciosAgregarComponent,
           ServiciosCatComponent,
           ServiciosVendidosComponent,
+          CardsComponent,
      
 
 
@@ -70,7 +72,8 @@ import { ServiciosVendidosComponent } from './servicios-vendidos/servicios-vendi
     ContactoComponent,    
     RegistroComponent,
     ProfesionalesComponent,
-    NotificacionesComponent
+    NotificacionesComponent,
+    CardsComponent
     
     
     
