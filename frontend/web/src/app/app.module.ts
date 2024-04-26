@@ -11,8 +11,8 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthService } from './servicios/auth.service';
-import { AuthInterceptor } from './servicios/auth.interceptor';
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
 
 

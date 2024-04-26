@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
 import { TipoUsuario } from 'src/app/modelos/modelo.usuario';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 import { Router } from '@angular/router';
 
 

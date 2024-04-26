@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TipoProducto } from 'src/app/modelos/modelo.tipoProducto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProductosService } from 'src/app/servicios/productos.service';
+import { ProductosService } from 'src/app/services/productos.service';
 import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
 import { HttpStatusCode } from '@angular/common/http';
 

@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, HostListener, Inject } from '@angular/core';
 import { Producto } from 'src/app/modelos/modelo.producto';
-import { ProductosService } from 'src/app/servicios/productos.service';
+import { ProductosService } from 'src/app/services/productos.service';
 import { ViewportScroller } from '@angular/common';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { CarritoService } from 'src/app/servicios/carrito.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { CarritoService } from 'src/app/services-aux/carrito.service';
 
 @Component({
   selector: 'app-servicios-cat',

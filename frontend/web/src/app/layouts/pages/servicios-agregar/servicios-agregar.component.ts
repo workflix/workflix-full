@@ -3,9 +3,9 @@ import { HttpStatusCode } from '@angular/common/http';
 import { Producto } from 'src/app/modelos/modelo.producto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TipoProducto } from 'src/app/modelos//modelo.tipoProducto';
-import { ProductosService } from 'src/app/servicios/productos.service';
+import { ProductosService } from 'src/app/services/productos.service';
 import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
-import { FuncionesService } from 'src/app/servicios/funciones.service';
+import { FuncionesService } from 'src/app/services/funciones.service';
 import { Router } from '@angular/router';
 
 @Component({

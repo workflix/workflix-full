@@ -7,8 +7,8 @@ import {  OnInit, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs';
 import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 
 

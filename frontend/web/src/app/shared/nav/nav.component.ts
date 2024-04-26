@@ -7,8 +7,8 @@ import { HttpStatusCode } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
 import { Usuario, TipoUsuario } from 'src/app/modelos/modelo.usuario';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 
 @Component({

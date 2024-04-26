@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Producto } from 'src/app/modelos/modelo.producto';
-import { ImagenesService } from 'src/app/servicios/imagenes.service';
+import { ImagenesService } from 'src/app/services/imagenes.service';
 import { Seleccion } from 'src/app/modelos/modelo.seleccion';
 
 @Component({

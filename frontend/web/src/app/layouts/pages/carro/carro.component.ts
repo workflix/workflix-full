@@ -3,9 +3,9 @@ import { Envio } from 'src/app/modelos/modelo.envio';
 import { Producto } from 'src/app/modelos/modelo.producto';
 import { Seleccion, SeleccionClass } from 'src/app/modelos/modelo.seleccion';
 import { Router } from '@angular/router';
-import { EnviosService } from 'src/app/servicios/envios.service';
-import { CarritoService } from 'src/app/servicios/carrito.service';
-import { AuthService } from 'src/app/servicios/auth.service';
+import { EnviosService } from 'src/app/services/envios.service';
+import { CarritoService } from 'src/app/services-aux/carrito.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-carro',

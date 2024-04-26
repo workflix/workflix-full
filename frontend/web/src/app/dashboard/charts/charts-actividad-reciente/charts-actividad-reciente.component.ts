@@ -3,9 +3,9 @@ import { ClassChartsActividadReciente } from 'src/assets/datos/Class';
 import { chartsActividadReciente } from 'src/assets/datos/charts';
 import {  Input } from '@angular/core';
 import { Venta } from 'src/app/modelos/modelo.venta';
-import { VentasService } from 'src/app/servicios/ventas.service';
+import { VentasService } from 'src/app/services/ventas.service';
 import { Seleccion } from 'src/app/modelos/modelo.seleccion';
-import { FuncionesService } from 'src/app/servicios/funciones.service';
+import { FuncionesService } from 'src/app/services/funciones.service';
 
 @Component({
   selector: 'app-charts-actividad-reciente',
