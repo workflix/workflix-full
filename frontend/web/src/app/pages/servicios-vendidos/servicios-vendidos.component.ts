@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ClassChartsActividadReciente } from 'src/assets/datos/Class';
-import { chartsActividadReciente } from 'src/assets/datos/charts';
-import {  Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Venta } from 'src/app/models/modelo.venta';
 import { VentasService } from 'src/app/services/ventas.service';
 import { Seleccion } from 'src/app/models/modelo.seleccion';
 import { FuncionesService } from 'src/app/services/funciones.service';
 
 @Component({
-  selector: 'app-charts-actividad-reciente',
-  templateUrl: './charts-actividad-reciente.component.html',
-  styleUrls: ['./charts-actividad-reciente.component.css'],
+  selector: 'app-servicios-vendidos',
+  templateUrl: './servicios-vendidos.component.html',
+  styleUrls: ['./servicios-vendidos.component.css'],
   providers: [ VentasService ]
 })
-export class ChartsActividadRecienteComponent  {
-
+export class ServiciosVendidosComponent {
   @Input() ventas: Venta [] = [];
 
   constructor(private ventasService: VentasService, private funcionesService: FuncionesService) {
@@ -34,4 +30,5 @@ export class ChartsActividadRecienteComponent  {
   visualizarFecha(fecha: Date): string {
     return this.funcionesService.visualizarFecha(fecha);
   }
+
 }

@@ -1,14 +1,14 @@
 import { Component, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { CarritoService } from 'src/app/service/carrito.service';
+import { CarritoService } from 'src/app/services/carrito.service';
 import { ScrollingService } from 'src/app/scrolling.service';
 import { HttpStatusCode } from '@angular/common/http';
 
 import { Router } from '@angular/router';
-import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
-import { Usuario, TipoUsuario } from 'src/app/modelos/modelo.usuario';
-import { AuthService } from 'src/app/servicios/auth.service';
-import { UsuariosService } from 'src/app/servicios/usuarios.service';
+import { ResultadoApi } from 'src/app/models/modelo.resultado';
+import { Usuario, TipoUsuario } from 'src/app/models/modelo.usuario';
+import { AuthService } from 'src/app/services/auth.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 
 @Component({
