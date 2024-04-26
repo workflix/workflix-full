@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Venta } from 'src/app/modelos/modelo.venta';
+import { Venta } from 'src/app/models/modelo.venta';
 import { VentasService } from 'src/app/services/ventas.service';
-import { Seleccion } from 'src/app/modelos/modelo.seleccion';
+import { Seleccion } from 'src/app/models/modelo.seleccion';
 import { FuncionesService } from 'src/app/services/funciones.service';
 
 @Component({

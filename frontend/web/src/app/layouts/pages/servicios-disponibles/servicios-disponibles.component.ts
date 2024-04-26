@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, HostListener, Inject } from '@angular/core';
-import { Producto } from 'src/app/modelos/modelo.producto';
+import { Producto } from 'src/app/models/modelo.producto';
 import { ProductosService } from 'src/app/services/productos.service';
 import { ViewportScroller } from '@angular/common';
 import { AuthService } from 'src/app/services/auth.service';

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { map } from 'rxjs';
-import { Producto } from '../modelos/modelo.producto';
-import { TipoProducto } from '../modelos/modelo.tipoProducto';
-import { ResultadoApi } from '../modelos/modelo.resultado';
+import { Producto } from '../models/modelo.producto';
+import { TipoProducto } from '../models/modelo.tipoProducto';
+import { ResultadoApi } from '../models/modelo.resultado';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

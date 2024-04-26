@@ -3,7 +3,7 @@ import { ScrollingService } from 'src/app/scrolling.service';
 import { DOCUMENT } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { Usuario, TipoUsuario } from 'src/app/modelos/modelo.usuario';
+import { Usuario, TipoUsuario } from 'src/app/models/modelo.usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
 import { CardsComponent } from '../cards/cards.component';

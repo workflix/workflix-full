@@ -1,6 +1,6 @@
 import { formatDate } from '@angular/common';
 import { Inject, Injectable, LOCALE_ID } from '@angular/core';
-import { Seleccion } from '../modelos/modelo.seleccion'
+import { Seleccion } from '../models/modelo.seleccion'
 
 @Injectable({
   providedIn: 'root'

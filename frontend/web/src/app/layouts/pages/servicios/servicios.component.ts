@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Producto } from 'src/app/modelos/modelo.producto';
+import { Producto } from 'src/app/models/modelo.producto';
 import { ImagenesService } from 'src/app/services/imagenes.service';
-import { Seleccion } from 'src/app/modelos/modelo.seleccion';
+import { Seleccion } from 'src/app/models/modelo.seleccion';
 
 @Component({
   selector: 'app-servicios',

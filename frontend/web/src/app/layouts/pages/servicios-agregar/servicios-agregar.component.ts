@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, Input } from '@angular/core';
 import { HttpStatusCode } from '@angular/common/http';
-import { Producto } from 'src/app/modelos/modelo.producto';
+import { Producto } from 'src/app/models/modelo.producto';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TipoProducto } from 'src/app/modelos//modelo.tipoProducto';
+import { TipoProducto } from 'src/app/models/modelo.tipoProducto';
 import { ProductosService } from 'src/app/services/productos.service';
-import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { ResultadoApi } from 'src/app/models/modelo.resultado';
 import { FuncionesService } from 'src/app/services/funciones.service';
 import { Router } from '@angular/router';
 

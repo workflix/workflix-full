@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Seleccion } from '../../modelos/modelo.seleccion';
-import { Producto } from '../../modelos/modelo.producto';
+import { Seleccion } from '../../models/modelo.seleccion';
+import { Producto } from '../../models/modelo.producto';
 import { AuthService } from '../auth.service'
 import { environment } from 'src/environments/environment';
-import { Venta } from '../../modelos/modelo.venta';
+import { Venta } from '../../models/modelo.venta';
 import { VentasService } from '../ventas.service';
-import { Envio } from '../../modelos/modelo.envio';
+import { Envio } from '../../models/modelo.envio';
 import { Router } from '@angular/router';
 
 @Injectable({

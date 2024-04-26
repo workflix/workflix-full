@@ -1,6 +1,6 @@
 import { HttpStatusCode } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
-import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { ResultadoApi } from 'src/app/models/modelo.resultado';
 
 @Component({
   selector: 'app-campo-r',

@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProductosService } from 'src/app/services/productos.service';
-import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { ResultadoApi } from 'src/app/models/modelo.resultado';
 import { HttpStatusCode } from '@angular/common/http';
 import { FuncionesService } from 'src/app/services/funciones.service';
-import { Producto, ProductoClass } from 'src/app/modelos/modelo.producto';
-import { TipoProducto } from 'src/app/modelos/modelo.tipoProducto';
+import { Producto, ProductoClass } from 'src/app/models/modelo.producto';
+import { TipoProducto } from 'src/app/models/modelo.tipoProducto';
 
 @Component({
   selector: 'app-servicio-carga',

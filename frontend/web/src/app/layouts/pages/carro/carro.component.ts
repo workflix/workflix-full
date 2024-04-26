@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Envio } from 'src/app/modelos/modelo.envio';
-import { Producto } from 'src/app/modelos/modelo.producto';
-import { Seleccion, SeleccionClass } from 'src/app/modelos/modelo.seleccion';
+import { Envio } from 'src/app/models/modelo.envio';
+import { Producto } from 'src/app/models/modelo.producto';
+import { Seleccion, SeleccionClass } from 'src/app/models/modelo.seleccion';
 import { Router } from '@angular/router';
 import { EnviosService } from 'src/app/services/envios.service';
 import { CarritoService } from 'src/app/services/services-aux/carrito.service';

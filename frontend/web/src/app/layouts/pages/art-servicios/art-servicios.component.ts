@@ -1,8 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TipoProducto, TipoProductoClass } from 'src/app/modelos/modelo.tipoProducto';
+import { TipoProducto, TipoProductoClass } from 'src/app/models/modelo.tipoProducto';
 import { ProductosService } from 'src/app/services/productos.service';
-import { ResultadoApi } from 'src/app/modelos/modelo.resultado';
+import { ResultadoApi } from 'src/app/models/modelo.resultado';
 import { HttpStatusCode } from '@angular/common/http';
 import { FuncionesService } from 'src/app/services/funciones.service';
 

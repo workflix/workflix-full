@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription, catchError, delay, finalize, of, tap, throwError } from 'rxjs';
-import { TipoUsuario, Usuario } from '../modelos/modelo.usuario';
-import { ResultadoApi } from '../modelos/modelo.resultado';
+import { TipoUsuario, Usuario } from '../models/modelo.usuario';
+import { ResultadoApi } from '../models/modelo.resultado';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { TokenUsuario } from './usuarios.service';
