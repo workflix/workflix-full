@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/service/api.service';
-import { CarritoService } from 'src/app/service/carrito.service';
+import { ApiService } from 'src/app/services/api.service';
+import { CarritoService } from 'src/app/services/carrito.service';
 
 @Component({
   selector: 'app-profesionales',

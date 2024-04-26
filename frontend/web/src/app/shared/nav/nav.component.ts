@@ -1,6 +1,6 @@
 import { Component, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { CarritoService } from 'src/app/service/carrito.service';
+import { CarritoService } from 'src/app/services/carrito.service';
 import { ScrollingService } from 'src/app/scrolling.service';
 import { HttpStatusCode } from '@angular/common/http';
 

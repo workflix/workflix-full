@@ -6,7 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
-import { CarritoComponent } from './carrito/carrito.component';
+import { CarritoComponent } from './carrito/carrito.component'
 import { FilterPipe } from './filter.pipe';  
 
 

@@ -3,7 +3,7 @@ import { Producto } from 'src/app/modelos/modelo.producto';
 import { ProductosService } from 'src/app/services/productos.service';
 import { ViewportScroller } from '@angular/common';
 import { AuthService } from 'src/app/services/auth.service';
-import { CarritoService } from 'src/app/services-aux/carrito.service';
+import { CarritoService } from 'src/app/services/services-aux/carrito.service';
 
 @Component({
   selector: 'app-servicios-disponibles',
