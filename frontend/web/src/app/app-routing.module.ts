@@ -25,6 +25,7 @@ import { CarroComponent } from './pages/carro/carro.component';
 import { ServiciosAgregarComponent } from './pages/servicios-agregar/servicios-agregar.component';
 import { ServiciosCatComponent } from './pages/servicios-cat/servicios-cat.component';
 import { ServiciosVendidosComponent } from './pages/servicios-vendidos/servicios-vendidos.component';
+import { FormContraseniaComponent } from './pages/form-contrasenia/form-contrasenia.component';
 
 
 
@@ -52,7 +53,8 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
   { path: 'profesionales', component: ProfesionalesComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Ruta por defecto
-  { path: 'carrito', component: CarritoComponent }
+  { path: 'carrito', component: CarritoComponent },
+  { path: 'password', component: FormContraseniaComponent}
 ];
 
 @NgModule({

@@ -27,6 +27,7 @@ import { ServiciosAgregarComponent } from './servicios-agregar/servicios-agregar
 import { ServiciosCatComponent } from './servicios-cat/servicios-cat.component';
 import { ServiciosVendidosComponent } from './servicios-vendidos/servicios-vendidos.component';
 import { CardsComponent } from './cards/cards.component';
+import { FormContraseniaComponent } from './form-contrasenia/form-contrasenia.component';
 
 
 
@@ -62,6 +63,7 @@ import { CardsComponent } from './cards/cards.component';
           ServiciosCatComponent,
           ServiciosVendidosComponent,
           CardsComponent,
+          FormContraseniaComponent,
      
 
 
