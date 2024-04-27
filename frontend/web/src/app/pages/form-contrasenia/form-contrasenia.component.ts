@@ -12,7 +12,10 @@ export class FormContraseniaComponent {
   //private fb:FormBuilder = new FormBuilder()
   constructor (private fb:FormBuilder){
     this.myForm = this.fb.group({
-      usuario: [""]
-    })
+      usuario: ['']
+    });
+  }
+  reset(){
+    console.log(this.myForm.value) // imprime en consola lo que completó el usuario
   }
 }

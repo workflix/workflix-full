@@ -1,8 +1,8 @@
-<form>
+<form [formGroup]="myForm" (ngSubmit)="reset()">
     <p>¿Has olvidado tu contraseña?</p>
     <div>
         <label>Usuario</label>
-        <input type="text">
+        <input type="text" formControlName="usuario">
     </div>
     <p>Enviaremos un código de verificación a este email o número de teléfono si coincide con una cuenta de Workflix existente.</p>
     <button>Siguiente</button>
