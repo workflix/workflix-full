@@ -1,10 +1,26 @@
+<div class="center-form">
 <form [formGroup]="myForm" (ngSubmit)="reset()">
-    <p>¿Has olvidado tu contraseña?</p>
-    <div>
-        <label>Usuario</label>
-        <input type="text" formControlName="usuario">
+    <div class="form">
+        <h2 class="encabezado-2"> ¿Has olvidado tu contraseña?</h2> 
+        <div class="controls">
+            <label>Usuario</label>
+            <input 
+            type="text" 
+            formControlName="usuario"
+            placeholder="Usuario">
+            <p>Enviaremos un código de verificación a tu email si coincide con una cuenta de Workflix existente.</p>
+        </div>
+
+        <div class="controls botones">
+            <div>
+                <button type="submit" class="boton-form d-inline-block mx-3" (click)="volver()">
+                Volver
+                </button>
+                <button type="submit" class="boton-form d-inline-block mx-3">
+                Siguiente
+                </button>
+            </div>
+        </div>
     </div>
-    <p>Enviaremos un código de verificación a este email o número de teléfono si coincide con una cuenta de Workflix existente.</p>
-    <button>Siguiente</button>
-    <button>Volver</button>
 </form>
+</div>
