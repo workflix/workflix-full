@@ -7,21 +7,21 @@ import { UserService } from '../../services/user.service';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
-export class CardsComponent implements OnInit{
-  tittle:string="List the users"
-  test: string = "This is a test to my studen component"
-  
+export class CardsComponent implements OnInit {  
+  title: string = "List the users";
+  test: string = "This is a test to my student component";
+
   trackById(index: number, user: User): number {
-    return user.id; // o cualquier propiedad única de user
+    return user.id;
   }
   
-  users:User[]=[];
-  constructor(private userService:UserService){}
-
+  users: User[] = [];
   
+  constructor(private userService: UserService) {}
+
   ngOnInit(): void {
-   this.userService.getAllUsers().subscribe(
-    e  => this.users = e
-   )
+    this.userService.getAllUsers().subscribe(
+      users => this.users = users
+    );
   }
 }
