@@ -5,11 +5,13 @@ import { HttpStatusCode } from '@angular/common/http';
 import {  OnInit, ElementRef, Input } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
 import { subscribeOn } from 'rxjs';
- 
+/* 
 import { ResultadoApi } from `../models/modelo.resultado`;
 import { AuthService } from '../services/auth.service';
-import { UsuariosService } from '../services/usuarios.service';
+import { UsuariosService } from '../services/usuarios.service'; */
+
 
 @Component({
   selector: 'app-ingresar',
@@ -18,34 +20,42 @@ import { UsuariosService } from '../services/usuarios.service';
   templateUrl: './ingresar.component.html',
   styleUrl: './ingresar.component.css'
 })
-export class IngresarComponent implements OnInit  {
+export class IngresarComponent {
+  error: string = '';
+
+  constructor(private loginService: LoginService, private router:Router) {}
+
+  onSubmit(email: string, password: string): void {
+    if (email && password) {
+      this.loginService.login(email, password).subscribe(
+        (user) => {
+          console.log('Inicio de sesión exitoso', user);
+          this.router.navigate(['/home']);
+        },
+        (error) => {
+          this.error = 'Nombre de usuario o contraseña incorrectas';
+        }
+      );
+    } else {
+      this.error = 'Por favor ingresa el correo electrónico y la contraseña';
+    }
+  }
+
+  /* 
   loginForm!: FormGroup;
   usuario;
   @Input() resultado: ResultadoApi | undefined;
-
   
   forma!:FormGroup; // Declaración de la variable 'forma'
-  
 //------------------------------------------------------------------------------------
   get usuarioNoValido(){
-
-
     return this.forma.get('user')?.invalid && this.forma.get('user')?.touched;
-
   }
-
-  
 
   get passwordNoValido(){
-
     return this.forma.get('password')?.invalid && this.forma.get('password')?.touched;
-
   }
-
-  
-
 //-----------------------------------------------------------------------------------
-
 constructor(
   private fb: FormBuilder,
   private router: Router,
@@ -56,30 +66,18 @@ constructor(
   this.resultado = undefined;
   this.crearFormulario();
 }
-
-
-
   ngOnInit(): void {
       this.loginForm = this.fb.group({
         user: [this.usuario.user, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]],
         password: [this.usuario.password, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
     });
   }
-    
-
   crearFormulario(){
     this.forma = this.fb.group({
       user:['', [Validators.required , Validators.minLength(4)]],
-      
-      
       password:['', [Validators.required , Validators.minLength(6)]],
-     
-
     }, {
-      
-      
     }
-    
     )
   }
 
@@ -102,24 +100,18 @@ constructor(
 }
 
   limpiar(){
-
   this.forma.reset();
-
   }
 
   guardar() {
     console.log(this.forma);
-  
     if (this.forma.invalid) {
       return Object.values(this.forma.controls).forEach((control) => {
         control.markAllAsTouched();
       });
     }
-  
     const value = this.forma.value;
     this.onSubmit(value);
-  }
- 
- 
+  } */
 
 }
