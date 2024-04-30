@@ -1,0 +1,92 @@
+html, body {
+    background: #ecf0f3;
+  }
+:host {
+    display: block;
+    margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+
+.center-form {
+  min-width: 300px;
+  max-width: 60%;
+  margin: 0px auto;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2rem 3rem;
+  margin: auto;
+  border: black;
+  border-radius: 0.5rem;
+  background-color: #f1f4f7;
+  box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
+  color: black;
+  margin-top: 0.5rem;
+}
+
+
+.center-form input, textarea{
+    background: none;
+    margin: 0,5rem 0;
+    width: 100%;
+    color:#c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    
+    border:none;
+    border-bottom: 1px solid var(--colorTextos);
+    resize: none;
+}
+
+input:focus,textarea:focus{
+    outline: none;
+    color: rgb(94,93,93);
+}
+
+input:focus~label, 
+input:valid~label, 
+textarea:focus~label, textarea:valid~label{
+    position: absolute;
+    top: -14px;
+    font-size: 12px;
+    color: #2196F3;
+}
+
+input {
+  width: 100% !important;
+}
+
+.text-center
+.btn {
+    text-transform: uppercase;
+    text-align: center;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #584fdf;
+    width: 150px;
+    display: block;
+    margin-top: 1em;
+    margin: 0 auto;
+    padding: 0.875rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+  }
+
+.parrafo {
+    text-align: center;
+  }
+
+.ng-valid:not(form).ng-touched {
+    border-bottom: 5px solid #42a948;
+  }
+  
+.ng-invalid:not(form).ng-touched {
+    border-bottom: 5px solid #a94442;
+  }
+
+@media (max-width: 767px) {
+  input {
+    width: 120% !important;
+  }
+}
