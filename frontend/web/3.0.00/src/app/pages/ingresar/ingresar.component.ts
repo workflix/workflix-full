@@ -7,9 +7,9 @@ import {  OnInit, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs';
  
-import { ResultadoApi } from `src/app/models/modelo.resultado.ts`;
-import { AuthService } from 'src/app/services/auth.service';
-import { UsuariosService } from 'src/app/services/usuarios.service';
+import { ResultadoApi } from `../models/modelo.resultado`;
+import { AuthService } from '../services/auth.service';
+import { UsuariosService } from '../services/usuarios.service';
 
 @Component({
   selector: 'app-ingresar',
