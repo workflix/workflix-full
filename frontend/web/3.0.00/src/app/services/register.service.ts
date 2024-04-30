@@ -12,5 +12,8 @@ export class RegisterService {
   private url = 'http://localhost:8080/api/v1/user/register';
   constructor(private http: HttpClient) { }
 
+  registerUser(nombre: string, apellido: string, correo: string, clave: string, telefono: string): Observable<User> {
+  
+  }
 
 }
