@@ -1,0 +1,43 @@
+:host {
+    display: block;
+    margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+
+
+
+
+input, textarea{
+    background: none;
+    color:#c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    
+    border:none;
+    border-bottom: 1px solid var(--colorTextos);
+    resize: none;
+}
+
+input:focus,textarea:focus{
+    outline: none;
+    color: rgb(94,93,93);
+}
+
+input:focus~label, 
+input:valid~label, 
+textarea:focus~label, textarea:valid~label{
+    position: absolute;
+    top: -14px;
+    font-size: 12px;
+    color: #2196F3;
+}
+
+input {
+  width: 120% !important;
+}
+
+@media (max-width: 767px) {
+  input {
+    width: 120% !important;
+  }
+}
