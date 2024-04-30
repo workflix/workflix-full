@@ -21,7 +21,12 @@ export class RegisterService {
       .set('clave', clave)
       .set('telefono', telefono);
 
-   
+    // Realizar la solicitud con los parámetros en la URL
+    return this.http.post<User>(this.url, {}, { params: params }).pipe(
+      tap(response => {
+        console.log('Registro exitoso:', response);
+      })
+    );
   }
 
 }
