@@ -1,7 +1,8 @@
-<form>
+<div class="center-form">
+ <form>
     <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-      <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-      <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
+      <p class="lead fw-normal mb-0 me-3">Ingresar</p>
+      <!-- <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
         <i class="fab fa-facebook-f"></i>
       </button>
 
@@ -11,24 +12,22 @@
 
       <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-floating mx-1">
         <i class="fab fa-linkedin-in"></i>
-      </button>
+      </button> -->
     </div>
 
-    <div class="divider d-flex align-items-center my-4">
-      <p class="text-center fw-bold mx-3 mb-0">Or</p>
-    </div>
+   <!--  <div class="divider d-flex align-items-center my-4">
+      <p class="text-center fw-bold mx-3 mb-0">O</p>
+    </div> -->
 
     <!-- Email input -->
     <div data-mdb-input-init class="form-outline mb-4">
-      <input type="text" class="form-control form-control-lg" placeholder="Correo electrónico" #emailInput />
-
+      <input type="email" class="form-control form-control-lg" placeholder="Correo electrónico" #emailInput required />
       <label class="form-label" for="form3Example3">Correo</label>
     </div>
 
     <!-- Password input -->
     <div data-mdb-input-init class="form-outline mb-3">
-      <input type="password" class="form-control form-control-lg" placeholder="Contraseña" #passwordInput />
-
+      <input type="password" class="form-control form-control-lg" placeholder="Contraseña" #passwordInput required/>
       <label class="form-label" for="form3Example4">Password</label>
     </div>
 
@@ -39,8 +38,8 @@
         <label class="form-check-label" for="form2Example3">
           Recordarme
         </label>
-      </div>
-      <a href="#!" class="text-body">Olvidaste tu contraseña?</a>
+      </div> 
+      <p class="parrafo mt-4 text-center"><a href="#!" class="text-body">Olvidaste tu contraseña?</a></p>
     </div>
 
     <div class="text-center text-lg-start mt-4 pt-2">
@@ -51,6 +50,7 @@
     </div>
 
   </form>
+</div>
 
 <!-- <div class="center-form">
     <form [formGroup]="forma" (ngSubmit)="guardar()">
