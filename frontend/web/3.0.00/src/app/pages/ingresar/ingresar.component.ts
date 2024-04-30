@@ -6,11 +6,11 @@ import {  OnInit, ElementRef, Input } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { subscribeOn } from 'rxjs';
-/* 
-import { ResultadoApi } from 'src/app/models/modelo.resultado';
+ 
+import { ResultadoApi } from `src/app/models/modelo.resultado.ts`;
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';
- */
+
 @Component({
   selector: 'app-ingresar',
   standalone: true,
@@ -18,8 +18,8 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   templateUrl: './ingresar.component.html',
   styleUrl: './ingresar.component.css'
 })
-export class IngresarComponent /* implements OnInit */ {
-  /* loginForm!: FormGroup;
+export class IngresarComponent implements OnInit  {
+  loginForm!: FormGroup;
   usuario;
   @Input() resultado: ResultadoApi | undefined;
 
@@ -119,7 +119,7 @@ constructor(
     const value = this.forma.value;
     this.onSubmit(value);
   }
- */
+ 
  
 
 }
