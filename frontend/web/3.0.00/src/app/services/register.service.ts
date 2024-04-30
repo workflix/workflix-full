@@ -14,13 +14,14 @@ export class RegisterService {
 
   registerUser(nombre: string, apellido: string, correo: string, clave: string, telefono: string): Observable<User> {
     // Crear parámetros para enviar en la URL
+    const params = new HttpParams()
+      .set('nombre', nombre)
+      .set('apellido', apellido)
+      .set('correo', correo)
+      .set('clave', clave)
+      .set('telefono', telefono);
 
-    // Realizar la solicitud con los parámetros en la URL
-    return this.http.post<User>(this.url, {}, { params: params }).pipe(
-      tap(response => {
-        console.log('Registro exitoso:', response);
-      })
-    );
+   
   }
 
 }
