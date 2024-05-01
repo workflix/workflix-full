@@ -1,15 +1,39 @@
 <div class="col-md-12 mt-auto pb-4">
     <div class="container mt-5 p-2">
         <div class="text-center">
-            <h2 class="encabezado-2">Registro</h2>
+            <h2 class="encabezado-2">Registrarse</h2>
         </div>
     </div>
 </div>
 
+<!-- <form>
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" class="form-control" id="nombre" #nombreInput required>
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido</label>
+      <input type="text" class="form-control" id="apellido" #apellidoInput required>
+    </div>
+    <div class="form-group">
+      <label for="correo">Correo</label>
+      <input type="email" class="form-control" id="correo" #correoInput required>
+    </div>
+    <div class="form-group">
+      <label for="clave">Clave</label>
+      <input type="password" class="form-control" id="clave" #claveInput required>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono</label>
+      <input type="tel" class="form-control" id="telefono" #telefonoInput required>
+    </div>
+    <button type="submit" (click)="onSubmit(nombreInput.value, apellidoInput.value, correoInput.value, claveInput.value, telefonoInput.value)" class="btn btn-primary">Registrarse</button>
+  </form>
+ -->
 <div class="registrer">
   <section class="seccion-form d-flex justify-content-center align-items-center">
 
-      <form class="form-register" [formGroup]="registrarForm" (ngSubmit)="onSubmit(registrarForm.value)">
+      <form class="form-register" [formGroup]="registrarForm" (ngSubmit)="onSubmit()">
           <label for="fname">Nombre:</label><br>
           <input class="form-control" type="text" formControlName="fname" id="fname" placeholder="Ingrese su nombre" required><br>
           <div *ngIf="fname?.invalid && (fname?.dirty || fname?.touched)" class="text-danger">
@@ -130,7 +154,7 @@
           <!--<button class="btn btn-success" type="submit" [disabled]="!registrarForm.valid">Registrarse</button><br>-->
 
         </form>
-
+<!-- 
         <ng-container *ngIf="resultado.mensaje != ''">
             <div class="container">
                 <div class="row">
@@ -144,6 +168,6 @@
           <ng-container *ngIf="resultado.status == 201">
 
           </ng-container>
-        </ng-container>
+        </ng-container> -->
   </section>
 </div>
