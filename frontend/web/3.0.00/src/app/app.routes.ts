@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './pages/home/home.component';
 import { IngresarComponent } from './pages/ingresar/ingresar.component';
 import { authGuard } from './guards/auth.guard';
