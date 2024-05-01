@@ -1,25 +1,30 @@
 import { HttpStatusCode } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 /* import { ResultadoApi } from 'src/app/models/modelo.resultado';
 import { TipoUsuario } from 'src/app/models/modelo.usuario';*/
-import { UserService} from 'src/app/services/user.service;
+import { RegisterService } from '../../services/register.service';
+import { UserService} from '../../services/user.service' ;
 import { Router } from '@angular/router';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './registrarse.component.html',
-  styleUrl: './registrarse.component.css'
+  styleUrl: './registrarse.component.css',
+  providers: [RegisterService, UserService]
 })
 export class RegistrarseComponent {
+  error: string = '';
   registrarForm!: FormGroup
   usuarios = { fname: '', lname: '', mail: '', adress: '', user: '', password: '', phone: '' }
 
   /* @Input() resultado: ResultadoApi;*/
 
-  constructor(private fb: FormBuilder,  private userService: UserService,  private router: Router) {
+  constructor(private fb: FormBuilder,  private registerService: RegisterService,  private router: Router) {
     /* this.resultado = {
       mensaje: "",
       data: {},
@@ -46,14 +51,72 @@ export class RegistrarseComponent {
   get user() { return this.registrarForm.get('user'); }
   get password() { return this.registrarForm.get('password'); }
   get phone() { return this.registrarForm.get('phone'); }
-/* 
+
+  onSubmit() {
+    if (this.registrarForm.valid) {
+      const formData = this.registrarForm.value;
+      const {fname, lname, mail, adress, user, password, phone} = formData
+     /*  const newUser = new User(
+        0, 
+        formData.fname,
+        formData.lname,
+        formData.mail,
+        formData.phone, 
+        formData.password,
+        formData.adress, 
+        '', // ciudad
+        '', // provincia
+        '', // descripcion
+        '' // foto
+      ); */
+  
+      this.registerService.registerUser(fname, lname, mail, phone, password)
+        .subscribe({
+          next: (exito: User) => {
+            
+            console.log('Usuario creado:', exito);
+            
+            this.router.navigate(['/ingresar']);
+          },
+          error: (error: any) => {
+            // Manejar el error aquí
+            console.error('Error al crear usuario:', error);
+          }
+        });
+    }
+  }
+  
+  
+    
+    
+  /* 
+    onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
+     if(nombre && apellido && correo && clave && telefono){
+      this.registerService.registerUser(nombre, apellido, correo, clave, telefono)
+      .subscribe(
+        response => {
+          // Manejar la respuesta exitosa aquí
+          console.log('Registro exitoso:', response);
+        },
+        error => {
+          // Manejar el error aquí
+          console.error(error);
+          console.log('No se pudo registrar correctamente: ' + error);
+        }
+      );
+     }else{
+      this.error = 'Debe completar todos los campos';
+     }
+  }
+  } */
+  /*  
   onSubmit(value: any) {
-    this.usuariosService.registrar(value.fname, value.lname, value.mail, value.adress, value.user, value.password, value.phone, TipoUsuario.Cliente)
+    this.userService.createUser(value.fname, value.lname, value.mail, value.adress, value.user, value.password, value.phone)
       .subscribe({
         next: (exito: ResultadoApi) => {
           this.resultado = exito;
           // Redirigir a la página deseada
-          this.router.navigate(['/login']);
+          this.router.navigate(['/ingresar']);
         },
         error: (error: ResultadoApi) => { this.resultado = error; },
         complete: () => {}
