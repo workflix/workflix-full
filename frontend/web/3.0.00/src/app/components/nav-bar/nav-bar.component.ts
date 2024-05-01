@@ -1,7 +1,7 @@
 import { Component, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { CarritoService } from 'src/app/services/carrito.service';
-import { ScrollingService } from 'src/app/scrolling.service';
+/*import { CarritoService } from 'src/app/services/carrito.service';*/
+import { ScrollingService } from '../../services/scrolling.service';
 import { HttpStatusCode } from '@angular/common/http';
 
 import { Router } from '@angular/router';
@@ -31,7 +31,7 @@ export class NavBarComponent {
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
-    private carritoService: CarritoService,
+    /*private carritoService: CarritoService,*/
     private scrollingService: ScrollingService,
 
     private usuariosService: UsuariosService,
@@ -52,20 +52,20 @@ export class NavBarComponent {
   ngOnInit(): void {
     this.usuario = this.authService.obtenerUsuarioSiNoExpiro();
 
-    this.carritoService.getProfesionales().subscribe(res => {
+    /*this.carritoService.getProfesionales().subscribe(res => {
       this.totalItem = res.length;
-    });
+    });*/
   }
 
-  sidebarToggle() {
+  sidebarToggle() { // comportamiento barra lateral
     this.document.body.classList.toggle('toggle-sidebar');
     this.isSidebarOpen = !this.isSidebarOpen;
   }
 
-  search(event: any) {
+  search(event: any) { // captura valor ingresado en búsqueda
     this.searchKey = event.target.value;
     console.log(this.searchKey);
-    this.carritoService.search.next(this.searchKey);
+    /*this.carritoService.search.next(this.searchKey);*/
   }
 
   logout() {
