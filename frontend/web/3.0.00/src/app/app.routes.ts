@@ -7,5 +7,5 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: 'home', component: AcavElComponenteQueRepresenteHine, canActivate: [authGuard]}, No habilitar guard hasta que esté register
   { path: 'ingresar', component: IngresarComponent },
-  { path: 'registrase', component: RegistrarseComponent },
+  { path: 'registrarse', component: RegistrarseComponent },
 ];
