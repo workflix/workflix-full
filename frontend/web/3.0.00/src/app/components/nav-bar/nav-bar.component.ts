@@ -15,8 +15,75 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
   standalone: true,
   imports: [],
   templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.css'
+  styleUrl: './nav-bar.component.css',
+  providers: [UsuariosService ]
 })
 export class NavBarComponent {
 
+  public totalItem: number = 0;
+  public searchKey: string = '';
+  public isSidebarOpen: boolean = false;
+
+  @Input() usuario?: Usuario;
+  buscarTerm!: string;
+  buscarResults!: any[];
+  showResults: boolean = false
+
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private carritoService: CarritoService,
+    private scrollingService: ScrollingService,
+
+    private usuariosService: UsuariosService,
+    private authService: AuthService,
+    private router: Router
+  ) {
+    this.authService.autenticado
+      .subscribe((auth: boolean) => {
+        if (auth) {
+          this.usuario = this.authService.obtenerUsuarioSiNoExpiro();
+        }
+        else {
+          this.usuario = undefined;
+        }
+      });
+  }
+
+  ngOnInit(): void {
+    this.usuario = this.authService.obtenerUsuarioSiNoExpiro();
+
+    this.carritoService.getProfesionales().subscribe(res => {
+      this.totalItem = res.length;
+    });
+  }
+
+  sidebarToggle() {
+    this.document.body.classList.toggle('toggle-sidebar');
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  search(event: any) {
+    this.searchKey = event.target.value;
+    console.log(this.searchKey);
+    this.carritoService.search.next(this.searchKey);
+  }
+
+  logout() {
+    this.authService.logout()
+      .subscribe((resultado: ResultadoApi) => {
+        if (resultado.status == HttpStatusCode.Ok) {
+          this.usuario = undefined;
+          this.router.navigate((['/']));
+        }
+      });
+  }
+
+  esUsuarioAdministrador = () => this.usuario?.tipo == TipoUsuario.Administrador;
+
+  esUsuarioCliente = () => this.usuario?.tipo == TipoUsuario.Cliente;
+
+
+  onClickEnlace() {
+    this.scrollingService.scrollToTop();
+  }
 }
