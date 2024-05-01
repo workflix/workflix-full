@@ -1,0 +1,114 @@
+
+:host {
+    display: block;
+    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+  
+  
+
+.btn {
+    text-transform: uppercase;
+    border: none;
+    font-size: 0.875rem;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #12750f;
+    width: 70%;
+    display: block;
+    margin-top: 1em;
+    margin-left: 15%;
+    padding: 0.875rem;
+    border-radius: 0.2rem;
+    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+    cursor: pointer;
+}
+
+
+form {
+  min-width: 300px;
+  background: #fff;
+  width: 30%;
+  margin: 0px auto;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+
+/* Estilos de la Home */
+
+.cabecera-tarjeta {
+  background-color: #0A769D;
+  width: 70%; 
+  color: #ffffff;
+  z-index:2;
+  font-size:medium;
+  letter-spacing: 2px;
+}
+
+.boton-cards {
+  background-color:#60D5AB; 
+  border:#60D5AB 1px solid; 
+  border-radius: 0px 0px 40px 40px; 
+  padding-bottom: 10px; 
+  padding-top: 10px;
+  letter-spacing: 2px;
+  transition-duration: 0.4s;
+  color: #000000;
+}
+
+.boton-cards:hover {
+    background-color: #1FBABF; /* Verde Kiwi */
+    color: #ffffff;
+}
+  
+.center-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+
+.img-center-wwa{
+  display: flex;
+  margin: 2rem 7rem;
+}
+
+
+input, textarea{
+  background: none;
+  color:#c6c6c6;
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 90%;
+  border:none;
+  border-bottom: 1px solid var(--colorTextos);
+  resize: none;
+}
+
+input:focus,textarea:focus{
+  outline: none;
+  color: rgb(94,93,93);
+}
+
+input:focus~label, 
+input:valid~label, 
+textarea:focus~label, textarea:valid~label{
+  position: absolute;
+  top: -14px;
+  font-size: 12px;
+  color: #2196F3;
+}
+
+.ng-valid:not(form).ng-touched {
+    border-bottom: 5px solid #42a948;
+}
+  
+.ng-invalid:not(form).ng-touched {
+    border-bottom: 5px solid #a94442;
+}
+
+:host {
+    display: block;
+    margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+}
+  
