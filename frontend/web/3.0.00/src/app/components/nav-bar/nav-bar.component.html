@@ -3,22 +3,19 @@
   <div class="container-fluid ms-2 me-2">
       <a class="navbar-brand" href="/home">
           <img src="./assets/images/logo_workflix.png" alt="WorkFlix" height="35">
-        </a>
+      </a>
 
-        <div class="d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center justify-content-between">
+        <button (click)="sidebarToggle()" class="bi bi-list toggle-sidebar-btn btn btn-outline-info mt-0" type="submit">
+          {{ isSidebarOpen ? 'Cerrar' : 'Desplegar' }}
+        </button>
+      </div>
 
-
-
-           <button (click)="sidebarToggle()" class="bi bi-list toggle-sidebar-btn btn btn-outline-info mt-0" type="submit">
-            {{ isSidebarOpen ? 'Cerrar' : 'Desplegar' }}
-          </button>
-
-        </div>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
         <li class="nav-item">
           <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="onClickEnlace()">Home</a>
@@ -27,6 +24,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/quienes-somos" routerLinkActive="active" (click)="onClickEnlace()" >Quiénes Somos</a>
         </li>
+
         <li class="nav-item dropdown">
           <a class="nav-link" routerLink="/contacto" routerLinkActive="active" (click)="onClickEnlace()">Contacto</a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -37,31 +35,32 @@
           </ul>
         </li>
 
-        <ng-container *ngIf="!usuario">
+        <ng-container >
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ingresar</a>
             <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" [routerLink]="['/login']">Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" [routerLink]="['/registro']">Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link" >Ingresar</a></li>
+                <li class="nav-item"><a class="nav-link" >Registrarse</a></li>
             </ul>
           </li>
         </ng-container>
 
-        <ng-container *ngIf="usuario">
-          <li class="nav-item"><a class="nav-link" [routerLink]="['/']" (click)="logout()">Logout</a></li>
+        <ng-container>
+          <li class="nav-item"><a class="nav-link">Logout</a></li>
         </ng-container>
 
       </ul>
-      <button routerLink="carro" class="btn btn-light">
+
+      <!--<button routerLink="carro" class="btn btn-light">
         <i style="font-size: 20px;"class="fas fa-cart-plus"></i>
-      <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
-    </button>
+        <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
+      </button> -->
+
       <div class="d-flex">
-        <input type="text" class="form-control" [(ngModel)]="searchKey" (keyup)="search($event)" placeholder="Buscar Profesional">
+        <input type="text" class="form-control" placeholder="Buscar Profesional">
       </div>
 
-    </div>
+      </div>
+      
   </div>
 
 </nav>
-
-<router-outlet></router-outlet>

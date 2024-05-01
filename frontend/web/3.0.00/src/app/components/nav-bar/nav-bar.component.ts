@@ -5,26 +5,26 @@ import { ScrollingService } from '../../services/scrolling.service';
 import { HttpStatusCode } from '@angular/common/http';
 
 import { Router } from '@angular/router';
-import { ResultadoApi } from 'src/app/models/modelo.resultado';
+/*import { ResultadoApi } from 'src/app/models/modelo.resultado'; // interface Resultado API
 import { Usuario, TipoUsuario } from 'src/app/models/modelo.usuario';
 import { AuthService } from 'src/app/services/auth.service';
-import { UsuariosService } from 'src/app/services/usuarios.service';
+import { UsuariosService } from 'src/app/services/usuarios.service';*/
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
   imports: [],
   templateUrl: './nav-bar.component.html',
-  styleUrl: './nav-bar.component.css',
-  providers: [UsuariosService ]
+  styleUrl: './nav-bar.component.css'
+ /* providers: [UsuariosService ]*/
 })
 export class NavBarComponent {
 
-  public totalItem: number = 0;
-  public searchKey: string = '';
+  public totalItem: number = 0; // buscar profesional
+  public searchKey: string = ''; // buscar profesonal
   public isSidebarOpen: boolean = false;
 
-  @Input() usuario?: Usuario;
+  @Input() /*usuario?: Usuario;*/
   buscarTerm!: string;
   buscarResults!: any[];
   showResults: boolean = false
@@ -34,11 +34,11 @@ export class NavBarComponent {
     /*private carritoService: CarritoService,*/
     private scrollingService: ScrollingService,
 
-    private usuariosService: UsuariosService,
-    private authService: AuthService,
+    /*private usuariosService: UsuariosService,
+    private authService: AuthService,*/
     private router: Router
   ) {
-    this.authService.autenticado
+    /*this.authService.autenticado
       .subscribe((auth: boolean) => {
         if (auth) {
           this.usuario = this.authService.obtenerUsuarioSiNoExpiro();
@@ -46,11 +46,11 @@ export class NavBarComponent {
         else {
           this.usuario = undefined;
         }
-      });
+      });*/
   }
 
   ngOnInit(): void {
-    this.usuario = this.authService.obtenerUsuarioSiNoExpiro();
+    /*this.usuario = this.authService.obtenerUsuarioSiNoExpiro();*/
 
     /*this.carritoService.getProfesionales().subscribe(res => {
       this.totalItem = res.length;
@@ -68,7 +68,7 @@ export class NavBarComponent {
     /*this.carritoService.search.next(this.searchKey);*/
   }
 
-  logout() {
+  /*logout() {
     this.authService.logout()
       .subscribe((resultado: ResultadoApi) => {
         if (resultado.status == HttpStatusCode.Ok) {
@@ -80,7 +80,7 @@ export class NavBarComponent {
 
   esUsuarioAdministrador = () => this.usuario?.tipo == TipoUsuario.Administrador;
 
-  esUsuarioCliente = () => this.usuario?.tipo == TipoUsuario.Cliente;
+  esUsuarioCliente = () => this.usuario?.tipo == TipoUsuario.Cliente;*/
 
 
   onClickEnlace() {
