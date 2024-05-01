@@ -1,3 +1,4 @@
+
 :host {
     display: block;
     margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
@@ -5,7 +6,7 @@
   
   
 
-  .btn {
+.btn {
     text-transform: uppercase;
     border: none;
     font-size: 0.875rem;
@@ -20,37 +21,22 @@
     border-radius: 0.2rem;
     box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
     cursor: pointer;
-  }
-
-.ng-valid:not(form).ng-touched {
-  border-bottom: 5px solid #42a948;
-}
-
-.ng-invalid:not(form).ng-touched {
-  border-bottom: 5px solid #a94442;
-}
-
-:host {
-  display: block;
-  margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
 }
 
 
-
-form{
+form {
+  min-width: 300px;
   background: #fff;
   width: 30%;
+  margin: 0px auto;
   padding: 10px 0;
   border-radius: 10px;
-  box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
- 
-
 }
 
 
 /* Estilos de la Home */
 
-.cabecera-tarjeta{
+.cabecera-tarjeta {
   background-color: #0A769D;
   width: 70%; 
   color: #ffffff;
@@ -71,8 +57,8 @@ form{
 }
 
 .boton-cards:hover {
-background-color: #1FBABF; /* Verde Kiwi */
-color: #ffffff;
+    background-color: #1FBABF; /* Verde Kiwi */
+    color: #ffffff;
 }
   
 .center-form {
@@ -93,7 +79,7 @@ input, textarea{
   font-size: 18px;
   padding: 10px 10px 10px 5px;
   display: block;
-  width: 100%;
+  width: 90%;
   border:none;
   border-bottom: 1px solid var(--colorTextos);
   resize: none;
@@ -112,3 +98,17 @@ textarea:focus~label, textarea:valid~label{
   font-size: 12px;
   color: #2196F3;
 }
+
+.ng-valid:not(form).ng-touched {
+    border-bottom: 5px solid #42a948;
+}
+  
+.ng-invalid:not(form).ng-touched {
+    border-bottom: 5px solid #a94442;
+}
+
+:host {
+    display: block;
+    margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+}
+  
