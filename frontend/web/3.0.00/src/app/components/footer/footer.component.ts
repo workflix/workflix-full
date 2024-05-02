@@ -11,5 +11,6 @@ import { RegistrarseComponent } from '../../pages/registrarse/registrarse.compon
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  
 
 }

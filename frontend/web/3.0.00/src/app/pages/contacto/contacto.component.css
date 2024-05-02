@@ -4,13 +4,10 @@
   }
 
 label{
-    color: var(--colorTextos);
+    font-family: 'Poppins', sans-serif;
+    padding-top: 5%;
+    color: black;
     font-size: 16px;
-    position: absolute;
-    left: 5px;
-    top:10px;
-    transition: 0.5s ease all;
-    pointer-events: none;
 }
 
 .parrafo{
@@ -20,30 +17,31 @@ label{
     text-justify: inter-word; 
 }
 
-
-form{
+.form {
     background: #fff;
-    width: 30%;
-    padding: 10px 0;
+    width: 100%;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.8);
-   
-  
+    box-shadow: 0 0 6px 0 rgba(163, 162, 162, 0.8);
 }
 
+.btn {
+    color: #0A769D;
+    margin-top: 3%;
+}
 
 /* Estilos de la Home */
 
-.cabecera-tarjeta{
+/* .cabecera-tarjeta{
     background-color: #0A769D;
     width: 70%; 
     color: #ffffff;
     z-index:2;
     font-size:medium;
     letter-spacing: 2px;
-}
+} */
 
-.boton-cards {
+/* .boton-cards {
     background-color:#60D5AB; 
     border:#60D5AB 1px solid; 
     border-radius: 0px 0px 40px 40px; 
@@ -55,9 +53,9 @@ form{
 }
 
 .boton-cards:hover {
-  background-color: #1FBABF; /* Verde Kiwi */
+  background-color: #1FBABF; 
   color: #ffffff;
-}
+} */
     
 .center-form {
     display: flex;
@@ -65,32 +63,32 @@ form{
     align-items: center;  
 }
 
-.img-center-wwa{
+/* .img-center-wwa{
     display: flex;
     margin: 2rem 7rem;
-}
+} */
 
 
 input, textarea{
     background: none;
     color:#c6c6c6;
     font-size: 18px;
-    padding: 10px 10px 10px 5px;
+    padding: 10px;
     display: block;
     width: 100%;
-    border:none;
-    border-bottom: 1px solid var(--colorTextos);
-    resize: none;
+    border: #0A769D;
+    border-radius: 5%;
+    
 }
 
-input:focus,textarea:focus{
+.input:focus, .textarea:focus{
     outline: none;
-    color: rgb(94,93,93);
+    color: #0A769D;
 }
 
 input:focus~label, 
 input:valid~label, 
-textarea:focus~label, textarea:valid~label{
+.textarea:focus~label, .textarea:valid~label{
     position: absolute;
     top: -14px;
     font-size: 12px;
