@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  margin-top: 70px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+h2 {
+  margin-bottom: 40px;
+}
+
+img {
+  margin-bottom: 40px;
+}

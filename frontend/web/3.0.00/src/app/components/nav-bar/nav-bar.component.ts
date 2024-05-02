@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 import { Usuario, TipoUsuario } from 'src/app/models/modelo.usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { UsuariosService } from 'src/app/services/usuarios.service';*/
+import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
+import { RouterModule} from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [],
+  imports: [QuienesSomosComponent, RouterModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
  /* providers: [UsuariosService ]*/
