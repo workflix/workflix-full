@@ -1,11 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
+
 
 @Component({
   selector: 'app-tarjetas',
-  standalone: true,
+  standalone:true,
   templateUrl: './tarjetas.component.html',
-  styleUrl: './tarjetas.component.css'
+  styleUrls: ['./tarjetas.component.css']
 })
-export class TarjetasComponent {
+export class TarjetasComponent implements OnInit {  
+  title: string = "List the users";
+  test: string = "This is a test";
 
+  trackById(index: number, user: User): number {
+    return user.id;
+  }
+  
+  users: User[] = [];
+  
+  constructor(private userService: UserService) {}
+
+  ngOnInit(): void {
+    this.userService.getAllUsers().subscribe(
+      users => this.users = users
+    );
+  }
 }
