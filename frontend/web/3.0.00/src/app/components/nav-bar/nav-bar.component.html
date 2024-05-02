@@ -5,11 +5,11 @@
           <img src="./assets/images/logo_workflix.png" alt="WorkFlix" height="35">
       </a>
 
-      <div class="d-flex align-items-center justify-content-between">
+      <!--<div class="d-flex align-items-center justify-content-between">
         <button (click)="sidebarToggle()" class="bi bi-list toggle-sidebar-btn btn btn-outline-info mt-0" type="submit">
           {{ isSidebarOpen ? 'Cerrar' : 'Desplegar' }}
         </button>
-      </div>
+      </div>-->
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,30 +22,30 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/quienes-somos" routerLinkActive="active" (click)="onClickEnlace()" >Quiénes Somos</a>
+          <a class="nav-link" routerLink="/quienes-somos" routerLinkActive="active" (click)="onClickEnlace()">Quiénes Somos</a>
         </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" routerLink="/contacto" routerLinkActive="active" (click)="onClickEnlace()">Contacto</a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
+            </ul>-->
         </li>
 
         <ng-container >
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ingresar</a>
             <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" >Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" >Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/ingresar">Ingresar</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/registrarse" >Registrarse</a></li>
             </ul>
           </li>
         </ng-container>
 
         <ng-container>
-          <li class="nav-item"><a class="nav-link">Logout</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/home">Logout</a></li>
         </ng-container>
 
       </ul>
@@ -60,7 +60,7 @@
       </div>
 
       </div>
-      
+
   </div>
 
 </nav>
