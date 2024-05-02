@@ -5,6 +5,7 @@ import { IngresarComponent } from './pages/ingresar/ingresar.component';
 import { authGuard } from './guards/auth.guard';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 
 
 export const routes: Routes = [
@@ -14,4 +15,5 @@ export const routes: Routes = [
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'registrarse', component: RegistrarseComponent },
+  { path: 'quienes-somos', component: QuienesSomosComponent }
 ];
