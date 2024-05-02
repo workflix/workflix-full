@@ -12,13 +12,15 @@ import { UsuariosService } from 'src/app/services/usuarios.service';*/
 import { IngresarComponent } from '../../pages/ingresar/ingresar.component';
 import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
 import { RouterModule} from '@angular/router';
+import { ContactoComponent } from '../../pages/contacto/contacto.component';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
   imports: [QuienesSomosComponent,
             RouterModule,
-            IngresarComponent],
+            IngresarComponent,
+            ContactoComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
  /* providers: [UsuariosService ]*/
