@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { TarjetasComponent } from '../tarjetas/tarjetas.component';
 
-
 @Component({
   selector: 'app-home',
   standalone:true,
