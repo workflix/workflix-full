@@ -7,7 +7,11 @@ html, body {
 }
 
 
-
+.formulario {
+  width: 25%; /* Establece el ancho del formulario al 80% del ancho de su contenedor */
+  max-width: 600px; /* Establece un ancho máximo opcional para el formulario */
+  margin: 0 auto; /* Centra el formulario horizontalmente en la página */
+}
 
 label.form-label {
   
@@ -41,19 +45,7 @@ resize: none;
   resize: none;
 }
 
-input:focus,textarea:focus{
-  outline: none;
-  color: rgb(94,93,93);
-}
 
-input:focus~label, 
-input:valid~label, 
-textarea:focus~label, textarea:valid~label{
-  position: absolute;
-  top: -14px;
-  font-size: 12px;
-  color: #2196F3;
-}
 
 input {
 width: 100% !important;
@@ -95,3 +87,6 @@ input {
   width: 120% !important;
 }
 }
+
+
+
