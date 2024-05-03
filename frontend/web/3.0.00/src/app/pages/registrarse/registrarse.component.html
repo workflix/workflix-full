@@ -141,13 +141,19 @@
                   El nombre de usuario debe tener un máximo de 20 caracteres.
               </div>
           </div> -->
+          <div class="checkbox-container">
+            <label for="miCheckbox">Aceptar términos y condiciones</label> <br>
+            <input type="checkbox" formControlName="aceptoTerminos" id="miCheckbox">
+        </div>
+          
+          <span class="text-danger" *ngIf="registrarForm?.get('aceptoTerminos')?.value === false">Debe aceptar términos para registrarse</span>
 
 
           <!--Botón Registrarse-->
           <div class="form-group row">
             <label class="col-2 col-form-label">&nbsp;</label>
             <div class="input-group col-md-8">
-              <button type="submit" class="boton-form" [disabled]="!registrarForm.valid">
+              <button type="submit" class="btn btn-success" [disabled]="!registrarForm.valid">
                 Registrarse
               </button>
             </div>

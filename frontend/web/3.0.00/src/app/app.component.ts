@@ -5,6 +5,7 @@ import { FooterComponent } from './components//footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
