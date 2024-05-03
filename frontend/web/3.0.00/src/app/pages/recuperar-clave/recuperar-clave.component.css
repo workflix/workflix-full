@@ -1,0 +1,97 @@
+:host {
+  display: block;
+  margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+}
+
+
+.mensaje-recupera {
+display: flex;
+justify-content: center;
+align-items: center;
+color: #6c757d;
+margin: 20px 0 20px 0;
+
+}
+
+input {
+  width: 100%;
+  background: none;
+  color: #6c757d;
+  font-size: 1.5 vw;
+  border: 1px #efedef solid;
+}
+
+.center-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+.boton-form{
+  background: #60D5AB;
+  /* para navegadores antiguos */
+  background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
+  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #6A82FB, #60D5AB);*/
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  border:none;
+  color:#fff;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.boton-form2{
+  background: #0A769D;
+  /* para navegadores antiguos */
+  background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
+  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #6A82FB, #60D5AB);*/
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  border:none;
+  color:#fff;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+  padding: 15px;
+}
+
+
+.boton-form:hover{
+  background: #1FBABF;
+}
+
+.boton-form2:hover{
+  background-color: #60D5AB;
+}
+
+.form{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.controls{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.encabezado-2{
+  text-align: center;
+  margin: 10px 0 20px 0;
+  font-weight: 300;
+  color: #6c757d;
+}
+
+@media screen  and (max-width: 450px)  {
+  .center-form {
+    margin-bottom: 30px;
+  }
+}
