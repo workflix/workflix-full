@@ -4,9 +4,10 @@ import { FormGroup } from '@angular/forms';
 import { HttpStatusCode } from '@angular/common/http';
 import {  OnInit, ElementRef, Input } from '@angular/core';
 
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { subscribeOn } from 'rxjs';
+import { RecuperarClaveComponent } from '../recuperar-clave/recuperar-clave.component';
 /* 
 import { ResultadoApi } from `../models/modelo.resultado`;
 import { AuthService } from '../services/auth.service';
@@ -16,7 +17,7 @@ import { UsuariosService } from '../services/usuarios.service'; */
 @Component({
   selector: 'app-ingresar',
   standalone: true,
-  imports: [],
+  imports: [RecuperarClaveComponent, RouterModule],
   templateUrl: './ingresar.component.html',
   styleUrl: './ingresar.component.css'
 })
