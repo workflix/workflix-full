@@ -19,4 +19,22 @@
     z-index: 1; /* Asegura que el botón esté encima de otros elementos */
 }
 
+.details-volver {
+    margin-top: -80px;    
+}
+
+.pedir-presupuesto {
+    margin-top: 40px;
+    margin-left: 350px;
+    padding: 10px 20px;
+    background-color: #9CEE8C;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+
+}
+
 
