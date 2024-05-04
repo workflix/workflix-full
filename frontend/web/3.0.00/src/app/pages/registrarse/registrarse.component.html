@@ -35,7 +35,7 @@
 
       <form class="form-register" [formGroup]="registrarForm" (ngSubmit)="onSubmit()">
           <label for="fname">Nombre:</label><br>
-          <input class="form-control" type="text" formControlName="fname" id="fname" placeholder="Ingrese su nombre" required><br>
+          <input class="form-control shadow p-3 mb-3 bg-white rounded" type="text" formControlName="fname" id="fname" placeholder="Ingrese su nombre" required><br>
           <div *ngIf="fname?.invalid && (fname?.dirty || fname?.touched)" class="text-danger">
 
               <div *ngIf="fname?.errors?.['required']">
@@ -51,7 +51,7 @@
 
 
           <label for="lname">Apellido:</label><br>
-          <input class="form-control" type="text" formControlName="lname" id="lname" placeholder="Ingrese su apellido" required><br>
+          <input class="form-control shadow p-3 mb-3 bg-white rounded" type="text" formControlName="lname" id="lname" placeholder="Ingrese su apellido" required><br>
 
           <div *ngIf="lname?.invalid && (lname?.dirty || lname?.touched)" class="text-danger">
 
@@ -67,7 +67,7 @@
           </div>
 
           <label for="mail">Correo electrónico:</label><br>
-          <input class="form-control"  type="email" formControlName="mail" id="mail" placeholder="Ingrese su correo electrónico" required><br>
+          <input class="form-control shadow p-3 mb-3 bg-white rounded"  type="email" formControlName="mail" id="mail" placeholder="Ingrese su correo electrónico" required><br>
 
           <div *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)" class="text-danger">
 
@@ -83,7 +83,7 @@
           </div>
 
           <label for="password">Contraseña:</label><br>
-          <input class="form-control"  type="password" formControlName="password" id="password" placeholder="Ingrese su contraseña" required><br>
+          <input class="form-control shadow p-3 mb-3 bg-white rounded"  type="password" formControlName="password" id="password" placeholder="Ingrese su contraseña" required><br>
 
           <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
 
@@ -111,7 +111,7 @@
           </div> -->
 
           <label for="phone">Teléfono:</label><br>
-          <input class="form-control"  type="tel" formControlName="phone" id="phone" placeholder="Ingrese su teléfono" required><br>
+          <input class="form-control shadow p-3 mb-3 bg-white rounded"  type="tel" formControlName="phone" id="phone" placeholder="Ingrese su teléfono" required><br>
 
           <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="text-danger">
 
@@ -141,23 +141,22 @@
                   El nombre de usuario debe tener un máximo de 20 caracteres.
               </div>
           </div> -->
-          <button mat-dialog-open (click)="openDialog()">Ver terminos y condiciones</button>
+          <div>
+            <button class="btn-success" mat-dialog-open (click)="openDialog()">Ver terminos y condiciones</button>
 
-
-
-          <div class="checkbox-container">
-            <label for="miCheckbox">Aceptar términos y condiciones</label> <br>
-            <input type="checkbox" formControlName="aceptoTerminos" id="miCheckbox">
-        </div>
+            <div class="checkbox-container">
+                <label for="miCheckbox">Aceptar términos y condiciones</label> <br>
+                <input type="checkbox" formControlName="aceptoTerminos" id="miCheckbox">
+            </div>
           
           <span class="text-danger" *ngIf="registrarForm?.get('aceptoTerminos')?.value === false">Debe aceptar términos para registrarse</span>
-
+          </div>
 
           <!--Botón Registrarse-->
           <div class="form-group row">
             <label class="col-2 col-form-label">&nbsp;</label>
             <div class="input-group col-md-8">
-              <button type="submit" class="btn btn-success" [disabled]="!registrarForm.valid">
+              <button type="submit" class="boton-form" [disabled]="!registrarForm.valid">
                 Registrarse
               </button>
             </div>
