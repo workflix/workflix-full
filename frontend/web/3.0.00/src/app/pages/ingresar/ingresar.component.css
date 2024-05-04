@@ -31,8 +31,13 @@ border-bottom: 1px solid var(--colorTextos);
 resize: none;
 }
 
-.center-form input, textarea{
-  background: none;
+.center-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 100px;
+  /* background: none;
   margin: 0,5rem 0;
   width: 100%;
   color:#c6c6c6;
@@ -42,13 +47,18 @@ resize: none;
   
   border:none;
   border-bottom: 1px solid var(--colorTextos);
-  resize: none;
+  resize: none; */
 }
 
 
 
 input {
-width: 100% !important;
+  width: 100% !important;
+  background: none;
+  color: #6c757d;
+  font-size: 1.5 vw;
+  border: 1px #efedef solid;
+
 }
 
 .text-center
