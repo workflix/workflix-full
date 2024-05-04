@@ -102,3 +102,51 @@
     width: 70%;
 }
 
+/* BOTON PEDIR PRESUPUESTO */
+
+.pedir-presupuesto {
+    margin-top: 100px;
+    top: 335px;
+    left: 400px;
+    padding: 10px 20px;
+    background-color: #9CEE8C;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+    z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+}
+
+/* BANNER DE CALIFICACION */ 
+
+.banner {
+    margin-left: -35px;
+    margin-top: 50px;
+    position: relative;
+    width: 1750px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.calificaciones-box {
+    position: absolute;
+    left: 0;
+    width: 350px;
+    height: 125%;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Aplica un filtro de desenfoque */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.calificaciones-text {
+    font-size: 16px;
+    width: 150px;
+    color: #ffffff;
+    text-align: center;
+}
