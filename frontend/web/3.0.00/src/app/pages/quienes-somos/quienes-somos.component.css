@@ -27,3 +27,19 @@ h3 {
   text-align: center;
   color: #6c757d;
 }
+
+.card{
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-text p {
+  height: 130px; /* Ajusta esto a la altura de la card */
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  color: #6c757d;
+}
+
