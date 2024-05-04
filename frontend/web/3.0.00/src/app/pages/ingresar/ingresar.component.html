@@ -43,12 +43,13 @@
         <input type="checkbox" value="" id="form2Example3" />
         <label for="form2Example3">Recordarme</label>
       </div> 
-      <p class="parrafo mt-4 text-center"><a [routerLink]="['/recuperar-clave']"  class="">¿Olvidaste tu contraseña?</a></p>
+      
     </div>
 
     <div class="text-center text-lg-start mt-4 pt-2">
       <button type="submit" (click)="onSubmit(emailInput.value, passwordInput.value)" class="boton-form" style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button><br>
       <p class="text-danger">{{ error }}</p>
+      <p class="parrafo mt-4 text-center"><a [routerLink]="['/recuperar-clave']"  class="">¿Olvidaste tu contraseña?</a></p>
       <p class="mensaje">Aun no tienes una cuenta?<a [routerLink]="['/registrarse']"
           class="link-danger">Registrarse</a></p>
     </div>

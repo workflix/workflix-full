@@ -67,10 +67,12 @@ input {
 .checkbox-container {
   display: flex;
   align-items: flex-start;
+  margin-top: 5%;
+  margin-left: auto;
 }
 
 .checkbox-container label {
-  margin-left: 10px; /* Ajusta el margen izquierdo del texto */
+  margin-left: 15px; /* Ajusta el margen izquierdo del texto */
 }
 
 .boton-form{
