@@ -1,9 +1,14 @@
-html, body {
-  background: #ecf0f3;
-}
+
 :host {
   display: block;
   margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+}
+
+.encabezado-2{
+  text-align: center;
+  margin: 10px 0 20px 0;
+  font-weight: 300;
+  color: #6c757d;
 }
 
 .formulario {
@@ -13,9 +18,10 @@ html, body {
   min-width: 300px; /* Establece un ancho mínimo de 300px para el formulario */
 }
 
+
 label.form-label {
   font-size: 12px;
-  color: #2196F3;
+  color: #0A769D;
 }
 
 .boton-form{
@@ -34,16 +40,10 @@ label.form-label {
   cursor: pointer;
   padding: 15px;
 }
-/* .password-input {
-background: none;
-color: #c6c6c6;
-font-size: 18px;
-padding: 10px 10px 10px 5px;
-display: block;
-border: none;
-border-bottom: 1px solid var(--colorTextos);
-resize: none;
-} */
+
+.boton-form:hover{
+  background: #1FBABF;
+}
 
 .center-form {
   display: flex;
@@ -98,6 +98,14 @@ input {
   text-align: center;
 }
 
+.mensaje {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c757d;
+  margin: 20px 0 20px 0;
+}
+
 .ng-valid:not(form).ng-touched {
   border-bottom: 5px solid #42a948;
 }
@@ -112,5 +120,15 @@ input {
 }
 }
 
+/* .password-input {
+background: none;
+color: #c6c6c6;
+font-size: 18px;
+padding: 10px 10px 10px 5px;
+display: block;
+border: none;
+border-bottom: 1px solid var(--colorTextos);
+resize: none;
+} */
 
 

@@ -29,14 +29,12 @@
         <input type="email" class="form-control shadow p-3 mb-3 bg-white rounde" placeholder="Correo electrónico" #emailInput required (blur)="validateEmail(emailInput.value)" />      
         <div id="email-error" style="color: red;"></div>
       </div>
-    </div>
     
-    
-
     <!-- Password input -->
-    <div data-mdb-input-init class="form-outline mb-3">
-      <label class="form-label" for="form3Example4">Contraseña</label>
-      <input type="password" class="password-input shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
+      <div data-mdb-input-init class="form-outline mb-3">
+        <label class="form-label" for="form3Example4">Contraseña</label>
+        <input type="password" class="password-input shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
+      </div>
     </div>
 
     <div class="d-flex justify-content-between align-items-center">
@@ -53,7 +51,7 @@
     <div class="text-center text-lg-start mt-4 pt-2">
       <button type="submit" (click)="onSubmit(emailInput.value, passwordInput.value)" class="boton-form" style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button><br>
       <p class="text-danger">{{ error }}</p>
-      <p class="small fw-bold mt-2 pt-1 mb-0">Aun no tienes una cuenta? <a href="#!"
+      <p class="mensaje">Aun no tienes una cuenta?<a href="#!"
           class="link-danger">Registrarse</a></p>
     </div>
 
