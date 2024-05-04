@@ -10,6 +10,10 @@ import { UserService} from '../../services/user.service' ;
 import { Router } from '@angular/router';
 import { User } from '../../models/user';
 
+import { ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TerminosComponent } from '../terminos/terminos.component';
+
 @Component({
   selector: 'app-registrarse',
   standalone: true,
@@ -27,15 +31,27 @@ export class RegistrarseComponent {
 
   /* @Input() resultado: ResultadoApi;*/
 
-  
+  @ViewChild('modal') modal!: TerminosComponent; // Referencia al componente modal
 
-  constructor(private fb: FormBuilder,  private registerService: RegisterService,  private router: Router) {
-    /* this.resultado = {
-      mensaje: "",
-      data: {},
-      status: 0 as HttpStatusCode
-    } */
-  }
+
+
+constructor(
+  private fb: FormBuilder,
+  private registerService: RegisterService,
+  private router: Router,
+  public dialog: MatDialog // Agrega MatDialog aquí
+) { }
+
+openDialog() {
+  const dialogRef = this.dialog.open(TerminosComponent, {
+    // Opciones del modal como ancho, hasBackdrop, etc.
+  });
+
+  // Manejar cierre del modal
+  dialogRef.afterClosed().subscribe(result => {
+    // Acciones a realizar tras cerrar el modal
+  });
+}
 
   ngOnInit(): void {
     this.registrarForm = this.fb.group({
