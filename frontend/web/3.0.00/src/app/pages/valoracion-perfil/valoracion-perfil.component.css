@@ -26,13 +26,11 @@
 /* IMAGEN PROFESIONAL */ 
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Alinea los elementos a la izquierda */
-    padding-left: 40px; /* Añade espacio a la izquierda para el botón */
+    margin-left: 350px; /* Mueve el contenedor y su contenido hacia la derecha */
 }
 
 .rectangle {
+    margin-left: -300px;
     width: 300px;
     height: 30px;
     margin-top: 110px;
@@ -41,12 +39,13 @@
     font-weight: lighter;
     color: white;
     border-radius: 10px;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
 .image {
+    margin-left: -300px;
     width: 300px;
-    height: 200px;
+    height: 300px;
     border-radius: 10px;
     margin-top: 10px; /* Añade espacio entre el texto y la imagen */
 }
@@ -56,3 +55,50 @@
     height: 100%;
     border-radius: 10px;
 }
+
+
+/* DETALLES PROFESIONAL */ 
+
+.details {
+    display: flex; /* Utiliza flexbox para colocar los detalles al lado de la imagen */
+    flex-direction: column; /* Apila los detalles en una columna */
+    margin-left: 380px; /* Ajusta el margen izquierdo */
+    margin-top: -350px;
+}
+
+.details p {
+    margin: 10px 0; /* Ajusta el margen de los párrafos */
+}
+
+.details p.nombre-apellido {
+    font-size: 30px; /* Tamaño de la tipografía para Nombre Apellido */
+}
+
+.details p.experiencia {
+    font-size: 15px; /* Tamaño de la tipografía para Experiencia Laboral */
+}
+.details p.plomeroexp {
+    font-size: 15px; /* Tamaño de la tipografía para Experiencia Laboral */
+    margin-top: -15px;
+}
+
+.linea {
+    margin-left: 380px; /* Agrega un margen a la izquierda para separar la línea */
+    margin: left -50px;
+    bottom: 0; /* Coloca la línea en la parte inferior del contenedor */
+    width: calc(90% - 250px); /* Estira la línea horizontalmente con un margen a la izquierda */
+    border-bottom: 1px solid black; /* Añade una línea sólida de 1 píxel de grosor */
+}
+
+.details p.descripcion {
+    font-size: 25px; /* Tamaño de la tipografía para Nombre Apellido */
+    margin-top: 370px;
+} 
+
+.details p.descripcion-texto{
+    font-size: 14px; /* Tamaño de la tipografía para Nombre Apellido */
+    margin-top: -30px;
+    margin-left: 170px;
+    width: 70%;
+}
+
