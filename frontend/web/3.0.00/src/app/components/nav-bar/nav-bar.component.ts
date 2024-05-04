@@ -58,7 +58,12 @@ export class NavBarComponent {
 
   buscarProfesional(termino: string){ // barra búsqueda
 
-    console.log(termino); // muestra en consola el término buscado
+    if (termino.length < 1) { // para que funcione sólo si escribe al menos una letra
+      return;
+    }
+
+    this.router.navigate(['/busqueda', termino])
+    /*console.log(termino);*/ // muestra en consola el término buscado
 
   }
 

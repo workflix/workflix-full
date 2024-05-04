@@ -9,6 +9,7 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave.component';
+import { BusquedaProfesionalComponent } from './pages/busqueda-profesional/busqueda-profesional.component';
 
 
 export const routes: Routes = [
@@ -22,5 +23,6 @@ export const routes: Routes = [
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
   { path: 'contacto', component: ContactoComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
+  { path: 'busqueda/:termino', component: BusquedaProfesionalComponent }
 
 ];
