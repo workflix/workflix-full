@@ -10,22 +10,22 @@ h2 {
   margin-bottom: 40px;
 }
 
-img {
-  margin-bottom: 40px;
-}
-
 p{
   color:#6c757d;
-}
-
-.img-qs {
-  margin-bottom: 40px;
 }
 
 h3 {
   font-size: 20px;
   text-align: center;
   color: #6c757d;
+}
+
+.encabezado-2 {
+  margin-top: 15px;
+}
+
+.img-qs {
+  margin-bottom: 40px;
 }
 
 .card{
