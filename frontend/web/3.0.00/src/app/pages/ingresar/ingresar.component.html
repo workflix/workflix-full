@@ -33,17 +33,15 @@
     <!-- Password input -->
       <div data-mdb-input-init class="form-outline mb-3">
         <label class="form-label" for="form3Example4">Contraseña</label>
-        <input type="password" class="password-input shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
+        <input type="password" class="form-control shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
       </div>
     </div>
 
     <div class="d-flex justify-content-between align-items-center">
       <!-- Checkbox -->
-      <div class="form-check mb-0">
-        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-        <label class="form-check-label" for="form2Example3">
-          Recordarme
-        </label>
+      <div class="checkbox-container">
+        <input type="checkbox" value="" id="form2Example3" />
+        <label for="form2Example3">Recordarme</label>
       </div> 
       <p class="parrafo mt-4 text-center"><a [routerLink]="['/recuperar-clave']"  class="">¿Olvidaste tu contraseña?</a></p>
     </div>
