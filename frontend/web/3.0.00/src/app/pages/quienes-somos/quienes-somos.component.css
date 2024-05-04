@@ -43,3 +43,20 @@ h3 {
   color: #6c757d;
 }
 
+.img1 img{
+  height: 100px;
+  width: 100%;
+}
+
+.img2 img{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-top: -80px;
+}
