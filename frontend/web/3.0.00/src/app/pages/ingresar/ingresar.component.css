@@ -11,6 +11,7 @@ html, body {
   width: 25%; /* Establece el ancho del formulario al 80% del ancho de su contenedor */
   max-width: 600px; /* Establece un ancho máximo opcional para el formulario */
   margin: 0 auto; /* Centra el formulario horizontalmente en la página */
+  min-width: 300px; /* Establece un ancho mínimo de 300px para el formulario */
 }
 
 label.form-label {

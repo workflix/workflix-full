@@ -23,6 +23,27 @@
     cursor: pointer;
 }
 
+.checkbox-container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container label {
+  margin-left: 10px; /* Ajusta el margen izquierdo del texto */
+}
+
+.btn-success {
+  padding: 10px 20px; /* Ajusta el padding para cambiar el tamaño del botón */
+  max-width: fit-content; /* Establece el ancho máximo para que se ajuste al contenido */
+}
+
+
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+}
+
 
 form {
   min-width: 300px;
@@ -112,3 +133,4 @@ textarea:focus~label, textarea:valid~label{
     margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
 }
   
+
