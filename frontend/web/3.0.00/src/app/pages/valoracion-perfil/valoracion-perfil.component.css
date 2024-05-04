@@ -23,18 +23,36 @@
     margin-top: -80px;    
 }
 
-.pedir-presupuesto {
-    margin-top: 40px;
-    margin-left: 350px;
-    padding: 10px 20px;
-    background-color: #9CEE8C;
-    color: #000000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 200px;
-    z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+/* IMAGEN PROFESIONAL */ 
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    padding-left: 40px; /* Añade espacio a la izquierda para el botón */
 }
 
+.rectangle {
+    width: 300px;
+    height: 30px;
+    margin-top: 110px;
+    background-color: #0A769D;
+    text-align: center;
+    font-weight: lighter;
+    color: white;
+    border-radius: 10px;
+    padding-top: 10px;
+}
 
+.image {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 10px; /* Añade espacio entre el texto y la imagen */
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
