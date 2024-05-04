@@ -8,6 +8,7 @@ import { RegistrarseComponent } from './pages/registrarse/registrarse.component'
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
+import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-perfil.component';
 
 
 export const routes: Routes = [
@@ -20,5 +21,5 @@ export const routes: Routes = [
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent },
   { path: 'contacto', component: ContactoComponent },
-
+  { path: 'valoracion', component: ValoracionPerfilComponent }
 ];
