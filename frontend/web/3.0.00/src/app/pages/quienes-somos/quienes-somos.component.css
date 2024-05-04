@@ -60,3 +60,33 @@ h3 {
   border: 5px solid white;
   margin-top: -80px;
 }
+
+.img2 img:hover {
+  border: 5px solid #1FBABF; /* Cambia esto al color de borde que prefieras cuando se pasa el mouse por encima */
+}
+
+.line {
+  width: 75%;
+  border-top: 5px solid #1FBABF; 
+  margin: 20px auto;
+  opacity: .7;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #1FBABF; 
+}
+
+.social-icons a:hover {
+  color: #60D5AB; 
+}
+
+.social-icons i {
+  font-size: 24px; 
+}
