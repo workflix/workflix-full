@@ -1,7 +1,7 @@
 <div class="center-form d-flex flex-column align-items-center justify-content-center">
   <form class="formulario">
     <div class="text-center mb-3">
-      <p class="lead fw-normal mb-0">Ingresar</p>
+      <h2 class="encabezado-2">Ingresar</h2>
     
 
 
@@ -26,7 +26,7 @@
     <div class="controls">
       <div data-mdb-input-init class="form-outline mb-4">
         <label class="form-label" for="form3Example3">Correo</label>
-        <input type="email" class="form-control border-1" placeholder="Correo electrónico" #emailInput required (blur)="validateEmail(emailInput.value)" />      
+        <input type="email" class="form-control shadow p-3 mb-3 bg-white rounde" placeholder="Correo electrónico" #emailInput required (blur)="validateEmail(emailInput.value)" />      
         <div id="email-error" style="color: red;"></div>
       </div>
     </div>
@@ -36,7 +36,7 @@
     <!-- Password input -->
     <div data-mdb-input-init class="form-outline mb-3">
       <label class="form-label" for="form3Example4">Contraseña</label>
-      <input type="password" class="password-input form-control border-primary" placeholder="Contraseña" #passwordInput required/>      
+      <input type="password" class="password-input shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
     </div>
 
     <div class="d-flex justify-content-between align-items-center">
@@ -51,7 +51,7 @@
     </div>
 
     <div class="text-center text-lg-start mt-4 pt-2">
-      <button type="button" (click)="onSubmit(emailInput.value, passwordInput.value)" class="btn btn-info" style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button><br>
+      <button type="submit" (click)="onSubmit(emailInput.value, passwordInput.value)" class="boton-form" style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button><br>
       <p class="text-danger">{{ error }}</p>
       <p class="small fw-bold mt-2 pt-1 mb-0">Aun no tienes una cuenta? <a href="#!"
           class="link-danger">Registrarse</a></p>
