@@ -6,7 +6,6 @@ html, body {
   margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
 }
 
-
 .formulario {
   width: 25%; /* Establece el ancho del formulario al 80% del ancho de su contenedor */
   max-width: 600px; /* Establece un ancho máximo opcional para el formulario */
@@ -15,13 +14,27 @@ html, body {
 }
 
 label.form-label {
-  
-  
   font-size: 12px;
   color: #2196F3;
 }
 
-.password-input {
+.boton-form{
+  background: #60D5AB;
+  /* para navegadores antiguos */
+  background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
+  /* Chrome 10-25, Safari 5.1-6 */
+  /*background: linear-gradient(to right, #6A82FB, #60D5AB);*/
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width: 100%;
+  border:none;
+  color:#fff;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+  padding: 15px;
+}
+/* .password-input {
 background: none;
 color: #c6c6c6;
 font-size: 18px;
@@ -30,7 +43,7 @@ display: block;
 border: none;
 border-bottom: 1px solid var(--colorTextos);
 resize: none;
-}
+} */
 
 .center-form {
   display: flex;
