@@ -38,14 +38,14 @@
         <ng-container >
           <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ingresar</a>
             <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" routerLink="/ingresar">Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/registrarse" >Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/salir'"  >Registrarse</a></li>
             </ul>
           </li>
         </ng-container>
 
         <ng-container>
-          <li class="nav-item"><a class="nav-link" routerLink="/home">Logout</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="'/login'" >Logout</a></li>
         </ng-container>
 
       </ul>
