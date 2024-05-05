@@ -30,7 +30,5 @@ export class UserService {
 
   deleteUser(id: number): Observable<User> {
     return this.http.delete<User>(this.url + '/' + id);
-}
-
-
+  }
 }
