@@ -15,7 +15,7 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
         console.log('Usuario logeado: ' + loggedIn);
         return true;
       } else {
-        const url = router.createUrlTree(['/login']);
+        const url = router.createUrlTree(['/ingresar']);
         return url;
       }
     })
