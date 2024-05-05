@@ -72,11 +72,12 @@
 
 /* Detalles Profesional */
 
+/* Detalles Profesional */
 .details {
     display: flex;
     flex-direction: column;
     margin-left: 380px; /* Ajusta este valor según sea necesario */
-    margin-top: 20px; /* Cambiado a un valor positivo para que esté debajo de la imagen */
+    margin-top: -350px; /* Cambiado a un valor positivo para que esté debajo de la imagen */
 }
 
 .details p {
@@ -105,7 +106,7 @@
 
 .details p.descripcion {
     font-size: 25px;
-    margin-top: 20px; /* Ajusta este valor según sea necesario */
+    margin-top: 350px; /* Ajusta este valor según sea necesario */
 }
 
 .details p.descripcion-texto{
@@ -116,19 +117,38 @@
 }
 
 /* Estilos para pantallas pequeñas */
+/* Estilos para pantallas pequeñas */
 @media only screen and (max-width: 600px) {
     .details {
-        margin-left: auto; /* Centra horizontalmente */
-        margin-right: auto;
-        width: 80%; /* Ajusta el ancho según sea necesario */
+        margin-top: 15px;
+        margin-left: 30px; /* Centra horizontalmente */
+        width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
     }
     
     .linea {
-        margin-left: auto; /* Centra horizontalmente */
-        margin-right: auto;
+        margin-top: 20px; /* Ajusta este valor según sea necesario */
+        margin-left: 30px; /* Centra horizontalmente */
+        width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
+    }
+
+    .details p.descripcion {
+        font-size: 25px;
+        margin-top: 20px; /* Ajusta este valor según sea necesario */
+        margin-left: 0; /* Ajusta este valor según sea necesario */
         width: 100%; /* Ocupa todo el ancho disponible */
+        text-align: center; /* Centra el texto */
+    }
+
+    .details p.descripcion-texto {
+        font-size: 14px;
+        margin-top: 10px; /* Ajusta este valor según sea necesario */
+        margin-left: 0; /* Ajusta este valor según sea necesario */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-align: center; /* Centra el texto */
     }
 }
+
+
 
 
 /* Banner de Calificación */ 
