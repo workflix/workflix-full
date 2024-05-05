@@ -25,10 +25,15 @@ export class LoginService {
       })
     );
   }
-  isLoggedIn() {
-    return this.loggedIn;
+
+
+  isLoggedIn(): Observable<boolean> {
+    return this.loggedIn.asObservable();
   }
-  logout(){
-    return this.loggedIn = false;
+
+  logout(): void {
+    this.loggedIn.next(false);
+    this.currentUser.next(null);
+    console.log('Usuario desconectado');
   }
 }
