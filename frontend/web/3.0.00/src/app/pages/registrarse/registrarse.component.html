@@ -1,7 +1,7 @@
 <div class="col-md-12 mt-auto pb-4">
     <div class="container mt-5 p-2">
         <div class="text-center">
-            <h2 class="encabezado-2">Registrarse</h2>
+            <h1 class="encabezado-2">Registrarse</h1>
         </div>
     </div>
 </div>
@@ -156,12 +156,11 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">&nbsp;</label>
             <div class="input-group col-md-8">
-              <button type="submit" class="boton-form" [disabled]="!registrarForm.valid">
-                Registrarse
-              </button>
+              <button type="submit" class="boton-form" [disabled]="!registrarForm.valid">Registrarse</button>
             </div>
+            <p class="parrafo mt-4 text-center"><a [routerLink]="['/ingresar']"  class="">¿Olvidaste tu contraseña?</a></p>
+
           </div>
-          <!--<button class="btn btn-success" type="submit" [disabled]="!registrarForm.valid">Registrarse</button><br>-->
 
         </form>
 <!-- 

@@ -1,7 +1,7 @@
 <div class="center-form d-flex flex-column align-items-center justify-content-center">
   <form class="formulario">
     <div class="text-center mb-3">
-      <h2 class="encabezado-2">Ingresar</h2>
+      <h1 class="encabezado-2">Ingresar</h1>
     
 
 
@@ -33,7 +33,7 @@
     <!-- Password input -->
       <div data-mdb-input-init class="form-outline mb-3">
         <label class="form-label" for="form3Example4">Contraseña</label>
-        <input type="password" class="form-control shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
+        <input type="password" class="password-input form-control shadow p-3 mb-3 bg-white rounded" placeholder="Contraseña" #passwordInput required/>      
       </div>
     </div>
 
@@ -47,7 +47,7 @@
     </div>
 
     <div class="text-center text-lg-start mt-4 pt-2">
-      <button type="submit" (click)="onSubmit(emailInput.value, passwordInput.value)" class="boton-form" style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button><br>
+      <button type="button" (click)="onSubmit(emailInput.value, passwordInput.value)" class="boton-form" style="padding-left: 2.5rem; padding-right: 2.5rem;">Ingresar</button><br>
       <p class="text-danger">{{ error }}</p>
       <p class="parrafo mt-4 text-center"><a [routerLink]="['/recuperar-clave']"  class="">¿Olvidaste tu contraseña?</a></p>
       <p class="mensaje">Aun no tienes una cuenta?<a [routerLink]="['/registrarse']"
