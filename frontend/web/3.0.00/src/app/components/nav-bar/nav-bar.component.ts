@@ -27,7 +27,24 @@ export class NavBarComponent {
 
   constructor(private loginService:LoginService, private router:Router){}
 
+  currentUser: any;
 
+  logout(): void {
+    this.loginService.logout();
+    this.router.navigate(['/login']);
+    console.log('Usuario desconectado'+ this.loginService.getCurrentUser())
+  }
+
+  ngOnInit(): void {
+    // Aquí es donde deberías realizar suscripciones, ya que ngOnInit() se llama después de que Angular haya inicializado las propiedades del componente.
+    this.loginService.getCurrentUser().subscribe(
+      user => {
+        this.currentUser = user;
+        console.log('Usuario obtenido: ', user);
+      }
+    );
+  }
+}
 
 
 
@@ -98,4 +115,4 @@ export class NavBarComponent {
   // onClickEnlace() {
   //   this.scrollingService.scrollToTop();
   // }
-}
+
