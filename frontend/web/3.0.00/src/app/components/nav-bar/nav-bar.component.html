@@ -18,15 +18,15 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
         <li class="nav-item">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="onClickEnlace()">Home</a>
+          <a class="nav-link" [routerLink]="'/home'" routerLinkActive="active" >Home</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/quienes-somos" routerLinkActive="active" (click)="onClickEnlace()">Quiénes Somos</a>
+          <a class="nav-link" [routerLink]="'/quienes-somos'" routerLinkActive="active" >Quiénes Somos</a>
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link" routerLink="/contacto" routerLinkActive="active" (click)="onClickEnlace()">Contacto</a>
+          <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" >Contacto</a>
           <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -36,16 +36,14 @@
         </li>
 
         <ng-container >
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ingresar</a>
-            <ul class="dropdown-menu">
-                <li class="nav-item"><a class="nav-link" routerLink="/ingresar">Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/registrarse" >Registrarse</a></li>
-            </ul>
-          </li>
-        </ng-container>
+              @if (this.currentUser) {
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
+                <a class="nav-link" [routerLink]="'/profile'">{{ currentUser.nombre }}</a>
 
-        <ng-container>
-          <li class="nav-item"><a class="nav-link" routerLink="/home">Logout</a></li>
+              }@else {
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/registrarse'"  >Registrarse</a></li>
+              }
         </ng-container>
 
       </ul>
