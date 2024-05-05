@@ -30,7 +30,9 @@ export class LoginService {
   isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
-
+  getCurrentUser(): Observable<User | null> {
+    return this.currentUser.asObservable();
+  }
   logout(): void {
     this.loggedIn.next(false);
     this.currentUser.next(null);
