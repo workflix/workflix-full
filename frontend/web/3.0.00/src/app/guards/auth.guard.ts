@@ -9,11 +9,15 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
   const loginService = inject(LoginService);
   const router = inject(Router);
 
-
-if(loginService.isLoggedIn()){ // si el usuario está autenticado, devuelve true
-  return true;
-}else{
-  const url = router.createUrlTree(['/ingresar']);
-  return url;
-}
+  return loginService.isLoggedIn().pipe(
+    map((loggedIn: boolean) => {
+      if (loggedIn) {
+        console.log('Usuario logeado: ' + loggedIn);
+        return true;
+      } else {
+        const url = router.createUrlTree(['/login']);
+        return url;
+      }
+    })
+  );
 };
