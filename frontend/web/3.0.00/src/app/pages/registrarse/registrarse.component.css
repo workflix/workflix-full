@@ -11,17 +11,11 @@
     color: #6c757d;
 }
    
-
-
-.checkbox-container {
+.center-form {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  align-items: center;  
 }
-
-.checkbox-container label {
-  margin-left: 10px; /* Ajusta el margen izquierdo del texto */
-}
-
 
 
 .boton-form{
@@ -61,17 +55,6 @@ form {
   margin: 0px auto;
   padding: 10px 0;
   border-radius: 10px;
-}
-
-.center-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-
-.img-center-wwa{
-  display: flex;
-  margin: 2rem 7rem;
 }
 
 label {
