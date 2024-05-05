@@ -19,11 +19,12 @@ export class LoginService {
   login(email: string, password: string): Observable<User> {
     return this.http.post<User>(this.url, { correo: email, clave: password }).pipe(
       tap((user: User) => {
-        this.loggedIn = true;
+        this.loggedIn.next(true);
+        this.currentUser.next(user);
+
       })
     );
   }
-
   isLoggedIn() {
     return this.loggedIn;
   }
