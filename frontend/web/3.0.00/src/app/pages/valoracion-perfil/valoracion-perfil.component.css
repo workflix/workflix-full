@@ -1,14 +1,8 @@
-:host {
-    display: block;
-    margin-top: 70px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
+/* Botón Volver */
 
 .volver-btn {
     margin-left: 40px;
-    margin-top: 40px;
+    margin-top: 80px;
     padding: 10px 20px;
     background-color: #9CEE8C;
     color: #000000;
@@ -19,94 +13,10 @@
     z-index: 1; /* Asegura que el botón esté encima de otros elementos */
 }
 
-.details-volver {
-    margin-top: -70px;    
-}
-
-/* IMAGEN PROFESIONAL */ 
-
-.container {
-    margin-left: 350px; /* Mueve el contenedor y su contenido hacia la derecha */
-}
-
-.rectangle {
-    margin-left: -300px;
-    width: 300px;
-    height: 30px;
-    margin-top: 110px;
-    background-color: #0A769D;
-    text-align: center;
-    font-weight: lighter;
-    color: white;
-    border-radius: 10px;
-    padding-top: 3px;
-}
-
-.image {
-    margin-left: -300px;
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-    margin-top: 10px; /* Añade espacio entre el texto y la imagen */
-}
-
-.image img {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-}
-
-
-/* DETALLES PROFESIONAL */ 
-
-.details {
-    display: flex; /* Utiliza flexbox para colocar los detalles al lado de la imagen */
-    flex-direction: column; /* Apila los detalles en una columna */
-    margin-left: 380px; /* Ajusta el margen izquierdo */
-    margin-top: -350px;
-}
-
-.details p {
-    margin: 10px 0; /* Ajusta el margen de los párrafos */
-}
-
-.details p.nombre-apellido {
-    font-size: 30px; /* Tamaño de la tipografía para Nombre Apellido */
-}
-
-.details p.experiencia {
-    font-size: 15px; /* Tamaño de la tipografía para Experiencia Laboral */
-}
-.details p.plomeroexp {
-    font-size: 15px; /* Tamaño de la tipografía para Experiencia Laboral */
-    margin-top: -15px;
-}
-
-.linea {
-    margin-left: 380px; /* Agrega un margen a la izquierda para separar la línea */
-    margin: left -50px;
-    bottom: 0; /* Coloca la línea en la parte inferior del contenedor */
-    width: calc(90% - 250px); /* Estira la línea horizontalmente con un margen a la izquierda */
-    border-bottom: 1px solid black; /* Añade una línea sólida de 1 píxel de grosor */
-}
-
-.details p.descripcion {
-    font-size: 25px; /* Tamaño de la tipografía para Nombre Apellido */
-    margin-top: 370px;
-} 
-
-.details p.descripcion-texto{
-    font-size: 14px; /* Tamaño de la tipografía para Nombre Apellido */
-    margin-top: -30px;
-    margin-left: 170px;
-    width: 70%;
-}
-
-/* BOTON PEDIR PRESUPUESTO */
+/* Botón Pedir Presupuesto */
 
 .pedir-presupuesto {
-    margin-top: 100px;
-    margin-top: 70px;    
+    margin-top: 70px;
     margin-left: 400px;
     padding: 10px 20px;
     background-color: #9CEE8C;
@@ -118,7 +28,110 @@
     z-index: 1; /* Asegura que el botón esté encima de otros elementos */
 }
 
-/* BANNER DE CALIFICACION */ 
+/* Media query para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    .pedir-presupuesto {
+        margin-left: auto; /* Centra horizontalmente */
+        margin-right: auto;
+        display: block; /* Cambia a bloque para ocupar todo el ancho disponible */
+    }
+}
+
+/* Imagen Profesional */
+
+.container {
+    margin-left: 350px;
+}
+
+.rectangle {
+    margin-left: -300px;
+    width: 300px;
+    height: 40px;
+    margin-top: 60px;
+    background-color: #0A769D;
+    text-align: center;
+    font-weight: lighter;
+    color: white;
+    border-radius: 10px;
+    padding-top: 8px;
+}
+
+.image {
+    margin-left: -310px;
+    width: 320px;
+    height: 320px;
+    border-radius: 10px;
+    margin-top: 120px;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Detalles Profesional */
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 380px; /* Ajusta este valor según sea necesario */
+    margin-top: 20px; /* Cambiado a un valor positivo para que esté debajo de la imagen */
+}
+
+.details p {
+    margin: 10px 0;
+}
+
+.details p.nombre-apellido {
+    font-size: 30px;
+}
+
+.details p.experiencia {
+    font-size: 15px;
+}
+
+.details p.plomeroexp {
+    font-size: 15px;
+    margin-top: -15px;
+}
+
+.linea {
+    position: relative; /* Ajustado a relativo */
+    margin-left: 380px;
+    width: calc(90% - 250px);
+    border-bottom: 1px solid black;
+}
+
+.details p.descripcion {
+    font-size: 25px;
+    margin-top: 20px; /* Ajusta este valor según sea necesario */
+}
+
+.details p.descripcion-texto{
+    font-size: 14px;
+    margin-top: -30px;
+    margin-left: 170px; /* Ajusta este valor según sea necesario */
+    width: 70%;
+}
+
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    .details {
+        margin-left: auto; /* Centra horizontalmente */
+        margin-right: auto;
+        width: 80%; /* Ajusta el ancho según sea necesario */
+    }
+    
+    .linea {
+        margin-left: auto; /* Centra horizontalmente */
+        margin-right: auto;
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+}
+
+
+/* Banner de Calificación */ 
 
 .banner {
     margin-left: -35px;
@@ -136,8 +149,8 @@
     left: 0;
     width: 350px;
     height: 125%;
-    background-color: rgba(255, 255, 255, 0.5); /* Fondo semi-transparente */
-    backdrop-filter: blur(10px); /* Aplica un filtro de desenfoque */
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -151,15 +164,12 @@
     text-align: center;
 }
 
-
-/* ESTRELLAS DE VALORACION */
-
-
+/* Estrellas de Valoración */
 
 .stars-container {
     margin-top: 40px;
     position: relative;
-    background-color: #f2f2f2; /* Color gris claro */
+    background-color: #f2f2f2;
     border-radius: 10px;
     display: flex;
     justify-content: center;
