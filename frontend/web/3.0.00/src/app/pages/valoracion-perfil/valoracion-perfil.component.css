@@ -72,7 +72,6 @@
 
 /* Detalles Profesional */
 
-/* Detalles Profesional */
 .details {
     display: flex;
     flex-direction: column;
@@ -116,7 +115,8 @@
     width: 70%;
 }
 
-/* Estilos para pantallas pequeñas */
+
+
 /* Estilos para pantallas pequeñas */
 @media only screen and (max-width: 600px) {
     .details {
@@ -149,25 +149,28 @@
 }
 
 
-
-
 /* Banner de Calificación */ 
 
 .banner {
-    margin-left: -35px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 50px;
     position: relative;
-    width: 1750px;
+    width: 80%; /* Cambiado a 80% */
+    max-width: 1750px; /* Agregado max-width */
     height: 150px;
     display: flex;
     align-items: center;
+    justify-content: center; /* Añadido para centrar horizontalmente */
     border-radius: 15px;
 }
 
 .calificaciones-box {
     position: absolute;
-    left: 0;
-    width: 350px;
+    left: 50%; /* Cambiado a 50% */
+    transform: translateX(-50%); /* Agregado para centrar horizontalmente */
+    width: 80%; /* Cambiado a 80% */
+    max-width: 350px; /* Agregado max-width */
     height: 125%;
     background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(10px);
@@ -183,6 +186,25 @@
     color: #ffffff;
     text-align: center;
 }
+.banner img {
+    width: 600%; /* Añadido para que la imagen ocupe el 100% del ancho del contenedor */
+}
+/* Media query para pantallas más pequeñas */
+@media only screen and (max-width: 768px) {
+    .banner {
+
+        height: 150px;
+        padding: 20px;
+    }
+    
+    .calificaciones-box {
+        width: 100%;
+        height: 13;
+        max-width: none;
+        border-radius: 15;
+    }
+}
+
 
 /* Estrellas de Valoración */
 
