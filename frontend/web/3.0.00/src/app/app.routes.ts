@@ -13,14 +13,14 @@ import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/pregu
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent/* , canActivate: [authGuard] */ },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'registrarse', component: RegistrarseComponent },
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuard] },
   { path: 'contacto', component: ContactoComponent },
-  {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent},
-  { path: 'recuperar-clave', component: RecuperarClaveComponent/* , canActivate: [authGuard] */ },
+  { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
+  { path: 'recuperar-clave', component: RecuperarClaveComponent },
 
 ];
