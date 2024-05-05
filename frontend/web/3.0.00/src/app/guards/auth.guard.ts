@@ -3,11 +3,13 @@ import { inject } from '@angular/core';
 import { LoginService } from '../services/login.service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-// para proteger ciertas rutas de acceso no autorizado
 
-export const authGuard: CanActivateFn = ( route,state ) => { // puede activar o desactivar una ruta
+
+export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> => {
   const loginService = inject(LoginService);
   const router = inject(Router);
+
+
 if(loginService.isLoggedIn()){ // si el usuario está autenticado, devuelve true
   return true;
 }else{
