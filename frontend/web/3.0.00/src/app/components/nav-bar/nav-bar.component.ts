@@ -25,7 +25,7 @@ import { ContactoComponent } from '../../pages/contacto/contacto.component';
 export class NavBarComponent {
 
 
-
+  constructor(private loginService:LoginService, private router:Router){}
 
 
 
