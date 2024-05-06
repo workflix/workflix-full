@@ -1,0 +1,373 @@
+<main id="main" class="main">
+
+
+<div class="container-scroller">
+   
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="assets/images/profesional-2.jpg" alt="profile">
+                <span class="login-status online"></span>
+                <!--change to offline or busy as needed-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">David Lucas</span>
+                <span class="text-secondary text-small">Manager</span>
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span class="menu-title">Dashboard</span>
+             
+              <div class="container">
+                
+                
+                 <span class="bi bi-bar-chart-line"></span> </div>
+              
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Configuración</span>
+              <div class="container"> 
+                
+                <span class="bi bi-gear-fill"></span> </div>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="bi bi-file-lock" href="#">Usuario</a></li>
+                <li class="nav-item"> <a class="bi bi-file-lock" href="#">Perfil</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          
+          <li class="nav-item sidebar-actions">
+            <span class="nav-link">
+              <div class="border-bottom">
+                <h6 class="font-weight-normal mb-3">Projects</h6>
+              </div>
+              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">Botón</button>
+              <div class="mt-4">
+                <div class="border-bottom">
+                  <p class="text-secondary">Categories</p>
+                </div>
+                <ul class="gradient-bullet-list mt-4">
+                  <li>xxxx</li>
+                  <li>Salir</li>
+                </ul>
+              </div>
+            </span>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="bi bi-hdd-stack"></i>
+              </span> Dashboard
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>Vista <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="row">
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                  <img src="assets/images/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <h4 class="font-weight-normal mb-3">Ventas semanales <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                  </h4>
+                  <h2 class="mb-5">$ 15,0000</h2>
+                  <h6 class="card-text">Increased by 60%</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card bg-gradient-info card-img-holder text-white">
+                <div class="card-body">
+                  <img src="assets/images/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <h4 class="font-weight-normal mb-3">Pedidos semanales <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                  </h4>
+                  <h2 class="mb-5">45,6334</h2>
+                  <h6 class="card-text">Decreased by 10%</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 stretch-card grid-margin">
+              <div class="card bg-gradient-success card-img-holder text-white">
+                <div class="card-body">
+                  <img src="assets/images/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <h4 class="font-weight-normal mb-3">Visitantes en línea <i class="mdi mdi-diamond mdi-24px float-right"></i>
+                  </h4>
+                  <h2 class="mb-5">95,5741</h2>
+                  <h6 class="card-text">Increased by 5%</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <!--
+          <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <h4 class="card-title float-left">Visit And Sales Statistics</h4>
+                    <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
+                  </div>
+                  <canvas id="visit-sale-chart" class="mt-4"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Traffic Sources</h4>
+                  <canvas id="traffic-chart"></canvas>
+                  <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>--->
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Entradas recientes</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> Assignee </th>
+                          <th> Subject </th>
+                          <th> Status </th>
+                          <th> Last Update </th>
+                          <th> Tracking ID </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <img src="assets/images/profesional-2.jpg" class="mr-2" alt="image"> David Grey
+                          </td>
+                          <td> Fund is not recieved </td>
+                          <td>
+                            <label class="badge badge-gradient-success">DONE</label>
+                          </td>
+                          <td> Dec 5, 2017 </td>
+                          <td> WD-12345 </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="assets/images/profesional-1.jpg" class="mr-2" alt="image"> Stella Johnson
+                          </td>
+                          <td> High loading time </td>
+                          <td>
+                            <label class="badge badge-gradient-warning">PROGRESS</label>
+                          </td>
+                          <td> Dec 12, 2017 </td>
+                          <td> WD-12346 </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="assets/images/profesional-3.jpg" class="mr-2" alt="image"> Marina Michel
+                          </td>
+                          <td> Website down for one week </td>
+                          <td>
+                            <label class="badge badge-gradient-info">ON HOLD</label>
+                          </td>
+                          <td> Dec 16, 2017 </td>
+                          <td> WD-12347 </td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <img src="assets/images/profesional-1.jpg" class="mr-2" alt="image"> John Doe
+                          </td>
+                          <td> Loosing control on server </td>
+                          <td>
+                            <label class="badge badge-gradient-danger">REJECTED</label>
+                          </td>
+                          <td> Dec 3, 2017 </td>
+                          <td> WD-12348 </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Otra Tabla</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th> # </th>
+                          <th> Name </th>
+                          <th> Due Date </th>
+                          <th> Progress </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td> 1 </td>
+                          <td> Herman Beck </td>
+                          <td> May 15, 2015 </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-success" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td> 2 </td>
+                          <td> Messsy Adam </td>
+                          <td> Jul 01, 2015 </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td> 3 </td>
+                          <td> John Richards </td>
+                          <td> Apr 12, 2015 </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td> 4 </td>
+                          <td> Peter Meggik </td>
+                          <td> May 15, 2015 </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td> 5 </td>
+                          <td> Edward </td>
+                          <td> May 03, 2015 </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td> 5 </td>
+                          <td> Ronald </td>
+                          <td> Jun 05, 2015 </td>
+                          <td>
+                            <div class="progress">
+                              <div class="progress-bar bg-gradient-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title text-white">Todo</h4>
+                  <div class="add-items d-flex">
+                    <input type="text" class="form-control todo-list-input" placeholder="Que tengo que hacer hoy?">
+                    <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn" id="add-task">Add</button>
+                  </div>
+                  <div class="list-wrapper">
+                    <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                      <li>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox"> Limpieza de usuarios </label>
+                        </div>
+                        <i class="bi bi-x-lg"></i>
+                      </li>
+                      <li class="completed">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" checked> llamar a Carlos </label>
+                        </div>
+                        <i class="bi bi-x-lg"></i>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox"> xxxxxxxxx </label>
+                        </div>
+                        <i class="bi bi-x-lg"></i>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox"> xxxxxxxxxx </label>
+                        </div>
+                        <i class="remove mdi mdi-close-circle-outline"></i>
+                      </li>
+                      <li class="completed">
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" checked> xxxxxxxxxxxx </label>
+                        </div>
+                        <i class="remove mdi mdi-close-circle-outline"></i>
+                      </li>
+                      <li>
+                        <div class="form-check">
+                          <label class="form-check-label">
+                            <input class="checkbox" type="checkbox"> xxxxxxxxxxxxxxx </label>
+                        </div>
+                        <i class="remove mdi mdi-close-circle-outline"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">therichpost.com 2023</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+</main>
