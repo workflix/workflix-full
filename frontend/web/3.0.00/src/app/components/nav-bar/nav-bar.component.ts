@@ -1,13 +1,10 @@
 import { Component, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollingService } from '../../services/scrolling.service';
-<<<<<<< HEAD
 
-=======
 import { HttpStatusCode } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
->>>>>>> 859242948c1f9c9d2f0062f5f109e90246833d01
 import { Router } from '@angular/router';
 import { IngresarComponent } from '../../pages/ingresar/ingresar.component';
 import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
@@ -23,34 +20,6 @@ import { ContactoComponent } from '../../pages/contacto/contacto.component';
 
 export class NavBarComponent {
 
-<<<<<<< HEAD
-  @Input()
-  buscarTerm!: string;
-  buscarResults!: any[];
-  showResults: boolean = false
-
-  constructor(
-    @Inject(DOCUMENT) private document: Document,
-    private scrollingService: ScrollingService,
-    private router: Router) {}
-
-  ngOnInit(): void {
-  }
-
-  buscarProfesional(termino: string){ // barra búsqueda
-
-    if (termino.length < 1) { // para que funcione sólo si escribe al menos una letra
-      return;
-    }
-
-    this.router.navigate(['/busqueda', termino])
-    /*console.log(termino);*/ // muestra en consola el término buscado
-
-  }
-
-  onClickEnlace() {
-    this.scrollingService.scrollToTop();
-=======
 
   constructor(private loginService:LoginService, private router:Router){}
 
@@ -70,7 +39,16 @@ export class NavBarComponent {
         console.log('Usuario obtenido: ', user);
       }
     );
->>>>>>> 859242948c1f9c9d2f0062f5f109e90246833d01
+  }
+  buscarProfesional(termino: string){ // barra búsqueda
+
+    if (termino.length < 1) { // para que funcione sólo si escribe al menos una letra
+      return;
+    }
+
+    this.router.navigate(['/busqueda', termino])
+    /*console.log(termino);*/ // muestra en consola el término buscado
+
   }
 }
 

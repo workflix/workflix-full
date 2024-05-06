@@ -20,19 +20,6 @@
         </li>
 
         <li class="nav-item dropdown">
-<<<<<<< HEAD
-          <a class="nav-link" routerLink="/contacto" routerLinkActive="active" (click)="onClickEnlace()">Contacto</a>
-        </li>
-
-        <ng-container >
-          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ingresar</a>
-            <ul class="dropdown-menu">
-              <li class="nav-item"><a class="nav-link" routerLink="/ingresar">Ingresar</a></li>
-              <li class="nav-item"><a class="nav-link" routerLink="/registrarse">Registrarse</a></li>
-            </ul>
-          </li>
-        </ng-container>
-=======
           <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" >Contacto</a>
           <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
@@ -46,7 +33,6 @@
               @if (this.currentUser) {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
                 <a class="nav-link" [routerLink]="'/profile'">{{ currentUser.nombre }}</a>
->>>>>>> 859242948c1f9c9d2f0062f5f109e90246833d01
 
               }@else {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>
