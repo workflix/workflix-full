@@ -2,22 +2,23 @@ import { HttpStatusCode } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 /*
 import { ResultadoApi } from 'src/app/models/modelo.resultado';
 import { TipoUsuario } from 'src/app/models/modelo.usuario';*/
 import { RegisterService } from '../../services/register.service';
 import { UserService} from '../../services/user.service' ;
-import { Router } from '@angular/router';
 import { User } from '../../models/user';
 
 import { ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TerminosComponent } from '../terminos/terminos.component';
+import { IngresarComponent } from '../ingresar/ingresar.component';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule, IngresarComponent],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css',
   providers: [RegisterService, UserService]

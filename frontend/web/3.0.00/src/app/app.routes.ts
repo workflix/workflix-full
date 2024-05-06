@@ -20,7 +20,7 @@ export const routes: Routes = [
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuard] },
   { path: 'contacto', component: ContactoComponent },
-  {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent},
-  { path: 'recuperar-clave', component: RecuperarClaveComponent, canActivate: [authGuard] },
+  { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
+  { path: 'recuperar-clave', component: RecuperarClaveComponent },
 
 ];
