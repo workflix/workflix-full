@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   standalone:true,
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.css'],
+  imports: [NavBarComponent]
 })
 export class TarjetasComponent implements OnInit {
   title: string = "List the users";
@@ -29,7 +31,7 @@ export class TarjetasComponent implements OnInit {
       users => this.users = users
     );
   }
-
+  
 }
 
 

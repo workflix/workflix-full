@@ -28,8 +28,7 @@ export class NavBarComponent {
   constructor(
     @Inject(DOCUMENT) private document: Document,
     private scrollingService: ScrollingService,
-    private router: Router
-  ) {}
+    private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -41,7 +40,7 @@ export class NavBarComponent {
     }
 
     this.router.navigate(['/busqueda', termino])
-    console.log(termino); // muestra en consola el término buscado
+    /*console.log(termino);*/ // muestra en consola el término buscado
 
   }
 
