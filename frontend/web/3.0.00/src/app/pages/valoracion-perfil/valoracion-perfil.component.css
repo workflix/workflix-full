@@ -292,13 +292,16 @@
   }
   
   .card img {
+    padding-left: 20px;
+    margin-top: 20px;
+    border-radius: 100%;
     width: 15%; /* Ancho de la imagen */
     position: absolute; /* Habilita el posicionamiento absoluto */
     top: 0; /* Coloca la imagen en la parte superior de la tarjeta */
     left: 0; /* Coloca la imagen en el lado izquierdo de la tarjeta */
   }
   
-  .container {
+  .container-comentario {
     margin-left: 20%; /* Espacio a la izquierda de la tarjeta para la imagen */
   }
   
@@ -307,7 +310,7 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
   
-  .container {
+  .container-comentario {
     padding: 22px 16px;
   }
   
