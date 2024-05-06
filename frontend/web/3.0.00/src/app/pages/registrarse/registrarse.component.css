@@ -48,7 +48,7 @@
   margin-bottom: 15px;
 }
 
-form {
+.form {
   min-width: 300px;
   background: #fff;
   width: 30%;
@@ -58,7 +58,7 @@ form {
 }
 
 label {
-  font-size: 12px;
+  font-size: 14px;
   color: #0A769D;
 }
 
