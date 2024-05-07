@@ -30,41 +30,43 @@
                        <h5 class="card-title">A cerca de</h5>
                        <p class="small fst-italic">"Pintora profesional con experiencia en proyectos residenciales y comerciales. Ofrezco servicios de alta calidad, atención al detalle y soluciones efectivas. Confiable, eficiente y comprometida.".</p>
                        <h5 class="card-title">Detalles de perfil</h5>
-                       <!-- <ng-container *ngIf="usuario">
+                       <ng-container>
+                        @if (this.currentUser) {
 
-                       <div class="row">
+                        <div class="row">
                           <div class="col-lg-3 col-md-4 label ">NOMBRE Y APELLIDO:</div>
-                          <div class="col-lg-9 col-md-8">{{ usuario.nombre }} {{ usuario.apellido }}</div>
-                       </div>
-                       <div class="row">
+                          <div class="col-lg-9 col-md-8">{{ this.currentUser.nombre }} {{ this.currentUser.apellido }}</div>
+                        </div>
+                        <div class="row">
                           <div class="col-lg-3 col-md-4 label">CORREO ELECTRÓNICO:</div>
-                          <div class="col-lg-9 col-md-8">{{ usuario.email }}</div>
-                       </div>
-                       <div class="row">
+                          <div class="col-lg-9 col-md-8">{{ this.currentUser.correo }}</div>
+                        </div>
+                        <div class="row">
                           <div class="col-lg-3 col-md-4 label">DIRECCIÓN:</div>
-                          <div class="col-lg-9 col-md-8">{{ usuario.direccion }}</div>
-                       </div>
-                       <div class="row">
+                          <div class="col-lg-9 col-md-8">{{ this.currentUser.direccion }}</div>
+                        </div>
+                        <div class="row">
                           <div class="col-lg-3 col-md-4 label">País</div>
                           <div class="col-lg-9 col-md-8">Argentina</div>
-                       </div>
+                        </div>
 
-                       <div class="row">
+                        <div class="row">
                           <div class="col-lg-3 col-md-4 label">TELÉFONO:</div>
-                          <div class="col-lg-9 col-md-8">{{ usuario.telefono }}</div>
-                       </div>
-                       <div class="row">
+                          <div class="col-lg-9 col-md-8">{{ this.currentUser.telefono }}</div>
+                        </div>
+                        <!-- <div class="row">
                           <div class="col-lg-3 col-md-4 label">NOMBRE DE USUARIO:</div>
-                          <div class="col-lg-9 col-md-8">{{ usuario.usuario }}</div>
-                       </div>
-                      </ng-container> -->
-                    </div>
+                          <div class="col-lg-9 col-md-8">{{ this.currrentUser.usuario }}</div>
+                        </div> -->
+                     }
+                      </ng-container>
+                     </div>
                     <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                        <form>
                           <div class="row mb-3">
                              <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Imagen de perfil</label>
                              <div class="col-md-8 col-lg-9">
-                                <img src="assets/img/profile-img.png" alt="Perfil">
+                                <img src="src\assets\images\foto_mujer.jpg" alt="Perfil">
                                 <div class="pt-2"> <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a> <a href="#" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a></div>
                              </div>
                           </div>
@@ -132,9 +134,9 @@
                        </form>
                     </div>
 
-                 </div>
-              </div>
-           </div>
+                  </div>
+               </div>
+            </div>
         </div>
      </div>
   </section>
