@@ -9,6 +9,7 @@ import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.co
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component'; 
+import { AdminComponent } from './pages/dashboard/admin/admin.component';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
+  { path: 'admindash', component: AdminComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuard] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
