@@ -243,6 +243,9 @@
 
 @media only screen and (max-width: 768px) {
     .stars-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-top: 20px;
         height: 50px;
     }
@@ -251,6 +254,7 @@
 
 
     .stars-rating {
+        margin-right: 40px;
         --star: 36px;
         --stars-width: calc(var(--star) * 5);
         --stars-height: var(--star);
@@ -286,8 +290,9 @@
     justify-content: center;
     align-items: center;
   }
-  
+
 .card {
+    
     margin-top: 40px;
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
