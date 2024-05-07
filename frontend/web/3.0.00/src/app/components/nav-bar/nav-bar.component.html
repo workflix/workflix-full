@@ -2,14 +2,8 @@
 
   <div class="container-fluid ms-2 me-2">
       <a class="navbar-brand" href="/home">
-          <img src="./assets/images/logo_workflix.png" alt="WorkFlix" height="35">
+        <img src="./assets/images/logo_workflix.png" alt="WorkFlix" height="35">
       </a>
-
-      <!--<div class="d-flex align-items-center justify-content-between">
-        <button (click)="sidebarToggle()" class="bi bi-list toggle-sidebar-btn btn btn-outline-info mt-0" type="submit">
-          {{ isSidebarOpen ? 'Cerrar' : 'Desplegar' }}
-        </button>
-      </div>-->
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -49,17 +43,15 @@
 
       </ul>
 
-      <!--<button routerLink="carro" class="btn btn-light">
-        <i style="font-size: 20px;"class="fas fa-cart-plus"></i>
-        <div style="font-size:10px;" class="badge bg-danger">{{totalItem}}</div>
-      </button> -->
-
+      <!--Barra de búsqueda-->
       <div class="d-flex">
-        <input type="text" class="form-control" placeholder="Buscar Profesional">
+        <input type="text"
+                class="form-control"
+                placeholder="Buscar Profesional"
+                (keyup.enter)="buscarProfesional(txtBuscar.value)"
+                #txtBuscar>
       </div>
-
-      </div>
-
+    </div>
   </div>
 
 </nav>

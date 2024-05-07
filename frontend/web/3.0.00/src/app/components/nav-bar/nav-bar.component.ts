@@ -1,15 +1,11 @@
 import { Component, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-/*import { CarritoService } from 'src/app/services/carrito.service';*/
 import { ScrollingService } from '../../services/scrolling.service';
+
 import { HttpStatusCode } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
-/*import { ResultadoApi } from 'src/app/models/modelo.resultado'; // interface Resultado API
-import { Usuario, TipoUsuario } from 'src/app/models/modelo.usuario';
-import { AuthService } from 'src/app/services/auth.service';
-import { UsuariosService } from 'src/app/services/usuarios.service';*/
 import { IngresarComponent } from '../../pages/ingresar/ingresar.component';
 import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
 import { ContactoComponent } from '../../pages/contacto/contacto.component';
@@ -43,6 +39,16 @@ export class NavBarComponent {
         console.log('Usuario obtenido: ', user);
       }
     );
+  }
+  buscarProfesional(termino: string){ // barra búsqueda
+
+    if (termino.length < 1) { // para que funcione sólo si escribe al menos una letra
+      return;
+    }
+
+    this.router.navigate(['/busqueda', termino])
+    /*console.log(termino);*/ // muestra en consola el término buscado
+
   }
 }
 
