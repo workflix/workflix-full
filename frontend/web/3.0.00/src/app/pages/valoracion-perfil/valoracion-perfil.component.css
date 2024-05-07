@@ -311,7 +311,7 @@
     width: 10%; /* Ancho de la imagen */
     position: absolute; /* Habilita el posicionamiento absoluto */
     top: 0; /* Coloca la imagen en la parte superior de la tarjeta */
-    left: 130px; /* Coloca la imagen en el lado izquierdo de la tarjeta */
+    left: 110px; /* Coloca la imagen en el lado izquierdo de la tarjeta */
   }
   
   .container-comentario {
@@ -329,4 +329,35 @@
 
   /* SECCION COMENTARIO */
 
- 
+  .comment-container {
+    margin-top: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.comment-label {
+    font-weight: lighter;
+}
+.comment-input,
+.comment-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.comment-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.comment-submit:hover {
+    background-color: #0056b3;
+}
