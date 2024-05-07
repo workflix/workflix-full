@@ -105,7 +105,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let elemento of filtrarProfesionales()">
+                        <tr *ngFor="let elemento of elemento()">
                           
                           <td>{{ elemento.id }}</td>
                           <td>{{ elemento.Nombre }}</td>
@@ -133,51 +133,6 @@
           </div>
 
 
-          
-          <div class="row">
-            <div class="col-12 grid-margin">
-              <div class="card">
-                <div class="card-body">
-                  <h4 class="card-title">Tabla de Clientes</h4>
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          
-                          <th>Id</th>
-                          <th>Nombre</th>
-                          <th>Apellido</th>
-                          <th>Tipo</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr *ngFor="let elemento of filtrarDatos()">
-                          
-                          <td>{{ elemento.id }}</td>
-                          <td>{{ elemento.Nombre }}</td>
-                          <td>{{ elemento.Apellido }}</td>
-                          <td>{{ elemento.tipo }}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> 
-          
-          <div class="row">
-            <div class="col-md-12 stretch-card grid-margin">
-              <div class="card bg-gradient-danger card-img-holder text-white">
-                <div class="card-body">
-                 
-                </div>
-              </div>
-            </div>
-            
-            
-          </div>
-        
 
           <!-- Graficos -------------------------------------------------------------
           <div class="row">
