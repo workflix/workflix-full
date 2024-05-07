@@ -8,8 +8,9 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave.component';
-import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { BusquedaProfesionalComponent } from './pages/busqueda-profesional/busqueda-profesional.component';
+import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
