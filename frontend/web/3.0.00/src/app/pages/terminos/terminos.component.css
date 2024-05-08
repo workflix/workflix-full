@@ -1,7 +1,44 @@
 .modal-content {
+  position: fixed;
+  top: 50%; /* Coloca el modal en el centro verticalmente */
+  left: 50%; /* Coloca el modal en el centro horizontalmente */
+  transform: translate(-50%, -50%); /* Centra el modal tanto vertical como horizontalmente */
+  width: 100%; 
+  margin-top: 100px;
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  max-width: 1000px; /* Establece un ancho máximo opcional para el formulario */
+  margin: 0 auto; /* Centra el formulario horizontalmente en la página */
+  min-width: 400px;
+  z-index: 1000; /* 
+  max-height: 500px;
+  overflow-y: auto; */
 }
-  
+
+.modal-body {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.encabezado-2{
+  text-align: center;
+  margin: 10px 0 20px 0;
+  font-weight: 400;
+  color: #6c757d;
+}
+
+
+
+@media (max-width: 767px) {
+  .modal-content {
+    width: 100% !important;
+  }
+}
+
+@media screen  and (max-width: 450px)  {
+    .modal-content{
+      margin-bottom: 30px;
+    }
+}
