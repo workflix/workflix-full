@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ElementRef } from '@angular/core'
 import { Router } from '@angular/router';
 import { CommonModule} from '@angular/common';
 import { UserService } from '../../services/user.service';
