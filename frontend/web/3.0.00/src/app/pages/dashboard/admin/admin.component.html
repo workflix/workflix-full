@@ -1,0 +1,203 @@
+<main id="main" class="main">
+
+
+<div class="container-scroller">
+   
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item nav-profile">
+            <a href="#" class="nav-link">
+              <div class="nav-profile-image">
+                <img src="assets/images/profesional-2.jpg" alt="profile">
+                <span class="login-status online"></span>
+                <!--cambiar a fuera de línea u ocupado según sea necesario-->
+              </div>
+              <div class="nav-profile-text d-flex flex-column">
+                <span class="font-weight-bold mb-2">David Lucas</span>
+                <span class="text-secondary text-small">Manager</span>
+              </div>
+              <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span class="menu-title">Dashboard</span>
+             
+              <div class="container">
+                
+                
+                 <span class="bi bi-bar-chart-line"></span> </div>
+              
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <span class="menu-title">Configuración</span>
+              <div class="container"> 
+                
+                <span class="bi bi-gear-fill"></span> </div>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="bi bi-file-lock" href="#">Usuario</a></li>
+                <li class="nav-item"> <a class="bi bi-file-lock" href="#">Perfil</a></li>
+              </ul>
+            </div>
+          </li>
+          
+          
+          <li class="nav-item sidebar-actions">
+            <span class="nav-link">
+              <div class="border-bottom">
+                <h6 class="font-weight-normal mb-3">Projects</h6>
+              </div>
+              <button class="btn btn-block btn-lg btn-gradient-primary mt-4">Botón</button>
+              <div class="mt-4">
+                <div class="border-bottom">
+                  <p class="text-secondary">Categories</p>
+                </div>
+                <ul class="gradient-bullet-list mt-4">
+                  <li>xxxx</li>
+                  <li>Salir</li>
+                </ul>
+              </div>
+            </span>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="page-header">
+            <h3 class="page-title">
+              <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                <i class="bi bi-hdd-stack"></i>
+              </span> Dashboard
+            </h3>
+            <nav aria-label="breadcrumb">
+              <ul class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">
+                  <span></span>Vista <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Tabla de Profesionales</h4>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          
+                          <th>Id</th>
+                          <th>Nombre</th>
+                          <th>Apellido</th>
+                          <th>Tipo</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let elemento of elemento()">
+                          
+                          <td>{{ elemento.id }}</td>
+                          <td>{{ elemento.Nombre }}</td>
+                          <td>{{ elemento.Apellido }}</td>
+                          <td>{{ elemento.tipo }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          
+          <div class="row">
+            <div class="col-md-12 stretch-card grid-margin">
+              <div class="card bg-gradient-danger card-img-holder text-white">
+                <div class="card-body">
+                 
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+
+
+
+          <!-- Graficos -------------------------------------------------------------
+          <div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="clearfix">
+                    <h4 class="card-title float-left">Visit And Sales Statistics</h4>
+                    <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
+                  </div>
+                  <canvas id="visit-sale-chart" class="mt-4"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Traffic Sources</h4>
+                  <canvas id="traffic-chart"></canvas>
+                  <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                </div>
+              </div>
+            </div>
+          </div>--->
+
+
+
+
+
+
+          <div class="row">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  
+                  <div class="table-responsive">
+                    <div class="row">
+                      
+                    </div>
+                    
+                    
+
+                    
+                    
+
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>         
+        </div> 
+        <!--  -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Worflix 2024</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+</main>
