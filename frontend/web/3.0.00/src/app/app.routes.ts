@@ -16,8 +16,8 @@ import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'registrarse', component: RegistrarseComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
