@@ -14,6 +14,7 @@ body {
 
 img {
   border-radius: 50%; /* Esto hace que la imagen tenga bordes redondeados */
+  justify-content: center;
   width: 80%; /* Esto hace que la imagen ocupe el 100% del ancho de su contenedor */
   height: auto; /* Esto permite que la altura de la imagen se ajuste automáticamente para mantener la proporción */
   display: block; /* Esto asegura que la imagen se comporte como un bloque y ocupe todo el ancho disponible */
