@@ -2,18 +2,23 @@ import { HttpStatusCode } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 /*
 import { ResultadoApi } from 'src/app/models/modelo.resultado';
 import { TipoUsuario } from 'src/app/models/modelo.usuario';*/
 import { RegisterService } from '../../services/register.service';
 import { UserService} from '../../services/user.service' ;
-import { Router } from '@angular/router';
 import { User } from '../../models/user';
+
+import { ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TerminosComponent } from '../terminos/terminos.component';
+import { IngresarComponent } from '../ingresar/ingresar.component';
 
 @Component({
   selector: 'app-registrarse',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, RouterModule, IngresarComponent],
   templateUrl: './registrarse.component.html',
   styleUrl: './registrarse.component.css',
   providers: [RegisterService, UserService]
@@ -23,18 +28,35 @@ export class RegistrarseComponent {
   registrarForm!: FormGroup
   usuarios = { fname: '', lname: '', mail: '', password: '', phone: '' }
 
+  
+
   /* @Input() resultado: ResultadoApi;*/
 
-  constructor(private fb: FormBuilder,  private registerService: RegisterService,  private router: Router) {
-    /* this.resultado = {
-      mensaje: "",
-      data: {},
-      status: 0 as HttpStatusCode
-    } */
-  }
+  @ViewChild('modal') modal!: TerminosComponent; // Referencia al componente modal
+
+
+
+constructor(
+  private fb: FormBuilder,
+  private registerService: RegisterService,
+  private router: Router,
+  public dialog: MatDialog // Agrega MatDialog aquí
+) { }
+
+openDialog() {
+  const dialogRef = this.dialog.open(TerminosComponent, {
+    // Opciones del modal como ancho, hasBackdrop, etc.
+  });
+
+  // Manejar cierre del modal
+  dialogRef.afterClosed().subscribe(result => {
+    // Acciones a realizar tras cerrar el modal
+  });
+}
 
   ngOnInit(): void {
     this.registrarForm = this.fb.group({
+
       fname: [this.usuarios.fname, [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
       lname: [this.usuarios.lname, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
       mail: [this.usuarios.mail, [Validators.required, Validators.minLength(10), Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[^,;\s]+(?:.[a-zA-Z0-9-]+)$"), Validators.maxLength(45)]],
@@ -42,6 +64,7 @@ export class RegistrarseComponent {
 /*       user: [this.usuarios.user, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]], */
       password: [this.usuarios.password, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       phone: [this.usuarios.phone, [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      aceptoTerminos: [false, Validators.requiredTrue] // Inicializado con false
     });
   }
 

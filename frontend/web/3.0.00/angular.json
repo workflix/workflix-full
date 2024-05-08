@@ -25,9 +25,29 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
+              "src/assets/css/vendor.bundle.base.css",              
+              "src/assets/css/style.css",
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              
+              
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/vendor.bundle.base.js",
+              "src/assets/js/Chart.min.js",
+              "src/assets/js/jquery.cookie.js",
+              "src/assets/js/off-canvas.js",
+              "src/assets/js/hoverable-collapse.js",
+              "src/assets/js/misc.js",
+              "src/assets/js/dashboard.js",
+              "src/assets/js/todolist.js"
+
+
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -89,9 +109,27 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.min.css",
+              
+              "src/assets/css/vendor.bundle.base.css",
+              "src/assets/css/style.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+              
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/vendor.bundle.base.js",
+              "src/assets/js/Chart.min.js",
+              "src/assets/js/jquery.cookie.js",
+              "src/assets/js/off-canvas.js",
+              "src/assets/js/hoverable-collapse.js",
+              "src/assets/js/misc.js",
+              "src/assets/js/dashboard.js",
+              "src/assets/js/todolist.js"
+            ]
           }
         }
       }
