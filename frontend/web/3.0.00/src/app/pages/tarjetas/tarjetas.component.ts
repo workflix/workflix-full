@@ -5,12 +5,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 
+import { RouterModule } from '@angular/router';
+import { ValoracionPerfilComponent } from '../valoracion-perfil/valoracion-perfil.component';
+
+
 @Component({
   selector: 'app-tarjetas',
   standalone:true,
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.css'],
-  imports: [NavBarComponent]
+  imports: [NavBarComponent, RouterModule, ValoracionPerfilComponent]
 })
 export class TarjetasComponent implements OnInit {
   title: string = "List the users";
