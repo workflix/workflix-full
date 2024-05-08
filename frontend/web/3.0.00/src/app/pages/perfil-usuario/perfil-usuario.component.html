@@ -33,38 +33,40 @@
                  <div class="tab-content pt-2">
 
                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                       <h5 class="card-title">A cerca de</h5>
-                       <p class="small fst-italic">"Pintora profesional con experiencia en proyectos residenciales y comerciales. Ofrezco servicios de alta calidad, atención al detalle y soluciones efectivas. Confiable, eficiente y comprometida.".</p>
-                       <h5 class="card-title">Detalles de perfil</h5>
+                       
                        <ng-container>
                         @if (this.currentUser) {
+                           <h5 class="card-title">A cerca de</h5>
+                           <p class="small fst-italic">{{ this.currentUser.descripcion }}</p>
+                           <div class="linea"></div>
+                           <h5 class="card-title">Detalles de perfil</h5>
 
-                        <div class="row">
-                          <div class="text col-lg-3 col-md-4 label ">Nombre y Apellido:</div>
-                          <div class="col-lg-9 col-md-8">{{ this.currentUser.nombre }} {{ this.currentUser.apellido }}</div>
-                        </div>
-                        <div class="row">
-                          <div class="text col-lg-3 col-md-4 label">Correo Electrónico:</div>
-                          <div class="col-lg-9 col-md-8">{{ this.currentUser.correo }}</div>
-                        </div>
-                        <div class="row">
-                          <div class="text col-lg-3 col-md-4 label">Dirección:</div>
-                          <div class="col-lg-9 col-md-8">{{ this.currentUser.direccion }}</div>
-                        </div>
-                        <div class="row">
-                          <div class="text col-lg-3 col-md-4 label">País</div>
-                          <div class="col-lg-9 col-md-8">Argentina</div>
-                        </div>
+                           <div class="row">
+                           <div class="text col-lg-3 col-md-4 label ">Nombre y Apellido:</div>
+                           <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.nombre }} {{ this.currentUser.apellido }}</div>
+                           </div>
+                           <div class="row">
+                           <div class="text col-lg-3 col-md-4 label">Correo Electrónico:</div>
+                           <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.correo }}</div>
+                           </div>
+                           <div class="row">
+                           <div class="text col-lg-3 col-md-4 label">Dirección:</div>
+                           <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.direccion }}</div>
+                           </div>
+                           <div class="row">
+                           <div class="text col-lg-3 col-md-4 label">País</div>
+                           <div class="text-2 col-lg-9 col-md-8">Argentina</div>
+                           </div>
 
-                        <div class="row">
-                          <div class="text col-lg-3 col-md-4 label">Teléfono:</div>
-                          <div class="col-lg-9 col-md-8">{{ this.currentUser.telefono }}</div>
-                        </div>
-                        <!-- <div class="row">
-                          <div class="col-lg-3 col-md-4 label">NOMBRE DE USUARIO:</div>
-                          <div class="col-lg-9 col-md-8">{{ this.currrentUser.usuario }}</div>
-                        </div> -->
-                        }
+                           <div class="row">
+                           <div class="text col-lg-3 col-md-4 label">Teléfono:</div>
+                           <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.telefono }}</div>
+                           </div>
+                           <!-- <div class="row">
+                           <div class="col-lg-3 col-md-4 label">NOMBRE DE USUARIO:</div>
+                           <div class="col-lg-9 col-md-8">{{ this.currrentUser.usuario }}</div>
+                           </div> -->
+                           }
                         </ng-container>
                       
                      </div>
