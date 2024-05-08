@@ -76,8 +76,9 @@ export class PerfilUsuarioComponent implements OnInit {
       this.userService.updateUser(updateUser).subscribe({
         next: (usuarioNuevo: User | null) => {
           if (usuarioNuevo) {
-            this.loginService.currentUser.next(usuarioNuevo);
-            alert('Datos actualizados');
+            this.usuario = usuarioNuevo
+/*          this.loginService.currentUser.next(usuarioNuevo);
+ */         alert('Datos actualizados');
           } else {
             alert('Los datos no han sido actualizados');
           }
