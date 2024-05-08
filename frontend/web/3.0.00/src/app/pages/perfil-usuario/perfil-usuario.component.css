@@ -20,7 +20,9 @@ img {
   display: block; /* Esto asegura que la imagen se comporte como un bloque y ocupe todo el ancho disponible */
   max-width: 100%;
 }
-
+.btn {
+  justify-content: center;
+}
 .ng-valid:not(form).ng-touched {
  border-bottom: 5px solid #42a948;
 }
