@@ -33,4 +33,12 @@ export class DashboardComponent {
     this.direccion = '';
     this.telefono = undefined;
  }
+ getAllUsers(){
+  this.userService.getAllUsers()
+  .subscribe((resultData: any)=>
+  {
+      console.log(resultData);
+      this.userArray = resultData;
+  });
+}
 }
