@@ -40,4 +40,18 @@ export class DashboardComponent {
       this.userArray = resultData;
   });
 }
+// Pasar datos de un componente a otro
+setUpdate(data: any){
+  if (data) {
+this.nombre  = data.nombre;
+this.apellido = data.apellido;
+this.direccion = data.direccion;
+this.telefono = data.telefono;
+
+ this.currentUserId = data.id;
+ this.router.navigate(['/dashboard/user-create'], { state: { data: data } });
+}else {
+  console.log('ERROR WHILE EDITING')
+}
+}
 }
