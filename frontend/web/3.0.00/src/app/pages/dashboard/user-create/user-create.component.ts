@@ -77,15 +77,4 @@ export class UserCreateComponent {
 
 ngOnInit() {
   const userData = history.state.data;
-  if(userData){
-    this.nombre = userData.nombre;
-    this.apellido = userData.apellido;
-    this.direccion = userData.direccion;
-    this.telefono = userData.telefono;
-    this.currentUserId = userData.id;
-    this.editingMode = 1;
-  }else{
-    console.log('ERROR RECEIVING DATA')
-  }
-}
-}
+ 
