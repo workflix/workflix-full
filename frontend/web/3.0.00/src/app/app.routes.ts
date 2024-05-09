@@ -11,6 +11,8 @@ import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave
 import { BusquedaProfesionalComponent } from './pages/busqueda-profesional/busqueda-profesional.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-perfil.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
 
 
 export const routes: Routes = [
@@ -20,12 +22,14 @@ export const routes: Routes = [
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
-/*   { path: 'admindash', component: AdminComponent }, */
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuard] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
-  { path: 'valoracion', component: ValoracionPerfilComponent }
+  { path: 'valoracion', component: ValoracionPerfilComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard/user-create', component: UserCreateComponent},
+
 
 ];

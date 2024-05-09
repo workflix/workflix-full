@@ -33,7 +33,7 @@ export class PerfilUsuarioComponent implements OnInit {
       phone: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
     });
   }
-  
+
   ngOnInit(): void {
     this.loginService.getCurrentUser().subscribe(
       user => {
@@ -62,29 +62,29 @@ export class PerfilUsuarioComponent implements OnInit {
   get password() { return this.perfilForm.get('password'); }
   get phone() { return this.perfilForm.get('phone'); }
 
-  onSubmit(): void {
-    if (this.usuario) {
-      const updateUser: User = {
-        ...this.usuario, 
-        correo: this.mail?.value, 
-        direccion: this.adress?.value, 
-        clave: this.password?.value, 
-        telefono: this.phone?.value, 
-      };
+//   onSubmit(): void {
+//     if (this.usuario) {
+//       const updateUser: User = {
+//         ...this.usuario,
+//         correo: this.mail?.value,
+//         direccion: this.adress?.value,
+//         clave: this.password?.value,
+//         telefono: this.phone?.value,
+//       };
 
-      this.userService.updateUser(updateUser).subscribe({
-        next: (usuarioNuevo: User | null) => {
-          if (usuarioNuevo) {
-            this.usuario = usuarioNuevo
-/*          this.loginService.currentUser.next(usuarioNuevo);
- */         alert('Datos actualizados');
-          } else {
-            alert('Los datos no han sido actualizados');
-          }
-        },
-        error: (error: any) => {
-          alert('Error al cargar los datos');
-        }
-      });
-    }}
+//       this.userService.updateUser(updateUser).subscribe({
+//         next: (usuarioNuevo: User | null) => {
+//           if (usuarioNuevo) {
+//             this.usuario = usuarioNuevo
+// /*          this.loginService.currentUser.next(usuarioNuevo);
+//  */         alert('Datos actualizados');
+//           } else {
+//             alert('Los datos no han sido actualizados');
+//           }
+//         },
+//         error: (error: any) => {
+//           alert('Error al cargar los datos');
+//         }
+//       });
+//     }}
 }
