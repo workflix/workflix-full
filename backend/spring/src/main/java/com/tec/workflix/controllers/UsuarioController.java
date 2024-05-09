@@ -50,15 +50,15 @@ public class UsuarioController {
         }
         return "Se actualizó con éxito!";
     }
-
-    @PostMapping("/eliminar/{id}")
-    public String delete(@PathVariable int id,Model model) {
-        int r=service.delete(id);
-        if(r==0) {
+    @DeleteMapping("/eliminar/{id}")
+    public String delete(@PathVariable int id, Model model) {
+        int r = service.delete(id);
+        if (r == 0) {
             return "Registro No Eliminado!";
         }
         return "Registro Eliminado!";
     }
+
 
 }
 /*
@@ -70,5 +70,14 @@ public class UsuarioController {
             return "No se pudo Actualizar!";
         }
         return "Se actualizó con éxito!";
+    }
+
+      @PostMapping("/eliminar/{id}")
+    public String delete(@PathVariable int id,Model model) {
+        int r=service.delete(id);
+        if(r==0) {
+            return "Registro No Eliminado!";
+        }
+        return "Registro Eliminado!";
     }
 */
