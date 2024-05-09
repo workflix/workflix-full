@@ -1,0 +1,29 @@
+/* site.component.css */
+.abstract-1 {
+  position: absolute;
+  left: 0;
+  top: -20px;
+  z-index: 2;
+}
+
+.logo img,
+.mockup img {
+  max-width: 100%;
+  height: auto;
+}
+
+.logo {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.mockup {
+  text-align: center;
+}
+
+/* Media Query para dispositivos móviles */
+@media (max-width: 767px) {
+  .abstract-1 img {
+      width: 35%;
+  }
+}
