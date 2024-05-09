@@ -6,3 +6,10 @@
     color:#60D5AB !important;
 }
 
+.navbar :hover{
+    color:#60D5AB !important;
+}
+
+.navbar :active{
+    color: #60D5AB !important;
+}
