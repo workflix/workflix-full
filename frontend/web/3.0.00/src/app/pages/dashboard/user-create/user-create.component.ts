@@ -15,5 +15,6 @@ import { UserService } from '../../../services/user.service';
 })
 export class UserCreateComponent {
   userArray : any[] = [];
-  
+  error: string = '';
+
 }
