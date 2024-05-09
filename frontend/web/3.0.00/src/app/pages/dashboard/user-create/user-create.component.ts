@@ -47,6 +47,6 @@ export class UserCreateComponent {
      this.error = 'Debe completar todos los campos';
     }
  }
-
+ onSubmitUpdate(nombre: string, apellido: string, telefono: string)
 
 }
