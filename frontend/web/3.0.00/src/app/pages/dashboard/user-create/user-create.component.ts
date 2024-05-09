@@ -92,7 +92,9 @@ ngOnInit() {
 validations(){
   if (!this.nombre || !this.apellido || !this.direccion || !this.telefono) {
     this.clearFieldsUser();
-    return; 
+    return;
 }
 
-}
+const phoneString = this.telefono.toString();
+
+
