@@ -22,8 +22,7 @@ export class DashboardComponent {
 
   constructor(private http: HttpClient, private router: Router, private userService: UserService)
   {
-
-
+    this.getAllUsers();
   }
 
   clearFieldsUser(){
