@@ -14,5 +14,6 @@ import { UserService } from '../../../services/user.service';
   styleUrl: './user-create.component.css'
 })
 export class UserCreateComponent {
-
+  userArray : any[] = [];
+  
 }
