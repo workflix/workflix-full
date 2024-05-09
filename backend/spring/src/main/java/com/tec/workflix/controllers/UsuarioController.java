@@ -31,16 +31,16 @@ public class UsuarioController {
         }
         return "Se registró con éxito!";
     }
-
-    @PostMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{id}")
     public String save(@RequestBody Usuario usuario, @PathVariable int id, Model model) {
         usuario.setId(id);
-        int r=service.edit(usuario);
-        if(r==0) {
+        int r = service.edit(usuario);
+        if (r == 0) {
             return "No se pudo Actualizar!";
         }
         return "Se actualizó con éxito!";
     }
+
     @PostMapping("/perfil/{id}")
     public String updatePerfil(@RequestBody Usuario usuario, @PathVariable int id, Model model){
         usuario.setId(id);
@@ -61,3 +61,14 @@ public class UsuarioController {
     }
 
 }
+/*
+   @PostMapping("/actualizar/{id}")
+    public String save(@RequestBody Usuario usuario, @PathVariable int id, Model model) {
+        usuario.setId(id);
+        int r=service.edit(usuario);
+        if(r==0) {
+            return "No se pudo Actualizar!";
+        }
+        return "Se actualizó con éxito!";
+    }
+*/
