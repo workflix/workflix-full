@@ -12,5 +12,6 @@ import { UserService } from '../../services/user.service';
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
-
+  userArray : any[] = [];
+  
 }
