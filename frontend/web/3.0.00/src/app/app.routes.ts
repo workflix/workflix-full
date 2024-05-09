@@ -12,6 +12,7 @@ import { BusquedaProfesionalComponent } from './pages/busqueda-profesional/busqu
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-perfil.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
 
 
 export const routes: Routes = [
@@ -27,6 +28,8 @@ export const routes: Routes = [
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
   { path: 'valoracion', component: ValoracionPerfilComponent },
-  { path: 'dashboard', component: DashboardComponent }
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard/user-create', component: UserCreateComponent},
+
 
 ];
