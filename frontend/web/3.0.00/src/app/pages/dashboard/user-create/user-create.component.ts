@@ -46,8 +46,7 @@ export class UserCreateComponent {
     }else{
      this.error = 'Debe completar todos los campos';
     }
- }
- onSubmitUpdate(nombre: string, apellido: string, telefono: string): void {
+ } onSubmitUpdate(nombre: string, apellido: string, telefono: string): void {
   if (nombre && apellido && telefono) {
     const bodyData = {
       nombre: nombre,
@@ -57,16 +56,12 @@ export class UserCreateComponent {
 
     this.userService.updateUser(+this.currentUserId, bodyData).subscribe(
       response => {
-        // Manejar la respuesta exitosa aquí
         console.log('Actualizacion exitosa:', response);
-
-        // Limpiar campos después de guardar exitosamente
         this.clearFieldsUser();
         this.router.navigate(['/dashboard']);
 
       },
       error => {
-        // Manejar el error aquí
         console.error('No se pudo actualizar correctamente:', error);
       }
     );
@@ -105,9 +100,10 @@ if (this.nombre.length < 2 || this.apellido.length < 2 || this.direccion.length 
   }
 
   clearFieldsUser(){
-    // Clear fields after successful saving
     this.nombre = '';
     this.apellido = '';
     this.direccion = '';
     this.telefono = '';
  }
+
+}
