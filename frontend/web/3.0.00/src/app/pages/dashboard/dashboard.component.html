@@ -1,4 +1,16 @@
 <div class="container mx-auto" >
+  <div class="header">
+    @if (userArray.length > 0) {
+     <ng-container>
+       <h1>Usuarios registrados</h1>
+     </ng-container>
+    }@else {
+      <ng-template #noCustomers>
+        <h1>No hay usuarios registrados</h1>
+      </ng-template>
+    }
 
+     <button type="button" class="btn btn-success submitDashboard mov" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
+    </div>
 
 </div>
