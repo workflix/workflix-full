@@ -13,5 +13,11 @@ import { UserService } from '../../services/user.service';
 })
 export class DashboardComponent {
   userArray : any[] = [];
-  
+
+  nombre: string ="";
+  apellido: string ="";
+  direccion: string ="";
+  telefono: number | undefined = undefined;
+  currentUserId = "";
+
 }
