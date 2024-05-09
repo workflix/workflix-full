@@ -88,4 +88,11 @@ ngOnInit() {
     console.log('ERROR RECEIVING DATA')
   }
 }
+
+validations(){
+  if (!this.nombre || !this.apellido || !this.direccion || !this.telefono) {
+    this.clearFieldsUser();
+    return; 
+}
+
 }
