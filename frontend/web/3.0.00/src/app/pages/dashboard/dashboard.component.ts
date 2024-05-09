@@ -26,4 +26,11 @@ export class DashboardComponent {
 
   }
 
+  clearFieldsUser(){
+    // Clear fields after successful saving
+    this.nombre = '';
+    this.apellido = '';
+    this.direccion = '';
+    this.telefono = undefined;
+ }
 }
