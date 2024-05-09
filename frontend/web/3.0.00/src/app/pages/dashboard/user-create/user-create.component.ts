@@ -23,4 +23,8 @@ export class UserCreateComponent {
   telefono: number | string = "" ;
   editingMode: number = 0;
   currentUserId = "";
+
+  constructor(private http: HttpClient, private router: Router, private registerService: RegisterService, private userService: UserService)
+  {
+  }
 }
