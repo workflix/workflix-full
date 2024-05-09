@@ -37,10 +37,16 @@ export class UserService {
     );
 }
 
-  deleteUser(id: number): Observable<User> {
-    return this.http.delete<User>(this.url + '/' + id);
-  }
+deleteUser(id: number): Observable<string> {
+  const url = `http://localhost:8080/usuarios/eliminar/${id}`;
+  return this.http.delete<string>(url, { responseType: 'text' as 'json' })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError('Error al eliminar el usuario');
+      })
+    );
 
+  }
   cargarUsuarios() {
     return new Promise<void>( (resolve, reject)=>{
       this.http.get<User[]>(this.url+'/listar').subscribe((resp: User[]) => {

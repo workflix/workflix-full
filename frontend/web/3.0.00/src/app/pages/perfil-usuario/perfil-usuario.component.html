@@ -3,13 +3,13 @@
 
   <section class="section profile">
      <div class="row">
-      
+
         <div class="col-xl-4">
            <div id="cardperfil" class="card">
               <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                 <ng-container *ngIf="usuario">
                   <div class="container">
-                     <div class="row"> 
+                     <div class="row">
                      <div class="rectangle">Plomero</div>
                      </div>
                   </div>
@@ -33,7 +33,7 @@
                  <div class="tab-content pt-2">
 
                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                       
+
                        <ng-container>
                         @if (this.currentUser) {
                            <h5 class="card-title">A cerca de</h5>
@@ -68,7 +68,7 @@
                            </div> -->
                            }
                         </ng-container>
-                      
+
                      </div>
                     <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
                        <form>
@@ -81,7 +81,7 @@
                                  <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image">
                                     <i class="bi bi-upload"></i>Buscar foto
                                     <input type="file" id="profileImage" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;">
-                                 </a> 
+                                 </a>
                                  <a href="#" class="btn btn-danger btn-sm ms-2" title="Remove my profile image">
                                     <i class="bi bi-trash"></i>Eliminar foto
                                  </a>
@@ -93,7 +93,7 @@
                               @if (this.currentUser) {
                                  <div class="row">
                                     <div class="column">
-                                       <form class="container-fluid" [formGroup]="perfilForm" (ngSubmit)="onSubmit()">
+                                       <form class="container-fluid" [formGroup]="perfilForm">
                                           <label for="mail">Correo electrónico:</label><br>
                                              <input class="form-control" type="email" formControlName="mail" id="mail" name="mail" placeholder="Nuevo correo electrónico" value="{{this.currentUser.correo}}" required>
                                                 <div *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)" class="text-danger">
