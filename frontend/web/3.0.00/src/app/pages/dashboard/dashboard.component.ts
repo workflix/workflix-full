@@ -20,4 +20,10 @@ export class DashboardComponent {
   telefono: number | undefined = undefined;
   currentUserId = "";
 
+  constructor(private http: HttpClient, private router: Router, private userService: UserService)
+  {
+
+
+  }
+
 }
