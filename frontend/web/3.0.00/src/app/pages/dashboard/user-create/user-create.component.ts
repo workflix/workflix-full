@@ -100,6 +100,14 @@ const phoneString = this.telefono.toString();
 if (this.nombre.length < 2 || this.apellido.length < 2 || this.direccion.length < 5 || phoneString.length < 10 ){
 
     this.clearFieldsUser();
-    return; 
+    return;
 }
   }
+
+  clearFieldsUser(){
+    // Clear fields after successful saving
+    this.nombre = '';
+    this.apellido = '';
+    this.direccion = '';
+    this.telefono = '';
+ }
