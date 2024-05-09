@@ -58,7 +58,8 @@ this.telefono = data.telefono;
 deleteUser(data: any){
   this.userService.deleteUser(data.id).subscribe((resultData: any)=>
   {
-      
+      this.getAllUsers();
+      this.router.navigate(['/dashboard'])
   });
 
 }
