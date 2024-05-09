@@ -54,4 +54,12 @@ this.telefono = data.telefono;
   console.log('ERROR WHILE EDITING')
 }
 }
+
+deleteUser(data: any){
+  this.userService.deleteUser(data.id).subscribe((resultData: any)=>
+  {
+      
+  });
+
+}
 }
