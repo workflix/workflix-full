@@ -21,7 +21,7 @@ export const routes: Routes = [
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
-  { path: 'admindash', component: AdminComponent },
+/*   { path: 'admindash', component: AdminComponent }, */
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuard] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
