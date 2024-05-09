@@ -27,4 +27,8 @@ export class UserCreateComponent {
   constructor(private http: HttpClient, private router: Router, private registerService: RegisterService, private userService: UserService)
   {
   }
+
+  onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
+  
+
 }
