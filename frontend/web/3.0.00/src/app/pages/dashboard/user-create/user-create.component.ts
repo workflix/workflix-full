@@ -9,7 +9,7 @@ import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-user-create',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './user-create.component.html',
   styleUrl: './user-create.component.css'
 })
