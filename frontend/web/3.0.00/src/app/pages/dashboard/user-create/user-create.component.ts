@@ -29,6 +29,24 @@ export class UserCreateComponent {
   }
 
   onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
-  
+    if(nombre && apellido && correo && clave && telefono){
+     this.registerService.registerUser(nombre, apellido, correo, clave, telefono)
+     .subscribe(
+       response => {
+         console.log('Registro exitoso:', response);
+      this.clearFieldsUser();
+      this.router.navigate(['/dashboard'])
+
+       },
+       error => {
+         console.error(error);
+         console.log('No se pudo registrar correctamente: ' + error);
+       }
+     );
+    }else{
+     this.error = 'Debe completar todos los campos';
+    }
+ }
+
 
 }
