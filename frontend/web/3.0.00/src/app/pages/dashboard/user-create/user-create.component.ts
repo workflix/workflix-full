@@ -17,4 +17,10 @@ export class UserCreateComponent {
   userArray : any[] = [];
   error: string = '';
 
+  nombre: string ="";
+  apellido: string ="";
+  direccion: string ="";
+  telefono: number | string = "" ;
+  editingMode: number = 0;
+  currentUserId = "";
 }
