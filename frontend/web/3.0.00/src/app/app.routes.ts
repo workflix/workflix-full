@@ -11,6 +11,7 @@ import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave
 import { BusquedaProfesionalComponent } from './pages/busqueda-profesional/busqueda-profesional.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-perfil.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 export const routes: Routes = [
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
-  { path: 'valoracion', component: ValoracionPerfilComponent }
+  { path: 'valoracion', component: ValoracionPerfilComponent },
+  { path: 'dashboard', component: DashboardComponent }
 
 ];
