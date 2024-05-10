@@ -31,6 +31,7 @@ public class Usuario {
     private String foto;
     @Column
     private String profesion;
+    private String tipoUsuario; // Nuevo atributo para el tipo de usuario
 
 
     public int getId() {
