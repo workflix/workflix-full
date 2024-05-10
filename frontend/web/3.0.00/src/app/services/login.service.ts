@@ -43,7 +43,9 @@ export class LoginService {
   isloggedInAsCliente(): Observable<boolean> {
     return this.loggedInAsCliente.asObservable();
   }
- 
+  isloggedInAsProfesional(): Observable<boolean> {
+    return this.loggedInAsProfesional.asObservable();
+  }
   logout(): void {
     this.loggedIn.next(false);
     this.currentUser.next(null);
