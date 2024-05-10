@@ -36,6 +36,11 @@ export class LoginService {
   getCurrentUser(): Observable<User | null> {
     return this.currentUser.asObservable();
   }
+
+  isloggedInAsAdmin(): Observable<boolean> {
+    return this.loggedInAsAdmin.asObservable();
+  }
+ 
   logout(): void {
     this.loggedIn.next(false);
     this.currentUser.next(null);
