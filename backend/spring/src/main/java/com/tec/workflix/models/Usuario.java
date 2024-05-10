@@ -31,6 +31,7 @@ public class Usuario {
     private String foto;
     @Column
     private String profesion;
+    @Column(name = "tipo_usuario", nullable = true, columnDefinition = "VARCHAR(255) DEFAULT NULL")
     private String tipoUsuario; // Nuevo atributo para el tipo de usuario
 
 
