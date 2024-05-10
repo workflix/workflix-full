@@ -36,7 +36,11 @@ export class IngresarComponent {
     this.loginService.login(email, password).subscribe(
       (user) => {
         console.log('Inicio de sesión exitoso', user);
+        if(user.tipoUsuario === 'admin'){
+        this.router.navigate(['/dashboard']);
+        }else{
         this.router.navigate(['/home']);
+        }
       },
       (error) => {
         this.error = 'Nombre de usuario o contraseña incorrectas';
