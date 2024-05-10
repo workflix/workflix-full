@@ -32,7 +32,7 @@ export const authGuardIsAdmin: CanActivateFn = (route: ActivatedRouteSnapshot, s
         console.log('Usuario logeado como admin: ' + loggedInAsAdmin);
         return true;
       } else {
-        const url = router.createUrlTree(['/login']);
+        const url = router.createUrlTree(['/ingresar']);
         return url;
       }
     })
@@ -49,7 +49,7 @@ export const authGuardIsCliente: CanActivateFn = (route: ActivatedRouteSnapshot,
         console.log('Usuario logeado como cliente: ' + loggedInAsCliente);
         return true;
       } else {
-        const url = router.createUrlTree(['/login']);
+        const url = router.createUrlTree(['/ingresar']);
         return url;
       }
     })
