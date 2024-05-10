@@ -12,6 +12,8 @@ export class LoginService {
   private url: string = 'http://localhost:8080/api/v1/user/login';
 
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private loggedInAsAdmin = new BehaviorSubject<boolean>(false);
+  
   private currentUser = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient) { }
