@@ -22,13 +22,13 @@ export class LoginService {
   login(email: string, password: string): Observable<User> {
     return this.http.post<User>(this.url, { correo: email, clave: password }).pipe(
       tap((user: User) => {
-        this.loggedIn.next(true);
+        console.log('Usuario obtenido:', user);
+        console.log('ESTOY CONECTADO COMO: '+user.tipoUsuario)
         this.currentUser.next(user);
-
+       
       })
     );
   }
-
 
   isLoggedIn(): Observable<boolean> {
     return this.loggedIn.asObservable();
