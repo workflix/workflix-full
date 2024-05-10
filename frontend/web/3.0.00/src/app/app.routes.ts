@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { IngresarComponent } from './pages/ingresar/ingresar.component';
-import { authGuard } from './guards/auth.guard';
+import { authGuard, authGuardIsAdmin } from './guards/auth.guard';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
@@ -28,8 +28,8 @@ export const routes: Routes = [
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
   { path: 'valoracion', component: ValoracionPerfilComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'dashboard/user-create', component: UserCreateComponent},
+  { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
+  { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] }
 
 
 ];
