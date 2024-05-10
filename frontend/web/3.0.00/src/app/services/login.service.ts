@@ -14,6 +14,7 @@ export class LoginService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   private loggedInAsAdmin = new BehaviorSubject<boolean>(false);
   private loggedInAsCliente = new BehaviorSubject<boolean>(false);
+  private loggedInAsProfesional = new BehaviorSubject<boolean>(false);
   private currentUser = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient) { }
