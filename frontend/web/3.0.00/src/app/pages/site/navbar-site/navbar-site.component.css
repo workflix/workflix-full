@@ -13,3 +13,7 @@
 .navbar :active{
     color: #60D5AB !important;
 }
+
+.nav-link:active {
+    color: #60D5AB !important;
+}
