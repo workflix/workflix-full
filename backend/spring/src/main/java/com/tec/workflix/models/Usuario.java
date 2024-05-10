@@ -2,9 +2,8 @@ package com.tec.workflix.models;
 
 
 import jakarta.persistence.*;
-
-@Table(name = "Usuario")
 @Entity
+@Table(name = "Usuario")
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,12 +31,7 @@ public class Usuario {
     private String foto;
     @Column
     private String profesion;
-    @Column(columnDefinition = "boolean default false")
-    private boolean is_admin;
 
-    public Usuario() {
-        is_admin = false; // Establecer el valor predeterminado a false en el constructor
-    }
 
     public int getId() {
         return id;
@@ -135,11 +129,5 @@ public class Usuario {
         this.profesion = profesion;
     }
 
-    public boolean isIs_admin() {
-        return is_admin;
-    }
 
-    public void setIs_admin(boolean admin) {
-        is_admin = admin;
-    }
 }
