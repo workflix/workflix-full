@@ -56,6 +56,9 @@ export class LoginService {
   }
   logout(): void {
     this.loggedIn.next(false);
+    this.loggedInAsAdmin.next(false);
+    this.loggedInAsCliente.next(false);
+    this.loggedInAsProfesional.next(false);
     this.currentUser.next(null);
     console.log('Usuario desconectado');
   }
