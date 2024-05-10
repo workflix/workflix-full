@@ -38,3 +38,20 @@ export const authGuardIsAdmin: CanActivateFn = (route: ActivatedRouteSnapshot, s
     })
   );
 };
+
+export const authGuardIsCliente: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> => {
+  const loginService = inject(LoginService);
+  const router = inject(Router);
+
+  return loginService.isloggedInAsCliente().pipe(
+    map((loggedInAsCliente: boolean) => {
+      if (loggedInAsCliente) {
+        console.log('Usuario logeado como cliente: ' + loggedInAsCliente);
+        return true;
+      } else {
+        const url = router.createUrlTree(['/login']);
+        return url;
+      }
+    })
+  );
+};
