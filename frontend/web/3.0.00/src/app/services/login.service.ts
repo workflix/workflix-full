@@ -25,7 +25,15 @@ export class LoginService {
         console.log('Usuario obtenido:', user);
         console.log('ESTOY CONECTADO COMO: '+user.tipoUsuario)
         this.currentUser.next(user);
-       
+        if(user.tipoUsuario === 'admin'){
+          this.loggedInAsAdmin.next(true);
+        }
+        if(user.tipoUsuario === 'cliente'){
+          this.loggedInAsCliente.next(true);
+        }
+        if(user.tipoUsuario === 'profesional'){
+          this.loggedInAsProfesional.next(true);
+        }
       })
     );
   }
