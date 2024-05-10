@@ -40,6 +40,9 @@ export class LoginService {
   isloggedInAsAdmin(): Observable<boolean> {
     return this.loggedInAsAdmin.asObservable();
   }
+  isloggedInAsCliente(): Observable<boolean> {
+    return this.loggedInAsCliente.asObservable();
+  }
  
   logout(): void {
     this.loggedIn.next(false);
