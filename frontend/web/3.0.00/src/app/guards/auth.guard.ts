@@ -55,3 +55,22 @@ export const authGuardIsCliente: CanActivateFn = (route: ActivatedRouteSnapshot,
     })
   );
 };
+
+
+
+export const authGuardIsProfesional: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> => {
+  const loginService = inject(LoginService);
+  const router = inject(Router);
+
+  return loginService.isloggedInAsProfesional().pipe(
+    map((loggedInAsProfesional: boolean) => {
+      if (loggedInAsProfesional) {
+        console.log('Usuario logeado como profesional: ' + loggedInAsProfesional);
+        return true;
+      } else {
+        const url = router.createUrlTree(['/ingresar']);
+        return url;
+      }
+    })
+  );
+};
