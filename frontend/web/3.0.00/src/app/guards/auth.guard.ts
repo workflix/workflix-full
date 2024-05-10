@@ -21,3 +21,20 @@ export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: R
     })
   );
 };
+
+export const authGuardIsAdmin: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> => {
+  const loginService = inject(LoginService);
+  const router = inject(Router);
+
+  return loginService.isloggedInAsAdmin().pipe(
+    map((loggedInAsAdmin: boolean) => {
+      if (loggedInAsAdmin) {
+        console.log('Usuario logeado como admin: ' + loggedInAsAdmin);
+        return true;
+      } else {
+        const url = router.createUrlTree(['/login']);
+        return url;
+      }
+    })
+  );
+};
