@@ -46,6 +46,71 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
           </div>
         </div>
+      </nav>
+
+      <div class="container-fluid">
+        <!--content-usuarios-->
+        <div *ngIf="vista === 'profesionales'">
+          <div class="header">
+            @if (userArray.length > 0) {
+             <ng-container>
+              <h1 class="mt-4">Usuarios registrados</h1>
+             </ng-container>
+            }@else {
+              <ng-template #noCustomers>
+                <h1 class="mt-4">No hay usuarios registrados</h1>
+              </ng-template>
+            }
+        
+             <button type="button" class="btn btn-success submitDashboard mov icono-b3" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
+            </div>
+        
+            <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr class="content-table">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Apellido</th>
+                          <th scope="col">Dirección</th>
+                          <th scope="col">Telefono</th>
+                          <th scope="col">Opciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @for (user of userArray; track $index) {
+                          <tr>
+                              <td>{{ user.nombre }}</td>
+                              <td>{{ user.apellido }}</td>
+                              <td>{{ user.direccion }}</td>
+                              <td>{{ user.telefono }}</td>
+                              <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                  <button type="button" class="btn icono-b1" (click)="setUpdate(user)" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                                      <i class="bi bi-pencil-fill"></i>
+                                  </button>
+                                  <button type="button" class="btn icono-b2" (click)="deleteUser(user)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                      <i class="bi bi-trash-fill"></i>
+                                  </button>
+                                </div>
+                              </td>
+                          </tr>
+                      }
+                  </tbody>
+              </table>
+          </div>
+        
+        </div>
+        <!--content-usuarios-end-->
+        
+        <!--content-servicios-->
+        <div  *ngIf="vista === 'servicios'">
+          <h1 class="mt-4">Servicios</h1>
+        </div>
+        <!--content-servicios-->
+      </div>
+
+
+        
 
 
 
