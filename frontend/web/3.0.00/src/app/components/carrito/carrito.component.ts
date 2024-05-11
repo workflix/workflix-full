@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
+import { IItem } from '../../interfaces/IItem';
 
 @Component({
   selector: 'app-carrito',
@@ -9,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class CarritoComponent implements OnInit {
 
-  public items: Array<IItem>
+  public items: Array<IItem> = [];
 
   constructor() { }
 

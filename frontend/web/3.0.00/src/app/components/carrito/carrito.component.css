@@ -1,0 +1,143 @@
+/* Variables */
+:root {
+  --main-color: #6394F8;
+  --light-text: #ABB0BE;
+}
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+/* Box sizing */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  margin: auto;
+  width: auto;
+}
+
+/* Badge */
+.badge {
+  background-color: var(--main-color);
+  border-radius: 10px;
+  color: white;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* Shopping cart */
+.shopping-cart {
+  background: white;
+  width: 320px;
+  position: relative;
+  border-radius: 3px;
+  padding: 20px;
+}
+
+.shopping-cart-header {
+  border-bottom: 1px solid #E8E8E8;
+  padding-bottom: 15px;
+}
+
+.shopping-cart-total {
+  float: right;
+}
+
+.shopping-cart-items {
+  padding-top: 20px;
+}
+
+.shopping-cart-items li {
+  margin-bottom: 18px;
+}
+
+.shopping-cart-items img {
+  float: left;
+  margin-right: 12px;
+  width: 100%;
+}
+
+.item-name {
+  display: block;
+  padding-top: 10px;
+  font-size: 16px;
+}
+
+.item-price {
+  color: var(--main-color);
+  margin-right: 8px;
+}
+
+.item-quantity {
+  color: var(--light-text);
+}
+
+.shopping-cart::after {
+  bottom: 100%;
+  left: 89%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: white;
+  border-width: 8px;
+  margin-left: -8px;
+}
+
+/* Cart icon */
+.cart-icon {
+  color: #515783;
+  font-size: 24px;
+  margin-right: 7px;
+  float: left;
+}
+
+/* Button */
+.button {
+  background: var(--main-color);
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+  border-radius: 3px;
+  font-size: 16px;
+  margin: 25px 0 15px 0;
+}
+
+.button:hover {
+  background: lighten(var(--main-color), 3%);
+}
+
+/* Clearfix */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* List styles */
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-inline-start: 0px;
+}
+
+/* Additional styling */
+.container {
+  position: absolute;
+  z-index: 1;
+  left: 63%;
+}
