@@ -7,6 +7,19 @@ import { Component } from '@angular/core';
   templateUrl: './carrito.component.html',
   styleUrl: './carrito.component.css'
 })
-export class CarritoComponent {
+export class CarritoComponent implements OnInit {
+
+  public items: Array<IItem>
+
+  constructor() { }
+
+  ngOnInit() {
+
+  }
+
+public remove(producto:IItem)
+  {
+    //Ya vamos a ver que hacemos acá
+  }
 
 }
