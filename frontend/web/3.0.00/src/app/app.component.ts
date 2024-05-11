@@ -25,10 +25,15 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 export class AppComponent {
   title = 'Workflix';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private nav:NavBarComponent) {}
 
   isSitePage(): boolean {
 
     return this.router.url.includes('site');
+  }
+  public openCart:boolean = this.nav.openCart;
+
+  public cart(){ //Se usa para abrir o cerrar el carrito
+    this.nav.cart();
   }
 }
