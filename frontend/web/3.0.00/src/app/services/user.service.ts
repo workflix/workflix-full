@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError  } from 'rxjs';
 import { User } from '../models/user';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -26,14 +28,25 @@ export class UserService {
       return this.http.get<User>(this.url + '/' + id);
   }
 
-  updateUser(user:User):Observable<User>{
-    return this.http.put<User>(this.url,user)
-  }
+  updateUser(id: number, bodyData: any): Observable<string> {
+    const url = `http://localhost:8080/usuarios/actualizar/${id}`;
+    return this.http.put<string>(url, bodyData, { responseType: 'text' as 'json' }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError('Error al actualizar el usuario');
+      })
+    );
+}
 
-  deleteUser(id: number): Observable<User> {
-    return this.http.delete<User>(this.url + '/' + id);
-  }
+deleteUser(id: number): Observable<string> {
+  const url = `http://localhost:8080/usuarios/eliminar/${id}`;
+  return this.http.delete<string>(url, { responseType: 'text' as 'json' })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError('Error al eliminar el usuario');
+      })
+    );
 
+  }
   cargarUsuarios() {
     return new Promise<void>( (resolve, reject)=>{
       this.http.get<User[]>(this.url+'/listar').subscribe((resp: User[]) => {

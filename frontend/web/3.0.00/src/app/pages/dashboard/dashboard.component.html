@@ -1,0 +1,52 @@
+<div class="container mx-auto" >
+  <div class="header">
+    @if (userArray.length > 0) {
+     <ng-container>
+       <h1>Usuarios registrados</h1>
+     </ng-container>
+    }@else {
+      <ng-template #noCustomers>
+        <h1>No hay usuarios registrados</h1>
+      </ng-template>
+    }
+
+     <button type="button" class="btn btn-success submitDashboard mov" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
+    </div>
+
+<table class="table">
+
+   <thead>
+
+   <tr>
+       <th scope="col">Nombre</th>
+       <th scope="col">Apellido</th>
+       <th scope="col">Direccion</th>
+       <th scope="col">Telefono</th>
+       <th scope="col">Opciones</th>
+     </tr>
+
+   </thead>
+
+   <tbody>
+@for (user of userArray; track $index) {
+       <tr>
+
+       <td>{{ user.nombre }}</td>
+       <td>{{ user.apellido }}</td>
+       <td>{{ user.direccion }}</td>
+       <td>{{ user.telefono }}</td>
+       <td>{{ user.descripcion}}</td>
+
+
+       <td>
+           <button type="button" class="btn btn-warning submitDashboard" (click)="setUpdate(user)">Edit</button>
+           <button type="button" class="btn btn-danger submitDashboard" (click)="deleteUser(user)">Delete</button>
+       </td>
+
+     </tr>
+    }
+   </tbody>
+
+ </table>
+
+</div>

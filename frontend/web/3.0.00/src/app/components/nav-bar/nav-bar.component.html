@@ -32,12 +32,12 @@
         <ng-container >
               @if (this.currentUser) {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
-                <a class="nav-link" [routerLink]="'/profile'">{{ currentUser.nombre }}</a>
+                <a class="nav-link" [routerLink]="'/perfil-usuario'">{{ currentUser.nombre }}</a>
 
               }@else {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/registrarse'"  >Registrarse</a></li>
-                <li class="nav-item"><a class="nav-link" [routerLink]="'/admindash'"  >dashboard</a></li>
+<!--                 <li class="nav-item"><a class="nav-link" [routerLink]="'/admindash'"  >dashboard</a></li> -->
               }
         </ng-container>
 
