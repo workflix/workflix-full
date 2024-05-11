@@ -35,7 +35,9 @@
                 <a class="nav-link" [routerLink]="'/perfil-usuario'">{{ currentUser.nombre }}</a>
                 @if (this.currentUser.tipoUsuario === 'admin') {
                   <li class="nav-item"><a class="nav-link" [routerLink]="'/dashboard'">Dashboard</a></li>
-
+                }
+                @if (this.currentUser.tipoUsuario === 'cliente') {
+                  <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-usuario'">Perfil</a></li>
                 }
               }@else {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>
