@@ -71,3 +71,29 @@ body {
       margin-left: -0!important;
     }
 }
+
+i,span,strong{
+    color: #6c757d !important;
+}
+
+a.nav-link {
+    color: #6c757d !important;
+}
+
+a.nav-link:hover {
+    color: #1FBABF !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff !important;
+    background-color: #60D5AB;
+}
+
+.icono-panel {
+    font-size: 1.4em;
+}
+
+.icono-nav {
+    font-size: 1.1em;
+}
+
