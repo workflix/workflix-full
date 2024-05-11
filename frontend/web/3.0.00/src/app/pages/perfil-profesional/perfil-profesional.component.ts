@@ -14,7 +14,7 @@ import { User } from '../../models/user';
   styleUrl: './perfil-profesional.component.css'
 })
 
-export class PerfilUsuarioComponent implements OnInit {
+export class PerfilProfesionalComponent implements OnInit {
   currentUser: any;
   perfilForm: FormGroup;
   usuario?: User;
