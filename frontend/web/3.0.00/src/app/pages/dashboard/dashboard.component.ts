@@ -3,22 +3,28 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,CommonModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 
 export class DashboardComponent {
 
+  vista: 'profesionales' | 'servicios' = 'profesionales';
+  cambiarVista(vista: 'profesionales' | 'servicios') {
+    this.vista = vista;
+  }
+
   status: boolean = false;
   clickEvent(){
       this.status = !this.status;       
   }
-  
+
   userArray : any[] = [];
 
   nombre: string ="";
