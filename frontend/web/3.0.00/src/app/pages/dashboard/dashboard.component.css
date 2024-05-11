@@ -1,3 +1,5 @@
+
+
 #main {
 	margin-top: 63px;
 }
@@ -42,4 +44,30 @@ body {
   color: #ffffff;
   background-color: #0A769D !important;
   border-color: #0A769D !important;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    .show
+    {
+      margin-left: 0!important;
+    }
+    .hide
+    {
+      margin-left: -15rem!important;
+    }
+}
+  
+@media (max-width: 767px) {
+    .hide
+    {
+      margin-left: -0!important;
+    }
 }
