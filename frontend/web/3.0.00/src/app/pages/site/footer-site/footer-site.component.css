@@ -40,3 +40,39 @@ p{
   line-height: normal;
   text-decoration-line: underline;
 }
+
+.txt-boton {
+  color: #020202;
+  text-align: center;
+  font-family: Lato;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.boton1{
+  border-radius: 84.5px;
+  border: 4px solid #60D5AB;
+  background: #FFF;
+  width: 304px;
+  height: 80px;
+}
+
+.txt-boton2{
+  color: #020202;
+  text-align: center;
+  font-family: Lato;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.boton2{
+  border-radius: 84.5px;
+  border: 4px solid #60D5AB;
+  background: #60D5AB;
+  width: 304px;
+  height: 80px;
+}
+
