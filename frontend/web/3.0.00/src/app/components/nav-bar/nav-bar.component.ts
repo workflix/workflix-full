@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 import { IngresarComponent } from '../../pages/ingresar/ingresar.component';
 import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
 import { ContactoComponent } from '../../pages/contacto/contacto.component';
+import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CarritoComponent ],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
