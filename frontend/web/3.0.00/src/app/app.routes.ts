@@ -14,7 +14,7 @@ import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
 import { SiteComponent } from './pages/site/site.component';
-
+import { PerfilProfesionalComponent } from './pages/perfil-profesional/perfil-profesional.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
@@ -25,6 +25,7 @@ export const routes: Routes = [
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
+  { path: 'perfil-profesional', component: PerfilProfesionalComponent, /* canActivate: [authGuardIsProfesional] */ },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
