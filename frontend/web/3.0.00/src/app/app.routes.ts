@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { IngresarComponent } from './pages/ingresar/ingresar.component';
-import { authGuardIsAdmin, authGuardIsCliente } from './guards/auth.guard';
+import { authGuardIsAdmin, authGuardIsCliente, authGuardIsProfesional } from './guards/auth.guard';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
@@ -25,7 +25,7 @@ export const routes: Routes = [
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
-  { path: 'perfil-profesional', component: PerfilProfesionalComponent, /* canActivate: [authGuardIsProfesional] */ },
+  { path: 'perfil-profesional', component: PerfilProfesionalComponent, canActivate: [authGuardIsProfesional] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
