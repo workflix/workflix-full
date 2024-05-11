@@ -11,7 +11,14 @@ import { UserService } from '../../services/user.service';
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
+
 export class DashboardComponent {
+
+  status: boolean = false;
+  clickEvent(){
+      this.status = !this.status;       
+  }
+  
   userArray : any[] = [];
 
   nombre: string ="";
