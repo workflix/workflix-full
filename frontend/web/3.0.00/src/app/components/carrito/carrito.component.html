@@ -6,10 +6,12 @@
         <span class="lighter-text">Total:</span>
         <span class="main-color-text">${{totalPrice}}</span>
       </div>
-    </div> <!--end shopping-cart-header -->
+    </div>
+    <!--end shopping-cart-header -->
 
+    @for (item of items; track $index) {
     <ul class="shopping-cart-items">
-      <li class="clearfix" *ngFor="let item of items">
+      <li class="clearfix">
         <img [src]="item.img" alt="item1" />
         <span class="item-name">{{item.name}}</span>
         <span class="item-price">${{item.price}}</span>
@@ -17,7 +19,7 @@
         <button type="button" class="btn btn-danger ml-4" (click)="remove(item)">Remove</button>
       </li>
     </ul>
-
+  }
     <a href="#" class="button">Checkout</a>
   </div> <!--end shopping-cart -->
 </div> <!--end container -->
