@@ -5,22 +5,7 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 
-export const authGuard: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> => {
-  const loginService = inject(LoginService);
-  const router = inject(Router);
 
-  return loginService.isLoggedIn().pipe(
-    map((loggedIn: boolean) => {
-      if (loggedIn) {
-        console.log('Usuario logeado: ' + loggedIn);
-        return true;
-      } else {
-        const url = router.createUrlTree(['/ingresar']);
-        return url;
-      }
-    })
-  );
-};
 
 export const authGuardIsAdmin: CanActivateFn = (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> => {
   const loginService = inject(LoginService);

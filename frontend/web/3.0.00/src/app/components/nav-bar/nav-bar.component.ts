@@ -24,10 +24,9 @@ export class NavBarComponent {
   constructor(private loginService:LoginService, private router:Router){}
 
   currentUser: any;
-
   logout(): void {
     this.loginService.logout();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/ingresar']);
     console.log('Usuario desconectado'+ this.loginService.getCurrentUser())
   }
 

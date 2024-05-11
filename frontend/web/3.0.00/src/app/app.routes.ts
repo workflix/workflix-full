@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { IngresarComponent } from './pages/ingresar/ingresar.component';
-import { authGuard, authGuardIsAdmin } from './guards/auth.guard';
+import { authGuardIsAdmin, authGuardIsCliente } from './guards/auth.guard';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
@@ -19,12 +19,12 @@ import { SiteComponent } from './pages/site/site.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
   { path: 'site', component: SiteComponent},
-  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'home', component: HomeComponent },
   { path: 'registrarse', component: RegistrarseComponent },
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
-  { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuard] },
+  { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },

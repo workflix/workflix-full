@@ -37,11 +37,8 @@ export class IngresarComponent {
       (user) => {
         console.log('Inicio de sesión exitoso', user);
         if(user.tipoUsuario === 'admin'){
-        this.router.navigate(['/dashboard']);
+          this.router.navigate(['/dashboard']);
         }
-        if(user.tipoUsuario === 'cliente'){
-          this.router.navigate(['/home']);
-          }
         else{
         this.router.navigate(['/home']);
         }
