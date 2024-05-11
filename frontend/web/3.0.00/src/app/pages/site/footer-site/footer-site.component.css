@@ -1,0 +1,42 @@
+.div-logo{
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+img {
+  width: 443px;
+  height: 121px;
+}
+
+.columna1{
+  width: 360px;
+  height: 67px;
+}
+
+p{
+  color: #6C757D;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.columna2{
+  width: 357px;
+  height: 111px;
+}
+
+.p2{
+  color: #6C757D;
+  text-align: center;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+}
