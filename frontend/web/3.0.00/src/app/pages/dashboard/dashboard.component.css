@@ -117,4 +117,38 @@ a.nav-link:hover {
     color: #ffffff;
 }
 
+.btn-group .btn {
+    margin-right: 10px;
+}
 
+.bi-trash-fill {
+    color: #FF6666 !important; /* Rojo más claro */
+}
+
+.bi-trash-fill:hover {
+    color: #CC0000 !important; /* Rojo más oscuro */
+}
+
+.bi-pencil-fill:hover{
+    color: #0A769D !important; /* Azul */
+}
+
+.icono-b1:focus, .icono-b2:focus {
+    outline: 0.5px solid #0A769D;
+    box-shadow: #0A769D;
+}
+
+h1{ 
+    text-align: center;
+    color: #6c757d;
+}
+
+.icono-b3 {
+    margin-top: 20px;
+    background-color: #1FBABF;
+    color: #ffffff;
+}
+
+td:hover{
+    color: #60D5AB;
+}
