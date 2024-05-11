@@ -1,7 +1,6 @@
 import { Component, Inject, Input } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ScrollingService } from '../../services/scrolling.service';
-
 import { HttpStatusCode } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
