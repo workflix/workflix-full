@@ -1,0 +1,19 @@
+.bg-light {
+    background-color: #ffffff !important;
+}
+
+.texto-menu  {
+    color:#60D5AB !important;
+}
+
+.navbar :hover{
+    color:#60D5AB !important;
+}
+
+.navbar :active{
+    color: #60D5AB !important;
+}
+
+.nav-link:active {
+    color: #60D5AB !important;
+}

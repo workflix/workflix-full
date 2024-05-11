@@ -13,12 +13,14 @@ import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/pregu
 import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-perfil.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
+import { SiteComponent } from './pages/site/site.component';
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'registrarse', component: RegistrarseComponent },
+  { path: '', redirectTo: 'site', pathMatch: 'full' },
+  { path: 'site', component: SiteComponent},
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'registrarse', component: RegistrarseComponent },
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
@@ -33,3 +35,4 @@ export const routes: Routes = [
 
 
 ];
+
