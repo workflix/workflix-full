@@ -12,12 +12,13 @@ import { NavbarSiteComponent } from './pages/site/navbar-site/navbar-site.compon
 import { FooterSiteComponent } from './pages/site/footer-site/footer-site.component';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent, FooterComponent, HomeComponent, TarjetasComponent, RecuperarClaveComponent, TerminosComponent, RegistrarseComponent, SiteComponent, NavbarSiteComponent, FooterSiteComponent, CommonModule ],
+  imports: [RouterOutlet, NavBarComponent, FooterComponent, HomeComponent, TarjetasComponent, RecuperarClaveComponent, TerminosComponent, RegistrarseComponent, SiteComponent, NavbarSiteComponent, FooterSiteComponent, CommonModule, CarritoComponent ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -27,7 +28,7 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   isSitePage(): boolean {
-   
+
     return this.router.url.includes('site');
   }
 }

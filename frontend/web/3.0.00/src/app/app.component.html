@@ -4,11 +4,11 @@
     <app-site></app-site>
     <app-footer-site></app-footer-site>
   </ng-container>
-  
+
   <ng-template #homeTemplate>
 
     <app-nav-bar></app-nav-bar>
     <router-outlet></router-outlet>
+    <app-carrito *ngIf="openCart"></app-carrito> <!--Nuestro componente carrito -->
     <app-footer></app-footer>
   </ng-template>
-  
