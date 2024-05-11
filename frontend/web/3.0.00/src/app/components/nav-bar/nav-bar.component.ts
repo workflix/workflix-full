@@ -49,6 +49,11 @@ export class NavBarComponent {
     /*console.log(termino);*/ // muestra en consola el término buscado
 
   }
+  public openCart:boolean = false;
+
+  public cart(){ //Se usa para abrir o cerrar el carrito
+    this.openCart = !this.openCart;
+  }
 }
 
 
