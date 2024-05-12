@@ -54,8 +54,18 @@
     top:1px;
   }
 
+  .pc-blanca {
+    width:100%;
+    margin-top: -150px;
+  }
   .app-web {
     background-color: #1456DF;
+    max-height: 600px;
+  }
+
+
+  .tit-site-white {
+    font-size: 3.5rem;
   }
 /* Media Query para dispositivos móviles */
 @media (max-width: 767px) {
