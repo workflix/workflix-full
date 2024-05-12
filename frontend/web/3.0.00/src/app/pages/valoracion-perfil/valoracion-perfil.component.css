@@ -4,27 +4,39 @@
         margin-left: 40px;
         margin-top: 80px;
         padding: 10px 20px;
-        background-color: #9CEE8C;
+        background-color: #60D5AB;
         color: #000000;
         border: none;
-        border-radius: 5px;
+        border-radius: 40px;
         cursor: pointer;
         width: 200px;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
     }
 
-    /* Botón Pedir Presupuesto */
-    .pedir-presupuesto {
+    .volver-btn:hover {
+      background-color: #1FBABF; /* Verde Kiwi */
+      color: #ffffff;
+    }
+
+    /* Botón Contratar */
+    .contratar-btn {
         margin-top: 70px;
         margin-left: 400px;
         padding: 10px 20px;
-        background-color: #9CEE8C;
+        background-color: #60D5AB;
         color: #000000;
-        border: none;
-        border-radius: 5px;
+        border: 4px solid #60D5AB;
+        background: #FFF;
+        border-radius: 40px;
         cursor: pointer;
         width: 200px;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+    }
+
+    .contratar-btn:hover {
+      background-color: #1FBABF; /* Verde Kiwi */
+      color: #ffffff;
+      border: 4px solid #1FBABF;
     }
 
     /* Media query para pantallas pequeñas */
@@ -122,7 +134,7 @@
         margin-left: 30px; /* Centra horizontalmente */
         width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
     }
-    
+
     .linea {
         margin-top: 20px; /* Ajusta este valor según sea necesario */
         margin-left: 30px; /* Centra horizontalmente */
@@ -147,7 +159,7 @@
 }
 
 
-    /* Banner de Calificación */ 
+    /* Banner de Calificación */
     .banner {
         margin-left: auto;
         margin-right: auto;
@@ -302,9 +314,9 @@
     position: relative; /* Habilita el posicionamiento relativo */
 
   }
-  
+
   .card img {
-    
+
     padding-left: 30px;
     margin-top: 30px;
     border-radius: 100%;
@@ -313,16 +325,16 @@
     top: 0; /* Coloca la imagen en la parte superior de la tarjeta */
     left: 110px; /* Coloca la imagen en el lado izquierdo de la tarjeta */
   }
-  
+
   .container-comentario {
     margin-left: 20%; /* Espacio a la izquierda de la tarjeta para la imagen */
   }
-  
+
   .card:hover {
     padding: 20px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
-  
+
   .container-comentario {
     padding: 22px 16px;
   }
