@@ -3,7 +3,9 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
-
+.main-color-text{
+  color: #6394F8;
+}
 /* Container */
 .container {
   margin: auto;
@@ -95,8 +97,8 @@
 
 /* Button */
 .button {
-  background: var(--main-color);
-  color: black;
+  background: #6394F8;
+  color: white;
   text-align: center;
   padding: 12px;
   text-decoration: none;
@@ -107,7 +109,8 @@
 }
 
 .button:hover {
-  background: #515783, 3% !important;
+  background: #81abfd !important;
+
 }
 
 /* Clearfix */
