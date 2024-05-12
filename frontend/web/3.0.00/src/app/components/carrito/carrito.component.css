@@ -14,9 +14,9 @@
 
 /* Badge */
 .badge {
-  background-color:wheat;
+  background: #6394F8;
+  color: white !important;
   border-radius: 10px;
-  color: rgb(19, 18, 18);
   display: inline-block;
   font-size: 12px;
   line-height: 1;
