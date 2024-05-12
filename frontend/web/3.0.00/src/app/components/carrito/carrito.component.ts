@@ -12,7 +12,6 @@ import { User } from '../../models/user';
 export class CarritoComponent implements OnInit {
 
   public items: Array<User> = [];
-
   public totalPrice:number = 0;
   public totalQuantity:number = 0;
   constructor(private _cartService:CarritoService) { }

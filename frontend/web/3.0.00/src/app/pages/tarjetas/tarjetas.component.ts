@@ -34,10 +34,10 @@ export class TarjetasComponent implements OnInit {
       users => this.users = users
     );
   }
-  public addCart(user: User)
-  {
-    console.log('Profesional almacenado correctamente')
-    this._cartService.changeCart()
+
+  public addCart(user: User){
+    console.log('Profesional almacenado correctamente: '+user);
+    this._cartService.changeCart(user);
   }
 }
 
