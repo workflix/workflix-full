@@ -65,12 +65,12 @@
 }
 
 .item-price {
-  color: var(--main-color);
+  color: gray;
   margin-right: 8px;
 }
 
 .item-quantity {
-  color: var(--light-text);
+  color: gray;
 }
 
 .shopping-cart::after {
@@ -82,7 +82,7 @@
   width: 0;
   position: absolute;
   pointer-events: none;
-  border-bottom-color: white;
+  border-bottom-color:#54b14b;
   border-width: 8px;
   margin-left: -8px;
 }
