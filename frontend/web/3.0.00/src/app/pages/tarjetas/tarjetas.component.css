@@ -8,7 +8,7 @@
 
 .cabecera-tarjeta{
     background-color: #0A769D;
-    width: 70%; 
+    width: 70%;
     color: #ffffff;
     z-index:2;
     font-size:medium;
@@ -16,10 +16,10 @@
 }
 
 .boton-cards {
-    background-color:#60D5AB; 
-    border:#60D5AB 1px solid; 
-    border-radius: 0px 0px 40px 40px; 
-    padding-bottom: 10px; 
+    background-color:#60D5AB;
+    border:#60D5AB 1px solid;
+    border-radius: 40px;
+    padding-bottom: 10px;
     padding-top: 10px;
     letter-spacing: 2px;
     transition-duration: 0.4s;
@@ -30,11 +30,30 @@
   background-color: #1FBABF; /* Verde Kiwi */
   color: #ffffff;
 }
-    
+
+.boton-cards-1 {
+  background-color:#60D5AB;
+  border:#60D5AB 1px solid;
+  border-radius: 40px;
+  border: 4px solid #60D5AB;
+  background: #FFF;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  letter-spacing: 2px;
+  transition-duration: 0.4s;
+  color: #000000;
+}
+
+.boton-cards-1:hover {
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+  border: 4px solid #1FBABF;
+}
+
 .center-form {
     display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 .img-center-wwa{
@@ -60,8 +79,8 @@ input:focus,textarea:focus{
     color: rgb(94,93,93);
 }
 
-input:focus~label, 
-input:valid~label, 
+input:focus~label,
+input:valid~label,
 textarea:focus~label, textarea:valid~label{
     position: absolute;
     top: -14px;
