@@ -19,6 +19,9 @@
           <a class="nav-link" [routerLink]="'/quienes-somos'" routerLinkActive="active" >Quiénes Somos</a>
         </li>
 
+        <li class="nav-item pt-2">
+          <a class="nav-item" id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i></a>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" >Contacto</a>
@@ -29,8 +32,7 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>-->
         </li>
-        <li class="nav-item"> <a id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i></a>
-        </li>
+
         @if (openCart) {
           <app-carrito></app-carrito>
         }

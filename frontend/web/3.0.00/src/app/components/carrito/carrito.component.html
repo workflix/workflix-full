@@ -13,7 +13,7 @@
     <ul class="shopping-cart-items">
       <li class="clearfix">
         <img src="../../../../assets/images/servicio_adquirido.png" alt="item1" style="width: 40px; height: 40px;"/>
-        <span class="item-name">{{item.nombre}}</span>
+        <span class="item-name">{{item.nombre}} {{item.apellido}}</span>
         <span class="item-price">${{item.price}}</span>
         <span class="item-quantity">Cantidad: {{item.quantity}}</span>
         <button type="button" class="btn btn-danger ml-4" (click)="remove(item)">Cancelar</button>
