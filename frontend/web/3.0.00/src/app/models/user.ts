@@ -11,8 +11,8 @@ export class User {
   descripcion: string = '';
   foto: string = '';
   tipoUsuario: string = '';
-  quantity: number = 0;
-  price:number = 0;
+  cantidad: number = 0;
+  precio:number = 0;
   constructor(
       id: number,
       nombre: string,
@@ -26,8 +26,8 @@ export class User {
       descripcion: string,
       foto: string,
       tipoUsuario: string,
-      quantity: number,
-      price:number) {
+      cantidad: number,
+      precio:number) {
       this.id = id;
       this.nombre = nombre;
       this.apellido = apellido;
@@ -40,8 +40,8 @@ export class User {
       this.descripcion = descripcion;
       this.foto = foto;
       this.tipoUsuario = tipoUsuario;
-      this.quantity = quantity;
-      this.price = price;
+      this.cantidad = cantidad;
+      this.precio = precio;
 
   }
 }

@@ -17,7 +17,7 @@ export class CarritoService {
     if (listCart) {
       let objIndex = listCart.findIndex((obj => obj.id == newData.id));
       if (objIndex != -1) {
-        listCart[objIndex].quantity += 1;
+        listCart[objIndex].cantidad += 1;
       } else {
         listCart.push(newData);
       }
@@ -33,7 +33,7 @@ export class CarritoService {
     let listCart = this.cart.getValue();
     let objIndex = listCart.findIndex((obj => obj.id == newData.id));
     if (objIndex != -1) {
-      listCart[objIndex].quantity = 1;
+      listCart[objIndex].cantidad = 1;
       listCart.splice(objIndex, 1);
     }
 
