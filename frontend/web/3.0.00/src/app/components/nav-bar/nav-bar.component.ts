@@ -1,13 +1,7 @@
 import { Component, Inject, Input } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { ScrollingService } from '../../services/scrolling.service';
-import { HttpStatusCode } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
-import { IngresarComponent } from '../../pages/ingresar/ingresar.component';
-import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
-import { ContactoComponent } from '../../pages/contacto/contacto.component';
 import { CarritoComponent } from '../carrito/carrito.component';
 
 @Component({
