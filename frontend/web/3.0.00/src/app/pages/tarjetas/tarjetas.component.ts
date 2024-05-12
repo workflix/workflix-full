@@ -33,7 +33,7 @@ export class TarjetasComponent implements OnInit {
       users => this.users = users
     );
   }
-  public addCart(users: User)
+  public addCart(user: User)
   {
   }
 }

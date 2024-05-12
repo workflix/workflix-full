@@ -12,8 +12,8 @@
     @for (item of items; track $index) {
     <ul class="shopping-cart-items">
       <li class="clearfix">
-        <img [src]="item.img" alt="item1" />
-        <span class="item-name">{{item.name}}</span>
+        <img src="../../../../assets/images/foto_mujer.jpg" alt="item1" />
+        <span class="item-name">{{item.nombre}}</span>
         <span class="item-price">${{item.price}}</span>
         <span class="item-quantity">Quantity: {{item.quantity}}</span>
         <button type="button" class="btn btn-danger ml-4" (click)="remove(item)">Remove</button>

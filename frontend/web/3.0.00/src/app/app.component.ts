@@ -18,22 +18,18 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent, FooterComponent, HomeComponent, TarjetasComponent, RecuperarClaveComponent, TerminosComponent, RegistrarseComponent, SiteComponent, NavbarSiteComponent, FooterSiteComponent, CommonModule, CarritoComponent ],
+  imports: [RouterOutlet, NavBarComponent, FooterComponent, HomeComponent, TarjetasComponent, RecuperarClaveComponent, TerminosComponent, RegistrarseComponent, SiteComponent, NavbarSiteComponent, FooterSiteComponent, CommonModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Workflix';
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) {}
 
-  isSitePage(): boolean {
+  // isSitePage(): boolean {
 
-    return this.router.url.includes('site');
-  }
-  public openCart:boolean = false;
+  //   return this.router.url.includes('site');
+  // }
 
-  public cart(){ //Se usa para abrir o cerrar el carrito
-    this.openCart = !this.openCart;
-  }
 }

@@ -29,7 +29,11 @@
             <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>-->
         </li>
-
+        <li class="nav-item"> <a id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i></a>
+        </li>
+        @if (openCart) {
+          <app-carrito></app-carrito>
+        }
         <ng-container >
               @if (this.currentUser) {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
