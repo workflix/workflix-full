@@ -12,11 +12,25 @@ import { UserService } from '../../services/user.service';
   templateUrl: './valoracion-perfil.component.html',
   styleUrl: './valoracion-perfil.component.css'
 })
-export class ValoracionPerfilComponent{
+export class ValoracionPerfilComponent {
+  title: string = "List the users";
+  test: string = "This is a test";
+
+  trackById(index: number, user: User): number {
+    return user.id;
+  }
+
+  users: User[] = [];
 
   constructor (private router:Router,
-              private userService: UserService
-  ) {}
+    private userService: UserService
+) {}
+
+  ngOnInit(): void {
+  this.userService.getAllUsers().subscribe(
+    users => this.users = users
+  );
+}
 
   btnVolver(){
     this.router.navigate(['/home']);

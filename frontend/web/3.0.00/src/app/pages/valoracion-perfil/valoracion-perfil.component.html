@@ -3,24 +3,28 @@
 
 <div class="details-volver"></div>
 
+@for(user of users; track trackById){
 <div class="container">
     <div class="row">
     <div class="rectangle">Plomero</div>
     <div class="image">
         <img src="assets/images/profesional-1.jpg" alt="Imagen Profesional">
     </div>
-</div>
+  </div>
 </div>
 
 <div class="details">
-    <p class="nombre-apellido">Nombre</p>
+    <p class="nombre-apellido">{{user.nombre}} {{user.apellido}}</p>
     <p class="experiencia">Experiencia Laboral: 15 Años</p>
+    <p class="experiencia">Teléfono: {{user.telefono}}</p>
+    <p class="experiencia">Mail: {{user.correo}}</p>
+    <br>
     <p class="plomeroexp"> Plomero </p>
 </div>
 <div class="linea"></div>
 <div class="details">
     <p class="descripcion"> Descripcion </p>
-    <p class="descripcion-texto"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+    <p class="descripcion-texto">{{user.descripcion}}</p>
 </div>
 
 <div>
@@ -46,12 +50,11 @@
     </div>
 </div>
 
-
 <div class="card-container">
 <div class="card">
     <img src="assets/images/profesional-1.jpg" alt="Avatar">
     <div class="container-comentario">
-      <h4><b>Nombre Apellido</b></h4>
+      <h4><b>{{user.nombre}}{{user.apellido}}</b></h4>
       <p>★★★★★ 25 de julio de 2022</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
@@ -62,13 +65,13 @@
     <div class="card">
         <img src="assets/images/profesional-1.jpg" alt="Avatar">
         <div class="container-comentario">
-          <h4><b>Nombre Apellido</b></h4>
+          <h4><b>{{user.nombre}}{{user.apellido}}</b></h4>
           <p>★★★★★ 25 de julio de 2022</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
      </div>
 </div>
-
+}
 
 
 
