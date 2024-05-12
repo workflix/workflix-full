@@ -19,6 +19,7 @@
           <a class="nav-link" [routerLink]="'/quienes-somos'" routerLinkActive="active" >Quiénes Somos</a>
         </li>
 
+
         <li class="nav-item dropdown">
           <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" >Contacto</a>
           <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -38,7 +39,6 @@
                 }
                 @if (this.currentUser.tipoUsuario === 'cliente') {
                   <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-usuario'">Perfil</a></li>
-                  <li><a href="#" id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                 }
               }@else {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>

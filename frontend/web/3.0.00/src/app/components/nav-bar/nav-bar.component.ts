@@ -13,7 +13,7 @@ import { CarritoComponent } from '../carrito/carrito.component';
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule, CarritoComponent ],
+  imports: [RouterModule],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -49,11 +49,7 @@ export class NavBarComponent {
     /*console.log(termino);*/ // muestra en consola el término buscado
 
   }
-  public openCart:boolean = false;
 
-  public cart(){ //Se usa para abrir o cerrar el carrito
-    this.openCart = !this.openCart;
-  }
 }
 
 

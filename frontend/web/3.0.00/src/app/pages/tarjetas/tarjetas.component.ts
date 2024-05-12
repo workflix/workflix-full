@@ -3,8 +3,6 @@ import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-
-
 import { RouterModule } from '@angular/router';
 import { ValoracionPerfilComponent } from '../valoracion-perfil/valoracion-perfil.component';
 
@@ -35,7 +33,9 @@ export class TarjetasComponent implements OnInit {
       users => this.users = users
     );
   }
-  
+  public addCart(users: User)
+  {
+  }
 }
 
 
