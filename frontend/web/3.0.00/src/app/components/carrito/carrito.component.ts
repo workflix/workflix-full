@@ -22,7 +22,7 @@ export class CarritoComponent implements OnInit {
       {
         this.items = x;
         this.totalQuantity = x.length;
-        this.totalPrice = x.reduce((sum, current) => sum + (current.precio * current.cantidad), 0);
+        this.totalPrice = x.reduce((sum, current) => sum + current.precio, 0);
       }
     })
   }
