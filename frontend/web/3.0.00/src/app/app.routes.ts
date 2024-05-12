@@ -17,7 +17,7 @@ import { SiteComponent } from './pages/site/site.component';
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'site', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'site', component: SiteComponent},
   { path: 'home', component: HomeComponent },
   { path: 'registrarse', component: RegistrarseComponent },
@@ -32,7 +32,6 @@ export const routes: Routes = [
   { path: 'valoracion', component: ValoracionPerfilComponent },
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] }
-
 
 ];
 

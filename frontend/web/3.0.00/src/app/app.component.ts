@@ -12,6 +12,7 @@ import { NavbarSiteComponent } from './pages/site/navbar-site/navbar-site.compon
 import { FooterSiteComponent } from './pages/site/footer-site/footer-site.component';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 @Component({
@@ -24,10 +25,11 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
   title = 'Workflix';
 
-  constructor(private router: Router) {}
+  // constructor(private router: Router) {}
 
-  isSitePage(): boolean {
-   
-    return this.router.url.includes('site');
-  }
+  // isSitePage(): boolean {
+
+  //   return this.router.url.includes('site');
+  // }
+
 }

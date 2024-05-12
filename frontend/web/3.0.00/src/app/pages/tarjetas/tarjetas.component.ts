@@ -3,10 +3,9 @@ import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-
-
 import { RouterModule } from '@angular/router';
 import { ValoracionPerfilComponent } from '../valoracion-perfil/valoracion-perfil.component';
+import { CarritoService } from '../../services/carrito.service';
 
 
 @Component({
@@ -27,7 +26,7 @@ export class TarjetasComponent implements OnInit {
   users: User[] = [];
 
   constructor(private userService: UserService,
-              private route:ActivatedRoute
+              private route:ActivatedRoute, private _cartService:CarritoService
   ) {}
 
   ngOnInit(): void {
@@ -35,7 +34,11 @@ export class TarjetasComponent implements OnInit {
       users => this.users = users
     );
   }
-  
+
+  public addCart(user: User){
+    console.log('Profesional almacenado correctamente: '+user);
+    this._cartService.changeCart(user);
+  }
 }
 
 
