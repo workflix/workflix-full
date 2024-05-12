@@ -26,8 +26,10 @@ export class TarjetasComponent implements OnInit {
   users: User[] = [];
 
   constructor(private userService: UserService,
-              private route:ActivatedRoute, private _cartService:CarritoService
-  ) {}
+              private route:ActivatedRoute,
+              private _cartService:CarritoService,
+              private router:Router
+            ) {}
 
   ngOnInit(): void {
     this.userService.getAllUsers().subscribe(
@@ -39,6 +41,11 @@ export class TarjetasComponent implements OnInit {
     console.log('Profesional almacenado correctamente: '+user);
     this._cartService.changeCart(user);
   }
+
+  public verDetalle(){
+    this.router.navigate(['/valoracion']);
+  }
+
 }
 
 
