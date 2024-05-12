@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,4 +12,9 @@ import { RouterModule } from '@angular/router';
 })
 export class ValoracionPerfilComponent {
 
+  constructor (private router:Router) {}
+
+  btnVolver(){
+    this.router.navigate(['/home']);
+  }
 }
