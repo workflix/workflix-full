@@ -25,11 +25,11 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 export class AppComponent {
   title = 'Workflix';
 
-  // constructor(private router: Router) {}
+  constructor(private router: Router) {}
 
-  // isSitePage(): boolean {
+  isSitePage(): boolean {
 
-  //   return this.router.url.includes('site');
-  // }
+  return this.router.url.includes('site');
+  }
 
 }
