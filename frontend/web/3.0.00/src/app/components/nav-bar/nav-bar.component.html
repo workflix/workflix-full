@@ -48,7 +48,7 @@
               }
         </ng-container>
         <li class="nav-item pt-2">
-          <a class="nav-item" id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i> <span class="badge">3</span></a>
+          <a class="nav-item" id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i> <span class="badge">{{totalQuantity}}</span></a>
         </li>
 
         @if (openCart) {

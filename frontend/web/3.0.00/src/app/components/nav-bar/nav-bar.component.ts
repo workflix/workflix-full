@@ -3,6 +3,7 @@ import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { CarritoComponent } from '../carrito/carrito.component';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,8 +16,8 @@ import { CarritoComponent } from '../carrito/carrito.component';
 export class NavBarComponent {
 
 
-  constructor(private loginService:LoginService, private router:Router){}
-
+  constructor(private loginService:LoginService, private router:Router, private _cartService:CarritoService){}
+  public totalQuantity:number = 0;
   currentUser: any;
   logout(): void {
     this.loginService.logout();
@@ -32,6 +33,12 @@ export class NavBarComponent {
         console.log('Usuario obtenido: ', user);
       }
     );
+    this._cartService.currentDataCart$.subscribe(x=>{
+      if(x)
+      {
+        this.totalQuantity = x.length;
+      }
+    })
   }
   buscarProfesional(termino: string){ // barra búsqueda
 
