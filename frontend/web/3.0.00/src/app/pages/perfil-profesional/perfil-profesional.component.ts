@@ -61,15 +61,7 @@ export class PerfilProfesionalComponent implements OnInit {
     });
   }
 
-  initializeForm(): void {
-    if (this.usuario) {
-        this.perfilForm.get('mail')?.setValue(this.usuario.correo);
-        this.perfilForm.get('adress')?.setValue(this.usuario.direccion);
-/*         this.perfilForm.get('password')?.setValue(this.usuario.clave); */
-        this.perfilForm.get('phone')?.setValue(this.usuario.telefono);
-    }
-  }
-
+  
   get mail() { return this.perfilForm.get('mail'); }
   get adress() { return this.perfilForm.get('adress'); }
 /*   get password() { return this.perfilForm.get('password'); } */
