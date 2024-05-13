@@ -1,3 +1,7 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 .abstract-1 {
   top: -150px;
   left: -30px;
@@ -28,17 +32,10 @@
   margin-right: 50px;
 }
 
-.mockup {
-  width: 15%;
-  margin-top: -580px;
-  margin-left: 200px;
-}
-
 .boton-descarga {
   background-color: #60D5AB;
     box-shadow: 2px 2px 4px 0px #899599;
     border-radius:28px;
-    border:1px solid #d6bcd6;
     display:inline-block;
     cursor:pointer;
     color:#04313c;
@@ -46,6 +43,7 @@
     padding:20px 60px;
     text-decoration:none;
   }
+
   .boton-descarga:hover {
     background-color:#bab1ba;
   }
@@ -67,14 +65,72 @@
   .tit-site-white {
     font-size: 3.5rem;
   }
+
+  .pill-deco{
+    width:50%;
+    margin-top: -180px;
+  }
+
+  .deco-2 {
+    width:60%;
+    margin-top: 70px;
+  }
+
 /* Media Query para dispositivos móviles */
 @media (max-width: 767px) {
   .abstract-1 img {
       width: 35%;
   }
 
+  .abstract-2 {
+    width: 15%;
+  }
+
   .logo {
     margin-top: -150px;
+  }
+
+  .primera-fila{
+  max-height: 30px;
+  }
+
+  .mockup-mobile{
+    width: 80%;
+    margin-top: -120px;
+    margin-left: 10%;
+  
+  }
+.pc-blanca {
+  width: 80%;
+  position: relative;
+  margin-top: -270px;
+  margin-left: 40%;
+}
+
+.deco-2 {
+  width:30%;
+  margin-top:250px;
+  margin-left: 10px;
+}
+.pill-deco{
+    margin-top: -620px;
+    margin-left: 60%;
+}
+
+.boton-web-xsm{
+  width: 280px;
+  margin-top: 80px;
+  position: relative;
+  margin-left: -40px;
+ } 
+
+}
+
+/* Para pantallas Desktop*/
+@media screen and (min-width: 768px) {
+  .mockup {
+    margin-top: -580px;
+    margin-left:200px;
   }
 }
 
@@ -150,3 +206,4 @@
       transform: translateY(0);
   }
 }
+
