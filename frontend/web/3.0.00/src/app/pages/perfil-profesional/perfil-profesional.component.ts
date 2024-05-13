@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { CommonModule} from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user';
-import { response } from 'express';
+
 
 @Component({
   selector: 'app-perfil-profesional',
@@ -16,7 +17,7 @@ import { response } from 'express';
 })
 
 export class PerfilProfesionalComponent implements OnInit {
-  currentUser: any;
+  currentUser: User | null = null;
   perfilForm: FormGroup;
   usuario?: User;
   error: string = '';
@@ -29,13 +30,16 @@ export class PerfilProfesionalComponent implements OnInit {
     private userService: UserService,
     private router: Router
   ) {
-    this.usuario = {} as User;
     this.perfilForm = this.formBuilder.group({
-      mail: ["", [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
-      adress: ["", [Validators.required, Validators.maxLength(40)]],
-/*       password: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(20)]], */
-      phone: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
+      apellido: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+      mail: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
+      adress: ['', [Validators.required, Validators.maxLength(40)]],
+      phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
+
     });
+
   }
 
   ngOnInit(): void {
