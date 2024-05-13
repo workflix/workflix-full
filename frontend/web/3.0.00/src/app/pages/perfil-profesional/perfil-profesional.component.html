@@ -74,7 +74,6 @@
                                <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">Imagen de perfil</label>
                                <div class="col-md-8 col-lg-9">
                                 <div class="position-relative me-2">
-  <!--                                 <img src="assets/images/foto_mujer.jpg" class="imgen2" width="50" height="50" alt="Perfil"> -->
                                   <div class="pt-2 ms-2">
                                    <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image">
                                       <i class="bi bi-upload"></i>Buscar foto
@@ -88,52 +87,66 @@
                              </div>
                             </div>
                             <ng-container>
-                                @if (this.currentUser) {
-                                   <div class="row">
-                                      <div class="column">
-                                         <form class="container-fluid" [formGroup]="perfilForm" (ngSubmit)="onSubmit(perfilForm.value)">
-                                            <label for="mail">Correo electrónico:</label><br>
-                                               <input class="form-control" type="email" formControlName="mail" id="mail" name="mail" placeholder="Nuevo correo electrónico" value="{{this.currentUser.correo}}" required>
-                                                  <div *ngIf="mail?.invalid && (mail?.dirty || mail?.touched)" class="text-danger">
-                                                     <div *ngIf="mail?.errors?.['required']">Se requiere un correo electrónico.</div>
-                                                     <div *ngIf="mail?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
-                                                     <div *ngIf="mail?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
-                                                  </div>
-  
-                                                  <label for="adress">Domicilio:</label><br>
-                                                  <input class="form-control" type="text" formControlName="adress" id="adress" placeholder="Nuevo domicilio" value="{{this.currentUser.direccion}}" required>
-                                                  <div *ngIf="adress?.invalid && (adress?.dirty || adress?.touched)" class="text-danger">
-                                                     <div *ngIf="adress?.errors?.['required']">Se requiere un domicilio.</div>
-                                                     <div *ngIf="adress?.errors?.['maxlength']">El domicilio debe tener un máximo de 40 caracteres.</div>
-                                                  </div>
-  
-                                                  <!-- <label for="password">Contraseña:</label><br>
-                                                  <input class="form-control" type="password" formControlName="password" id="password" placeholder="Nueva contraseña" value="{{this.currentUser.clave}}" required>
-                                                  <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-danger">
-                                                     <div *ngIf="password?.errors?.['required']">Se requiere una contraseña.</div>
-                                                     <div *ngIf="password?.errors?.['minlength']">La contraseña debe tener más de 6 caracteres.</div>
-                                                     <div *ngIf="password?.errors?.['maxlength']">La contraseña debe tener un máximo de 20 caracteres.</div>
-                                                  </div> -->
-  
-                                                  <label for="phone">Teléfono:</label><br>
-                                                  <input class="form-control" type="tel" formControlName="phone" id="phone" placeholder="Nuevo teléfono" value="{{this.currentUser.telefono}}" required>
-                                                  <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)" class="text-danger">
-                                                     <div *ngIf="phone?.errors?.['required']">Se requiere un número de teléfono.</div>
-                                                     <div *ngIf="phone?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
-                                                     <div *ngIf="phone?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
-                                                  </div>
-  
-                                                  <br>
-                                     <div class="text-center"> <button class="boton-form btn-primary" type="submit" >Guardar</button></div>
-                                   </form>
-                                 </div>
+                              @if (this.currentUser) {
+                                 <div class="row">
+                                    <div class="column">
+                                       <form class="container-fluid" [formGroup]="perfilForm" (ngSubmit)="onSubmit(perfilForm.value)">
+                                        <label for="nombre">Nombre:</label><br>
+                                        <input class="form-control" type="text" formControlName="nombre" id="nombre" name="nombre" placeholder="Nuevo nombre" value="{{this.currentUser.nombre}}" required>
+                                           <div *ngIf="perfilForm.get('nombre')?.invalid && (perfilForm.get('nombre')?.dirty || perfilForm.get('nombre')?.touched)" class="text-danger">
+                                              <div *ngIf="perfilForm.get('nombre')?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                              <div *ngIf="perfilForm.get('nombre')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                              <div *ngIf="perfilForm.get('nombre')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                           </div>
+
+                                        <label for="apellido">Apellido:</label><br>
+                                        <input class="form-control" type="text" formControlName="apellido" id="apellido" name="apellido" placeholder="Nuevo apellido" value="{{this.currentUser.apellido}}" required>
+                                        <div *ngIf="perfilForm.get('apellido')?.invalid && (perfilForm.get('apellido')?.dirty || perfilForm.get('apellido')?.touched)" class="text-danger">
+                                           <div *ngIf="perfilForm.get('apellido')?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                           <div *ngIf="perfilForm.get('apellido')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                           <div *ngIf="perfilForm.get('apellido')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                        </div>
+
+                                           
+                                        <label for="mail">Correo electrónico:</label><br>
+                                        <input class="form-control" type="email" formControlName="mail" id="mail" name="mail" placeholder="Nuevo correo electrónico" value="{{this.currentUser.correo}}" required>
+                                                <div *ngIf="perfilForm.get('mail')?.invalid && (perfilForm.get('mail')?.dirty || perfilForm.get('mail')?.touched)" class="text-danger">
+                                                   <div *ngIf="perfilForm.get('mail')?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                                   <div *ngIf="perfilForm.get('mail')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                                   <div *ngIf="perfilForm.get('mail')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                                </div>
+                                              
+
+                                        <label for="adress">Domicilio:</label><br>
+                                        <input class="form-control" type="text" formControlName="adress" id="adress" placeholder="Nuevo domicilio" value="{{this.currentUser.direccion}}" required>
+                                                <div *ngIf="perfilForm.get('adress')?.invalid && (perfilForm.get('adress')?.dirty || perfilForm.get('adress')?.touched)" class="text-danger">
+                                                   <div *ngIf="perfilForm.get('adress')?.errors?.['required']">Se requiere un domicilio.</div>
+                                                   <div *ngIf="perfilForm.get('adress')?.errors?.['maxlength']">El domicilio debe tener un máximo de 40 caracteres.</div>
+                                                </div>
+
+                                                  
+                                        <label for="phone">Teléfono:</label><br>
+                                        <input class="form-control" type="tel" formControlName="phone" id="phone" placeholder="Nuevo teléfono" value="{{this.currentUser.telefono}}" required>
+                                                <div *ngIf="perfilForm.get('phone')?.invalid && (perfilForm.get('phone')?.dirty || perfilForm.get('phone')?.touched)" class="text-danger">
+                                                   <div *ngIf="perfilForm.get('phone')?.errors?.['required']">Se requiere un número de teléfono.</div>
+                                                   <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
+                                                   <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
+                                                </div>
+                                                
+                                        <label for="descripcion">Descripción:</label><br>
+                                        <input class="form-control" type="text" formControlName="descripcion" id="descripcion" name="descripcion" placeholder="Nueva descripción" value="{{this.currentUser.descripcion}}" required>
+                                        <div *ngIf="perfilForm.get('descripcion')?.invalid && (perfilForm.get('descripcion')?.dirty || perfilForm.get('descripcion')?.touched)" class="text-danger">
+                                           <div *ngIf="perfilForm.get('descripcion')?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                           <div *ngIf="perfilForm.get('descripcion')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                           <div *ngIf="perfilForm.get('descripcion')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                        </div>
+                                        <br>
+                                   <div class="text-center"> <button class="boton-form btn-primary" type="submit" >Guardar</button></div>
+                                 </form>
                                </div>
-  
-  
-                             }
+                             </div>
+                           }
                             </ng-container>
-  
-  
   
                          </form>
                       </div>
