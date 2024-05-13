@@ -1,60 +1,46 @@
-/* Estilos de tu código */
     /* Botón Volver */
+
     .volver-btn {
         margin-left: 40px;
         margin-top: 80px;
-        padding: 10px 20px;
-        background-color: #60D5AB;
+        padding: 8px;
+        background: #FFF;
         color: #000000;
         border: none;
+        border: 4px solid #60D5AB;
         border-radius: 40px;
         cursor: pointer;
-        width: 200px;
+        width: 150px;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
     }
 
     .volver-btn:hover {
       background-color: #1FBABF; /* Verde Kiwi */
       color: #ffffff;
+      border: 4px solid #1FBABF;
     }
 
     /* Botón Contratar */
     .contratar-btn {
-        margin-top: 70px;
-        margin-left: 400px;
-        padding: 10px 20px;
+        margin: 0 auto;
+        padding: 15px;
         background-color: #60D5AB;
         color: #000000;
-        border: 4px solid #60D5AB;
-        background: #FFF;
+        border: none;
         border-radius: 40px;
         cursor: pointer;
-        width: 200px;
+        width: 300px;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
     }
 
     .contratar-btn:hover {
       background-color: #1FBABF; /* Verde Kiwi */
       color: #ffffff;
-      border: 4px solid #1FBABF;
-    }
-
-    /* Media query para pantallas pequeñas */
-    @media only screen and (max-width: 600px) {
-        .pedir-presupuesto {
-            margin-left: auto; /* Centra horizontalmente */
-            margin-right: auto;
-            display: block; /* Cambia a bloque para ocupar todo el ancho disponible */
-        }
     }
 
     /* Imagen Profesional */
-    .container {
-        margin-left: 350px;
-    }
 
     .rectangle {
-        margin-left: -300px;
         width: 300px;
         height: 40px;
         margin-top: 60px;
@@ -115,7 +101,7 @@
 
 .details p.descripcion {
     font-size: 25px;
-    margin-top: 350px; /* Ajusta este valor según sea necesario */
+    margin-top: 360px; /* Ajusta este valor según sea necesario */
 }
 
 .details p.descripcion-texto{
@@ -163,7 +149,7 @@
     .banner {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 50px;
+        margin-top: 100px;
         position: relative;
         width: 100%; /* Cambiado a 100% */
         max-width: 1750px; /* Agregado max-width */
@@ -341,7 +327,7 @@
 
   /* SECCION COMENTARIO */
 
-  .comment-container {
+  /*.comment-container {
     margin-top: 20px;
     max-width: 700px;
     margin: 20px auto;
@@ -372,4 +358,4 @@
 }
 .comment-submit:hover {
     background-color: #0056b3;
-}
+}*/
