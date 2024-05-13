@@ -15,9 +15,11 @@ import { User } from '../../models/user';
   styleUrl: './perfil-usuario.component.css'
 })
 export class PerfilUsuarioComponent implements OnInit {
-  currentUser: any;
+  currentUser: User | null = null;
   perfilForm: FormGroup;
   usuario?: User;
+  error: string = '';
+  currentUserId = "";
 
   constructor(
     private loginService: LoginService,
@@ -25,66 +27,78 @@ export class PerfilUsuarioComponent implements OnInit {
     private userService: UserService,
     private router: Router
   ) {
-    this.usuario = {} as User;
     this.perfilForm = this.formBuilder.group({
-      mail: ["", [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
-      adress: ["", [Validators.required, Validators.maxLength(40)]],
-      password: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      phone: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
+      apellido: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+      mail: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
+      adress: ['', [Validators.required, Validators.maxLength(40)]],
+      phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
+
     });
   }
 
   ngOnInit(): void {
-    this.loginService.getCurrentUser().subscribe(
-      user => {
-        if (user){
-        this.currentUser = user;
-        console.log('Usuario Obtenido: ', user);
-        this.usuario = user;
-        this.initializeForm();
-      }}
-    );
-  }
-
-  initializeForm(): void {
-    if (this.usuario) {
+    
+    this.loginService.getCurrentUser().subscribe(user => {
+      if (user){
+      this.currentUser = user;
+      console.log('Usuario Obtenido', user);
+      this.usuario = user;
+      
       this.perfilForm.patchValue({
-        mail: this.usuario.correo,
-        adress: this.usuario.direccion,
-        password: this.usuario.clave,
-        phone: this.usuario.telefono,
+        nombre: user.nombre,
+        apellido: user.apellido,
+        mail: user.correo,
+        adress: user.direccion,
+        phone: user.telefono,
+        descripcion: user.descripcion
       });
+    } 
+    });
+  }
+  onSubmit(formData: any): void {
+    if (this.currentUser) {
+      if (this.perfilForm.valid) {
+        
+        const newUserData = {
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          correo: formData.mail,
+          direccion: formData.adress,
+          telefono: formData.phone,
+          descripcion: formData.descripcion
+        
+        };
+  
+        
+        this.userService.updateUserProfile(this.currentUser.id, newUserData).subscribe(
+          response => {
+            if (this.currentUser) {
+              this.currentUser.nombre = newUserData.nombre;
+              this.currentUser.apellido = newUserData.apellido;
+              this.currentUser.correo = newUserData.correo;
+              this.currentUser.direccion = newUserData.direccion;
+              this.currentUser.telefono = newUserData.telefono;
+              this.currentUser.descripcion = newUserData.descripcion;
+
+          }
+          console.log('Perfil actualizado con éxito:', response);
+          alert ('Los datos han sido actualizados correctamente');
+
+        },
+          error => {
+            console.error('Error al actualizar el perfil:', error);
+          }
+        );
+      } else {
+        console.error('Formulario inválido. Revise los campos.');
+      }
+    } else {
+      console.error('No hay un usuario actual.');
     }
   }
+  
 
-  get mail() { return this.perfilForm.get('mail'); }
-  get adress() { return this.perfilForm.get('adress'); }
-  get password() { return this.perfilForm.get('password'); }
-  get phone() { return this.perfilForm.get('phone'); }
-
-//   onSubmit(): void {
-//     if (this.usuario) {
-//       const updateUser: User = {
-//         ...this.usuario,
-//         correo: this.mail?.value,
-//         direccion: this.adress?.value,
-//         clave: this.password?.value,
-//         telefono: this.phone?.value,
-//       };
-
-//       this.userService.updateUser(updateUser).subscribe({
-//         next: (usuarioNuevo: User | null) => {
-//           if (usuarioNuevo) {
-//             this.usuario = usuarioNuevo
-// /*          this.loginService.currentUser.next(usuarioNuevo);
-//  */         alert('Datos actualizados');
-//           } else {
-//             alert('Los datos no han sido actualizados');
-//           }
-//         },
-//         error: (error: any) => {
-//           alert('Error al cargar los datos');
-//         }
-//       });
-//     }}
+  
 }

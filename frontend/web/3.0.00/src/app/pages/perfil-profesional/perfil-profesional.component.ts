@@ -48,6 +48,7 @@ export class PerfilProfesionalComponent implements OnInit {
       if (user){
       this.currentUser = user;
       console.log('Usuario Obtenido', user);
+      this.usuario = user;
       
       this.perfilForm.patchValue({
         nombre: user.nombre,
