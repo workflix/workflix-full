@@ -35,7 +35,7 @@
         <ng-container >
               @if (this.currentUser) {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
-                <a class="nav-link" >{{ currentUser.nombre }}</a>
+                <a class="nombre-usu nav-link" >{{ currentUser.nombre }}</a>
                 @if (this.currentUser.tipoUsuario === 'admin') {
                   <li class="nav-item"><a class="nav-link" [routerLink]="'/dashboard'">Dashboard</a></li>
                 }
