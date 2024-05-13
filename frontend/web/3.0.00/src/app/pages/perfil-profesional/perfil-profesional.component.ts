@@ -61,20 +61,14 @@ export class PerfilProfesionalComponent implements OnInit {
     });
   }
 
-  
-  get mail() { return this.perfilForm.get('mail'); }
-  get adress() { return this.perfilForm.get('adress'); }
-/*   get password() { return this.perfilForm.get('password'); } */
-  get phone() { return this.perfilForm.get('phone'); }
 
-   onSubmit(value: any): void {
+/*    onSubmit(value: any): void {
      if (this.usuario) {
        const updateUser: User = {
          ...this.usuario,
          correo: this.mail?.value,
          direccion: this.adress?.value,
-/*          clave: this.password?.value,
- */         telefono: this.phone?.value,
+         telefono: this.phone?.value,
         };
 
        this.userService.updateUser(+this.currentUserId, updateUser).subscribe(
@@ -89,5 +83,5 @@ export class PerfilProfesionalComponent implements OnInit {
          },
         );
       
-     }}
+     }} */
 }
