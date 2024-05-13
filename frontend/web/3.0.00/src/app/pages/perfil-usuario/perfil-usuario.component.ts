@@ -57,37 +57,48 @@ export class PerfilUsuarioComponent implements OnInit {
     } 
     });
   }
+  onSubmit(formData: any): void {
+    if (this.currentUser) {
+      if (this.perfilForm.valid) {
+        
+        const newUserData = {
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          correo: formData.mail,
+          direccion: formData.adress,
+          telefono: formData.phone,
+          descripcion: formData.descripcion
+        
+        };
+  
+        
+        this.userService.updateUserProfile(this.currentUser.id, newUserData).subscribe(
+          response => {
+            if (this.currentUser) {
+              this.currentUser.nombre = newUserData.nombre;
+              this.currentUser.apellido = newUserData.apellido;
+              this.currentUser.correo = newUserData.correo;
+              this.currentUser.direccion = newUserData.direccion;
+              this.currentUser.telefono = newUserData.telefono;
+              this.currentUser.descripcion = newUserData.descripcion;
 
+          }
+          console.log('Perfil actualizado con éxito:', response);
+          alert ('Los datos han sido actualizados correctamente');
+
+        },
+          error => {
+            console.error('Error al actualizar el perfil:', error);
+          }
+        );
+      } else {
+        console.error('Formulario inválido. Revise los campos.');
+      }
+    } else {
+      console.error('No hay un usuario actual.');
+    }
+  }
   
 
-  get mail() { return this.perfilForm.get('mail'); }
-  get adress() { return this.perfilForm.get('adress'); }
-  get password() { return this.perfilForm.get('password'); }
-  get phone() { return this.perfilForm.get('phone'); }
-
-//   onSubmit(): void {
-//     if (this.usuario) {
-//       const updateUser: User = {
-//         ...this.usuario,
-//         correo: this.mail?.value,
-//         direccion: this.adress?.value,
-//         clave: this.password?.value,
-//         telefono: this.phone?.value,
-//       };
-
-//       this.userService.updateUser(updateUser).subscribe({
-//         next: (usuarioNuevo: User | null) => {
-//           if (usuarioNuevo) {
-//             this.usuario = usuarioNuevo
-// /*          this.loginService.currentUser.next(usuarioNuevo);
-//  */         alert('Datos actualizados');
-//           } else {
-//             alert('Los datos no han sido actualizados');
-//           }
-//         },
-//         error: (error: any) => {
-//           alert('Error al cargar los datos');
-//         }
-//       });
-//     }}
+  
 }
