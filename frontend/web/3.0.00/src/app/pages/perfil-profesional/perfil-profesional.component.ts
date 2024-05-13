@@ -43,15 +43,22 @@ export class PerfilProfesionalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loginService.getCurrentUser().subscribe(
-      user => {
-        if (user){
-        this.currentUser = user;
-        console.log('Usuario Obtenido: ', user);
-        this.usuario = user;
-        this.initializeForm();
-      }}
-    );
+    
+    this.loginService.getCurrentUser().subscribe(user => {
+      if (user){
+      this.currentUser = user;
+      console.log('Usuario Obtenido', user);
+      
+      this.perfilForm.patchValue({
+        nombre: user.nombre,
+        apellido: user.apellido,
+        mail: user.correo,
+        adress: user.direccion,
+        phone: user.telefono,
+        descripcion: user.descripcion
+      });
+    } 
+    });
   }
 
   initializeForm(): void {
