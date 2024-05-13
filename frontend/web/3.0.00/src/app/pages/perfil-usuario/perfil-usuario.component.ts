@@ -27,12 +27,14 @@ export class PerfilUsuarioComponent implements OnInit {
     private userService: UserService,
     private router: Router
   ) {
-    this.usuario = {} as User;
     this.perfilForm = this.formBuilder.group({
-      mail: ["", [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
-      adress: ["", [Validators.required, Validators.maxLength(40)]],
-      password: ["", [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      phone: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
+      apellido: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
+      mail: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
+      adress: ['', [Validators.required, Validators.maxLength(40)]],
+      phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
+
     });
   }
 
