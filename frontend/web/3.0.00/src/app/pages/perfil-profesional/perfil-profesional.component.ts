@@ -61,27 +61,21 @@ export class PerfilProfesionalComponent implements OnInit {
     });
   }
 
-
-/*    onSubmit(value: any): void {
-     if (this.usuario) {
-       const updateUser: User = {
-         ...this.usuario,
-         correo: this.mail?.value,
-         direccion: this.adress?.value,
-         telefono: this.phone?.value,
+  onSubmit(formData: any): void {
+    if (this.currentUser) {
+      if (this.perfilForm.valid) {
+        
+        const newUserData = {
+          nombre: formData.nombre,
+          apellido: formData.apellido,
+          correo: formData.mail,
+          direccion: formData.adress,
+          telefono: formData.phone,
+          descripcion: formData.descripcion
+        
         };
+      }}
 
-       this.userService.updateUser(+this.currentUserId, updateUser).subscribe(
-         response => {
-           console.log('Datos actualizados', response);
-           alert('Los datos se han actualizado correctamente')
-           this.router.navigate(['/home']);
-           },
-         
-         error => {
-           alert('Error al cargar los datos'), error;
-         },
-        );
-      
-     }} */
+
+
 }
