@@ -87,7 +87,7 @@ img {
 .boton-form{
   background: #60D5AB;
   background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
-  width: 100%;
+  width: 50%;
   border:none;
   color:#fff;
   border-radius: 4px;
