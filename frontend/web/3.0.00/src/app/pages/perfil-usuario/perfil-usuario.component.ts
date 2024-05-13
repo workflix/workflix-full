@@ -15,9 +15,11 @@ import { User } from '../../models/user';
   styleUrl: './perfil-usuario.component.css'
 })
 export class PerfilUsuarioComponent implements OnInit {
-  currentUser: any;
+  currentUser: User | null = null;
   perfilForm: FormGroup;
   usuario?: User;
+  error: string = '';
+  currentUserId = "";
 
   constructor(
     private loginService: LoginService,
