@@ -103,7 +103,7 @@ openDialog() {
             this.router.navigate(['/ingresar']);
           },
           error: (error: any) => {
-            
+            this.router.navigate(['/ingresar']);
             console.error('Error al crear usuario:', error);
             console.log('No se pudo registrar correctamente: ' + error);
           }
