@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { IngresarComponent } from './pages/ingresar/ingresar.component';
-import { authGuardIsAdmin, authGuardIsCliente } from './guards/auth.guard';
+import { authGuardIsAdmin, authGuardIsCliente, authGuardIsProfesional } from './guards/auth.guard';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
 import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
@@ -14,7 +14,7 @@ import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
 import { SiteComponent } from './pages/site/site.component';
-
+import { PerfilProfesionalComponent } from './pages/perfil-profesional/perfil-profesional.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -25,6 +25,7 @@ export const routes: Routes = [
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
+  { path: 'perfil-profesional', component: PerfilProfesionalComponent, canActivate: [authGuardIsProfesional] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
