@@ -1,19 +1,14 @@
 import { Component, Inject, Input } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { ScrollingService } from '../../services/scrolling.service';
-
-import { HttpStatusCode } from '@angular/common/http';
 import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
-import { IngresarComponent } from '../../pages/ingresar/ingresar.component';
-import { QuienesSomosComponent } from '../../pages/quienes-somos/quienes-somos.component';
-import { ContactoComponent } from '../../pages/contacto/contacto.component';
+import { CarritoComponent } from '../carrito/carrito.component';
+import { CarritoService } from '../../services/carrito.service';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CarritoComponent],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
@@ -21,8 +16,8 @@ import { ContactoComponent } from '../../pages/contacto/contacto.component';
 export class NavBarComponent {
 
 
-  constructor(private loginService:LoginService, private router:Router){}
-
+  constructor(private loginService:LoginService, private router:Router, private _cartService:CarritoService){}
+  public totalQuantity:number = 0;
   currentUser: any;
   logout(): void {
     this.loginService.logout();
@@ -38,6 +33,12 @@ export class NavBarComponent {
         console.log('Usuario obtenido: ', user);
       }
     );
+    this._cartService.currentDataCart$.subscribe(x=>{
+      if(x)
+      {
+        this.totalQuantity = x.length;
+      }
+    })
   }
   buscarProfesional(termino: string){ // barra búsqueda
 
@@ -48,6 +49,11 @@ export class NavBarComponent {
     this.router.navigate(['/busqueda', termino])
     /*console.log(termino);*/ // muestra en consola el término buscado
 
+  }
+  public openCart:boolean = false;
+
+  public cart(){ //Se usa para abrir o cerrar el carrito
+    this.openCart = !this.openCart;
   }
 }
 

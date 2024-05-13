@@ -1,14 +1,13 @@
 <ng-container *ngIf="isSitePage(); else homeTemplate">
 
-    <app-navbar-site></app-navbar-site>
-    <app-site></app-site>
-    <app-footer-site></app-footer-site>
-  </ng-container>
-  
-  <ng-template #homeTemplate>
+  <app-navbar-site></app-navbar-site>
+  <app-site></app-site>
+  <app-footer-site></app-footer-site>
+</ng-container>
 
-    <app-nav-bar></app-nav-bar>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>
-  </ng-template>
-  
+<ng-template #homeTemplate>
+
+  <app-nav-bar></app-nav-bar>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</ng-template>

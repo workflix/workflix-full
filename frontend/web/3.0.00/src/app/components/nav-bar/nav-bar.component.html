@@ -19,6 +19,8 @@
           <a class="nav-link" [routerLink]="'/quienes-somos'" routerLinkActive="active" >Quiénes Somos</a>
         </li>
 
+
+
         <li class="nav-item dropdown">
           <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" >Contacto</a>
           <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -29,6 +31,7 @@
             </ul>-->
         </li>
 
+
         <ng-container >
               @if (this.currentUser) {
                 <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
@@ -38,13 +41,20 @@
                 }
                 @if (this.currentUser.tipoUsuario === 'cliente') {
                   <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-usuario'">Perfil</a></li>
+                  <li class="nav-item pt-2">
+                    <a class="nav-item" id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i> <span class="badge">{{totalQuantity}}</span></a>
+                  </li>
+
+                  @if (openCart) {
+                    <app-carrito></app-carrito>
+                  }
                 }
                 @if (this.currentUser.tipoUsuario === 'profesional') {
                   <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-profesional'">Perfil</a></li>
                 }
               }@else {
-                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresar</a></li>
-                <li class="nav-item"><a class="nav-link" [routerLink]="'/registrarse'"  >Registrarse</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/registrarse'"  >Creá tu cuenta</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresá</a></li>
               }
         </ng-container>
 

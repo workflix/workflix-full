@@ -1,11 +1,7 @@
-import { HttpStatusCode } from '@angular/common/http';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-/*
-import { ResultadoApi } from 'src/app/models/modelo.resultado';
-import { TipoUsuario } from 'src/app/models/modelo.usuario';*/
 import { RegisterService } from '../../services/register.service';
 import { UserService} from '../../services/user.service' ;
 import { User } from '../../models/user';
@@ -28,9 +24,8 @@ export class RegistrarseComponent {
   registrarForm!: FormGroup
   usuarios = { fname: '', lname: '', mail: '', password: '', phone: '' }
 
-  
 
-  /* @Input() resultado: ResultadoApi;*/
+
 
   @ViewChild('modal') modal!: TerminosComponent; // Referencia al componente modal
 
@@ -81,25 +76,25 @@ openDialog() {
       const formData = this.registrarForm.value;
       const {fname, lname, mail, password, phone} = formData
      /*  const newUser = new User(
-        0, 
+        0,
         formData.fname,
         formData.lname,
         formData.mail,
-        formData.phone, 
+        formData.phone,
         formData.password,
-        formData.adress, 
+        formData.adress,
         '', // ciudad
         '', // provincia
         '', // descripcion
         '' // foto
       ); */
-  
+
       this.registerService.registerUser(fname, lname, mail, password, phone)
         .subscribe({
           next: (exito: User) => {
-            
+
             console.log('Usuario creado:', exito);
-            
+
             this.router.navigate(['/ingresar']);
           },
           error: (error: any) => {
@@ -113,11 +108,11 @@ openDialog() {
       }
     }
   }
-  
-  
-    
-    
-  /* 
+
+
+
+
+  /*
     onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
      if(nombre && apellido && correo && clave && telefono){
       this.registerService.registerUser(nombre, apellido, correo, clave, telefono)
@@ -137,7 +132,7 @@ openDialog() {
      }
   }
   } */
-  
+
 
 
 

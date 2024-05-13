@@ -1,94 +1,89 @@
+<div class="container-fluid">
+  <button type="button" class="volver-btn" (click)="btnVolver()">Volver</button>
+  <div class="details-volver"></div>
+  @for(user of users; track trackById){
+  <div class="container">
+     <div class="row">
+        <div class="rectangle">Plomero</div>
+        <div class="image">
+           <img src="assets/images/profesional-1.jpg" alt="Imagen Profesional">
+           <button class="btn contratar-btn mt-4" type="button">Contratar</button>
+        </div>
+        <div class="details">
+          <p class="nombre-apellido">{{user.nombre}} {{user.apellido}}</p>
+          <p class="experiencia">Experiencia Laboral: 15 Años</p>
+          <p class="experiencia">Teléfono: {{user.telefono}}</p>
+          <p class="experiencia">Mail: {{user.correo}}</p>
+          <br>
+          <p class="plomeroexp"> Plomero </p>
+       </div>
+       <div class="linea"></div>
+       <div class="details">
+          <p class="descripcion"> Descripcion </p>
+          <p class="descripcion-texto">{{user.descripcion}}</p>
+       </div>
+     </div>
+  </div>
 
-<button class="volver-btn" routerLink="/tarjetas">VOLVER</button>
-
-<div class="details-volver"></div>
-
-<div class="container">
-    <div class="row"> 
-    <div class="rectangle">Plomero</div>
-    <div class="image">
-        <img src="assets/images/profesional-1.jpg" alt="Imagen Profesional">
-    </div>
-</div>
-</div>
-
-<div class="details">
-    <p class="nombre-apellido">Nombre Apellido</p>
-    <p class="experiencia">Experiencia Laboral: 15 Años</p>
-    <p class="plomeroexp"> Plomero </p>
-</div>
-<div class="linea"></div>
-<div class="details">
-    <p class="descripcion"> Descripcion </p>
-    <p class="descripcion-texto"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-</div>
-
-<div>
-    <button class="pedir-presupuesto"> Pedir Presupuesto </button>
-</div>
-
-<div class="banner">
-    <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner">
-    <div class="calificaciones-box">
+  <div class="banner">
+     <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner">
+     <div class="calificaciones-box">
         <div class="calificaciones-text">Calificaciones</div>
-    </div>
-</div>
-
-<div class="card-container">
-
-    <div class="stars-container">
+     </div>
+  </div>
+  <div class="card-container">
+     <div class="stars-container">
         <div class="valoracion-reseña"> Valoraciones y reseñas </div>
         <div class="rating-text"> 5 / 5 </div>
-
         <div class='stars-rating' style="--rating: 5;">
-            <div class="rating"></div>
+           <div class="rating"></div>
         </div>
-    </div>
-</div>
-
-
-<div class="card-container">
-<div class="card">
-    <img src="assets/images/profesional-1.jpg" alt="Avatar">
-    <div class="container-comentario">
-      <h4><b>Nombre Apellido</b></h4> 
-      <p>★★★★★ 25 de julio de 2022</p> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
-    </div>
-  </div>    
-</div>
-
-<div class="card-container">
-    <div class="card">
+     </div>
+  </div>
+  <div class="card-container">
+     <div class="card">
         <img src="assets/images/profesional-1.jpg" alt="Avatar">
         <div class="container-comentario">
-          <h4><b>Nombre Apellido</b></h4> 
-          <p>★★★★★ 25 de julio de 2022</p> 
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+           <h4><b>{{user.nombre}}{{user.apellido}}</b></h4>
+           <p>★★★★★ 25 de julio de 2022</p>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-     </div>    
+     </div>
+  </div>
+  <div class="card-container mb-5">
+     <div class="card">
+        <img src="assets/images/profesional-1.jpg" alt="Avatar">
+        <div class="container-comentario">
+           <h4><b>{{user.nombre}}{{user.apellido}}</b></h4>
+           <p>★★★★★ 25 de julio de 2022</p>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+     </div>
+  </div>
+  } <!--cierre del for-->
 </div>
 
 
 
-<div class="comment-container">
-    <h4>Agregar Comentario</h4>
-    <form action="#" method="post">
-        <div>
-            <label for="nombre" class="comment-label">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" class="comment-input" required>
-        </div>
-        <div>
-            <label for="email" class="comment-label">Email:</label>
-            <input type="email" id="email" name="email" class="comment-input" required>
-        </div>
-        <div>
-            <label for="comentario" class="comment-label">Comentario:</label>
-            <textarea id="comentario" name="comentario" class="comment-textarea" rows="5" required></textarea>
-        </div>
-        <div>
-            <input type="submit" value="Enviar Comentario" class="comment-submit">
-        </div>
-    </form>
-</div>
 
+
+<!--<div class="comment-container">
+  <h4>Agregar Comentario</h4>
+  <form action="#" method="post">
+      <div>
+          <label for="nombre" class="comment-label">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" class="comment-input" required>
+      </div>
+      <div>
+          <label for="email" class="comment-label">Email:</label>
+          <input type="email" id="email" name="email" class="comment-input" required>
+      </div>
+      <div>
+          <label for="comentario" class="comment-label">Comentario:</label>
+          <textarea id="comentario" name="comentario" class="comment-textarea" rows="5" required></textarea>
+      </div>
+      <div>
+          <input type="submit" value="Enviar Comentario" class="comment-submit">
+      </div>
+  </form>
+  </div>-->

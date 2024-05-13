@@ -16,7 +16,7 @@
                   <div class="row mt-2">
                     <div class="col-4 col-md-4 ms-2">
                       <!--<img src="./assets/images/{{t.imagen}}" class="rounded-circle mt-2" width="90" height="90" alt="">-->
-                      <img src="../../../../assets/images/foto_mujer.jpg" class="rounded-circle mt-2" width="90" height="90" alt="...">
+                      <img src="assets/images/profesional-1.jpg" class="rounded-circle mt-2" width="90" height="90" alt="...">
                     </div>
                     <div class="col-7 col-md-7 align-self-center text-start">
                       <h6>{{user.nombre}} {{user.apellido}}</h6>
@@ -40,7 +40,10 @@
                     </div>
                   </div>
                   <div class="d-grid gap-2">
-                    <button class="boton-cards align-middle" type="button" routerLink="/valoracion">Contratar</button>
+                    <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
                   </div>
                 </div>
               </div>
@@ -51,15 +54,4 @@
         <!--Close Row -->
       </div>
     </section>
-
-
-
-
-    <!--Tarjeta Filtrada-->
-<!--<div>
-  @for(user of users; track trackById){
-    @if (){
-
-    }
-  }-->
   </div>

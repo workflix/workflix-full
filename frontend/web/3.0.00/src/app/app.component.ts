@@ -12,6 +12,7 @@ import { NavbarSiteComponent } from './pages/site/navbar-site/navbar-site.compon
 import { FooterSiteComponent } from './pages/site/footer-site/footer-site.component';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   isSitePage(): boolean {
-   
-    return this.router.url.includes('site');
+
+  return this.router.url.includes('site');
   }
+
 }
