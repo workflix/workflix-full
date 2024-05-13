@@ -74,7 +74,34 @@ export class PerfilProfesionalComponent implements OnInit {
           descripcion: formData.descripcion
         
         };
-      }}
+  
+        
+        this.userService.updateUserProfile(this.currentUser.id, newUserData).subscribe(
+          response => {
+            if (this.currentUser) {
+              this.currentUser.nombre = newUserData.nombre;
+              this.currentUser.apellido = newUserData.apellido;
+              this.currentUser.correo = newUserData.correo;
+              this.currentUser.direccion = newUserData.direccion;
+              this.currentUser.telefono = newUserData.telefono;
+              this.currentUser.descripcion = newUserData.descripcion;
+
+          }
+          console.log('Perfil actualizado con éxito:', response);
+          alert ('Los datos han sido actualizados correctamente');
+
+        },
+          error => {
+            console.error('Error al actualizar el perfil:', error);
+          }
+        );
+      } else {
+        console.error('Formulario inválido. Revise los campos.');
+      }
+    } else {
+      console.error('No hay un usuario actual.');
+    }
+  }
 
 
 
