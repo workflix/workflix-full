@@ -27,6 +27,9 @@ public class Usuario {
     private String provincia;
     @Column
     private String descripcion;
+
+    @Column
+    private Integer precio;
     @Column
     private String foto;
     @Column
@@ -137,5 +140,13 @@ public class Usuario {
 
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
+    }
+
+    public Integer getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
     }
 }
