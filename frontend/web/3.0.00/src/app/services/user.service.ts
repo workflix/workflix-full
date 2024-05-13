@@ -35,7 +35,16 @@ export class UserService {
         return throwError('Error al actualizar el usuario');
       })
     );
-}
+  }
+
+  updateUserProfile(id: number, newData: any): Observable<string> {
+    const url = `http://localhost:8080/usuarios/perfil/${id}`;
+    return this.http.post<string>(url, newData, { responseType: 'text' as 'json' }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError('Error al actualizar el perfil del usuario');
+      })
+    );
+  }
 
 deleteUser(id: number): Observable<string> {
   const url = `http://localhost:8080/usuarios/eliminar/${id}`;
