@@ -14,6 +14,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
 import { SiteComponent } from './pages/site/site.component';
 import { PerfilProfesionalComponent } from './pages/perfil-profesional/perfil-profesional.component';
+import { ServiceCreateComponent } from './pages/dashboard/service-create/service-create.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
@@ -30,7 +31,8 @@ export const routes: Routes = [
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
   { path: 'valoracion', component: ValoracionPerfilComponent },
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
-  { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] }
+  { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] },
+  { path: 'dashboard/service-create', component: ServiceCreateComponent }
 
 ];
 

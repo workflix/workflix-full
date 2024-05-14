@@ -1,0 +1,35 @@
+<main id="main" class="main">
+    <section class="vh-100">
+      <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1 mt-5">
+            <form>
+              <!-- Nombre input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input [value]="nombre" type="text" placeholder="Ingrese su nombre" class="form-control form-control-lg" id="nombre" #nombreInput required>
+              </div>
+              <div class="text-center text-lg-start mt-4 pt-2 d-flex justify-content-center align-items-center">
+                @if (editingMode===0){
+                  <p class="small fw-bold mt-2 pt-1 mb-0">
+                    <button type="submit" (click)="onSubmit(nombreInput.value)" class="btn btn-primary">Crear nuevo usuario</button>
+                  </p>
+                }@else{
+                  <p class="small fw-bold mt-2 pt-1 mb-0">
+                    <button type="submit" (click)="onSubmitUpdate(nombreInput.value)" class="btn btn-primary">Actualizar usuario</button>
+                  </p>
+                }
+              </div>
+              <div class="d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-primary mt-4" [routerLink]="'/dashboard'"> <i class="fas fa-plus"></i> Volver al dashboard </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  
+  
+  
+  
