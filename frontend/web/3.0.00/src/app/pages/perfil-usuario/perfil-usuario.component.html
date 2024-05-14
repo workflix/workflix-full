@@ -13,7 +13,7 @@
                      <div class="rectangle">Plomero</div>
                      </div>
                   </div> -->
-                  <img class="imagen1" src="assets/images/foto_mujer.jpg" alt="Profile">
+                  <img class="imagen1" src="assets/images/servicio_adquirido.png" alt="Profile">
                   <h2>{{ this.currentUser?.nombre }}</h2>
                   <h3>{{ this.currentUser?.apellido }}</h3>
                   <div class="social-links mt-2"> <a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter"></i></a> <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a> <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a> <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
@@ -36,7 +36,7 @@
 
                        <ng-container>
                         @if (this.currentUser) {
-                           <h5 class="card-title">A cerca de</h5>
+                           <h5 class="card-title">A cerca de mi</h5>
                            <p class="small fst-italic">{{ this.currentUser.descripcion }}</p>
                            <div class="linea"></div>
                            <h5 class="card-title">Detalles de perfil</h5>
@@ -130,14 +130,7 @@
                                                 <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                 <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                              </div>
-                                             
-                                     <label for="descripcion">Descripción:</label><br>
-                                     <input class="form-control" type="text" formControlName="descripcion" id="descripcion" name="descripcion" placeholder="Nueva descripción" value="{{this.currentUser.descripcion}}" required>
-                                     <div *ngIf="perfilForm.get('descripcion')?.invalid && (perfilForm.get('descripcion')?.dirty || perfilForm.get('descripcion')?.touched)" class="text-danger">
-                                        <div *ngIf="perfilForm.get('descripcion')?.errors?.['required']">Se requiere un correo electrónico.</div>
-                                        <div *ngIf="perfilForm.get('descripcion')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
-                                        <div *ngIf="perfilForm.get('descripcion')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
-                                     </div>
+                                     
                                      <br>
                                 <div class="text-center"> <button class="boton-form btn-primary" type="submit" >Guardar</button></div>
                               </form>

@@ -36,6 +36,7 @@ export class PerfilProfesionalComponent implements OnInit {
       mail: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
       adress: ['', [Validators.required, Validators.maxLength(40)]],
       phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      precio: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
 
     });
@@ -56,6 +57,7 @@ export class PerfilProfesionalComponent implements OnInit {
         mail: user.correo,
         adress: user.direccion,
         phone: user.telefono,
+        precio: user.precio,
         descripcion: user.descripcion
       });
     } 
@@ -72,6 +74,7 @@ export class PerfilProfesionalComponent implements OnInit {
           correo: formData.mail,
           direccion: formData.adress,
           telefono: formData.phone,
+          precio: formData.precio,
           descripcion: formData.descripcion
         
         };
@@ -85,6 +88,7 @@ export class PerfilProfesionalComponent implements OnInit {
               this.currentUser.correo = newUserData.correo;
               this.currentUser.direccion = newUserData.direccion;
               this.currentUser.telefono = newUserData.telefono;
+              this.currentUser.precio = newUserData.precio;
               this.currentUser.descripcion = newUserData.descripcion;
 
           }

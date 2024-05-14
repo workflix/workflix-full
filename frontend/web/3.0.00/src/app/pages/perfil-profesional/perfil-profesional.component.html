@@ -13,7 +13,7 @@
                        <div class="rectangle">Plomero</div>
                        </div>
                     </div>
-                    <img class="imagen1" src="assets/images/foto_mujer.jpg" alt="Profile">
+                    <img class="imagen1" src="assets/images/servicio_adquirido.png" alt="Profile">
                     <h2>{{ this.currentUser?.nombre }}</h2>
                     <h3>{{ this.currentUser?.apellido }}</h3>
                     <div class="social-links mt-2"> <a href="https://twitter.com/" class="twitter"><i class="bi bi-twitter"></i></a> <a href="https://www.facebook.com/" class="facebook"><i class="bi bi-facebook"></i></a> <a href="https://www.instagram.com/" class="instagram"><i class="bi bi-instagram"></i></a> <a href="https://www.linkedin.com/" class="linkedin"><i class="bi bi-linkedin"></i></a></div>
@@ -58,8 +58,12 @@
                              <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.direccion }}</div>
                              </div>
                              <div class="row">
-                             <div class="text col-lg-3 col-md-4 label">País</div>
+                             <div class="text col-lg-3 col-md-4 label">País:</div>
                              <div class="text-2 col-lg-9 col-md-8">Argentina</div>
+                             </div>
+                             <div class="row">
+                              <div class="text col-lg-3 col-md-4 label">Importe p/hora en $:</div>
+                              <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.precio }}</div>
                              </div>
   
                              
@@ -132,6 +136,14 @@
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                                 </div>
+                                        
+                                        <label for="precio">Precio del servicio por hora en $:</label><br>
+                                        <input class="form-control" type="number" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa, en pesos." value="{{this.currentUser.precio}}" required>
+                                        <div *ngIf="perfilForm.get('precio')?.invalid && (perfilForm.get('precio')?.dirty || perfilForm.get('precio')?.touched)" class="text-danger">
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['required']">Se requiere un importe en pesos.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['minlength']">El importe debe tener más de 3 caracteres.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['pattern']">El formato del importe no coincide.</div>
+                                        </div>
                                                 
                                         <label for="descripcion">Descripción:</label><br>
                                         <input class="form-control" type="text" formControlName="descripcion" id="descripcion" name="descripcion" placeholder="Nueva descripción" value="{{this.currentUser.descripcion}}" required>
