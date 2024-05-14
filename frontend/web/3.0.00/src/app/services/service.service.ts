@@ -85,8 +85,21 @@ export class ServiceService {
     }); 
     console.log(this.serviciosFiltrados);
   }
-  
 
+  private filtrarServicios(termino: string) {
+    console.log(this.services);
+    this.serviciosFiltrados = [];
+
+    termino = termino.toLowerCase();
+
+    this.services.forEach( service => {
+      const nombreLower = service.nombre.toLowerCase()
+
+      if(nombreLower.indexOf(termino)) {
+        this.serviciosFiltrados.push(service);
+        }
+    })
+  }
 
 
 }
