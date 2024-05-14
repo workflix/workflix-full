@@ -1,72 +1,39 @@
-.div-logo{
-  margin-top: 40px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
+.logo {
+  width: 30%;
 }
 
-img {
-  width: 423px;
-  height: 111px;
-}
-
-.columna1{
-  width: 360px;
-  height: 67px;
-}
 
 p{
   color: #6C757D;
-  text-align: center;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 }
 
-.columna2{
-  width: 357px;
-  height: 111px;
-}
 
 .p2{
   color: #6C757D;
-  text-align: center;
-  font-family: Inter;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  font-size: 1.2rem;
   text-decoration-line: underline;
 }
 
 .boton-web{
-  border-radius: 84.5px;
   color:#04313c;
-  border: 4px solid #60D5AB;
+  border: solid #60D5AB;
   background: #FFF;
-  font-size: 20px;
-  width: 234px;
-  height: 60px;
 }
 
 .boton-web:hover {
-  background-color:#f5efef;
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+  border: #1FBABF;
 }
 
 .boton-app{
-  border-radius: 84.5px;
   color:#04313c;
   border: none;
   background: #60D5AB;
-  font-size: 20px;
-  width: 234px;
-  height: 60px;
 }
 
 .boton-app:hover {
-  background-color:#bab1ba;
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
 }
-
 
