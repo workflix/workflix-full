@@ -1,15 +1,31 @@
-CREATE DATABASE workflix;
-USE workflix;
--- USER TABLE STRUCTURE
-CREATE TABLE usuario(
-    id INT NOT NULL AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    correo VARCHAR(255) NOT NULL UNIQUE,
-    telefono VARCHAR(50) NOT NULL,
-    clave VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP,
-    PRIMARY KEY(id)
-);
-
+INSERT INTO workflix.usuario (id, apellido, ciudad, clave, correo, descripcion, direccion, foto, nombre, precio, profesion, provincia, telefono, tipo_usuario) VALUES
+(1, 'Gonzalez', 'Buenos Aires', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'gonzalez@mail.com', 'Experto en instalaciones de agua y gas', 'Av. Rivadavia 123', 'perfil.jpg', 'Eduardo', 60, 'Plomero', 'Buenos Aires', '11223344', 'admin'),
+(2, 'Lopez', 'Córdoba', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'lopez@mail.com', 'Electricista con años de experiencia', 'Av. San Martín 456', 'foto.jpg', 'María', 70, 'Electricista', 'Córdoba', '22334455', 'cliente'),
+(3, 'Martinez', 'Rosario', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'martinez@mail.com', 'Albañil experto en construcciones', 'Calle Mitre 789', 'avatar.jpg', 'Carlos', 65, 'Albañil', 'Santa Fe', '33445566', 'profesional'),
+(4, 'Rodriguez', 'La Plata', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'rodriguez@mail.com', 'Pintor profesional con habilidades únicas', 'Av. Colón 123', 'imagen.jpg', 'Luis', 55, 'Pintor', 'Buenos Aires', '44556677', 'admin'),
+(5, 'Gomez', 'Mendoza', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'gomez@mail.com', 'Carpintero con experiencia en muebles a medida', 'Calle San Juan 456', 'foto_perfil.jpg', 'Ana', 75, 'Carpintero', 'Mendoza', '55667788', 'cliente'),
+(6, 'Diaz', 'Salta', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'diaz@mail.com', 'Experto en sistemas de seguridad para hogares', 'Av. Dorrego 789', 'foto.jpg', 'Diego', 70, 'Seguridad', 'Salta', '66778899', 'profesional'),
+(7, 'Sánchez', 'Bahía Blanca', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'sanchez@mail.com', 'Plomero con años de experiencia en reparaciones', 'Calle Belgrano 123', 'perfil.jpg', 'Lucía', 60, 'Plomero', 'Buenos Aires', '77881122', 'cliente'),
+(8, 'Torres', 'Mar del Plata', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'torres@mail.com', 'Electricista especializado en instalaciones industriales', 'Av. Independencia 456', 'avatar.jpg', 'Martín', 50, 'Electricista', 'Buenos Aires', '88992233', 'admin'),
+(9, 'Pérez', 'San Juan', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'perez@mail.com', 'Albañil con habilidades en reformas y construcciones', 'Av. Rivadavia 789', 'foto_perfil.jpg', 'Sofía', 65, 'Albañil', 'San Juan', '99001122', 'profesional'),
+(10, 'Fernández', 'Salta', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'fernandez@mail.com', 'Pintor experto en técnicas modernas de pintura', 'Calle Mitre 234', 'imagen.jpg', 'Javier', 70, 'Pintor', 'Salta', '00112233', 'cliente'),
+(11, 'Giménez', 'Jujuy', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'gimenez@mail.com', 'Carpintero especializado en muebles de alta calidad', 'Av. Belgrano 789', 'perfil.jpg', 'Andrea', 55, 'Carpintero', 'Jujuy', '11223344', 'admin'),
+(12, 'Vázquez', 'La Rioja', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'vazquez@mail.com', 'Experto en sistemas de seguridad para hogares', 'Av. San Martín 789', 'foto.jpg', 'Federico', 70, 'Seguridad', 'La Rioja', '22334455', 'profesional'),
+(13, 'Blanco', 'Corrientes', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'blanco@mail.com', 'Plomero con habilidades en instalaciones modernas', 'Av. 9 de Julio 123', 'avatar.jpg', 'Ana', 60, 'Plomero', 'Corrientes', '33445566', 'cliente'),
+(14, 'Romero', 'Misiones', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'romero@mail.com', 'Electricista con experiencia en mantenimiento industrial', 'Calle Belgrano 456', 'imagen.jpg', 'José', 50, 'Electricista', 'Misiones', '44556677', 'admin'),
+(15, 'Suárez', 'Neuquén', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'suarez@mail.com', 'Albañil experto en construcciones', 'Av. Colón 789', 'foto_perfil.jpg', 'María', 75, 'Albañil', 'Neuquén', '55667788', 'cliente'),
+(16, 'Molina', 'Formosa', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'molina@mail.com', 'Pintor con habilidades en restauración de fachadas', 'Av. Libertador 123', 'foto.jpg', 'Carlos', 60, 'Pintor', 'Formosa', '66778899', 'profesional'),
+(17, 'Ortega', 'San Luis', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'ortega@mail.com', 'Carpintero con experiencia en diseño de interiores', 'Calle San Martín 456', 'avatar.jpg', 'Laura', 65, 'Carpintero', 'San Luis', '77889900', 'admin'),
+(18, 'Rojas', 'San Juan', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'rojas@mail.com', 'Experto en sistemas de seguridad para hogares', 'Av. Rivadavia 789', 'perfil.jpg', 'Juan', 70, 'Seguridad', 'San Juan', '88990011', 'cliente'),
+(19, 'Alonso', 'Santa Fe', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'alonso@mail.com', 'Plomero con habilidades en instalaciones modernas', 'Calle Belgrano 123', 'imagen.jpg', 'Paula', 55, 'Plomero', 'Santa Fe', '99001122', 'admin'),
+(20, 'Gutiérrez', 'Chubut', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'gutierrez@mail.com', 'Electricista especializado en instalaciones industriales', 'Av. 9 de Julio 456', 'foto_perfil.jpg', 'Luis', 60, 'Electricista', 'Chubut', '00112233', 'profesional'),
+(21, 'Vidal', 'Entre Ríos', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'vidal@mail.com', 'Albañil experto en construcciones', 'Av. Dorrego 123', 'perfil.jpg', 'Carla', 65, 'Albañil', 'Entre Ríos', '11223344', 'cliente'),
+(22, 'Santiago', 'Jujuy', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'santiago@mail.com', 'Pintor con habilidades en decoración de interiores', 'Calle Mitre 456', 'foto.jpg', 'Gonzalo', 70, 'Pintor', 'Jujuy', '22334455', 'admin'),
+(23, 'Iglesias', 'La Rioja', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'iglesias@mail.com', 'Carpintero con experiencia en muebles a medida', 'Av. San Martín 789', 'avatar.jpg', 'Ana', 75, 'Carpintero', 'La Rioja', '33445566', 'profesional'),
+(24, 'Méndez', 'Misiones', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'mendez@mail.com', 'Experto en sistemas de seguridad para hogares', 'Av. Rivadavia 123', 'imagen.jpg', 'Javier', 50, 'Seguridad', 'Misiones', '44556677', 'cliente'),
+(25, 'Benítez', 'Neuquén', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'benitez@mail.com', 'Plomero con habilidades en reparaciones rápidas', 'Calle Belgrano 456', 'foto_perfil.jpg', 'Carolina', 55, 'Plomero', 'Neuquén', '55667788', 'admin'),
+(26, 'Molina', 'Formosa', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'molina@mail.com', 'Electricista especializado en instalaciones industriales', 'Av. Libertador 123', 'foto.jpg', 'Marcelo', 60, 'Electricista', 'Formosa', '66778899', 'profesional'),
+(27, 'Santos', 'San Luis', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'santos@mail.com', 'Albañil con habilidades en reformas y construcciones', 'Calle San Martín 456', 'avatar.jpg', 'Laura', 65, 'Albañil', 'San Luis', '77889900', 'admin'),
+(28, 'Castillo', 'San Juan', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'castillo@mail.com', 'Pintor experto en técnicas modernas de pintura', 'Av. Rivadavia 789', 'perfil.jpg', 'Gabriel', 70, 'Pintor', 'San Juan', '88990011', 'cliente'),
+(29, 'Mora', 'Santa Fe', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'mora@mail.com', 'Carpintero con habilidades en muebles a medida', 'Calle Belgrano 123', 'imagen.jpg', 'Valentina', 75, 'Carpintero', 'Santa Fe', '99001122', 'admin'),
+(30, 'Silva', 'Chubut', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'silva@mail.com', 'Electricista con experiencia en mantenimiento industrial', 'Av. 9 de Julio 456', 'foto_perfil.jpg', 'Martín', 50, 'Electricista', 'Chubut', '00112233', 'profesional');
