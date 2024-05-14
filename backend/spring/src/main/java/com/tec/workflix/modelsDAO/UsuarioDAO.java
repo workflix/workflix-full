@@ -40,9 +40,9 @@ public class UsuarioDAO implements IUsuarioInterface {
     }
     @Override
     public int actualizarPerfil(Usuario usuario){
-        String sql="update usuario set nombre=?, apellido=?, telefono=?, correo=?, direccion=?, ciudad=?, provincia=?, profesion=?, descripcion=?, foto=? where id=?";
+        String sql="update usuario set nombre=?, apellido=?, telefono=?, correo=?, direccion=?, ciudad=?, provincia=?, profesion=?, descripcion=?, precio=?, foto=? where id=?";
     return template.update(sql,usuario.getNombre(),usuario.getApellido(),usuario.getTelefono(),usuario.getCorreo(), usuario.getDireccion() ,usuario.getCiudad(), usuario.getProvincia()
-    ,usuario.getProfesion(),usuario.getDescripcion(),usuario.getFoto(),usuario.getId());
+    ,usuario.getProfesion(),usuario.getDescripcion(),usuario.getPrecio(),usuario.getFoto(),usuario.getId());
     }
     @Override
     public int delete(int id) {
