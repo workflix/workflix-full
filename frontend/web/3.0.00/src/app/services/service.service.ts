@@ -34,6 +34,10 @@ export class ServiceService {
   getAllServices():Observable<Service[]>{
     return this.http.get<Service[]>(this.urlServicios+'/listar');
   }
+
+  createService(nombre: string): Observable<Service> {
+    return this.http.post<Service>(this.urlServicios, { nombre: nombre });
+  }
   
 }
 
