@@ -64,5 +64,18 @@ export class ServiceCreateComponent {
     }
  }
 
+ ngOnInit() {
+  const serviceData = history.state.data;
+  if(serviceData){
+    this.nombre = serviceData.nombre;
+    this.currentServiceId = serviceData.id;
+    this.editingMode = 1;
+  }else{
+    console.log('ERROR RECEIVING DATA')
+  }
+ }
+
  
+
+
 }
