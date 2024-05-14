@@ -31,11 +31,28 @@ export class TarjetasComponent implements OnInit {
               private router:Router
             ) {}
 
-  ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(
-      users => this.users = users
-    );
-  }
+            ngOnInit(): void {
+              this.userService.getAllUsers().subscribe(
+                users => {
+                  this.users = users;
+                  console.log('Users:');
+                  this.users.forEach(user => console.log(user));
+
+
+                  if (this.users) {
+                    // Asegurarse de que 'tipoUsuario' esté presente y en minúsculas
+                    this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
+                  } else {
+                    // Manejar el caso en el que no se devuelvan usuarios
+                    console.log('No se encontraron usuarios.');
+                  }
+                },
+                error => {
+                  // Manejar errores de la solicitud HTTP
+                  console.error('Error al obtener usuarios:', error);
+                }
+              );
+            }
 
   public addCart(user: User){
     console.log('Profesional almacenado correctamente: '+user);
