@@ -87,9 +87,8 @@ export class ServiceCreateComponent {
   }
  }
 
+ clearFieldsService(){
+  this.nombre = '';
+ }
  
-
-
-
-
 }
