@@ -62,6 +62,15 @@ export class ServiceService {
       );
   }
 
+  cargarServicios() {
+    return new Promise<void>((resolve, reject) => {
+      this.http.get<Service[]>(this.urlServicios + '/listar').subscribe((resp: Service[]) => {
+        this.services = resp;
+        resolve();
+      });
+    });
+  }
+
 
 
 }
