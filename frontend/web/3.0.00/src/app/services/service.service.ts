@@ -71,6 +71,22 @@ export class ServiceService {
     });
   }
 
+  buscarServicio(termino: string): void {
+    if (this.services.length === 0) {
+      this.cargarServicios().then(() => {
+        this.filtrarServicios(termino);
+      });
+    } else {
+      this.filtrarServicios(termino);
+    }
+
+    this.serviciosFiltrados = this.services.filter( servicio => {
+      return true;
+    }); 
+    console.log(this.serviciosFiltrados);
+  }
+  
+
 
 
 }
