@@ -41,7 +41,7 @@ export class TarjetasComponent implements OnInit {
 
                   if (this.users) {
                     // Asegurarse de que 'tipoUsuario' esté presente y en minúsculas
-                    this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional');
+                    this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
                   } else {
                     // Manejar el caso en el que no se devuelvan usuarios
                     console.log('No se encontraron usuarios.');
