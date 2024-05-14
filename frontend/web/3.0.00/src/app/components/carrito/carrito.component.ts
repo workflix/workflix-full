@@ -32,5 +32,9 @@ export class CarritoComponent implements OnInit {
    this._cartService.removeElementCart(producto);
   }
 
+  contratado(){
+    alert('Profesional Contratado');
+  }
+
 
 }
