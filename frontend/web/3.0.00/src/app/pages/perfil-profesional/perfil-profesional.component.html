@@ -58,8 +58,12 @@
                              <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.direccion }}</div>
                              </div>
                              <div class="row">
-                             <div class="text col-lg-3 col-md-4 label">País</div>
+                             <div class="text col-lg-3 col-md-4 label">País:</div>
                              <div class="text-2 col-lg-9 col-md-8">Argentina</div>
+                             </div>
+                             <div class="row">
+                              <div class="text col-lg-3 col-md-4 label">Importe p/hora en $:</div>
+                              <div class="text-2 col-lg-9 col-md-8">{{ this.currentUser.precio }}</div>
                              </div>
   
                              
@@ -133,7 +137,7 @@
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                                 </div>
                                         
-                                        <label for="precio">Precio del servicio por hora en pesos:</label><br>
+                                        <label for="precio">Precio del servicio por hora en $:</label><br>
                                         <input class="form-control" type="text" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa" value="{{this.currentUser.precio}}" required>
                                         <div *ngIf="perfilForm.get('precio')?.invalid && (perfilForm.get('precio')?.dirty || perfilForm.get('precio')?.touched)" class="text-danger">
                                            <div *ngIf="perfilForm.get('precio')?.errors?.['required']">Se requiere un correo electrónico.</div>
