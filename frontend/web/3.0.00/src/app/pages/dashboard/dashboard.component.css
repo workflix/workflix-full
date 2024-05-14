@@ -39,9 +39,9 @@ body {
 }
 
 .btn-sidebar{
-  padding: 2px 8px;
-  font-size: 26px;
-  color: #ffffff;
+  padding: 2px 6px;
+  font-size: 20px;
+  color: #ffffff !important;
   background-color: #0A769D !important;
   border-color: #0A769D !important;
 }

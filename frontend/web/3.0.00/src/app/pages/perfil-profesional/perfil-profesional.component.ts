@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { CommonModule} from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
@@ -8,18 +9,20 @@ import { User } from '../../models/user';
 
 
 @Component({
-  selector: 'app-perfil-usuario',
+  selector: 'app-perfil-profesional',
   standalone: true,
   imports: [ReactiveFormsModule, FormsModule, CommonModule],
-  templateUrl: './perfil-usuario.component.html',
-  styleUrl: './perfil-usuario.component.css'
+  templateUrl: './perfil-profesional.component.html',
+  styleUrl: './perfil-profesional.component.css'
 })
-export class PerfilUsuarioComponent implements OnInit {
+
+export class PerfilProfesionalComponent implements OnInit {
   currentUser: User | null = null;
   perfilForm: FormGroup;
   usuario?: User;
   error: string = '';
   currentUserId = "";
+
 
   constructor(
     private loginService: LoginService,
@@ -36,6 +39,7 @@ export class PerfilUsuarioComponent implements OnInit {
       descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
 
     });
+
   }
 
   ngOnInit(): void {
@@ -57,6 +61,7 @@ export class PerfilUsuarioComponent implements OnInit {
     } 
     });
   }
+
   onSubmit(formData: any): void {
     if (this.currentUser) {
       if (this.perfilForm.valid) {
@@ -98,7 +103,7 @@ export class PerfilUsuarioComponent implements OnInit {
       console.error('No hay un usuario actual.');
     }
   }
-  
 
-  
+
+
 }

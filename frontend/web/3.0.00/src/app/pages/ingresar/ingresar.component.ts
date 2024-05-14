@@ -36,6 +36,7 @@ export class IngresarComponent {
     this.loginService.login(email, password).subscribe(
       (user) => {
         console.log('Inicio de sesión exitoso', user);
+        alert ('Bienvenid@ a WorkflixWeb');
         if(user.tipoUsuario === 'admin'){
           this.router.navigate(['/dashboard']);
         }
