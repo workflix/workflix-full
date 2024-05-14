@@ -15,6 +15,23 @@ export class ServiceService {
   
   constructor(private http: HttpClient) { }
 
+  registerService(nombre: string): Observable<Service> {
+    // Crear parámetros para enviar en la URL
+    const params = new HttpParams()
+     .set('nombre', nombre);
+
+     // Realizar la petición
+    return this.http.post<Service>(this.urlServices, {}, { params : params }).pipe(
+      tap(response => {
+        console.log('Registro exitoso:', response);
+      })
+    );
+  }
+
+  
+
+  
+
   
 }
 
