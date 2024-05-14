@@ -25,10 +25,20 @@ export class ServiceCreateComponent {
   }
 
   onSubmit(nombre: string): void  {
-    if (!nombre) {
-      this.error = 'Por favor ingresa el nombre del servicio';
-      return;
+    if(nombre){
+      this.serviceService.registerService(nombre).subscribe(
+        response => {
+          console.log('Registro exitoso:', response);
+          this.clearFieldsService();
+          this.router.navigate(['/dashboard'])
+        },
+        error => {
+          console.error('No se pudo registrar correctamente:', error);
+        }
+      );
+    }else{
+      this.error = 'Debe completar todos los campos';
     }
-
-    }
+  }
+ 
 }
