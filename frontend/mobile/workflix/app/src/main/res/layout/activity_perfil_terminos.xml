@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".views.ui.perfil_terminos.PerfilTerminosActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="clip_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/logo_app"
+                    app:srcCompat="@drawable/logo_workflix_1"
+                    tools:ignore="UnknownIdInLayout" />
+            </LinearLayout>
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:padding="16dp"
+                tools:ignore="MissingConstraints">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:backgroundTint="#F0F0F0"
+                    app:cardCornerRadius="26dp"
+                    app:cardElevation="4dp">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="30dp"
+                        android:orientation="horizontal">
+
+                        <!-- Foto de perfil (ImageView) -->
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imagenProf"
+                            android:layout_width="94dp"
+                            android:layout_height="94dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/profesional_1"
+                            app:shapeAppearance="@style/circular" />
+
+                        <!-- Contenedor para el nombre y apellido, línea separadora y RatingBar -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <!-- Nombre y apellido (TextView) -->
+                            <TextView
+                                android:id="@+id/nombreProf"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Cristian"
+                                android:textColor="#000"
+                                android:textSize="18sp" />
+
+                            <TextView
+                                android:id="@+id/apellidoProf"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:text="Cristian"
+                                android:textColor="#000"
+                                android:textSize="18sp" />
+
+                            <!-- Línea separadora en gris -->
+
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="8dp"
+                                android:background="#888" />
+
+                            <!-- Estrellas de valoración (RatingBar) -->
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Descripción breve (TextView) -->
+                    <TextView
+                        android:id="@+id/descripcion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:maxLines="3"
+                        android:text="Mecanico, papa de tres hermosas niñas, Micaela, Florencia y Wanda."
+                        android:textAlignment="center"
+                        android:textColor="@color/black" />
+
+
+                </LinearLayout>
+
+
+                <!-- Agrega más CardViews según sea necesario -->
+
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_Perfil_terminos"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/verde1"
+                    android:onClick="irPerfilEditar"
+                    android:text="@string/perfil"
+                    android:textColor="@color/black"
+                    tools:ignore="UnknownId" />
+
+                <Button
+                    android:id="@+id/btn_Perfil_terminos_con"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/gris"
+                    android:onClick="terminos"
+                    android:text="@string/terminos"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/btn_Cerrar_sesion"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="32dp"
+                    android:backgroundTint="@color/azul"
+                    android:onClick="cerrarSesion"
+                    android:text="@string/cerrar"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

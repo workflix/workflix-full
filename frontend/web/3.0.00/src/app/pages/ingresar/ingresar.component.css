@@ -1,0 +1,133 @@
+:host {
+  display: block;
+  margin-top: 90px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+}
+
+.encabezado-2{
+  text-align: center;
+  margin: 10px 0 20px 0;
+  font-weight: 300;
+  color: #6c757d;
+}
+
+.formulario {
+  width: 25%; /* Establece el ancho del formulario al 80% del ancho de su contenedor */
+  max-width: 600px; /* Establece un ancho máximo opcional para el formulario */
+  margin: 0 auto; /* Centra el formulario horizontalmente en la página */
+  min-width: 300px; /* Establece un ancho mínimo de 300px para el formulario */
+}
+
+
+label.form-label {
+  font-size: 14px;
+  color: #0A769D;
+}
+
+.center-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+ 
+}
+
+
+
+input {
+  width: 100% !important;
+  background: none;
+  color: #6c757d;
+  font-size: 1.5 vw;
+  border: 1px #efedef solid;
+}
+
+.text-center
+.btn {
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #9fc78f;
+  width: 150px;
+  display: block;
+  margin-top: 1em;
+  margin: 0 auto;
+  padding: 0.875rem;
+  border-radius: 0.2rem;
+  box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
+  cursor: pointer;
+}
+
+.parrafo {
+  text-align:start;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 5%;
+  margin-left: auto;
+}
+
+.checkbox-container label {
+  margin-left: 15px; /* Ajusta el margen izquierdo del texto */
+}
+
+.boton-form{
+  background: #60D5AB;
+  background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
+  width: 100%;
+  border:none;
+  color:#fff;
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.boton-form:hover{
+  background: #1FBABF;
+}
+
+.mensaje {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c757d;
+  margin: 20px 0 20px 0;
+}
+
+.ng-valid:not(form).ng-touched {
+  border-bottom: 5px solid #42a948;
+}
+
+.ng-invalid:not(form).ng-touched {
+  border-bottom: 5px solid #a94442;
+}
+
+@media (max-width: 767px) {
+input {
+  width: 100% !important;
+}
+}
+@media screen  and (max-width: 450px)  {
+  .center-form {
+    margin-bottom: 30px;
+  }
+}
+
+/* .password-input {
+background: none;
+color: #c6c6c6;
+font-size: 18px;
+padding: 10px 10px 10px 5px;
+display: block;
+border: none;
+border-bottom: 1px solid var(--colorTextos);
+resize: none;
+} */
+
+

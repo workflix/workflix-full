@@ -1,0 +1,171 @@
+<main id="main" class="main">
+    
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" id="sidebar-wrapper" style="width: 240px;" [class]="status ? 'hide' : 'show'">
+      <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <i class="bi bi-speedometer2 me-2 icono-panel"></i>
+        <span class="fs-4">Dashboard</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a (click)="cambiarVista('profesionales')" [class]="{'active': vista === 'profesionales'}" class="nav-link icono-nav">
+            <i class="bi bi-people-fill me-2"></i>
+            Profesionales
+          </a>
+        </li>
+        <li>
+          <a (click)="cambiarVista('servicios')" [class]="{'active': vista === 'servicios'}" class="nav-link icono-nav">
+            <i class="bi bi-suitcase-lg-fill me-2"></i>
+            Servicios
+          </a>
+        </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>Usuario</strong>
+        </a>
+        <ul class="dropdown-menu text-small shadow">
+          <li><a class="dropdown-item" href="#"><i class="bi bi-person-fill me-2"></i>Perfil</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right me-2"></i>Desconectar</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <button class="btn bi bi-grid-fill btn-sidebar" (click)="clickEvent()"></button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="container-fluid">
+        <!--content-usuarios-->
+        <div *ngIf="vista === 'profesionales'">
+          <div class="header">
+            @if (userArray.length > 0) {
+             <ng-container>
+              <h1 class="mt-4">Usuarios registrados</h1>
+             </ng-container>
+            }@else {
+              <ng-template #noCustomers>
+                <h1 class="mt-4">No hay usuarios registrados</h1>
+              </ng-template>
+            }
+        
+             <button type="button" class="btn btn-success submitDashboard mov icono-b3" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
+            </div>
+        
+            <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr class="content-table">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Apellido</th>
+                          <th scope="col">Dirección</th>
+                          <th scope="col">Telefono</th>
+                          <th scope="col">Opciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @for (user of userArray; track $index) {
+                          <tr>
+                              <td>{{ user.nombre }}</td>
+                              <td>{{ user.apellido }}</td>
+                              <td>{{ user.direccion }}</td>
+                              <td>{{ user.telefono }}</td>
+                              <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                  <button type="button" class="btn icono-b1" (click)="setUpdate(user)" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                                      <i class="bi bi-pencil-fill"></i>
+                                  </button>
+                                  <button type="button" class="btn icono-b2" (click)="deleteUser(user)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                      <i class="bi bi-trash-fill"></i>
+                                  </button>
+                                </div>
+                              </td>
+                          </tr>
+                      }
+                  </tbody>
+              </table>
+          </div>
+        
+        </div>
+        <!--content-usuarios-end-->
+        
+        <!--content-servicios-->
+        <div  *ngIf="vista === 'servicios'">
+          <h1 class="mt-4">Servicios</h1>
+        </div>
+        <!--content-servicios-->
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+      
+</main>
+
+
+<!--
+<div class="container mx-auto" >
+  <div class="header">
+    @if (userArray.length > 0) {
+     <ng-container>
+       <h1>Usuarios registrados</h1>
+     </ng-container>
+    }@else {
+      <ng-template #noCustomers>
+        <h1>No hay usuarios registrados</h1>
+      </ng-template>
+    }
+
+     <button type="button" class="btn btn-success submitDashboard mov" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
+    </div>
+
+<table class="table">
+
+   <thead>
+
+   <tr>
+       <th scope="col">Nombre</th>
+       <th scope="col">Apellido</th>
+       <th scope="col">Direccion</th>
+       <th scope="col">Telefono</th>
+       <th scope="col">Opciones</th>
+     </tr>
+
+   </thead>
+
+   <tbody>
+@for (user of userArray; track $index) {
+       <tr>
+
+       <td>{{ user.nombre }}</td>
+       <td>{{ user.apellido }}</td>
+       <td>{{ user.direccion }}</td>
+       <td>{{ user.telefono }}</td>
+       <td>{{ user.descripcion}}</td>
+
+
+       <td>
+           <button type="button" class="btn btn-warning submitDashboard" (click)="setUpdate(user)">Edit</button>
+           <button type="button" class="btn btn-danger submitDashboard" (click)="deleteUser(user)">Delete</button>
+       </td>
+
+     </tr>
+    }
+   </tbody>
+
+ </table>
+
+</div>
+-->

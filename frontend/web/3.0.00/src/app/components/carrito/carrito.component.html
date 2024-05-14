@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="shopping-cart">
+    <div class="shopping-cart-header">
+      <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{totalQuantity}}</span>
+      <div class="shopping-cart-total">
+        <span class="lighter-text">Total:</span>
+        <span class="main-color-text">${{totalPrice}}</span>
+      </div>
+    </div>
+    <!--end shopping-cart-header -->
+
+    @for (item of items; track $index) {
+    <ul class="shopping-cart-items">
+      <li class="clearfix">
+        <img src="../../../../assets/images/servicio_adquirido.png" alt="item1" style="width: 40px; height: 40px;"/>
+        <span class="item-name">{{item.nombre}} {{item.apellido}}</span>
+        <span class="item-price">Precio ${{item.precio}}</span>
+        <!-- <span class="item-quantity">Cantidad: {{item.cantidad}}</span> -->
+        <button type="button" class="btn btn-danger ml-4" (click)="remove(item)">Cancelar</button>
+      </li>
+    </ul>
+  }
+    <button type="button" class="btn btn-primary btn-lg mx-auto" (click)="contratado()">Contratar</button>
+  </div> <!--end shopping-cart -->
+</div> <!--end container -->

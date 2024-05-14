@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --color-primary: rgba(0,0,0,.8980392157);
+    --color-button-primary:#3483fa;
+    --color-button-secundary:#1f77fa;
+    --bg-color-primary-yellow:  #ffe600;
+    --bg-color-primary-black:rgba(61, 60, 60, 0.898);
+    --bg-color-button-primary: #3483fa2d;
+    /* --bg-color-button-secundary: #3483fa; */
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

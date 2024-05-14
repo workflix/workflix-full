@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <!-- SECTION PROFESIONALES -->
+    <section id="profesionales">
+      <div class="container-fluid">
+        <div class="row">
+          <!-- Tarjeta del Profesional -->
+          @for(user of users; track trackById){
+            <div class="item-box plo col-12 col-md-6 col-lg-3 text-center mb-5">
+              <div class="card shadow bg-light" style="border-radius: 20px 0px 40px 40px; border:none;">
+                <div class="card-header rounded-pill cabecera-tarjeta">
+                  <!--{{}} <i class="fa-solid fa-wrench"></i>-->
+                  <h6>Plomero</h6>
+                </div>
+                <div class="card-body">
+                  <h1 class="card-title"></h1>
+                  <div class="row mt-2">
+                    <div class="col-4 col-md-4 ms-2">
+                      <!--<img src="./assets/images/{{t.imagen}}" class="rounded-circle mt-2" width="90" height="90" alt="">-->
+                      <img src="assets/images/profesional-1.jpg" class="rounded-circle mt-2" width="90" height="90" alt="...">
+                    </div>
+                    <div class="col-7 col-md-7 align-self-center text-start">
+                      <h6>{{user.nombre}} {{user.apellido}}</h6>
+                      <hr>
+                      <div class="col-7 col-md-7 align-self-center text-center">
+                        <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
+                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
+                          <li><i class="fa-regular fa-star fa-xs mx-1"></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-grid gap-3 m-2">
+                    <div class="p-2 bg-white border my-3 mx-2 rounded">
+                      <p class="card-text">
+                      {{user.descripcion}} {{user.telefono}}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- FIN Tarjeta del Profesional -->
+        }
+        </div>
+        <!--Close Row -->
+      </div>
+    </section>
+  </div>

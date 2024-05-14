@@ -1,0 +1,40 @@
+<div class="center-form">
+    <form action="" method="post">
+      <div class="form">
+        <h1 class="encabezado-2">Formulario de contacto</h1>
+        <h3 class="encabezado-3">Escríbanos y en breve nos pondremos en contacto</h3>
+      
+        <div class="controls">
+          <label for="nombre">Nombre/s</label><br>
+          <input class="shadow p-3 mb-3 bg-white rounded" type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" pattern=[A-Z\sa-z]{3,20} required>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+  
+        <div class="controls">
+          <label for="apellido">Apellido/s</label><br>
+          <input class="shadow p-3 mb-3 bg-white rounded" type="text" id="apellido" name="apellido" placeholder="Ingrese su Apellido" pattern=[A-Z\sa-z]{3,20} required>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+      
+        <div class="controls">
+          <label for="email">E-mail</label><br>
+          <input class="shadow p-3 mb-3 bg-white rounded" type="email" id="email" name="email" placeholder="Ingrese su correo electrónico" required>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+      
+        <div class="controls">
+          <label for="asunto">Asunto</label><br>
+          <input class="shadow p-3 mb-3 bg-white rounded" type="text" id="asunto" name="asunto" placeholder="Ingrese el asunto" required pattern=[A-Za-z0-9\s]{8,60}>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+  
+        <div class="controls">
+          <label for="mensaje">Mensaje</label><br>
+          <textarea class="shadow p-3 mb-3 bg-white rounded" id="mensaje" name="mensaje" placeholder="Aquí va su mensaje" required></textarea>
+          <div class="no-valido text-danger d-none"></div>
+        </div>
+      
+        <button class="boton-form btn-lg btn-info" type="submit" onclick="return validarFormulario()">Enviar</button>
+      </div>
+    </form>
+  </div>

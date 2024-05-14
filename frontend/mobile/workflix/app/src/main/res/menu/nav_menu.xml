@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/nav_home"
+            android:title="Inicio"/>
+
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/nav_login"
+            android:title="Ingresar"
+            />
+        <item
+            android:id="@+id/nav_perfil_terminos"
+            android:icon="@drawable/nav_profile"
+            android:title="Perfil"
+            />
+
+        <item
+            android:id="@+id/dashboard_admin"
+            android:icon="@drawable/nav_dashboard"
+            android:title="Dashboard"
+            />
+        <!--  android:id="@+id/nav_settings"
+              android:icon="@drawable/nav_settings"
+              android:title="Settings"-->
+
+        <item
+            android:id="@+id/nav_contact_mail"
+            android:icon="@drawable/nav_contact_mail"
+            android:title="Contáctanos"/>
+      <!--  android:id="@+id/nav_share"
+        android:icon="@drawable/nav_share"
+        android:title="Share"-->
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/nav_about"
+            android:title="Sobre Nosotros"/>
+    </group>
+    <item
+        android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/nav_logout"
+                android:title="Salir"/>
+        </menu>
+
+    </item>
+   
+</menu>

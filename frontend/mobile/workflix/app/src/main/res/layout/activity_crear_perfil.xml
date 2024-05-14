@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:onClick="cerrarSesion"
+    tools:context=".views.ui.perfil.Perfil">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/logo_app"
+                    app:srcCompat="@drawable/logo_workflix_1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="@string/Editar_perfil"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
+            </LinearLayout>
+
+            <GridLayout
+                android:id="@+id/gridLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:padding="15sp"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="144dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/btnCargarImagen"
+                                style="@style/Widget.MaterialComponents.Button"
+                                android:layout_width="131dp"
+                                android:layout_height="60dp"
+                                android:backgroundTint="@color/verde1"
+                                android:text="@string/Cambiar_Foto"
+                                android:textColor="@color/black"
+                                app:strokeColor="@color/teal_700"
+                                android:onClick="subirFoto"
+                                />
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/imagenFoto"
+                                android:layout_width="131dp"
+                                android:layout_height="120dp"
+                                android:layout_marginTop="16dp"
+                                android:scaleType="centerCrop"
+                                app:shapeAppearance="@style/circular"
+                                app:srcCompat="@drawable/perfil_imagen" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <EditText
+                                android:id="@+id/perfilNombre"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Nombre"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black" />
+
+                            <EditText
+                                android:id="@+id/perfilApellido"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Apellido"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black" />
+
+                            <EditText
+                                android:id="@+id/perfilCorreo"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Correo electronico"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black" />
+
+                            <EditText
+                                android:id="@+id/perfilTelefono"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Telefono"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/black" />
+
+                            <EditText
+                                android:id="@+id/perfilCiudad"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Ciudad"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/grey3" />
+
+                            <EditText
+                                android:id="@+id/perfilProvincia"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Provincia"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/grey3" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical"
+                android:paddingStart="15sp"
+                android:paddingEnd="15sp">
+
+                <EditText
+                    android:id="@+id/perfilServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Servicio"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey3" />
+
+                <EditText
+                    android:id="@+id/perfilDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:hint="Descripción"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/grey3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="166dp"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnActualizarPerfil"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="355dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="15dp"
+                    android:backgroundTint="@color/verde1"
+                    android:text="@string/actualizar_perfil"
+                    android:textColor="@color/black"
+                    tools:ignore="MissingConstraints" />
+
+                <Button
+                    android:id="@+id/btnEliminarPerfil"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="355dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:backgroundTint="@android:color/holo_red_light"
+                    android:text="@string/Eliminar_Cuenta"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

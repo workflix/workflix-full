@@ -1,0 +1,88 @@
+
+:host {
+    display: block;
+    margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  }
+
+/* Estilos de la Home */
+
+.cabecera-tarjeta{
+    background-color: #0A769D;
+    width: 70%;
+    color: #ffffff;
+    z-index:2;
+    font-size:medium;
+    letter-spacing: 2px;
+}
+
+.boton-cards {
+    background-color:#60D5AB;
+    border:#60D5AB 1px solid;
+    border-radius: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    letter-spacing: 2px;
+    transition-duration: 0.4s;
+    color: #000000;
+}
+
+.boton-cards:hover {
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+}
+
+.boton-cards-1 {
+  border:#60D5AB 1px solid;
+  border-radius: 40px;
+  border: 1px solid #60D5AB;
+  background: #FFF;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  letter-spacing: 2px;
+  transition-duration: 0.4s;
+  color: #000000;
+}
+
+.boton-cards-1:hover {
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+  border: 1px solid #1FBABF;
+}
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-center-wwa{
+    display: flex;
+    margin: 2rem 7rem;
+}
+
+
+input, textarea{
+    background: none;
+    color:#c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border:none;
+    border-bottom: 1px solid var(--colorTextos);
+    resize: none;
+}
+
+input:focus,textarea:focus{
+    outline: none;
+    color: rgb(94,93,93);
+}
+
+input:focus~label,
+input:valid~label,
+textarea:focus~label, textarea:valid~label{
+    position: absolute;
+    top: -14px;
+    font-size: 12px;
+    color: #2196F3;
+}

@@ -1,0 +1,361 @@
+    /* Botón Volver */
+
+    .volver-btn {
+        margin-left: 40px;
+        margin-top: 80px;
+        padding: 8px;
+        background: #FFF;
+        color: #000000;
+        border: none;
+        border: 4px solid #60D5AB;
+        border-radius: 40px;
+        cursor: pointer;
+        width: 150px;
+        z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+    }
+
+    .volver-btn:hover {
+      background-color: #1FBABF; /* Verde Kiwi */
+      color: #ffffff;
+      border: 4px solid #1FBABF;
+    }
+
+    /* Botón Contratar */
+    .contratar-btn {
+        margin: 0 auto;
+        padding: 15px;
+        background-color: #60D5AB;
+        color: #000000;
+        border: none;
+        border-radius: 40px;
+        cursor: pointer;
+        width: 300px;
+        z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+    }
+
+    .contratar-btn:hover {
+      background-color: #1FBABF; /* Verde Kiwi */
+      color: #ffffff;
+    }
+
+    /* Imagen Profesional */
+
+    .rectangle {
+        width: 300px;
+        height: 40px;
+        margin-top: 60px;
+        background-color: #0A769D;
+        text-align: center;
+        font-weight: lighter;
+        color: white;
+        border-radius: 10px;
+        padding-top: 8px;
+    }
+
+    .image {
+        margin-left: -310px;
+        width: 320px;
+        height: 320px;
+        border-radius: 10px;
+        margin-top: 120px;
+    }
+
+    .image img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    /* Detalles Profesional */
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-left: 380px; /* Ajusta este valor según sea necesario */
+    margin-top: -350px; /* Cambiado a un valor positivo para que esté debajo de la imagen */
+}
+
+.details p {
+    margin: 10px 0;
+}
+
+.details p.nombre-apellido {
+    font-size: 30px;
+}
+
+.details p.experiencia {
+    font-size: 15px;
+}
+
+.details p.plomeroexp {
+    font-size: 15px;
+    margin-top: -15px;
+}
+
+.linea {
+    position: relative; /* Ajustado a relativo */
+    margin-left: 380px;
+    width: calc(90% - 250px);
+    border-bottom: 1px solid black;
+}
+
+.details p.descripcion {
+    font-size: 25px;
+    margin-top: 360px; /* Ajusta este valor según sea necesario */
+}
+
+.details p.descripcion-texto{
+    font-size: 14px;
+    margin-top: -30px;
+    margin-left: 170px; /* Ajusta este valor según sea necesario */
+    width: 70%;
+}
+
+
+
+/* Estilos para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+    .details {
+        margin-top: 15px;
+        margin-left: 30px; /* Centra horizontalmente */
+        width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
+    }
+
+    .linea {
+        margin-top: 20px; /* Ajusta este valor según sea necesario */
+        margin-left: 30px; /* Centra horizontalmente */
+        width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
+    }
+
+    .details p.descripcion {
+        font-size: 25px;
+        margin-top: 20px; /* Ajusta este valor según sea necesario */
+        margin-left: 0; /* Ajusta este valor según sea necesario */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-align: center; /* Centra el texto */
+    }
+
+    .details p.descripcion-texto {
+        font-size: 14px;
+        margin-top: 10px; /* Ajusta este valor según sea necesario */
+        margin-left: 0; /* Ajusta este valor según sea necesario */
+        width: 100%; /* Ocupa todo el ancho disponible */
+        text-align: center; /* Centra el texto */
+    }
+}
+
+
+    /* Banner de Calificación */
+    .banner {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+        position: relative;
+        width: 100%; /* Cambiado a 100% */
+        max-width: 1750px; /* Agregado max-width */
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+    }
+
+    .calificaciones-box {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%; /* Cambiado a 80% */
+        max-width: 350px;
+        height: 60%; /* Cambiado a 100% */
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+    }
+
+    .calificaciones-text {
+        font-size: 16px;
+        width: 150px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .banner img {
+        width: 100%; /* Cambiado a 100% */
+        height: auto;
+    }
+
+    /* Estrellas de Valoración */
+
+    .stars-container {
+    margin-top: 40px;
+    position: relative;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width: 100%;
+}
+
+.stars-rating {
+    --star: 56px;
+    --stars-width: calc(var(--star) * 5);
+    --stars-height: var(--star);
+    --gap: calc(var(--star) / 100);
+    --rating-width: calc(
+        (var(--gap) * var(--rating)) + (var(--star) * var(--rating))
+    );
+    position: relative;
+    display: inline-block;
+    background-image: url("data:image/svg+xml,%3Csvg width='328' height='64' viewBox='0 0 328 64' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32 0L39.1844 22.1115H62.4338L43.6247 35.7771L50.8091 57.8885L32 44.2229L13.1909 57.8885L20.3753 35.7771L1.56619 22.1115H24.8156L32 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M98 0L105.184 22.1115H128.434L109.625 35.7771L116.809 57.8885L98 44.2229L79.1909 57.8885L86.3753 35.7771L67.5662 22.1115H90.8156L98 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M164 0L171.184 22.1115H194.434L175.625 35.7771L182.809 57.8885L164 44.2229L145.191 57.8885L152.375 35.7771L133.566 22.1115H156.816L164 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M230 0L237.184 22.1115H260.434L241.625 35.7771L248.809 57.8885L230 44.2229L211.191 57.8885L218.375 35.7771L199.566 22.1115H222.816L230 0Z' fill='%23C4C4C4'/%3E%3Cpath d='M296 0L303.184 22.1115H326.434L307.625 35.7771L314.809 57.8885L296 44.2229L277.191 57.8885L284.375 35.7771L265.566 22.1115H288.816L296 0Z' fill='%23C4C4C4'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-size: var(--stars-width) auto;
+    height: var(--stars-height);
+    width: var(--stars-width);
+}
+
+.rating {
+    position: absolute;
+    overflow: hidden;
+    transform: translate(-1px, 3px);
+    background-image: url("data:image/svg+xml,%3Csvg width='1030' height='186' viewBox='0 0 1030 186' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M93 0L113.88 64.2614H181.448L126.784 103.977L147.664 168.239L93 128.523L38.336 168.239L59.2158 103.977L4.55174 64.2614H72.1202L93 0Z' fill='gold'/%3E%3Cpath d='M304 0L324.88 64.2614H392.448L337.784 103.977L358.664 168.239L304 128.523L249.336 168.239L270.216 103.977L215.552 64.2614H283.12L304 0Z' fill='gold'/%3E%3Cpath d='M515 0L535.88 64.2614H603.448L548.784 103.977L569.664 168.239L515 128.523L460.336 168.239L481.216 103.977L426.552 64.2614H494.12L515 0Z' fill='gold'/%3E%3Cpath d='M726 0L746.88 64.2614H814.448L759.784 103.977L780.664 168.239L726 128.523L671.336 168.239L692.216 103.977L637.552 64.2614H705.12L726 0Z' fill='gold'/%3E%3Cpath d='M937 0L957.88 64.2614H1025.45L970.784 103.977L991.664 168.239L937 128.523L882.336 168.239L903.216 103.977L848.552 64.2614H916.12L937 0Z' fill='gold'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-size: var(--stars-width) auto;
+    height: var(--stars-height);
+    width: var(--rating-width);
+}
+
+.rating-text {
+    margin-right: 40px;
+    font-size: 30px;
+}
+
+.valoracion-reseña {
+    margin-right: 40px;
+    font-size: 17px;
+}
+
+@media only screen and (max-width: 768px) {
+    .stars-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        height: 50px;
+    }
+
+    /* Resto de tus estilos para stars-container... */
+
+
+    .stars-rating {
+        margin-right: 40px;
+        --star: 36px;
+        --stars-width: calc(var(--star) * 5);
+        --stars-height: var(--star);
+        --gap: calc(var(--star) / 100);
+        --rating-width: calc(
+            (var(--gap) * var(--rating)) + (var(--star) * var(--rating))
+        );
+    }
+
+    .rating {
+        transform: translate(-1px, 1px);
+    }
+
+    .rating-text {
+        margin-right: 20px;
+        font-size: 20px;
+    }
+
+    .valoracion-reseña {
+        font-size: 14px;
+    }
+
+    /* Agregamos text-align: center; al contenedor principal */
+    .container {
+        text-align: center;
+    }
+}
+
+/* COMETARIO */
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.card {
+    margin-top: 40px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%; /* Ancho de la tarjeta */
+    border-radius: 5px;
+    height: auto; /* La altura se ajustará automáticamente */
+    position: relative; /* Habilita el posicionamiento relativo */
+
+  }
+
+  .card img {
+
+    padding-left: 30px;
+    margin-top: 30px;
+    border-radius: 100%;
+    width: 10%; /* Ancho de la imagen */
+    position: absolute; /* Habilita el posicionamiento absoluto */
+    top: 0; /* Coloca la imagen en la parte superior de la tarjeta */
+    left: 110px; /* Coloca la imagen en el lado izquierdo de la tarjeta */
+  }
+
+  .container-comentario {
+    margin-left: 20%; /* Espacio a la izquierda de la tarjeta para la imagen */
+  }
+
+  .card:hover {
+    padding: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .container-comentario {
+    padding: 22px 16px;
+  }
+
+  /* SECCION COMENTARIO */
+
+  /*.comment-container {
+    margin-top: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.comment-label {
+    font-weight: lighter;
+}
+.comment-input,
+.comment-textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.comment-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.comment-submit:hover {
+    background-color: #0056b3;
+}*/

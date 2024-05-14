@@ -1,0 +1,16 @@
+.badge {
+  background: #6394F8;
+  color: white !important;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1;
+  padding: 3px 7px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.nombre-usu {
+  color: #1FBABF !important;
+}

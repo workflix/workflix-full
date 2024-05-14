@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.ui.adapters.UsuarioActivity"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="100px">
+
+        <TextView
+            android:id="@+id/IdUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="ID"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/txtIdUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:enabled="false"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/NombreUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="NOMBRE"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/txtNombre"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:id="@+id/ApellidoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="APELLIDO"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/txtApellido"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/ClaveUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="CLAVE"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/txtClave"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/TelefonoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="TELEFONO"
+            android:textColor="@color/black"/>
+
+        <EditText
+            android:id="@+id/txtTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/CorreoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="50px"
+            android:text="CORREO"
+            android:textColor="@color/black"
+            />
+
+        <EditText
+            android:id="@+id/txtCorreo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:id="@+id/btnSaveUsuario"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/verde1"
+            android:textColor="@color/black"
+            android:text="GUARDAR"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/center_image"
+            app:layout_constraintVertical_bias="0.203" />
+
+        <Button
+            android:id="@+id/btnEliminarUsuario"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/verde1"
+            android:textColor="@color/black"
+            android:text="Eliminar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/center_image"
+            app:layout_constraintVertical_bias="0.203" />
+
+        <Button
+            android:id="@+id/btnVolverUsuario"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/verde1"
+            android:textColor="@color/black"
+            android:text="Volver"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/center_image"
+            app:layout_constraintVertical_bias="0.203" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

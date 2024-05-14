@@ -1,0 +1,39 @@
+.logo {
+  width: 30%;
+}
+
+
+p{
+  color: #6C757D;
+}
+
+
+.p2{
+  color: #6C757D;
+  font-size: 1.2rem;
+  text-decoration-line: underline;
+}
+
+.boton-web{
+  color:#04313c;
+  border: solid #60D5AB;
+  background: #FFF;
+}
+
+.boton-web:hover {
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+  border: #1FBABF;
+}
+
+.boton-app{
+  color:#04313c;
+  border: none;
+  background: #60D5AB;
+}
+
+.boton-app:hover {
+  background-color: #1FBABF; /* Verde Kiwi */
+  color: #ffffff;
+}
+

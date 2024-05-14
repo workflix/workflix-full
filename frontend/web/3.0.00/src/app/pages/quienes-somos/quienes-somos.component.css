@@ -1,0 +1,92 @@
+:host {
+  display: block;
+  margin-top: 70px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+h2 {
+  color: #6c757d;
+  margin-bottom: 40px;
+}
+
+p{
+  color:#6c757d;
+}
+
+h3 {
+  font-size: 20px;
+  text-align: center;
+  color: #6c757d;
+}
+
+.encabezado-2 {
+  margin-top: 15px;
+}
+
+.img-qs {
+  margin-bottom: 40px;
+}
+
+.card{
+  overflow: hidden;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-text p {
+  height: 130px; /* Ajusta esto a la altura de la card */
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+  color: #6c757d;
+}
+
+.img1 img{
+  height: 100px;
+  width: 100%;
+}
+
+.img2 img{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-top: -80px;
+}
+
+.img2 img:hover {
+  border: 5px solid #1FBABF; /* Cambia esto al color de borde que prefieras cuando se pasa el mouse por encima */
+}
+
+.line {
+  width: 75%;
+  border-top: 5px solid #1FBABF; 
+  margin: 20px auto;
+  opacity: .7;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px; 
+  margin-top: 10px;
+}
+
+.social-icons a {
+  color: #1FBABF; 
+}
+
+.social-icons a:hover {
+  color: #60D5AB; 
+}
+
+.social-icons i {
+  font-size: 24px; 
+}
