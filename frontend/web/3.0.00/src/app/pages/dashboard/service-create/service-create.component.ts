@@ -75,7 +75,21 @@ export class ServiceCreateComponent {
   }
  }
 
+ validations(){
+  if (!this.nombre) {
+    this.clearFieldsService();
+    return;
+  }
+
+  if (this.nombre.length < 2){
+    this.clearFieldsService();
+    return;
+  }
+ }
+
  
+
+
 
 
 }
