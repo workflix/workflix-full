@@ -34,7 +34,7 @@
 .boton-cards-1 {
   border:#60D5AB 1px solid;
   border-radius: 40px;
-  border: 4px solid #60D5AB;
+  border: 1px solid #60D5AB;
   background: #FFF;
   padding-bottom: 10px;
   padding-top: 10px;
@@ -46,7 +46,7 @@
 .boton-cards-1:hover {
   background-color: #1FBABF; /* Verde Kiwi */
   color: #ffffff;
-  border: 4px solid #1FBABF;
+  border: 1px solid #1FBABF;
 }
 
 .center-form {

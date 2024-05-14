@@ -4,7 +4,6 @@ import { IngresarComponent } from './pages/ingresar/ingresar.component';
 import { authGuardIsAdmin, authGuardIsCliente, authGuardIsProfesional } from './guards/auth.guard';
 import { TarjetasComponent } from './pages/tarjetas/tarjetas.component';
 import { RegistrarseComponent } from './pages/registrarse/registrarse.component';
-import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 import { PerfilUsuarioComponent } from './pages/perfil-usuario/perfil-usuario.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave.component';
@@ -17,13 +16,12 @@ import { SiteComponent } from './pages/site/site.component';
 import { PerfilProfesionalComponent } from './pages/perfil-profesional/perfil-profesional.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'site', pathMatch: 'full' },
   { path: 'site', component: SiteComponent},
   { path: 'home', component: HomeComponent },
   { path: 'registrarse', component: RegistrarseComponent },
   { path: 'ingresar', component: IngresarComponent },
   { path: 'tarjetas', component: TarjetasComponent },
-  { path: 'quienes-somos', component: QuienesSomosComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
   { path: 'perfil-profesional', component: PerfilProfesionalComponent, canActivate: [authGuardIsProfesional] },
   { path: 'contacto', component: ContactoComponent },

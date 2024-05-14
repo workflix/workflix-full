@@ -61,7 +61,6 @@ html, body {
     max-height: 600px;
   }
 
-
   .tit-site-white {
     font-size: 3.5rem;
   }
@@ -74,6 +73,11 @@ html, body {
   .deco-2 {
     width:60%;
     margin-top: 70px;
+  }
+
+  .no-margin-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
 /* Media Query para dispositivos móviles */
@@ -121,9 +125,19 @@ html, body {
   width: 280px;
   margin-top: 80px;
   position: relative;
-  margin-left: -40px;
  } 
+}
 
+.linea-verde-2 {
+  margin-top: 35%;
+  width: 100%;
+}
+
+.contacto-site {
+height: 250px;  
+background-color: #1456DF;
+color: #ffffff;
+font-weight: bolder;
 }
 
 /* Para pantallas Desktop*/
@@ -131,6 +145,15 @@ html, body {
   .mockup {
     margin-top: -580px;
     margin-left:200px;
+  }
+
+  .contacto-site {
+    background-color: #1456DF;
+    height: 350px;
+    font-size: 2.5em;
+    color: white;
+    font-weight: bolder;
+    margin: 0 !important;
   }
 }
 
@@ -148,6 +171,7 @@ html, body {
   transform: translateX(-100%);
   animation: slideIn 0.9s forwards;
 }
+
 
 @keyframes fadeIn {
   from {
