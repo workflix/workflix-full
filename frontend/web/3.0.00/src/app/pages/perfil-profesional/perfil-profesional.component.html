@@ -138,11 +138,11 @@
                                                 </div>
                                         
                                         <label for="precio">Precio del servicio por hora en $:</label><br>
-                                        <input class="form-control" type="text" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa" value="{{this.currentUser.precio}}" required>
+                                        <input class="form-control" type="number" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa, en pesos." value="{{this.currentUser.precio}}" required>
                                         <div *ngIf="perfilForm.get('precio')?.invalid && (perfilForm.get('precio')?.dirty || perfilForm.get('precio')?.touched)" class="text-danger">
-                                           <div *ngIf="perfilForm.get('precio')?.errors?.['required']">Se requiere un correo electrónico.</div>
-                                           <div *ngIf="perfilForm.get('precio')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
-                                           <div *ngIf="perfilForm.get('precio')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['required']">Se requiere un importe en pesos.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['minlength']">El importe debe tener más de 3 caracteres.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['pattern']">El formato del importe no coincide.</div>
                                         </div>
                                                 
                                         <label for="descripcion">Descripción:</label><br>
