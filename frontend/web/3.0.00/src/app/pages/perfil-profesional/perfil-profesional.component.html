@@ -132,6 +132,14 @@
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                                 </div>
+                                        
+                                        <label for="precio">Precio del servicio por hora en pesos:</label><br>
+                                        <input class="form-control" type="text" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa" value="{{this.currentUser.precio}}" required>
+                                        <div *ngIf="perfilForm.get('precio')?.invalid && (perfilForm.get('precio')?.dirty || perfilForm.get('precio')?.touched)" class="text-danger">
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['required']">Se requiere un correo electrónico.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
+                                           <div *ngIf="perfilForm.get('precio')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
+                                        </div>
                                                 
                                         <label for="descripcion">Descripción:</label><br>
                                         <input class="form-control" type="text" formControlName="descripcion" id="descripcion" name="descripcion" placeholder="Nueva descripción" value="{{this.currentUser.descripcion}}" required>
