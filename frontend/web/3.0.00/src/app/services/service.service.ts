@@ -42,7 +42,18 @@ export class ServiceService {
   getService(id: number): Observable<Service> {
     return this.http.get<Service>(this.urlServicios + '/' + id);
   }
+
+  updateService(id: number, bodyData: any): Observable<string> {
+    const url = `http://localhost:8080/servicios/actualizar/${id}`;
+    return this.http.put<string>(url, bodyData, { responseType: 'text' as 'json' }).pipe(
+      catchError((error: HttpErrorResponse)=> {
+        return throwError('Error al actualizar el servicio');
+      })
+    );
+  }
+
   
+
 }
 
 
