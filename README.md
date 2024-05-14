@@ -22,6 +22,29 @@ _Developer Team:_
 * LORENTI, Valentino
 * TRONCOSO, Braian
 
+Aclaraciones: 
+
+Dentro de la carpeta frontend se encuentran dos carpetas:
+* Mobile
+* Web
+
+Dentro de Web se encuentran:
+* 2.0.23 (Correspondiente al proyecto Web 2023)
+* 3.0.00 (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando)
+
+**Documentación**
+
+* [Documento-IEEE830](https://github.com/workflix/workflix-full/wiki/Documento-IEEE830)
+* [Diagrama de Clases](https://github.com/workflix/workflix-full/wiki/Diagrama-de-Clases)
+* [Diagrama Entidad-Relacion](https://github.com/workflix/workflix-full/wiki/Diagrama-Entidad%E2%80%90Relacion-(ER))
+* [Diagrama Relacional](https://github.com/workflix/workflix-full/wiki/Diagrama-Relacional)
+* [Diagrama de Casos de Uso](https://github.com/workflix/workflix-full/wiki/Diagrama-Casos-de-Uso)
+* [Mapa del Sitio](https://github.com/workflix/workflix-full/wiki/Mapa-del-Sitio)
+
+
+
+
+
 </div><br /><br /><br />
 
 ## [Repositorio Workflix-Web](https://github.com/workflix/workflix-web)
