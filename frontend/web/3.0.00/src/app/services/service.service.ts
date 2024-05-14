@@ -52,7 +52,17 @@ export class ServiceService {
     );
   }
 
-  
+  deleteService(id: number): Observable<string> {
+    const url = `http://localhost:8080/servicios/eliminar/${id}`;
+    return this.http.delete<string>(url, { responseType: 'text' as 'json' })
+     .pipe(
+        catchError((error: HttpErrorResponse)=> {
+          return throwError('Error al eliminar el servicio');
+        })
+      );
+  }
+
+
 
 }
 
