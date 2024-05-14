@@ -11,6 +11,7 @@ export class User {
   descripcion: string = '';
   foto: string = '';
   tipoUsuario: string = '';
+  tipo_usuario: string = '';
   cantidad: number = 0;
   profesion: string = '';
   precio:number = 0;
@@ -27,6 +28,7 @@ export class User {
       descripcion: string,
       foto: string,
       tipoUsuario: string,
+      tipo_usuario: string,
       cantidad: number,
       profesion: string,
       precio:number) {
@@ -42,6 +44,7 @@ export class User {
       this.descripcion = descripcion;
       this.foto = foto;
       this.tipoUsuario = tipoUsuario;
+      this.tipo_usuario = tipo_usuario;
       this.cantidad = cantidad;
       this.profesion = profesion;
       this.precio = precio;

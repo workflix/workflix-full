@@ -19,7 +19,7 @@ export class UserService {
   getAllUsers():Observable<User[]>{
     return this.http.get<User[]>(this.url+'/listar');
   }
-
+  
   createUser(user:User):Observable<User>{
     return this.http.post<User>(this.url,user)
   }
