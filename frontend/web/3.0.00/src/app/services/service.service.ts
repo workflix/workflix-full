@@ -39,6 +39,10 @@ export class ServiceService {
     return this.http.post<Service>(this.urlServicios, { nombre: nombre });
   }
   
+  getService(id: number): Observable<Service> {
+    return this.http.get<Service>(this.urlServicios + '/' + id);
+  }
+  
 }
 
 
