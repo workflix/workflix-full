@@ -28,10 +28,12 @@ export class ServiceService {
     );
   }
 
-  
+  services: Service[] = [];
+  serviciosFiltrados: Service[] = [];
 
-  
-
+  getAllServices():Observable<Service[]>{
+    return this.http.get<Service[]>(this.urlServicios+'/listar');
+  }
   
 }
 
