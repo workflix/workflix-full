@@ -145,15 +145,16 @@ img {
     background-color: #c82333; 
 }
 
-.boton2 p {
-    color: #0a0909; 
+.text-danger {
     font-size: 12px; 
     margin-top: 5px; 
     cursor: pointer;
 }
 
-boton2 p:hover {
-    color: #ffffff;
+.text-danger:hover {
+    color: #c82333;
+    font-size: 14px;
+    transition: all;
 }
 
 .ng-valid:not(form).ng-touched {
