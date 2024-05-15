@@ -36,4 +36,7 @@ export class CarritoComponent implements OnInit {
   contratado(){
     alert('Profesional Contratado');
   }
+   private readonly _checkoutSvc = inject(CheckoutService);
+
+ 
 }
