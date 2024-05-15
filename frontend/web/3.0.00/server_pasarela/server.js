@@ -44,3 +44,4 @@ app.get('/session-status', async (req, res) => {
   });
 });
 
+app.listen(4242, () => console.log('Running on port 4242'));
