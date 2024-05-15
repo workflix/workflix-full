@@ -24,3 +24,13 @@ app.post('/checkout', async (req, res) => {
       quantity: item.precio
     }
   });
+
+  const session = await stripe.checkout.sessions.create({
+    line_items: [...items],
+    mode: 'payment',
+    success_url: `${YOUR_DOMAIN}/success.html`,
+    cancel_url: `${YOUR_DOMAIN}/cancel.html`,
+  });
+
+  res.status(200).json(session);
+});
