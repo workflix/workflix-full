@@ -3,3 +3,5 @@ const stripe = require('stripe')('sk_test_51PGmuUByU9zDfoe2ehqFj0Cv5VFaiH6v2vi9e
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+
+const app = express();
