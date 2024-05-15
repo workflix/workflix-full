@@ -36,10 +36,10 @@
 
                        <ng-container>
                         @if (this.currentUser) {
-                           <h5 class="card-title">A cerca de mi</h5>
-                           <p class="small fst-italic">{{ this.currentUser.descripcion }}</p>
-                           <div class="linea"></div>
+<!--                            <h5 class="card-title">A cerca de mi</h5> -->
+<!--                            <p class="small fst-italic">{{ this.currentUser.descripcion }}</p> -->
                            <h5 class="card-title">Detalles de perfil</h5>
+                           <div class="linea"></div>
 
                            <div class="row">
                            <div class="text col-lg-3 col-md-4 label ">Nombre y Apellido:</div>
@@ -132,7 +132,11 @@
                                              </div>
                                      
                                      <br>
-                                <div class="text-center"> <button class="boton-form btn-primary" type="submit" >Guardar</button></div>
+                                <div class="d-grid gap-2 col-4 mx-auto">
+                                 <button class="boton-form btn-primary" type="submit" >Guardar Cambios</button>
+                                 <button type="submit" class="boton2 btn-danger" (click)="deleteUser()">Eliminar cuenta</button>
+                                 <p class="text-danger">La cuenta se eliminará permanentemente</p>
+                                </div>
                               </form>
                             </div>
                           </div>
@@ -154,7 +158,9 @@
                                 <div class="form-check"> <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled> <label class="form-check-label" for="securityNotify"> Alertas de seguridad </label></div>
                              </div>
                           </div>
-                          <div class="text-center"> <button type="submit" class="btn btn-primary">Guardar cambios</button></div>
+                          <div class="text-center">
+                           <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                          </div>
                        </form>
                     </div>
 

@@ -10,7 +10,7 @@
                   <ng-container *ngIf="usuario">
                     <div class="container">
                        <div class="row">
-                       <div class="rectangle">Plomero</div>
+                       <div class="rectangle">{{ this.currentUser?.profesion }}</div>
                        </div>
                     </div>
                     <img class="imagen1" src="assets/images/servicio_adquirido.png" alt="Profile">
@@ -36,7 +36,7 @@
   
                          <ng-container>
                           @if (this.currentUser) {
-                             <h5 class="card-title">A cerca de</h5>
+                             <h5 class="card-title">A cerca de mi</h5>
                              <p class="small fst-italic">{{ this.currentUser.descripcion }}</p>
                              <div class="linea"></div>
                              <h5 class="card-title">Detalles de perfil</h5>
@@ -153,7 +153,12 @@
                                            <div *ngIf="perfilForm.get('descripcion')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
                                         </div>
                                         <br>
-                                   <div class="text-center"> <button class="boton-form btn-primary" type="submit" >Guardar</button></div>
+                                   <div class="d-grid gap-2 col-4 mx-auto">
+                                    <button class="boton-form btn-primary" type="submit" >Guardar Cambios</button>
+                                    <button type="submit" class="boton2 btn-danger" (click)="deleteUser()">Eliminar cuenta</button>
+                                    <p class="text-danger">La cuenta se eliminará permanentemente</p>
+   
+                                 </div>
                                  </form>
                                </div>
                              </div>

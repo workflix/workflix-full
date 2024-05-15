@@ -108,6 +108,19 @@ export class PerfilProfesionalComponent implements OnInit {
     }
   }
 
-
+  deleteUser(): void {
+    if (this.currentUser) {
+      this.userService.deleteUser(this.currentUser.id).subscribe(
+        (resultData: any) => {
+          this.router.navigate(['/ingresar']);
+        },
+        (error) => {
+          console.error('Error al eliminar el usuario:', error);
+        }
+      );
+    } else {
+      console.error('No se puede eliminar el usuario porque no hay un usuario actual.');
+    }
+  }
 
 }

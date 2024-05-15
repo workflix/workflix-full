@@ -58,7 +58,10 @@ h3 {
 }
   
 .card-title {
-    margin-top: 5%;
+    margin-top: 3%;
+    font-weight: 200;
+    font-style: italic;
+    color: #292a2b;
 }
   
 label {
@@ -85,8 +88,9 @@ label {
     margin-left: 0;
     width: calc(90% - 250px);
     border-bottom: 1px solid black;
-    margin-bottom: 15%;
+    margin-bottom: 20%;
 }
+
 img {
     border-radius: 10%;
     justify-content: center;
@@ -98,16 +102,20 @@ img {
 
 .imagen1 {
     margin-top: 10%;
+    margin-bottom: 10%;
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    max-width: 50%;
+    max-width: 30%;
 }
+
+.d-grid {
+    text-align: center;
+  }
   
 .boton-form{
     background: #60D5AB;
     background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
-    width: 30%;
     border:none;
     color:#fff;
     border-radius: 4px;
@@ -115,12 +123,39 @@ img {
     margin: auto;
     cursor: pointer;
     padding: 15px;
+    margin-bottom: 15%;
 }
 
 .boton-form:hover{
     background: #1FBABF;
 }
-  
+
+.boton2 {
+    /* Estilos para el botón "Eliminar cuenta" */
+    color: #ffffff; /* Texto en blanco */
+    background-color: #dc3545; /* Color de fondo rojo */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    padding: 8px 16px; /* Padding ajustado para el botón más pequeño */
+    border-radius: 4px;
+    margin: auto;
+    cursor: pointer;
+}   
+
+.boton2:hover {
+    background-color: #c82333; 
+}
+
+.text-danger {
+    font-size: 12px; 
+    margin-top: 5px; 
+}
+
+.text-danger:hover {
+    color: #b40516;
+    font-size: 14px;
+    transition: all;
+}
+
 .ng-valid:not(form).ng-touched {
    border-left: 5px solid #42a948;
 }
@@ -128,4 +163,9 @@ img {
 .ng-invalid:not(form).ng-touched {
    border-left: 5px solid #a94442;
 }
-  
+
+@media only screen and (max-width: 600px) {
+    .boton-form, .btn-danger {
+      width: 100%; 
+  }
+}
