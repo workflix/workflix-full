@@ -10,3 +10,17 @@ app.use(cors())
 app.use(bodyParser.json());
 
 const YOUR_DOMAIN = 'http://localhost:4242';
+
+app.post('/checkout', async (req, res) => {
+  const items = req.body.items.map((item) => {
+    return {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: item.nombre,
+        },
+        unit_amount: item.precio * 100,
+      },
+      quantity: item.precio
+    }
+  });
