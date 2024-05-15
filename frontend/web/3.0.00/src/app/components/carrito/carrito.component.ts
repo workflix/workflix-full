@@ -38,5 +38,8 @@ export class CarritoComponent implements OnInit {
   }
    private readonly _checkoutSvc = inject(CheckoutService);
 
- 
+  onProceedToPay(): void {
+    console.log('Boton onProceedToPay ok')
+    this._checkoutSvc.onProceedToPay(this.items);
+  }
 }
