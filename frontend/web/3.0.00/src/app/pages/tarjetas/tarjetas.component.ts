@@ -31,6 +31,7 @@ export class TarjetasComponent implements OnInit {
               private route:ActivatedRoute,
               private _cartService:CarritoService,
               private router:Router,
+              private loginService:LoginService
             ) {}
 
             ngOnInit(): void {
