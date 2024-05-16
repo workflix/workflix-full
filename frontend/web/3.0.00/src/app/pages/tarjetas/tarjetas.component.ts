@@ -41,7 +41,11 @@ export class TarjetasComponent implements OnInit {
                   console.log('Users:');
                   this.users.forEach(user => console.log(user));
 
-
+                  this.loginService.getCurrentUser().subscribe(
+                    user => {
+                      this.currentUser = user;
+                    }
+                  );
 
                   if (this.users) {
                     // Asegurarse de que 'tipoUsuario' esté presente y en minúsculas
