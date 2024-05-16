@@ -42,9 +42,11 @@
                   <div class="d-grid gap-2">
                     <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
                   </div>
+                  @if (this.currentUser) {
                   <div class="d-grid gap-2">
                     <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
                   </div>
+                }
                 </div>
               </div>
             </div>

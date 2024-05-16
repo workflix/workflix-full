@@ -6,6 +6,7 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
 import { ValoracionPerfilComponent } from '../valoracion-perfil/valoracion-perfil.component';
 import { CarritoService } from '../../services/carrito.service';
+import { LoginService } from '../../services/login.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { CarritoService } from '../../services/carrito.service';
 export class TarjetasComponent implements OnInit {
   title: string = "List the users";
   test: string = "This is a test";
+  currentUser: any;
 
   trackById(index: number, user: User): number {
     return user.id;
@@ -28,7 +30,8 @@ export class TarjetasComponent implements OnInit {
   constructor(private userService: UserService,
               private route:ActivatedRoute,
               private _cartService:CarritoService,
-              private router:Router
+              private router:Router,
+              private loginService:LoginService
             ) {}
 
             ngOnInit(): void {
@@ -38,6 +41,11 @@ export class TarjetasComponent implements OnInit {
                   console.log('Users:');
                   this.users.forEach(user => console.log(user));
 
+                  this.loginService.getCurrentUser().subscribe(
+                    user => {
+                      this.currentUser = user;
+                    }
+                  );
 
                   if (this.users) {
                     // Asegurarse de que 'tipoUsuario' esté presente y en minúsculas
