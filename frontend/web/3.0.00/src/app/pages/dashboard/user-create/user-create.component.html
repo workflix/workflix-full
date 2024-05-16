@@ -15,7 +15,7 @@
               <input [value]="apellido" type="text" placeholder="Ingrese su apellido"  class="form-control form-control-lg" id="apellido" #apellidoInput required>
             </div>
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="email" placeholder="Ingrese su correo"  class="form-control form-control-lg" id="correo" #correoInput required>
+              <input [value]="correo" type="email" placeholder="Ingrese su correo"  class="form-control form-control-lg" id="correo" #correoInput required>
             </div>
           <!-- Password input -->
           <div data-mdb-input-init class="form-outline mb-4">
@@ -32,7 +32,7 @@
                   </p>
                 }@else{
                   <p class="small fw-bold mt-2 pt-1 mb-0">
-                    <button type="button" (click)="onSubmitUpdate(nombreInput.value, apellidoInput.value, telefonoInput.value)" class="btn btn-primary">Actualizar usuario</button>
+                    <button type="button" (click)="onSubmitUpdate(nombreInput.value, apellidoInput.value, correoInput.value, telefonoInput.value)" class="btn btn-primary">Actualizar usuario</button>
                   </p>
                 }
               </div>

@@ -30,6 +30,7 @@ export class DashboardComponent {
   nombre: string ="";
   apellido: string ="";
   direccion: string ="";
+  correo: string="";
   telefono: number | undefined = undefined;
   currentUserId = "";
 
@@ -42,6 +43,7 @@ export class DashboardComponent {
     // Clear fields after successful saving
     this.nombre = '';
     this.apellido = '';
+    this.correo = '';
     this.direccion = '';
     this.telefono = undefined;
  }
@@ -58,6 +60,7 @@ setUpdate(data: any){
   if (data) {
 this.nombre  = data.nombre;
 this.apellido = data.apellido;
+this.correo = data.correo;
 this.direccion = data.direccion;
 this.telefono = data.telefono;
 

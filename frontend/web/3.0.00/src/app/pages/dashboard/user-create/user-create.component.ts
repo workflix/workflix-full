@@ -20,6 +20,7 @@ export class UserCreateComponent {
   nombre: string ="";
   apellido: string ="";
   direccion: string ="";
+  correo: string ="";
   telefono: number | string = "" ;
   editingMode: number = 0;
   currentUserId = "";
@@ -46,11 +47,12 @@ export class UserCreateComponent {
     }else{
      this.error = 'Debe completar todos los campos';
     }
- } onSubmitUpdate(nombre: string, apellido: string, telefono: string): void {
-  if (nombre && apellido && telefono) {
+ } onSubmitUpdate(nombre: string, apellido: string, correo: string, telefono: string): void {
+  if (nombre && apellido && correo && telefono) {
     const bodyData = {
       nombre: nombre,
       apellido: apellido,
+      correo: correo,
       telefono: telefono
     };
 
@@ -75,6 +77,7 @@ ngOnInit() {
   if(userData){
     this.nombre = userData.nombre;
     this.apellido = userData.apellido;
+    this.correo = userData.correo;
     this.direccion = userData.direccion;
     this.telefono = userData.telefono;
     this.currentUserId = userData.id;
@@ -85,14 +88,14 @@ ngOnInit() {
 }
 
 validations(){
-  if (!this.nombre || !this.apellido || !this.direccion || !this.telefono) {
+  if (!this.nombre || !this.apellido || !this.correo || !this.direccion || !this.telefono) {
     this.clearFieldsUser();
     return;
 }
 
 const phoneString = this.telefono.toString();
 
-if (this.nombre.length < 2 || this.apellido.length < 2 || this.direccion.length < 5 || phoneString.length < 10 ){
+if (this.nombre.length < 2 || this.apellido.length < 2 || this.correo.length < 5 || this.direccion.length < 5 || phoneString.length < 10 ){
 
     this.clearFieldsUser();
     return;
@@ -102,6 +105,7 @@ if (this.nombre.length < 2 || this.apellido.length < 2 || this.direccion.length 
   clearFieldsUser(){
     this.nombre = '';
     this.apellido = '';
+    this.correo = '';
     this.direccion = '';
     this.telefono = '';
  }
