@@ -1,6 +1,7 @@
-import { Component , OnInit } from '@angular/core';
+import { Component , OnInit, inject } from '@angular/core';
 import { CarritoService } from '../../services/carrito.service';
 import { User } from '../../models/user';
+import { CheckoutService } from '../../services/checkout.service';
 
 @Component({
   selector: 'app-carrito',
@@ -35,6 +36,10 @@ export class CarritoComponent implements OnInit {
   contratado(){
     alert('Profesional Contratado');
   }
+   private readonly _checkoutSvc = inject(CheckoutService);
 
-
+  onProceedToPay(): void {
+    console.log('Boton onProceedToPay ok')
+    this._checkoutSvc.onProceedToPay(this.items);
+  }
 }
