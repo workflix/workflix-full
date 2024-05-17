@@ -66,8 +66,6 @@ openDialog() {
   get fname() { return this.registrarForm.get('fname'); }
   get lname() { return this.registrarForm.get('lname'); }
   get mail() { return this.registrarForm.get('mail'); }
-/*   get adress() { return this.registrarForm.get('adress'); }
-  get user() { return this.registrarForm.get('user'); } */
   get password() { return this.registrarForm.get('password'); }
   get phone() { return this.registrarForm.get('phone'); }
 
@@ -75,19 +73,6 @@ openDialog() {
     if (this.registrarForm.valid) {
       const formData = this.registrarForm.value;
       const {fname, lname, mail, password, phone} = formData
-     /*  const newUser = new User(
-        0,
-        formData.fname,
-        formData.lname,
-        formData.mail,
-        formData.phone,
-        formData.password,
-        formData.adress,
-        '', // ciudad
-        '', // provincia
-        '', // descripcion
-        '' // foto
-      ); */
 
       this.registerService.registerUser(fname, lname, mail, password, phone)
         .subscribe({
@@ -110,28 +95,6 @@ openDialog() {
   }
 
 
-
-
-  /*
-    onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
-     if(nombre && apellido && correo && clave && telefono){
-      this.registerService.registerUser(nombre, apellido, correo, clave, telefono)
-      .subscribe(
-        response => {
-          // Manejar la respuesta exitosa aquí
-          console.log('Registro exitoso:', response);
-        },
-        error => {
-          // Manejar el error aquí
-          console.error(error);
-          console.log('No se pudo registrar correctamente: ' + error);
-        }
-      );
-     }else{
-      this.error = 'Debe completar todos los campos';
-     }
-  }
-  } */
 
 
 
