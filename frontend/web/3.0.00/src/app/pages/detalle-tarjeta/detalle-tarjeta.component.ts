@@ -6,13 +6,13 @@ import { UserService } from '../../services/user.service';
 
 
 @Component({
-  selector: 'app-valoracion-perfil',
+  selector: 'app-detalle-tarjeta',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './valoracion-perfil.component.html',
-  styleUrl: './valoracion-perfil.component.css'
+  templateUrl: './detalle-tarjeta.component.html',
+  styleUrl: './detalle-tarjeta.component.css'
 })
-export class ValoracionPerfilComponent {
+export class DetalleTarjeta {
   title: string = "List the users";
   test: string = "This is a test";
 

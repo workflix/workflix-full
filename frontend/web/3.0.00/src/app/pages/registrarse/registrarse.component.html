@@ -6,30 +6,6 @@
     </div>
 </div>
 
-<!-- <form>
-    <div class="form-group">
-      <label for="nombre">Nombre</label>
-      <input type="text" class="form-control" id="nombre" #nombreInput required>
-    </div>
-    <div class="form-group">
-      <label for="apellido">Apellido</label>
-      <input type="text" class="form-control" id="apellido" #apellidoInput required>
-    </div>
-    <div class="form-group">
-      <label for="correo">Correo</label>
-      <input type="email" class="form-control" id="correo" #correoInput required>
-    </div>
-    <div class="form-group">
-      <label for="clave">Clave</label>
-      <input type="password" class="form-control" id="clave" #claveInput required>
-    </div>
-    <div class="form-group">
-      <label for="telefono">Teléfono</label>
-      <input type="tel" class="form-control" id="telefono" #telefonoInput required>
-    </div>
-    <button type="submit" (click)="onSubmit(nombreInput.value, apellidoInput.value, correoInput.value, claveInput.value, telefonoInput.value)" class="btn btn-primary">Registrarse</button>
-  </form>
- -->
 <div class="registrer">
   <section class="seccion-form d-flex justify-content-center align-items-center">
 
@@ -42,7 +18,7 @@
                   Se requiere un nombre
               </div>
               <div *ngIf="fname?.errors?.['minlength']">
-                  El nombre debe tener más de 4 caracteres.
+                  El nombre debe tener más de 3 caracteres.
               </div>
               <div *ngIf="fname?.errors?.['maxlength']">
                   El nombre debe tener un máximo de 40 caracteres.
@@ -97,18 +73,7 @@
                   La contraseña debe tener un máximo de 20 caracteres.
               </div>
           </div>
-          <!-- <label for="adress">Domicilio:</label><br>
-          <input class="form-control"  type="text" formControlName="adress" id="adress" placeholder="Ingrese su domicilio" required><br>
 
-          <div *ngIf="adress?.invalid && (adress?.dirty || adress?.touched)" class="text-danger">
-
-              <div *ngIf="adress?.errors?.['required']">
-                  Se requiere un domicilio
-              </div>
-              <div *ngIf="adress?.errors?.['maxlength']">
-                  El domicilio debe tener un máximo de 40 caracteres.
-              </div>
-          </div> -->
 
           <label for="phone">Teléfono:</label><br>
           <input class="form-control shadow p-3 mb-3 bg-white rounded"  type="tel" formControlName="phone" id="phone" placeholder="Ingrese su teléfono" required><br>
@@ -126,21 +91,6 @@
               </div>
           </div>
 
-          <!-- <label for="user">Nombre de usuario:</label><br>
-          <input class="form-control"  type="text" formControlName="user" id="user" placeholder="Ingrese su usuario" required><br>
-
-          <div *ngIf="user?.invalid && (user?.dirty || user?.touched)" class="text-danger">
-
-              <div *ngIf="user?.errors?.['required']">
-                  Se requiere un nombre de usuario
-              </div>
-              <div *ngIf="user?.errors?.['minlength']">
-                  El nombre de usuario debe tener más de 4 caracteres.
-              </div>
-              <div *ngIf="user?.errors?.['maxlength']">
-                  El nombre de usuario debe tener un máximo de 20 caracteres.
-              </div>
-          </div> -->
           <div>
             <button class="btn-success" mat-dialog-open (click)="openDialog()">Ver terminos y condiciones</button>
 
@@ -148,7 +98,7 @@
                 <label for="miCheckbox">Aceptar términos y condiciones</label> <br>
                 <input type="checkbox" formControlName="aceptoTerminos" id="miCheckbox">
             </div>
-          
+
           <span class="text-danger" *ngIf="registrarForm?.get('aceptoTerminos')?.value === false">Debe aceptar términos para registrarse</span>
           </div>
 
@@ -163,20 +113,5 @@
           </div>
 
         </form>
-<!-- 
-        <ng-container *ngIf="resultado.mensaje != ''">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-
-                         <p class="text-center">{{resultado.mensaje}}</p>
-
-                    </div>
-                </div>
-            </div>
-          <ng-container *ngIf="resultado.status == 201">
-
-          </ng-container>
-        </ng-container> -->
   </section>
 </div>

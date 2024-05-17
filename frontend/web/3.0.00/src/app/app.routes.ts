@@ -9,7 +9,7 @@ import { ContactoComponent } from './pages/contacto/contacto.component';
 import { RecuperarClaveComponent } from './pages/recuperar-clave/recuperar-clave.component';
 import { BusquedaProfesionalComponent } from './pages/busqueda-profesional/busqueda-profesional.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
-import { ValoracionPerfilComponent } from './pages/valoracion-perfil/valoracion-perfil.component';
+import { DetalleTarjeta } from './pages/detalle-tarjeta/detalle-tarjeta.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { UserCreateComponent } from './pages/dashboard/user-create/user-create.component';
 import { SiteComponent } from './pages/site/site.component';
@@ -29,7 +29,7 @@ export const routes: Routes = [
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
-  { path: 'valoracion', component: ValoracionPerfilComponent },
+  { path: 'detalle-tarjeta', component: DetalleTarjeta },
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/service-create', component: ServiceCreateComponent }
