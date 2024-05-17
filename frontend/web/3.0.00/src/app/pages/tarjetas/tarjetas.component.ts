@@ -4,7 +4,7 @@ import { UserService } from '../../services/user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { RouterModule } from '@angular/router';
-import { ValoracionPerfilComponent } from '../valoracion-perfil/valoracion-perfil.component';
+import { DetalleTarjeta} from '../detalle-tarjeta/detalle-tarjeta.component';
 import { CarritoService } from '../../services/carrito.service';
 import { LoginService } from '../../services/login.service';
 
@@ -14,7 +14,7 @@ import { LoginService } from '../../services/login.service';
   standalone:true,
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.css'],
-  imports: [NavBarComponent, RouterModule, ValoracionPerfilComponent]
+  imports: [NavBarComponent, RouterModule, DetalleTarjeta]
 })
 export class TarjetasComponent implements OnInit {
   title: string = "List the users";
@@ -68,7 +68,7 @@ export class TarjetasComponent implements OnInit {
   }
 
   public verDetalle(){
-    this.router.navigate(['/valoracion']);
+    this.router.navigate(['/detalle-tarjeta']);
   }
 
 }
