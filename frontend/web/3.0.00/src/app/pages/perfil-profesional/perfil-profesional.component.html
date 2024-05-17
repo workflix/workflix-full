@@ -136,6 +136,11 @@
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                                 </div>
+                                                 
+                                        <label for="profesion">Profesión:</label><br>
+                                        <select id="profesion" class="form-control" formControlName="profesion">
+                                          <option *ngFor="let profesion of profesiones" [value]="profesion">{{ profesion }}</option>
+                                        </select>
                                         
                                         <label for="precio">Precio del servicio por hora en $:</label><br>
                                         <input class="form-control" type="number" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa, en pesos." value="{{this.currentUser.precio}}" required>
