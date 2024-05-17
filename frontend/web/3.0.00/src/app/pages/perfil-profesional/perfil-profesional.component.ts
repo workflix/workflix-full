@@ -22,6 +22,8 @@ export class PerfilProfesionalComponent implements OnInit {
   usuario?: User;
   error: string = '';
   currentUserId = "";
+  profesiones: string[] = ['Albañil', 'Carpintero', 'Electricista', 'Gasista', 'Plomero',  'Pintor', 'Seguridad'];
+
 
 
   constructor(
@@ -36,7 +38,7 @@ export class PerfilProfesionalComponent implements OnInit {
       mail: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
       adress: ['', [Validators.required, Validators.maxLength(40)]],
       phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
-      profesion: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]],
+      profesion: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
 
