@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
@@ -25,6 +25,12 @@ export class UserCreateComponent {
   editingMode: number = 0;
   currentUserId = "";
 
+
+  @ViewChild('nombreInput') nombreInput!: ElementRef;
+  @ViewChild('apellidoInput') apellidoInput!: ElementRef;
+  @ViewChild('correoInput') correoInput!: ElementRef;
+  @ViewChild('claveInput') claveInput!: ElementRef;
+  @ViewChild('telefonoInput') telefonoInput!: ElementRef;
   constructor(private http: HttpClient, private router: Router, private registerService: RegisterService, private userService: UserService)
   {
   }
@@ -47,7 +53,10 @@ export class UserCreateComponent {
     }else{
      this.error = 'Debe completar todos los campos';
     }
- } onSubmitUpdate(nombre: string, apellido: string, correo: string, telefono: string): void {
+ }
+
+
+ onSubmitUpdate(nombre: string, apellido: string, correo: string, telefono: string): void {
   if (nombre && apellido && correo && telefono) {
     const bodyData = {
       nombre: nombre,
@@ -102,12 +111,9 @@ if (this.nombre.length < 2 || this.apellido.length < 2 || this.correo.length < 5
 }
   }
 
-  clearFieldsUser(){
-    this.nombre = '';
-    this.apellido = '';
-    this.correo = '';
-    this.direccion = '';
-    this.telefono = '';
- }
+  mostrarMensajeExito() {
+    alert("Usuario creado exitosamente");
+  }
+ 
 
 }

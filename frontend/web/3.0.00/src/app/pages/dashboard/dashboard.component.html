@@ -1,5 +1,5 @@
 <main id="main" class="main">
-    
+
   <div class="d-flex" id="wrapper">
     <!-- Sidebar -->
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" id="sidebar-wrapper" style="width: 240px;" [class]="status ? 'hide' : 'show'">
@@ -61,10 +61,10 @@
                 <h1 class="mt-4">No hay usuarios registrados</h1>
               </ng-template>
             }
-        
+
              <button type="button" class="btn btn-success submitDashboard mov icono-b3" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
             </div>
-        
+
             <div class="table-responsive">
               <table class="table">
                   <thead>
@@ -101,10 +101,10 @@
                   </tbody>
               </table>
           </div>
-        
+
         </div>
         <!--content-usuarios-end-->
-        
+
         <!--content-servicios-->
         <div  *ngIf="vista === 'servicios'">
           <h1 class="mt-4">Servicios</h1>
@@ -114,7 +114,7 @@
     </div>
     <!-- /#page-content-wrapper -->
   </div>
-      
+
 </main>
 
 
