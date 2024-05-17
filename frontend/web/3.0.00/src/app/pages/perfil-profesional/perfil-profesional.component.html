@@ -136,7 +136,15 @@
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                    <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                                 </div>
-                                        
+                                                 
+                                        <label for="profesion">Servicio que presta:</label><br>
+                                        <input class="form-control" type="text" formControlName="profesion" id="profesion" placeholder="Cambio de profesión" value="{{this.currentUser.profesion}}" required>
+                                                <div *ngIf="perfilForm.get('profesion')?.invalid && (perfilForm.get('profesion')?.dirty || perfilForm.get('profesion')?.touched)" class="text-danger">
+                                                   <div *ngIf="perfilForm.get('profesion')?.errors?.['required']">Se requiere una profesión.</div>
+                                                   <div *ngIf="perfilForm.get('profesion')?.errors?.['minlength']">La profesión debe tener más de 4 caracteres.</div>
+                                                   <div *ngIf="perfilForm.get('profesion')?.errors?.['maxlength']">La profesión debe tener un máximo de 12 caracteres.</div>
+                                                </div>
+
                                         <label for="precio">Precio del servicio por hora en $:</label><br>
                                         <input class="form-control" type="number" formControlName="precio" id="precio" name="precio" placeholder="Nueva tarifa, en pesos." value="{{this.currentUser.precio}}" required>
                                         <div *ngIf="perfilForm.get('precio')?.invalid && (perfilForm.get('precio')?.dirty || perfilForm.get('precio')?.touched)" class="text-danger">
