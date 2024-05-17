@@ -28,7 +28,7 @@ label.form-label {
   justify-content: center;
   align-items: center;
   padding: 20px;
- 
+
 }
 
 
@@ -118,16 +118,8 @@ input {
     margin-bottom: 30px;
   }
 }
-
-/* .password-input {
-background: none;
-color: #c6c6c6;
-font-size: 18px;
-padding: 10px 10px 10px 5px;
-display: block;
-border: none;
-border-bottom: 1px solid var(--colorTextos);
-resize: none;
-} */
-
-
+.checkbox-container {
+  display: inline-flex !important;
+  justify-content: start !important;
+  align-items: center !important;
+}
