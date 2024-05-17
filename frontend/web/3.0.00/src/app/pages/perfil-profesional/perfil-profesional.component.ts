@@ -69,6 +69,7 @@ export class PerfilProfesionalComponent implements OnInit {
   onSubmit(formData: any): void {
     if (this.currentUser) {
       if (this.perfilForm.valid) {
+        formData.profesion = this.captarPrimerLetra(formData.profesion);
         
         const newUserData = {
           nombre: formData.nombre,
@@ -111,7 +112,10 @@ export class PerfilProfesionalComponent implements OnInit {
       console.error('No hay un usuario actual.');
     }
   }
-  
+  captarPrimerLetra(value: string): string {
+    if (!value) return value;
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  }
 
   deleteUser(): void {
     if (this.currentUser) {
