@@ -55,8 +55,6 @@ openDialog() {
       fname: [this.usuarios.fname, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
       lname: [this.usuarios.lname, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
       mail: [this.usuarios.mail, [Validators.required, Validators.minLength(10), Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[^,;\s]+(?:.[a-zA-Z0-9-]+)$"), Validators.maxLength(45)]],
-/*       adress: [this.usuarios.adress, [Validators.required, Validators.maxLength(40)]],*/
-/*       user: [this.usuarios.user, [Validators.required, Validators.minLength(4), Validators.maxLength(20)]], */
       password: [this.usuarios.password, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
       phone: [this.usuarios.phone, [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
       aceptoTerminos: [false, Validators.requiredTrue] // Inicializado con false
