@@ -52,7 +52,7 @@ openDialog() {
   ngOnInit(): void {
     this.registrarForm = this.fb.group({
 
-      fname: [this.usuarios.fname, [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
+      fname: [this.usuarios.fname, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
       lname: [this.usuarios.lname, [Validators.required, Validators.minLength(3), Validators.maxLength(40)]],
       mail: [this.usuarios.mail, [Validators.required, Validators.minLength(10), Validators.pattern("^[a-zA-Z0-9.!#$%&'*+/=?^_{|}~-]+@[^,;\s]+(?:.[a-zA-Z0-9-]+)$"), Validators.maxLength(45)]],
 /*       adress: [this.usuarios.adress, [Validators.required, Validators.maxLength(40)]],*/
