@@ -114,6 +114,18 @@ if (this.nombre.length < 2 || this.apellido.length < 2 || this.correo.length < 5
   mostrarMensajeExito() {
     alert("Usuario creado exitosamente");
   }
- 
+  clearFieldsUser(){
+    this.nombre = '';
+    this.apellido = '';
+    this.correo = '';
+    this.direccion = '';
+    this.telefono = '';
+
+    this.nombreInput.nativeElement.value = '';
+    this.apellidoInput.nativeElement.value = '';
+    this.correoInput.nativeElement.value = '';
+    this.claveInput.nativeElement.value = '';
+    this.telefonoInput.nativeElement.value = '';
+ }
 
 }
