@@ -110,6 +110,8 @@ textarea:focus~label, textarea:valid~label{
 }
 
 .btn-primary{
-  background-color: #60D5AB;
+  background-color: #7becac;
   color: #022531;
+  border: none;
+
 }
