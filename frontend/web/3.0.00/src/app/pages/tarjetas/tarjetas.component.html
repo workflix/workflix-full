@@ -1,16 +1,18 @@
 <div class="container-fluid">
   <!-- SECCIÓN DE FILTROS DE PROFESIONES -->
   <section id="filtro-profesiones" class="mb-4 p-4 d-flex justify-content-center">
+    <div class="container col-12-lg col-6-md">
     <i class="bi bi-chevron-compact-left position-absolute chevron-left" (click)="scrollLeft()"></i>
     <div class="d-flex flex-row overflow-auto" #scrollContainer>
-      <button class="btn btn-primary rounded-pill mx-2" (click)="filtrarPorProfesion('TODOS')">
+      <button class="btn btn-primary rounded-pill mx-2 shadow mb-2 p-2 px-3" (click)="filtrarPorProfesion('TODOS')">
         Todos
       </button>
-      <button *ngFor="let profesion of profesiones" class="btn btn-primary me-2 rounded-pill" (click)="filtrarPorProfesion(profesion)">
+      <button *ngFor="let profesion of profesiones" class="btn btn-primary mx-2 rounded-pill shadow mb-2 p-2 px-3" (click)="filtrarPorProfesion(profesion)">
         {{ profesion }}
       </button>
     </div>
     <i class="bi bi-chevron-compact-right position-absolute chevron-right" (click)="scrollRight()"></i>
+  </div>
   </section>
   <!-- SECCION DE FILTROS PROFESIONALES -->
   <section id="profesionales">
@@ -52,7 +54,7 @@
               <div class="d-grid gap-2">
                 <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
               </div>
-              @if (this.currentUser.tipoUsuario === 'cliente') {
+              @if (this.currentUser) {
                 <div class="d-grid gap-2">
                   <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
                 </div>
