@@ -2,11 +2,11 @@
   <!-- SECCIÓN DE FILTROS DE PROFESIONES -->
   <section id="filtro-profesiones" class="mb-4 p-4 d-flex justify-content-center">
     <i class="bi bi-chevron-compact-left position-absolute chevron-left" (click)="scrollLeft()"></i>
-    <div class="d-flex flex-row overflow-auto" #scrollContainer>
-      <button class="btn btn-primary rounded-pill mx-2" (click)="filtrarPorProfesion('TODOS')">
+    <div class="d-flex flex-row overflow-auto p-4" #scrollContainer>
+      <button class="btn btn-primary rounded-pill mx-2 shadow px-3" (click)="filtrarPorProfesion('TODOS')">
         Todos
       </button>
-      <button *ngFor="let profesion of profesiones" class="btn btn-primary me-2 rounded-pill" (click)="filtrarPorProfesion(profesion)">
+      <button *ngFor="let profesion of profesiones" class="btn btn-primary mx-2 rounded-pill shadow px-3" (click)="filtrarPorProfesion(profesion)">
         {{ profesion }}
       </button>
     </div>
@@ -52,7 +52,7 @@
               <div class="d-grid gap-2">
                 <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
               </div>
-              @if (this.currentUser.tipoUsuario === 'cliente') {
+              @if (this.currentUser) {
                 <div class="d-grid gap-2">
                   <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
                 </div>
