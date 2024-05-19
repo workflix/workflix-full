@@ -1,4 +1,9 @@
-    /* Botón Volver */
+
+body {
+  overflow: hidden;
+}
+
+/* Botón Volver */
 
     .volver-btn {
         margin-left: 40px;
@@ -23,13 +28,11 @@
     /* Botón Contratar */
     .contratar-btn {
         margin: 0 auto;
-        padding: 15px;
         background-color: #60D5AB;
         color: #000000;
         border: none;
         border-radius: 40px;
         cursor: pointer;
-        width: 300px;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
     }
 
@@ -39,18 +42,11 @@
     }
 
     /* Imagen Profesional */
-
-    .rectangle {
-        width: 300px;
-        height: 40px;
-        margin-top: 60px;
-        background-color: #0A769D;
-        text-align: center;
-        font-weight: lighter;
-        color: white;
-        border-radius: 10px;
-        padding-top: 8px;
-    }
+    
+    .bg-profesion {
+      background-color: #0A769D;
+      letter-spacing: 2px;
+  }
 
     .image {
         margin-left: -310px;
