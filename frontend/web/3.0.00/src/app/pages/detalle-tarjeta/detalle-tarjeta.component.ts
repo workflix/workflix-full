@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from '../../models/user';
 import { LoginService } from '../../services/login.service';
-import { UserService } from '../../services/user.service';
+import { SelectedUserService } from '../../services/selected-user.service';
 
 
 @Component({

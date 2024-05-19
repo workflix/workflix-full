@@ -8,13 +8,14 @@ import { DetalleTarjeta } from '../detalle-tarjeta/detalle-tarjeta.component';
 import { CarritoService } from '../../services/carrito.service';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
+import { SelectedUserService } from '../../services/selected-user.service';
 
 @Component({
   selector: 'app-tarjetas',
   standalone: true,
   templateUrl: './tarjetas.component.html',
   styleUrls: ['./tarjetas.component.css'],
-  imports: [NavBarComponent, RouterModule, DetalleTarjeta, CommonModule]
+  imports: [NavBarComponent, RouterModule, CommonModule, DetalleTarjeta]
 })
 export class TarjetasComponent implements OnInit {
   title: string = "List the users";
@@ -32,7 +33,8 @@ export class TarjetasComponent implements OnInit {
     private route: ActivatedRoute,
     private _cartService: CarritoService,
     private router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private selectedUserService: SelectedUserService
   ) {}
 
   ngOnInit(): void {
@@ -63,9 +65,21 @@ export class TarjetasComponent implements OnInit {
     this._cartService.changeCart(user);
   }
 
-  public verDetalle() {
-    this.router.navigate(['/detalle-tarjeta']);
+  public selectedUser: User | null = null;
+
+  public verDetalle(userId: number) {
+    console.log('Ver detalle del usuario con ID:', userId);
+    const selectedUser = this.filteredUsers.find(user => user.id === userId);
+    if (selectedUser) {
+      console.log('Usuario seleccionado:', selectedUser);
+      this.selectedUserService.selectedUser = selectedUser; // Guardar el usuario seleccionado en el servicio
+      this.router.navigate(['/detalle-tarjeta', userId]); // Navegar hacia la vista de detalle-tarjeta con el ID del usuario
+    } else {
+      console.error('No se encontró el usuario con ID:', userId);
+    }
   }
+
+
 
   filtrarPorProfesion(profesion: string) {
     if (profesion === 'TODOS') {
