@@ -29,7 +29,7 @@ export const routes: Routes = [
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
   { path: 'busqueda/:termino', component: BusquedaProfesionalComponent },
-  { path: 'detalle-tarjeta', component: DetalleTarjeta },
+  { path: 'detalle-tarjeta/:id', component: DetalleTarjeta },
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/service-create', component: ServiceCreateComponent }
