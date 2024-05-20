@@ -28,7 +28,7 @@ public class Usuario {
     @SerializedName("correo")
     @Expose
     private String correo;
-    @SerializedName("is_admin")
+    @SerializedName("tipo_usuario")
     @Expose
     private String tipo_usuario;
 
