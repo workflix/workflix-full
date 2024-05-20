@@ -33,6 +33,8 @@ export class PerfilUsuarioComponent implements OnInit {
       mail: ['', [Validators.required, Validators.minLength(5), Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$')]],
       adress: ['', [Validators.required, Validators.maxLength(40)]],
       phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
+      tipo_usuario: [false],
+
     });
   }
 
@@ -50,6 +52,7 @@ export class PerfilUsuarioComponent implements OnInit {
         mail: user.correo,
         adress: user.direccion,
         phone: user.telefono,
+        tipo_usuario: user.tipo_usuario === 'profesional'
       });
     } 
     });
@@ -58,12 +61,15 @@ export class PerfilUsuarioComponent implements OnInit {
     if (this.currentUser) {
       if (this.perfilForm.valid) {
         
+
         const newUserData = {
           nombre: formData.nombre,
           apellido: formData.apellido,
           correo: formData.mail,
           direccion: formData.adress,
           telefono: formData.phone,
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
+
         };
   
         
@@ -75,6 +81,8 @@ export class PerfilUsuarioComponent implements OnInit {
               this.currentUser.correo = newUserData.correo;
               this.currentUser.direccion = newUserData.direccion;
               this.currentUser.telefono = newUserData.telefono;
+              this.currentUser.tipoUsuario = newUserData.tipoUsuario;
+
 
           }
           console.log('Perfil actualizado con éxito:', response);

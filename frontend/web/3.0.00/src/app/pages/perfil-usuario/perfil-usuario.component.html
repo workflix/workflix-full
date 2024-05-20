@@ -8,11 +8,6 @@
            <div id="cardperfil" class="card">
               <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
                 <ng-container *ngIf="usuario">
-                  <!-- <div class="container">
-                     <div class="row">
-                     <div class="rectangle">Plomero</div>
-                     </div>
-                  </div> -->
                   <img class="imagen1" src="assets/images/servicio_adquirido.png" alt="Profile">
                   <h2>{{ this.currentUser?.nombre }}</h2>
                   <h3>{{ this.currentUser?.apellido }}</h3>
@@ -36,8 +31,6 @@
 
                        <ng-container>
                         @if (this.currentUser) {
-<!--                            <h5 class="card-title">A cerca de mi</h5> -->
-<!--                            <p class="small fst-italic">{{ this.currentUser.descripcion }}</p> -->
                            <h5 class="card-title">Detalles de perfil</h5>
                            <div class="linea"></div>
 
@@ -130,8 +123,14 @@
                                                 <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                 <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                              </div>
-                                     
-                                     <br>
+
+
+                                       <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" formControlName="tipo_usuario" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">¿Desea ofrecer sus servicios?</label>
+                                          <p>Una vez habilitado y guardados los cambios, debe volver a ingresar</p> <br>
+                                       </div><br>
+
                                 <div class="d-grid gap-2 col-4 mx-auto">
                                  <button class="boton-form btn-primary" type="submit" >Guardar Cambios</button>
                                  <button type="submit" class="boton2 btn-danger" (click)="deleteUser()">Eliminar cuenta</button>
