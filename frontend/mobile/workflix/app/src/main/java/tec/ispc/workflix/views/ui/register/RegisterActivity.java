@@ -22,6 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.utils.Environment;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 
 
@@ -64,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
 
         // Colocar la IP Local de su servidor
-        String url = "http://192.168.0.125:8080/api/v1/user/register";
+        String url = Environment.URL_REGISTER;
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
 

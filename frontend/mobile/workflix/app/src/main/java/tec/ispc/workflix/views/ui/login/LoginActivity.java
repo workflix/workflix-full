@@ -26,6 +26,7 @@ import java.util.HashMap;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
+import tec.ispc.workflix.utils.Environment;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
 import tec.ispc.workflix.views.ui.register.RegisterActivity;
@@ -82,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
 
         // Colocar la IP Local de su servidor
-        String url = "http://192.168.0.125:8080/api/v1/user/login";
+        String url = Environment.URL_LOGIN;
 
         // Set paramaters
         HashMap<String, String> params = new HashMap<String, String>();
