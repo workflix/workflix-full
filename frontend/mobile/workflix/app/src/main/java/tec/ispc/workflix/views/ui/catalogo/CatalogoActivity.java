@@ -60,7 +60,7 @@ public class CatalogoActivity extends AppCompatActivity {
     private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
         List<Usuario> usuariosNoAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
-            if (!usuario.getTipo_usuario()) {
+            if (usuario.getTipo_usuario() == "cliente") {
                 usuariosNoAdmin.add(usuario);
             }
         }

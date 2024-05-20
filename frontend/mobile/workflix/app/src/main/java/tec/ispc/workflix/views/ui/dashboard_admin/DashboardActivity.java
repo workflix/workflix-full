@@ -75,7 +75,7 @@ public class DashboardActivity extends AppCompatActivity {
     private List<Usuario> filtrarUsuariosAdmin(List<Usuario> usuarios) {
         List<Usuario> usuariosAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
-            if (usuario.getTipo_usuario()) {
+            if (usuario.getTipo_usuario() == "admin") {
                 usuariosAdmin.add(usuario);
             }
         }
