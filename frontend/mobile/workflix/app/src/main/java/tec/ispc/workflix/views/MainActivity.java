@@ -63,15 +63,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
   public void mostrarElementos(){
       SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-      boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
+      String isAdmin = preferences.getString("tipo_usuario", /*Valor por defecto nulo:*/ "cliente");
 
       NavigationView navigationView = findViewById(R.id.nav_view);
       if (preferences.contains("nombre")) {
           navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
-      if (isAdmin) {
+      if (isAdmin == "admin") {
           navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
           navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
-      }else if(!isAdmin) {
+      }else if(isAdmin == "cliente") {
           navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
           navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
       }
