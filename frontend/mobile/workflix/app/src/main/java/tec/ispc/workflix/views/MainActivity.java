@@ -17,10 +17,10 @@ import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
-import tec.ispc.workflix.views.ui.login.LoginActivity;
+import tec.ispc.workflix.views.ui.dashboard.DashboardAdminActivity;
+import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 

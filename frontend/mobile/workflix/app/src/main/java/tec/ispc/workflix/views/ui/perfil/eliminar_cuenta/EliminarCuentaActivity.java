@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.eliminar_cuenta;
+package tec.ispc.workflix.views.ui.perfil.eliminar_cuenta;
 
 import androidx.appcompat.app.AppCompatActivity;
 

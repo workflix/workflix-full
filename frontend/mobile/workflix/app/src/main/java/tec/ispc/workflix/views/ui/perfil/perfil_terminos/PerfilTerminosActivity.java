@@ -1,11 +1,10 @@
-package tec.ispc.workflix.views.ui.perfil_terminos;
+package tec.ispc.workflix.views.ui.perfil.perfil_terminos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;

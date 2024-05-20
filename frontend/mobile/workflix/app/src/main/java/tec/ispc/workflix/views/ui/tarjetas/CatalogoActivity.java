@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.catalogo;
+package tec.ispc.workflix.views.ui.tarjetas;
 
 import android.os.Bundle;
 import android.util.Log;

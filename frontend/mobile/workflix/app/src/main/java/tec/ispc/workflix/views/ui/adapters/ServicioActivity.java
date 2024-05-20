@@ -18,7 +18,7 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardServiciosActivity;
+import tec.ispc.workflix.views.ui.dashboard.DashboardServiciosActivity;
 
 public class ServicioActivity extends AppCompatActivity {
 
