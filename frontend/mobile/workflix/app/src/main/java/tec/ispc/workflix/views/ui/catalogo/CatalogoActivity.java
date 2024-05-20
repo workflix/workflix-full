@@ -43,7 +43,7 @@ public class CatalogoActivity extends AppCompatActivity {
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if (response.isSuccessful()) {
                     listaDeUsuarios = response.body();
-                    listaDeUsuarios = filtrarUsuariosNoAdmin(listaDeUsuarios);
+                   listaDeUsuarios = filtrarUsuariosNoAdmin(listaDeUsuarios);
                     catalogoAdapter.setUsuarios(listaDeUsuarios);
                 } else {
                     Toast.makeText(CatalogoActivity.this, "Error al obtener usuarios", Toast.LENGTH_SHORT).show();
@@ -56,14 +56,14 @@ public class CatalogoActivity extends AppCompatActivity {
             }
         });
     }
-
-    private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
-        List<Usuario> usuariosNoAdmin = new ArrayList<>();
-        for (Usuario usuario : usuarios) {
-            if (usuario.getTipo_usuario() == "cliente") {
-                usuariosNoAdmin.add(usuario);
-            }
+   private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
+    List<Usuario> usuariosNoAdmin = new ArrayList<>();
+    for (Usuario usuario : usuarios) {
+        if ("profesional".equals(usuario.getTipo_usuario())) {
+            usuariosNoAdmin.add(usuario);
         }
-        return usuariosNoAdmin;
     }
+    return usuariosNoAdmin;
+}
+
 }

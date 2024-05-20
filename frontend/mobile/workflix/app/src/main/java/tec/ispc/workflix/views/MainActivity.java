@@ -61,23 +61,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     };
 
-  public void mostrarElementos(){
-      SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-      String isAdmin = preferences.getString("tipo_usuario", /*Valor por defecto nulo:*/ "cliente");
+    public void mostrarElementos() {
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String isAdmin = preferences.getString("tipo_usuario", /*Valor por defecto nulo:*/ "profesional");
 
-      NavigationView navigationView = findViewById(R.id.nav_view);
-      if (preferences.contains("nombre")) {
-          navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
-      if (isAdmin == "admin") {
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
-      }else if(isAdmin == "cliente") {
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-      }
-      } else {
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}};
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        if (preferences.contains("nombre")) {
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            if ("admin".equals(isAdmin)) {
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+            } else if ("profesional".equals(isAdmin)) {
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            }
+        } else {
+            navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -77,7 +77,7 @@ public class DashboardUsuariosActivity extends AppCompatActivity {
     private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
         List<Usuario> usuariosNoAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
-            if (usuario.getTipo_usuario() == "cliente") {
+            if ("profesional".equals(usuario.getTipo_usuario()))  {
                 usuariosNoAdmin.add(usuario);
             }
         }
