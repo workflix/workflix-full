@@ -1,37 +1,59 @@
-<div class="container-fluid">
-  <button type="button" class="volver-btn" (click)="btnVolver()">Volver</button>
-  <div class="details-volver"></div>
-  @for(user of users; track trackById){
-  <div class="container">
-     <div class="row">
-        <div class="rectangle">Plomero</div>
-        <div class="image">
-           <img src="assets/images/profesional-1.jpg" alt="Imagen Profesional">
-           <button class="btn contratar-btn mt-4" type="button">Contratar</button>
+<!--Botón volver-->
+<button type="button" class="volver-btn mb-3" (click)="btnVolver()">Volver</button>
+<div class="details-volver"></div>
+
+  <div class="container text-start">
+    <div class="row">
+      <!--Profesión-->
+      <div class="col-lg-3 col-sm-4 justify-content-start">
+        <div class="bg-profesion p-2 rounded text-light fs-5 text-center">
+          <i class="bi bi-wrench-adjustable"></i>
+          {{ profesional?.profesion }}
         </div>
-        <div class="details">
-          <p class="nombre-apellido">{{user.nombre}} {{user.apellido}}</p>
-          <p class="experiencia">Experiencia Laboral: 15 Años</p>
-          <p class="experiencia">Teléfono: {{user.telefono}}</p>
-          <p class="experiencia">Mail: {{user.correo}}</p>
-          <br>
-          <p class="plomeroexp"> Plomero </p>
-       </div>
-       <div class="linea"></div>
-       <div class="details">
-          <p class="descripcion"> Descripcion </p>
-          <p class="descripcion-texto">{{user.descripcion}}</p>
-       </div>
-     </div>
+        <!--Imágen-->
+        <div class="d-flex justify-content-center">
+          <img src="assets/images/profesional-1.jpg" width="100%" alt="Foto Perfil Profesional">
+        </div>
+        <!--Botón contratar-->
+        <div class="d-flex justify-content-center mt-3 mb-3">
+          <button class="btn contratar-btn" type="button">Contratar</button>
+        </div>
+      </div>
+      <!--Datos Perfil-->
+      <div class="col-lg-3 col-sm-4 justify-content-start">
+        <div class="fs-2 d-flex justify-content-start">
+          <p>{{ profesional?.nombre}} {{profesional?.apellido}}</p>
+        </div>
+        <div class="fs-4 d-flex justify-content-start">
+          <p>Teléfono: {{ profesional?.telefono}}</p>
+        </div>
+        <div class="fs-4 d-flex justify-content-start">
+          <p>Correo: {{ profesional?.correo}}</p>
+        </div>
+        <div class="fs-4 d-flex justify-content-start">
+          <p>Dirección: {{ profesional?.direccion}}</p>
+        </div>
+        <div class="linea mt-3 mb-4"></div>
+        <div class="fs-4 d-flex justify-content-start">
+          <p>Descripción:  {{ profesional?.descripcion}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="banner">
-     <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner">
-     <div class="calificaciones-box">
-        <div class="calificaciones-text">Calificaciones</div>
-     </div>
+  <!--Banner calificaciones-->
+<div class="banner">
+  <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner">
+  <div class="calificaciones-box">
+    <div class="calificaciones-text">Calificaciones</div>
   </div>
-  <div class="card-container">
+</div>
+
+
+
+<!--VALORACIONES-->
+
+<!--<div class="card-container">
      <div class="stars-container">
         <div class="valoracion-reseña"> Valoraciones y reseñas </div>
         <div class="rating-text"> 5 / 5 </div>
@@ -60,30 +82,4 @@
         </div>
      </div>
   </div>
-  } <!--cierre del for-->
-</div>
-
-
-
-
-
-<!--<div class="comment-container">
-  <h4>Agregar Comentario</h4>
-  <form action="#" method="post">
-      <div>
-          <label for="nombre" class="comment-label">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" class="comment-input" required>
-      </div>
-      <div>
-          <label for="email" class="comment-label">Email:</label>
-          <input type="email" id="email" name="email" class="comment-input" required>
-      </div>
-      <div>
-          <label for="comentario" class="comment-label">Comentario:</label>
-          <textarea id="comentario" name="comentario" class="comment-textarea" rows="5" required></textarea>
-      </div>
-      <div>
-          <input type="submit" value="Enviar Comentario" class="comment-submit">
-      </div>
-  </form>
-  </div>-->
+</div>-->

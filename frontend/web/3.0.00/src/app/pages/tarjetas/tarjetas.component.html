@@ -52,7 +52,7 @@
                 </div>
               </div>
               <div class="d-grid gap-2">
-                <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
+                <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle(user.id)" type="button" >Ver Detalle</button>
               </div>
               @if (this.currentUser) {
                 <div class="d-grid gap-2">
@@ -67,4 +67,7 @@
       <!--Close Row -->
     </div>
   </section>
+  <div *ngIf="selectedUser">
+    <app-detalle-tarjeta [profesional]="selectedUser"></app-detalle-tarjeta>
+  </div>
 </div>
