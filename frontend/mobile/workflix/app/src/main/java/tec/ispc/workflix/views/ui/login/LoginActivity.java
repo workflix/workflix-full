@@ -106,8 +106,8 @@ public class LoginActivity extends AppCompatActivity {
                             String provincia = response.isNull("provincia") ? "" : response.getString("provincia");
                             String profesion = response.isNull("profesion") ? "" : response.getString("profesion");
                             String foto = response.isNull("foto") ? "" : response.getString("foto");
+                            String tipo_usuario = (String) response.get("tipo_usuario");
 
-                            boolean is_admin = response.getBoolean("is_admin");
 
                             // Guardar los datos del usuario en SharedPreferences
                             SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -122,7 +122,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("provincia",provincia);
                             editor.putString("profesion",profesion);
                             editor.putString("foto",foto);
-                            editor.putBoolean("is_admin",is_admin);
+                            editor.putString("tipo_usuario",tipo_usuario);
                             editor.apply();
                             // Redirigir al usuario a MainActivity
                             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
