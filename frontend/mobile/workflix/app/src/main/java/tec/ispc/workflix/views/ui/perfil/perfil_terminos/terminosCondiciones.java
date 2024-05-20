@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.perfil_terminos;
+package tec.ispc.workflix.views.ui.perfil.perfil_terminos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.views.MainActivity;
 
 public class terminosCondiciones extends AppCompatActivity {
 

@@ -1,9 +1,10 @@
-package tec.ispc.workflix.views.ui.login;
+package tec.ispc.workflix.views.ui.auth.login;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,9 +26,10 @@ import java.util.HashMap;
 
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
+import tec.ispc.workflix.utils.Environment;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.register.RegisterActivity;
+import tec.ispc.workflix.views.ui.tarjetas.CatalogoActivity;
+import tec.ispc.workflix.views.ui.auth.login.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
 public class LoginActivity extends AppCompatActivity {
@@ -81,7 +83,7 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
 
         // Colocar la IP Local de su servidor
-        String url = "http://190.96.112.66:8080/api/v1/user/login";
+        String url = Environment.URL_LOGIN;
 
         // Set paramaters
         HashMap<String, String> params = new HashMap<String, String>();
@@ -95,6 +97,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            // Loguear toda la respuesta JSON
+                            //    Log.d("LoginActivity", "Respuesta del servidor: " + response.toString());
+
                             // Obtengo valores de respuesta del objeto
                             int id = response.getInt("id");
                             String nombre = (String) response.get("nombre");
@@ -106,8 +111,15 @@ public class LoginActivity extends AppCompatActivity {
                             String provincia = response.isNull("provincia") ? "" : response.getString("provincia");
                             String profesion = response.isNull("profesion") ? "" : response.getString("profesion");
                             String foto = response.isNull("foto") ? "" : response.getString("foto");
-
-                            boolean is_admin = response.getBoolean("is_admin");
+                            // Verificar si el campo tipo_usuario está presente
+                            String tipo_usuario = (String) response.get("tipoUsuario");
+                            if (tipo_usuario == null) {
+                                Log.e("LoginActivity", "La respuesta del servidor no contiene el campo 'tipo_usuario'.");
+                                Toast.makeText(LoginActivity.this, "Error: El servidor no devolvió el tipo de usuario.", Toast.LENGTH_LONG).show();
+                                return;
+                            }
+                            // Logs para depurar
+                            Log.d("LoginActivity", "tipo_usuario: " + tipo_usuario);
 
                             // Guardar los datos del usuario en SharedPreferences
                             SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -122,8 +134,14 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("provincia",provincia);
                             editor.putString("profesion",profesion);
                             editor.putString("foto",foto);
-                            editor.putBoolean("is_admin",is_admin);
+                            editor.putString("tipo_usuario",tipo_usuario);
+
+                            // Log para verificar que se guardaron correctamente los valores
+                            Log.d("LoginActivity", "Datos guardados en SharedPreferences");
                             editor.apply();
+                            // Log para verificar que se guardaron correctamente los valores
+                            Log.d("LoginActivity", "Datos guardados en SharedPreferences");
+
                             // Redirigir al usuario a MainActivity
                             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(irAMain);

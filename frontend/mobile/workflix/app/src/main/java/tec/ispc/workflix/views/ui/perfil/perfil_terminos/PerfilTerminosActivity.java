@@ -1,11 +1,10 @@
-package tec.ispc.workflix.views.ui.perfil_terminos;
+package tec.ispc.workflix.views.ui.perfil.perfil_terminos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -81,7 +80,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("correo", null);
         editor.putString("descripcion", null);
         editor.putString("foto", null);
-        editor.remove("is_admin");
+        editor.putString("tipo_usuario", null);
         editor.apply();
         // Vuelvo al home
         Intent irAlHome = new Intent(PerfilTerminosActivity.this, MainActivity.class);

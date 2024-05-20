@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.dashboard_admin;
+package tec.ispc.workflix.views.ui.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -77,7 +77,7 @@ public class DashboardUsuariosActivity extends AppCompatActivity {
     private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
         List<Usuario> usuariosNoAdmin = new ArrayList<>();
         for (Usuario usuario : usuarios) {
-            if (!usuario.isIs_admin()) {
+            if ("profesional".equals(usuario.getTipo_usuario()))  {
                 usuariosNoAdmin.add(usuario);
             }
         }

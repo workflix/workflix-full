@@ -28,9 +28,9 @@ public class Usuario {
     @SerializedName("correo")
     @Expose
     private String correo;
-    @SerializedName("is_admin")
+    @SerializedName("tipo_usuario")
     @Expose
-    private boolean is_admin;
+    private String tipoUsuario;
 
     @SerializedName("ciudad")
     @Expose
@@ -56,7 +56,7 @@ public class Usuario {
     public Usuario(){};
 
     public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad
-                   ,String direccion, String provincia, String profesion, String descripcion){
+                   ,String direccion, String provincia, String profesion, String descripcion, String tipoUsuario){
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -67,30 +67,8 @@ public class Usuario {
         this.provincia = provincia;
         this.descripcion = descripcion;
         this.profesion = profesion;
+        this.tipoUsuario = tipoUsuario;
     }
-   /* public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.clave = clave;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.is_admin = is_admin;
-    }*/
-   /* public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin, String ciudad, String provincia, String descripcion, String foto, String profesion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.clave = clave;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.is_admin = is_admin;
-        this.ciudad = ciudad;
-        this.provincia = provincia;
-        this.descripcion = descripcion;
-        this.foto = foto;
-        this.profesion = profesion;
-    }*/
 
     public int getId() {
         return id;
@@ -140,14 +118,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public boolean isIs_admin() {
-        return is_admin;
-    }
-
-    public void setIs_admin(boolean is_admin) {
-        this.is_admin = is_admin;
-    }
-
     public String getCiudad() {
         return ciudad;
     }
@@ -186,5 +156,21 @@ public class Usuario {
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
+    }
+
+    public String getTipo_usuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipoUsuario= tipo_usuario;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }

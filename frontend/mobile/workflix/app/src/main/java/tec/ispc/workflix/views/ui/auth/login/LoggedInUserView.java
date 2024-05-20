@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.login;
+package tec.ispc.workflix.views.ui.auth.login;
 
 /**
  * Class exposing authenticated user details to the UI.

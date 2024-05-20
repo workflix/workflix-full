@@ -37,7 +37,7 @@ import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
     ImageView imagenFoto;
@@ -132,7 +132,7 @@ public class Perfil extends AppCompatActivity {
                 editor.putString("provincia", null);
                 editor.putString("profesion", null);
                 editor.putString("foto", null);
-                editor.remove("is_admin");
+                editor.putString("tipo_usuario", null);
                 editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);
                 startActivity(intent);

@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.catalogo;
+package tec.ispc.workflix.views.ui.tarjetas;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,8 +13,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.squareup.picasso.Picasso;
 
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.views.ui.perfil.Perfil;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
 
 
 public class TarjetaAmpliadaActivity extends AppCompatActivity {
