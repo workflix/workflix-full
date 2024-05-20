@@ -130,8 +130,13 @@
                                                 <div *ngIf="perfilForm.get('phone')?.errors?.['minlength']">El teléfono debe tener más de 8 caracteres.</div>
                                                 <div *ngIf="perfilForm.get('phone')?.errors?.['maxlength']">El teléfono debe tener un máximo de 25 caracteres.</div>
                                              </div>
-                                     
-                                     <br>
+
+
+                                       <div class="form-check form-switch">
+                                          <input class="form-check-input" type="checkbox" formControlName="tipo_usuario" id="defaultCheck1">
+                                          <label class="form-check-label" for="defaultCheck1">¿Desea ofrecer sus servicios?</label>
+                                          <p>Una vez habilitado y guardados los cambios, debe volver a ingresar</p> <br>
+                                       </div><br>
                                 <div class="d-grid gap-2 col-4 mx-auto">
                                  <button class="boton-form btn-primary" type="submit" >Guardar Cambios</button>
                                  <button type="submit" class="boton2 btn-danger" (click)="deleteUser()">Eliminar cuenta</button>
