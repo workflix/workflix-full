@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -95,6 +96,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            // Loguear toda la respuesta JSON
+                            //    Log.d("LoginActivity", "Respuesta del servidor: " + response.toString());
+
                             // Obtengo valores de respuesta del objeto
                             int id = response.getInt("id");
                             String nombre = (String) response.get("nombre");
@@ -106,8 +110,15 @@ public class LoginActivity extends AppCompatActivity {
                             String provincia = response.isNull("provincia") ? "" : response.getString("provincia");
                             String profesion = response.isNull("profesion") ? "" : response.getString("profesion");
                             String foto = response.isNull("foto") ? "" : response.getString("foto");
-                            String tipo_usuario = (String) response.get("tipo_usuario");
-
+                            // Verificar si el campo tipo_usuario está presente
+                            String tipo_usuario = (String) response.get("tipoUsuario");
+                            if (tipo_usuario == null) {
+                                Log.e("LoginActivity", "La respuesta del servidor no contiene el campo 'tipo_usuario'.");
+                                Toast.makeText(LoginActivity.this, "Error: El servidor no devolvió el tipo de usuario.", Toast.LENGTH_LONG).show();
+                                return;
+                            }
+                            // Logs para depurar
+                            Log.d("LoginActivity", "tipo_usuario: " + tipo_usuario);
 
                             // Guardar los datos del usuario en SharedPreferences
                             SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
@@ -123,7 +134,13 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("profesion",profesion);
                             editor.putString("foto",foto);
                             editor.putString("tipo_usuario",tipo_usuario);
+
+                            // Log para verificar que se guardaron correctamente los valores
+                            Log.d("LoginActivity", "Datos guardados en SharedPreferences");
                             editor.apply();
+                            // Log para verificar que se guardaron correctamente los valores
+                            Log.d("LoginActivity", "Datos guardados en SharedPreferences");
+
                             // Redirigir al usuario a MainActivity
                             Intent irAMain = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(irAMain);
