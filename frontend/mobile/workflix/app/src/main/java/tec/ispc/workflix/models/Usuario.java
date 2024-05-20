@@ -30,7 +30,7 @@ public class Usuario {
     private String correo;
     @SerializedName("is_admin")
     @Expose
-    private boolean is_admin;
+    private String tipo_usuario;
 
     @SerializedName("ciudad")
     @Expose
@@ -140,12 +140,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public boolean isIs_admin() {
-        return is_admin;
+    public boolean getTipo_usuario() {
+        return tipo_usuario;
     }
 
-    public void setIs_admin(boolean is_admin) {
-        this.is_admin = is_admin;
+    public void setTipo_usuario(boolean tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
     }
 
     public String getCiudad() {
