@@ -68,8 +68,7 @@ export class PerfilUsuarioComponent implements OnInit {
           correo: formData.mail,
           direccion: formData.adress,
           telefono: formData.phone,
-          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,
-        
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
 
         };
   
