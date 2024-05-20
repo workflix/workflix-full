@@ -117,14 +117,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public boolean getTipo_usuario() {
-        return tipo_usuario;
-    }
-
-    public void setTipo_usuario(boolean tipo_usuario) {
-        this.tipo_usuario = tipo_usuario;
-    }
-
     public String getCiudad() {
         return ciudad;
     }
@@ -163,5 +155,21 @@ public class Usuario {
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
+    }
+
+    public String getTipo_usuario() {
+        return tipo_usuario;
+    }
+
+    public void setTipo_usuario(String tipo_usuario) {
+        this.tipo_usuario = tipo_usuario;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 }
