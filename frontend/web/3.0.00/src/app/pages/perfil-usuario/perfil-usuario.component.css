@@ -109,6 +109,19 @@ img {
     max-width: 30%;
 }
 
+.form-check {
+    margin-top: 5%;
+}
+
+.form-check-label{
+    font-size: 14px;
+}
+
+.form-check p{
+    font-size: 14px;
+    color:#0A769D
+}
+
 .d-grid {
     text-align: center;
   }
