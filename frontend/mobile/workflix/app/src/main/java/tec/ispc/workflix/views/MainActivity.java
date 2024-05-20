@@ -13,13 +13,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.os.Handler;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
 
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
 import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
@@ -61,23 +58,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     };
 
-  public void mostrarElementos(){
-      SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-      boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
+    public void mostrarElementos() {
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String isUser = preferences.getString("tipo_usuario", "");
 
-      NavigationView navigationView = findViewById(R.id.nav_view);
-      if (preferences.contains("nombre")) {
-          navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
-      if (isAdmin) {
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
-      }else if(!isAdmin) {
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-      }
-      } else {
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}};
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        if (preferences.contains("nombre")) {
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            if ("admin".equals(isUser)) {
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+            } if ("profesional".equals(isUser)) {
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            }
+            if ("cliente".equals(isUser)) {
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            }
+        } else {
+            navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

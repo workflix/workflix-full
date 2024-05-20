@@ -42,7 +42,7 @@ public class DashboardAdminActivity extends AppCompatActivity {
         editor.putString("apellido", null);
         editor.putString("correo", null);
         editor.putString("telefono", null);
-        editor.remove("is_admin");
+        editor.putString("tipo_usuario", null);
         editor.apply();
         // Vuelvo al home
         Intent irAlHome = new Intent(DashboardAdminActivity.this, MainActivity.class);
