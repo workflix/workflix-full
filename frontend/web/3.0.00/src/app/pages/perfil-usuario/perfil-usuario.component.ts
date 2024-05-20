@@ -52,6 +52,7 @@ export class PerfilUsuarioComponent implements OnInit {
         mail: user.correo,
         adress: user.direccion,
         phone: user.telefono,
+        tipo_usuario: user.tipo_usuario === 'profesional'
       });
     } 
     });
