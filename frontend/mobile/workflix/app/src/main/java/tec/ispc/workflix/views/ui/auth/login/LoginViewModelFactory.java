@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.login;
+package tec.ispc.workflix.views.ui.auth.login;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;

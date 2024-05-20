@@ -23,76 +23,76 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".views.ui.dashboard_admin.DashboardAdminVistaActivity"
+            android:name=".views.ui.dashboard.DashboardAdminVistaActivity"
             android:exported="false"
             android:label="Administradores"
-            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:parentActivityName=".views.ui.dashboard.DashboardAdminActivity"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+                android:value=".views.ui.dashboard.DashboardAdminActivity" />
         </activity>
         <activity
-            android:name=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:name=".views.ui.dashboard.DashboardServiciosActivity"
             android:exported="false"
             android:label="Servicios"
-            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:parentActivityName=".views.ui.dashboard.DashboardAdminActivity"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+                android:value=".views.ui.dashboard.DashboardAdminActivity" />
         </activity>
         <activity
             android:name=".views.ui.adapters.ServicioActivity"
             android:exported="false"
             android:label="Editar Servicios"
-            android:parentActivityName=".views.ui.dashboard_admin.DashboardServiciosActivity"
+            android:parentActivityName=".views.ui.dashboard.DashboardServiciosActivity"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.dashboard_admin.DashboardServiciosActivity" />
+                android:value=".views.ui.dashboard.DashboardServiciosActivity" />
         </activity>
         <activity
-            android:name=".views.ui.dashboard_admin.DashboardUsuariosActivity"
+            android:name=".views.ui.dashboard.DashboardUsuariosActivity"
             android:exported="false"
             android:label="Usuarios"
-            android:parentActivityName=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:parentActivityName=".views.ui.dashboard.DashboardAdminActivity"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.dashboard_admin.DashboardAdminActivity" />
+                android:value=".views.ui.dashboard.DashboardAdminActivity" />
         </activity>
         <activity
             android:name=".views.ui.adapters.UsuarioActivity"
             android:exported="false"
             android:label="Editar Usuarios"
-            android:parentActivityName=".views.ui.dashboard_admin.DashboardUsuariosActivity"
+            android:parentActivityName=".views.ui.dashboard.DashboardUsuariosActivity"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.dashboard_admin.DashboardUsuariosActivity" />
+                android:value=".views.ui.dashboard.DashboardUsuariosActivity" />
         </activity>
         <activity
-            android:name=".views.ui.dashboard_admin.DashboardActivity"
+            android:name=".views.ui.dashboard.DashboardActivity"
             android:exported="false" />
 
         <activity
-            android:name=".views.ui.perfil_terminos.terminosCondiciones"
+            android:name=".views.ui.perfil.perfil_terminos.terminosCondiciones"
             android:exported="false"
             android:label="Terminos y Condiciones"
-            android:parentActivityName=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:parentActivityName=".views.ui.perfil.perfil_terminos.PerfilTerminosActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.perfil_terminos.PerfilTerminosActivity" />
+                android:value=".views.ui.perfil.perfil_terminos.PerfilTerminosActivity" />
         </activity>
         <activity
-            android:name=".views.ui.dashboard_admin.DashboardAdminActivity"
+            android:name=".views.ui.dashboard.DashboardAdminActivity"
             android:exported="false"
             android:label="Dashboard"
             android:parentActivityName=".views.MainActivity"
@@ -102,37 +102,37 @@
                 android:value=".views.MainActivity" />
         </activity>
         <activity
-            android:name=".views.ui.catalogo.CatalogoActivity"
+            android:name=".views.ui.tarjetas.CatalogoActivity"
             android:exported="false"
             android:label="Catalogo de Profesionales"
-            android:parentActivityName=".views.ui.catalogo.CatalogoActivity"
+            android:parentActivityName=".views.ui.tarjetas.CatalogoActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.catalogo.CatalogoActivity" />
+                android:value=".views.ui.tarjetas.CatalogoActivity" />
         </activity>
         <activity
             android:name=".views.ui.restablecer.RestablecerActivity"
             android:exported="false"
             android:label="Restablecer"
-            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:parentActivityName=".views.ui.auth.login.LoginActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.login.LoginActivity" />
+                android:value=".views.ui.auth.login.LoginActivity" />
         </activity>
         <activity
             android:name=".views.ui.perfil.Perfil"
             android:exported="false"
             android:label="Editar Perfil"
-            android:parentActivityName=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:parentActivityName=".views.ui.perfil.perfil_terminos.PerfilTerminosActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.perfil_terminos.PerfilTerminosActivity" />
+                android:value=".views.ui.perfil.perfil_terminos.PerfilTerminosActivity" />
         </activity>
         <activity
-            android:name=".views.ui.eliminar_cuenta.EliminarCuentaActivity"
+            android:name=".views.ui.perfil.eliminar_cuenta.EliminarCuentaActivity"
             android:exported="false"
             android:label="Eliminar Cuenta"
             android:parentActivityName=".views.ui.perfil.Perfil"
@@ -142,28 +142,28 @@
                 android:value=".views.ui.perfil.Perfil" />
         </activity>
         <activity
-            android:name=".views.ui.perfil_terminos.PerfilTerminosActivity"
+            android:name=".views.ui.perfil.perfil_terminos.PerfilTerminosActivity"
             android:exported="false"
             android:label="Perfil"
-            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:parentActivityName=".views.ui.auth.login.LoginActivity"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.login.LoginActivity" />
+                android:value=".views.ui.auth.login.LoginActivity" />
         </activity>
         <activity
-            android:name=".views.ui.register.RegisterActivity"
+            android:name=".views.ui.auth.login.register.RegisterActivity"
             android:exported="false"
             android:label="Registro"
-            android:parentActivityName=".views.ui.login.LoginActivity"
+            android:parentActivityName=".views.ui.auth.login.LoginActivity"
             android:screenOrientation="sensor"
             android:theme="@style/Theme.Workflix2">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".views.ui.login.LoginActivity" />
+                android:value=".views.ui.auth.login.LoginActivity" />
         </activity>
         <activity
-            android:name=".views.ui.login.LoginActivity"
+            android:name=".views.ui.auth.login.LoginActivity"
             android:exported="false"
             android:label="Login"
             android:parentActivityName=".views.MainActivity"
@@ -182,7 +182,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".views.ui.catalogo.TarjetaAmpliadaActivity"
+            android:name=".views.ui.tarjetas.TarjetaAmpliadaActivity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />

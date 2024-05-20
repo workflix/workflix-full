@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.dashboard_admin;
+package tec.ispc.workflix.views.ui.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 

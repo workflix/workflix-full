@@ -37,7 +37,7 @@ import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
     ImageView imagenFoto;

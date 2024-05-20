@@ -1,4 +1,4 @@
-package tec.ispc.workflix.views.ui.login;
+package tec.ispc.workflix.views.ui.auth.login;
 
 import android.content.Context;
 import android.content.Intent;
@@ -28,8 +28,8 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.databinding.ActivityLoginBinding;
 import tec.ispc.workflix.utils.Environment;
 import tec.ispc.workflix.views.MainActivity;
-import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.register.RegisterActivity;
+import tec.ispc.workflix.views.ui.tarjetas.CatalogoActivity;
+import tec.ispc.workflix.views.ui.auth.login.register.RegisterActivity;
 import tec.ispc.workflix.views.ui.restablecer.RestablecerActivity;
 
 public class LoginActivity extends AppCompatActivity {

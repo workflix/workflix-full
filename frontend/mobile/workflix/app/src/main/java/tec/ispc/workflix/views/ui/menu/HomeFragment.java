@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import tec.ispc.workflix.R;
-import tec.ispc.workflix.views.ui.catalogo.CatalogoActivity;
-import tec.ispc.workflix.views.ui.login.LoginActivity;
+import tec.ispc.workflix.views.ui.tarjetas.CatalogoActivity;
+import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 
 
 public class HomeFragment extends Fragment {
