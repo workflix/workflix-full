@@ -3,37 +3,37 @@ body {
   overflow: hidden;
 }
 
-/* Botón Volver */
+    /* Botón Volver */
 
     .volver-btn {
-        margin-left: 40px;
+        margin-left: 12px;
         margin-top: 80px;
-        padding: 8px;
+        padding: 3px;
         background: #FFF;
         color: #000000;
         border: none;
-        border: 4px solid #60D5AB;
+        border: 2px solid #60D5AB;
         border-radius: 40px;
-        cursor: pointer;
-        width: 150px;
+        width: 120px;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
     }
 
     .volver-btn:hover {
       background-color: #1FBABF; /* Verde Kiwi */
       color: #ffffff;
-      border: 4px solid #1FBABF;
+      border: 2px solid #1FBABF;
     }
 
     /* Botón Contratar */
+
     .contratar-btn {
         margin: 0 auto;
         background-color: #60D5AB;
         color: #000000;
         border: none;
         border-radius: 40px;
-        cursor: pointer;
         z-index: 1; /* Asegura que el botón esté encima de otros elementos */
+        width: 100%;
     }
 
     .contratar-btn:hover {
@@ -48,77 +48,20 @@ body {
       letter-spacing: 2px;
   }
 
-    .image {
-        margin-left: -310px;
-        width: 320px;
-        height: 320px;
-        border-radius: 10px;
-        margin-top: 120px;
-    }
+    /*Línea de separación*/
 
-    .image img {
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-
-    /* Detalles Profesional */
-
-.details {
-    display: flex;
-    flex-direction: column;
-    margin-left: 380px; /* Ajusta este valor según sea necesario */
-    margin-top: -350px; /* Cambiado a un valor positivo para que esté debajo de la imagen */
-}
-
-.details p {
-    margin: 10px 0;
-}
-
-.details p.nombre-apellido {
-    font-size: 30px;
-}
-
-.details p.experiencia {
-    font-size: 15px;
-}
-
-.details p.plomeroexp {
-    font-size: 15px;
-    margin-top: -15px;
-}
-
-.linea {
-    position: relative; /* Ajustado a relativo */
-    margin-left: 380px;
-    width: calc(90% - 250px);
-    border-bottom: 1px solid black;
-}
-
-.details p.descripcion {
-    font-size: 25px;
-    margin-top: 360px; /* Ajusta este valor según sea necesario */
-}
-
-.details p.descripcion-texto{
-    font-size: 14px;
-    margin-top: -30px;
-    margin-left: 170px; /* Ajusta este valor según sea necesario */
-    width: 70%;
-}
-
+    .linea {
+      width: 100%;
+      border-bottom: 2px solid rgb(141, 140, 140);
+  }
 
 
 /* Estilos para pantallas pequeñas */
+
 @media only screen and (max-width: 600px) {
-    .details {
-        margin-top: 15px;
-        margin-left: 30px; /* Centra horizontalmente */
-        width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
-    }
 
     .linea {
-        margin-top: 20px; /* Ajusta este valor según sea necesario */
+        margin-top: 20px;
         margin-left: 30px; /* Centra horizontalmente */
         width: calc(100% - 60px); /* Ajusta el ancho según sea necesario */
     }
@@ -140,8 +83,8 @@ body {
     }
 }
 
-
     /* Banner de Calificación */
+
     .banner {
         margin-left: auto;
         margin-right: auto;
@@ -183,9 +126,9 @@ body {
         height: auto;
     }
 
-    /* Estrellas de Valoración */
+   /* Estrellas de Valoración */
 
-    .stars-container {
+/*.stars-container {
     margin-top: 40px;
     position: relative;
     background-color: #f2f2f2;
@@ -233,52 +176,12 @@ body {
 .valoracion-reseña {
     margin-right: 40px;
     font-size: 17px;
-}
-
-@media only screen and (max-width: 768px) {
-    .stars-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 20px;
-        height: 50px;
-    }
-
-    /* Resto de tus estilos para stars-container... */
+} */
 
 
-    .stars-rating {
-        margin-right: 40px;
-        --star: 36px;
-        --stars-width: calc(var(--star) * 5);
-        --stars-height: var(--star);
-        --gap: calc(var(--star) / 100);
-        --rating-width: calc(
-            (var(--gap) * var(--rating)) + (var(--star) * var(--rating))
-        );
-    }
-
-    .rating {
-        transform: translate(-1px, 1px);
-    }
-
-    .rating-text {
-        margin-right: 20px;
-        font-size: 20px;
-    }
-
-    .valoracion-reseña {
-        font-size: 14px;
-    }
-
-    /* Agregamos text-align: center; al contenedor principal */
-    .container {
-        text-align: center;
-    }
-}
 
 /* COMETARIO */
-
+/*
 .card-container {
     display: flex;
     justify-content: center;
@@ -290,11 +193,10 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 80%; /* Ancho de la tarjeta */
+    width: 80%;
     border-radius: 5px;
-    height: auto; /* La altura se ajustará automáticamente */
-    position: relative; /* Habilita el posicionamiento relativo */
-
+    height: auto;
+    position: relative;
   }
 
   .card img {
@@ -302,14 +204,14 @@ body {
     padding-left: 30px;
     margin-top: 30px;
     border-radius: 100%;
-    width: 10%; /* Ancho de la imagen */
-    position: absolute; /* Habilita el posicionamiento absoluto */
-    top: 0; /* Coloca la imagen en la parte superior de la tarjeta */
-    left: 110px; /* Coloca la imagen en el lado izquierdo de la tarjeta */
+    width: 10%;
+    position: absolute;
+    top: 0;
+    left: 110px;
   }
 
   .container-comentario {
-    margin-left: 20%; /* Espacio a la izquierda de la tarjeta para la imagen */
+    margin-left: 20%;
   }
 
   .card:hover {
@@ -319,4 +221,5 @@ body {
 
   .container-comentario {
     padding: 22px 16px;
-  }
+  }*/
+
