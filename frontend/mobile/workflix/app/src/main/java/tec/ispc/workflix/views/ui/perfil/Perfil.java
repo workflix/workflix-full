@@ -86,6 +86,7 @@ public class Perfil extends AppCompatActivity {
         String provincia = preferences.getString("provincia","");
         String profesion = preferences.getString("profesion","");
         String foto = preferences.getString("foto","");
+        tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
 
 
