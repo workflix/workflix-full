@@ -118,7 +118,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (itemId == R.id.nav_web) {
             String url = "http://localhost:4200/home";
-            
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+            return true;
         }
         else if (itemId == R.id.nav_about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
