@@ -31,6 +31,7 @@ _Developer Team:_
 
 Aclaraciones: 
 
+## Frontend
 Dentro de la carpeta frontend se encuentran dos carpetas:
 * Mobile
 * Web
@@ -38,12 +39,21 @@ Dentro de la carpeta frontend se encuentran dos carpetas:
 Dentro de Web se encuentran:
 * 2.0.23 (Correspondiente al proyecto Web 2023)
 * 3.0.00 (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando)
+Dentro de 3.0.0 se encuentra la carpeta "servidor_pasarela" en donde está el backend de esta misma
 
+## Backend
 Dentro de la carpeta backend se encuentran dos carpetas:
 * Django (Correspondiente al proyecto Web 2023)
 * Spring (correspondiente al proyecto Mobile 2023, en el cual ahora estamos trabajando sobre el proyecto Web y Mobile actual para unificar tecnologías)
 
-  
+
+## Tecnologías
+
+Java - SpringBoot - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript
+
+### Versiones Utilizadas
+- - -
+
 **Documentación**
 
 * [Documento-IEEE830](https://github.com/workflix/workflix-full/wiki/Documento-IEEE830)
