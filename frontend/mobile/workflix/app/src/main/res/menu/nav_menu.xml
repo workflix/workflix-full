@@ -50,6 +50,7 @@
         <menu>
               <item
                   android:id="@+id/nav_web"
+                  android:icon="@drawable/workflix_web_vector"
                   />
               <item
                   android:id="@+id/nav_logout"
