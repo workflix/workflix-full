@@ -39,6 +39,11 @@ Dentro de Web se encuentran:
 * 2.0.23 (Correspondiente al proyecto Web 2023)
 * 3.0.00 (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando)
 
+Dentro de la carpeta backend se encuentran dos carpetas:
+* Django (Correspondiente al proyecto Web 2023)
+* Spring (correspondiente al proyecto Mobile 2023, en el cual ahora estamos trabajando sobre el proyecto Web y Mobile actual para unificar tecnologías)
+
+  
 **Documentación**
 
 * [Documento-IEEE830](https://github.com/workflix/workflix-full/wiki/Documento-IEEE830)
