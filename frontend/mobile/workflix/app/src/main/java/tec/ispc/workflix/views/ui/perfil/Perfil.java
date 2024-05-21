@@ -89,6 +89,10 @@ public class Perfil extends AppCompatActivity {
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
 
+        // Muestra el botón correcto basado en el tipo de usuario
+        if ("profesional".equalsIgnoreCase(tipo_usuario)) {
+            tv_profesion.setVisibility(View.VISIBLE);
+        }
 
         if (!foto.isEmpty()) {
             Uri uriImagen = Uri.parse(foto);
