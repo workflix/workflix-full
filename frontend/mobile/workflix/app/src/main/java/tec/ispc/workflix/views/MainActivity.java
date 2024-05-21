@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if (itemId == R.id.nav_web) {
+            //Ir a página web de Workflix
             String url = "http://localhost:4200/home";
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
