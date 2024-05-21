@@ -53,6 +53,7 @@ public class Perfil extends AppCompatActivity {
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 20;
     private String rutaImagen;
+    private String tipo_usuario;
 
 
     @Override
