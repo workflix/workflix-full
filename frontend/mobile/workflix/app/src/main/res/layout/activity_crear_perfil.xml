@@ -180,7 +180,9 @@
                     android:hint="Servicio"
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/grey3" />
+                    android:textColorHint="@color/grey3"
+                    android:visibility="gone"
+                    />
 
                 <EditText
                     android:id="@+id/perfilDescripcion"

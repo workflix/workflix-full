@@ -53,6 +53,7 @@ public class Perfil extends AppCompatActivity {
     final int COD_SELECCIONA = 10;
     final int COD_FOTO = 20;
     private String rutaImagen;
+    private String tipo_usuario;
 
 
     @Override
@@ -85,8 +86,13 @@ public class Perfil extends AppCompatActivity {
         String provincia = preferences.getString("provincia","");
         String profesion = preferences.getString("profesion","");
         String foto = preferences.getString("foto","");
+        tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
 
+        // Muestra el botón correcto basado en el tipo de usuario
+        if ("profesional".equalsIgnoreCase(tipo_usuario)) {
+            tv_profesion.setVisibility(View.VISIBLE);
+        }
 
         if (!foto.isEmpty()) {
             Uri uriImagen = Uri.parse(foto);
