@@ -3,6 +3,13 @@
  <a href="https://ibb.co/0tpbGxN"><img src="https://i.ibb.co/xHKT7Nv/logo-workflix.png" alt="logo-workflix" border="0" width="320" height="100"></a>
 </p>
 <div>
+
+ ![portada_site](https://github.com/workflix/workflix-full/assets/95662710/7f403f76-eb64-4e38-a614-608a6cf09aba)
+
+![portada_principal](https://github.com/workflix/workflix-full/assets/95662710/0dc0905c-ca02-4b66-8a39-0996dd14fc38)
+
+
+
 Proyecto Worflix 2024
 
 Incluye Sitio Web y App Móvil
