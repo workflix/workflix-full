@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         else if (itemId == R.id.nav_web) {
+            String url = "http://localhost:4200/home";
             
         }
         else if (itemId == R.id.nav_about) {
