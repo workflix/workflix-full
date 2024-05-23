@@ -41,6 +41,7 @@ export class PerfilProfesionalComponent implements OnInit {
       profesion: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
+      tipo_usuario: ['profesional']
 
     });
 
@@ -62,7 +63,7 @@ export class PerfilProfesionalComponent implements OnInit {
         phone: user.telefono,
         profesion: user.profesion,
         precio: user.precio,
-        descripcion: user.descripcion
+        descripcion: user.descripcion,
       });
     } 
     });
@@ -80,7 +81,7 @@ export class PerfilProfesionalComponent implements OnInit {
           telefono: formData.phone,
           profesion: formData.profesion ,
           precio: formData.precio,
-          descripcion: formData.descripcion
+          descripcion: formData.descripcion,
         
         };
   
