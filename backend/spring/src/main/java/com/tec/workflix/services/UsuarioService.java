@@ -47,7 +47,10 @@ public class UsuarioService implements IUsuarioInterface {
     public int actualizarPerfil(Usuario usuario) {
         return  dao.actualizarPerfil(usuario);
     }
-
+    @Override
+    public int recomendarPerfil(Usuario usuario) {
+        return dao.recomendarPerfil(usuario);
+    }
     // Login
     @Autowired
     IUsuarioRepository usuarioRepository;
