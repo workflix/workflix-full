@@ -99,6 +99,7 @@ export class PerfilProfesionalComponent implements OnInit {
               this.currentUser.profesion = newUserData.profesion;
               this.currentUser.precio = newUserData.precio;
               this.currentUser.descripcion = newUserData.descripcion;
+              this.currentUser.tipoUsuario = newUserData.tipoUsuario
 
           }
           console.log('Perfil actualizado con éxito:', response);
