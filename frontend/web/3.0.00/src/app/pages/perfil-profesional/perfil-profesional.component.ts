@@ -112,6 +112,7 @@ export class PerfilProfesionalComponent implements OnInit {
         );
       } else {
         console.error('Formulario inválido. Revise los campos.');
+        alert ('debe completar todos los campos del formulario')
       }
     } else {
       console.error('No hay un usuario actual.');
