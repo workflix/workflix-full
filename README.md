@@ -49,14 +49,14 @@ Dentro de la carpeta backend se encuentran dos carpetas:
 
 ## Tecnologías
 
-Java - SpringBoot - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript.
+Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript.
 
 ### Versiones Utilizadas
-Java 17.
-Angular versión 17.1.2.
-Node versión 21.6.1.
-SpringBoot 3.1.4.
-Boostrap 5.
+- Java 17.
+- Angular versión 17.1.2.
+- Node versión 21.6.1.
+- SpringBoot 3.1.4.
+- Boostrap 5.
 
 **Documentación**
 
