@@ -64,6 +64,7 @@ export class PerfilProfesionalComponent implements OnInit {
         profesion: user.profesion,
         precio: user.precio,
         descripcion: user.descripcion,
+        tipo_usuario: user.tipo_usuario === 'profesional'
       });
     } 
     });
@@ -82,6 +83,7 @@ export class PerfilProfesionalComponent implements OnInit {
           profesion: formData.profesion ,
           precio: formData.precio,
           descripcion: formData.descripcion,
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
         
         };
   
