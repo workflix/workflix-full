@@ -49,4 +49,11 @@ public class UsuarioDAO implements IUsuarioInterface {
         String sql="delete from usuario where id=?";
         return template.update(sql,id);
     }
+
+    @Override
+    public int recomendarPerfil(Usuario usuario){
+        String sql="update usuario set recomendacion=? where id=?";
+        return template.update(sql,usuario.getRecomendacion(),usuario.getId());
+    }
+
 }
