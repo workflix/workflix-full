@@ -18,41 +18,45 @@ Incluye Sitio Web y App Móvil
 ### Integrantes:
 
 _Scrum Master:_
-* ALVAREZ, Natalia Beatriz
+* ALVAREZ, Natalia Beatriz.
 
 _Developer Team:_
-* DELGADO, Marcelo Enrique
-* DÍAZ, Yandira
-* GIMÉNEZ, Diego Fabian
-* GÓMEZ, Mariela
-* LÓPEZ, Erick
-* LORENTI, Valentino
-* TRONCOSO, Braian
+* DELGADO, Marcelo Enrique.
+* DÍAZ, Yandira.
+* GIMÉNEZ, Diego Fabian.
+* GÓMEZ, Mariela.
+* LÓPEZ, Erick.
+* LORENTI, Valentino.
+* TRONCOSO, Braian.
 
 Aclaraciones: 
 
 ## Frontend
 Dentro de la carpeta frontend se encuentran dos carpetas:
-* Mobile
-* Web
+* Mobile.
+* Web.
 
 Dentro de Web se encuentran:
-* 2.0.23 (Correspondiente al proyecto Web 2023)
+* 2.0.23 (Correspondiente al proyecto Web 2023).
 * 3.0.00 (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando).
-Dentro de 3.0.0 se encuentra la carpeta "servidor_pasarela" en donde está el backend de esta misma
+Dentro de 3.0.0 se encuentra la carpeta "servidor_pasarela" en donde está el backend de esta misma.
 
 ## Backend
 Dentro de la carpeta backend se encuentran dos carpetas:
-* Django (Correspondiente al proyecto Web 2023)
-* Spring (correspondiente al proyecto Mobile 2023, en el cual ahora estamos trabajando sobre el proyecto Web y Mobile actual para unificar tecnologías)
+* Django (Correspondiente al proyecto Web 2023).
+* Spring (correspondiente al proyecto Mobile 2023, en el cual ahora estamos trabajando sobre el proyecto Web y Mobile actual para unificar tecnologías).
 
 
 ## Tecnologías
 
-Java - SpringBoot - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript
+Java - SpringBoot - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript.
 
 ### Versiones Utilizadas
-- - -
+Java 17.
+Angular versión 17.1.2.
+Node versión 21.6.1.
+SpringBoot 3.1.4.
+Boostrap 5.
 
 **Documentación**
 
