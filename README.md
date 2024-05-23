@@ -73,6 +73,22 @@ Dentro de la carpeta backend se encuentran dos carpetas:
 * Django (Correspondiente al proyecto Web 2023).
 * Spring (correspondiente al proyecto Mobile 2023, en el cual ahora estamos trabajando sobre el proyecto Web y Mobile actual para unificar tecnologías).
 
+### Levantar el Backend Web y Mobile
+
+Para levantar el backend web, sigue estos pasos:
+1. Ubícate en la carpeta spring dentro de `backend`.
+2. En el archivo `application.properties` nos vamos a conectar la aplicación a la base de datos.
+
+```plaintext
+spring.datasource.url=jdbc:mysql://localhost:3306/workflix?createDatabaseIfNotExist=true
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+
 
 ## Tecnologías
 
