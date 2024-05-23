@@ -12,5 +12,6 @@ public interface IUsuarioInterface {
     public int edit(Usuario usuario);
     public int actualizarPerfil(Usuario usuario);
     public int delete(int id);
+    public int recomendarPerfil(Usuario usuario);
 
 }
