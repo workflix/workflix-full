@@ -32,14 +32,41 @@ _Developer Team:_
 Aclaraciones: 
 
 ## Frontend
+
 Dentro de la carpeta frontend se encuentran dos carpetas:
 * Mobile.
 * Web.
 
-Dentro de Web se encuentran:
-* 2.0.23 (Correspondiente al proyecto Web 2023).
-* 3.0.00 (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando).
-Dentro de 3.0.0 se encuentra la carpeta "servidor_pasarela" en donde está el backend de esta misma.
+## Instrucciones de Configuración y Ejecución
+
+Dentro del proyecto Web se encuentran dos versiones:
+
+- **2.0.23** (Correspondiente al proyecto Web 2023).
+- **3.0.00** (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando).
+
+### Levantar el Frontend Web
+
+Para levantar el frontend web, sigue estos pasos:
+
+1. Ubícate en la carpeta `3.0.00`.
+2. Instala Angular CLI globalmente si no lo tienes instalado:
+   ```
+   npm install -g @angular/cli
+   ```
+3. ```
+   npm install
+   ```
+4. ```
+   ng serve
+   ```
+
+### Levantar la Pasarela del Backend web
+
+1. Ubícate en la carpeta servidor_pasarela dentro de `3.0.00`.
+2. ```
+   npm install
+   ```
+  
 
 ## Backend
 Dentro de la carpeta backend se encuentran dos carpetas:
