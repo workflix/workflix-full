@@ -56,7 +56,9 @@
               </div>
               @if (this.currentUser) {
                 <div class="d-grid gap-2">
+                @if (this.currentUser.tipoUsuario == 'cliente' ) {
                   <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
+                   }
                 </div>
               }
             </div>
