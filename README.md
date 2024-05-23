@@ -120,7 +120,7 @@ Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - 
 - Node versión 21.6.1.
 - SpringBoot 3.1.4.
 - Boostrap 5.
-- Docker  version 26.0.1.
+- Docker versión 26.0.1.
 
 **Documentación**
 
