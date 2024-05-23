@@ -1,4 +1,4 @@
-0 - ./mvnw clean package: crear o actualizar jar
+0 - mvn clean package: crear o actualizar jar
 
 1 - Construir la imagen: docker build -t workflix-app .
 
