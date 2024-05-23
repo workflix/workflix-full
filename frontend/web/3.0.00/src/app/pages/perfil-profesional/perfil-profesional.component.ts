@@ -41,6 +41,7 @@ export class PerfilProfesionalComponent implements OnInit {
       profesion: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
       descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
+      tipo_usuario: ['profesional']
 
     });
 
@@ -62,7 +63,8 @@ export class PerfilProfesionalComponent implements OnInit {
         phone: user.telefono,
         profesion: user.profesion,
         precio: user.precio,
-        descripcion: user.descripcion
+        descripcion: user.descripcion,
+        tipo_usuario: user.tipo_usuario === 'profesional'
       });
     } 
     });
@@ -80,7 +82,8 @@ export class PerfilProfesionalComponent implements OnInit {
           telefono: formData.phone,
           profesion: formData.profesion ,
           precio: formData.precio,
-          descripcion: formData.descripcion
+          descripcion: formData.descripcion,
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
         
         };
   
@@ -96,6 +99,7 @@ export class PerfilProfesionalComponent implements OnInit {
               this.currentUser.profesion = newUserData.profesion;
               this.currentUser.precio = newUserData.precio;
               this.currentUser.descripcion = newUserData.descripcion;
+              this.currentUser.tipoUsuario = newUserData.tipoUsuario
 
           }
           console.log('Perfil actualizado con éxito:', response);
@@ -108,6 +112,7 @@ export class PerfilProfesionalComponent implements OnInit {
         );
       } else {
         console.error('Formulario inválido. Revise los campos.');
+        alert ('debe completar todos los campos del formulario')
       }
     } else {
       console.error('No hay un usuario actual.');
