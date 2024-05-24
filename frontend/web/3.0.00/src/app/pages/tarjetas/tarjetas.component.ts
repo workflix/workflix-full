@@ -9,6 +9,7 @@ import { CarritoService } from '../../services/carrito.service';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
 import { SelectedUserService } from '../../services/selected-user.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-tarjetas',
@@ -62,9 +63,18 @@ export class TarjetasComponent implements OnInit {
   }
 
   public addCart(user: User) {
-    console.log('Profesional almacenado correctamente:', user);
-    this._cartService.changeCart(user);
-  }
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
+        console.log('Profesional almacenado correctamente:', user);
+        this._cartService.changeCart(user);
+    }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+      console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+      this.router.navigate(['/advertencia']);
+    } else {
+        console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+        this.router.navigate(['/ingresar']);
+    }
+}
+
 
   generateStars(recomendacion: number): string[] {
     const stars = [];
@@ -75,6 +85,7 @@ export class TarjetasComponent implements OnInit {
   }
 
   addRecomendacion(userId: any){
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     const selectedUser = this.filteredUsers.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion <= 4){
@@ -90,9 +101,13 @@ export class TarjetasComponent implements OnInit {
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }
-
+  }else {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/ingresar']);
+    }
   }
   delRecomendacion(userId: any){
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     const selectedUser = this.filteredUsers.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion >= 0){
@@ -108,7 +123,10 @@ export class TarjetasComponent implements OnInit {
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }
-
+  }else {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/ingresar']);
+    }
   }
 
   public selectedUser: User | null = null;
@@ -118,8 +136,8 @@ export class TarjetasComponent implements OnInit {
     const selectedUser = this.filteredUsers.find(user => user.id === userId);
     if (selectedUser) {
       console.log('Usuario seleccionado:', selectedUser);
-      this.selectedUserService.selectedUser = selectedUser; // Guardar el usuario seleccionado en el servicio
-      this.router.navigate(['/detalle-tarjeta', userId]); // Navegar hacia la vista de detalle-tarjeta con el ID del usuario
+      this.selectedUserService.selectedUser = selectedUser;
+      this.router.navigate(['/detalle-tarjeta', userId]);
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }

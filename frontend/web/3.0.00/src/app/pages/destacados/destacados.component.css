@@ -123,3 +123,26 @@ textarea:focus~label, textarea:valid~label{
 .custom-shadow {
   box-shadow: 0 4px 8px rgba(96, 213, 171, 0.5), 0 6px 20px rgba(96, 213, 171, 0.5) !important;
 }
+
+
+like-btn {
+  color:#333333;
+  border: none;
+
+}
+
+.like-btn:hover{
+  background-color: #c9f8e7;
+  border-radius: 2em;
+}
+
+.dislike-btn {
+  color:#333333;
+  transition: 0.2s;
+
+  border: none;
+}
+
+.dislike-btn:hover{
+  background-color: #ffd9d9;
+}
