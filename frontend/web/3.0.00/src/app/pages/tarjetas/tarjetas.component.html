@@ -35,11 +35,9 @@
                   <hr>
                   <div class="col-7 col-md-7 align-self-center text-center">
                     <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
-                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                      <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                      <li><i class="fa-regular fa-star fa-xs mx-1"></i></li>
+                      <li *ngFor="let star of generateStars(user.recomendacion)" class="mx-1">
+                        <i [class]="star"></i>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -64,7 +62,7 @@
                   <div class="d-grid gap-2">
                     <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle(user.id)" type="button" >Ver Detalle</button>
                   </div>
-                  
+
                   <div class="d-grid gap-2">
                     <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
                   </div>

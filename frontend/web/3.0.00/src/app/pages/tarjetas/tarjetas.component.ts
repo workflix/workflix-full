@@ -82,8 +82,6 @@ export class TarjetasComponent implements OnInit {
         this.userService.recomendarPerfil(selectedUser.id,this.recomendacion).subscribe(
         response => {
         console.log('Recomendar fue actualizado con éxito:', response);
-        alert ('ID: ' + selectedUser.id);
-        alert ('RECOMENDACIONES SUMA: ' + this.recomendacion);
       },
         error => {
           console.error('Error al actualizar la recomendacion:', error);
@@ -102,8 +100,6 @@ export class TarjetasComponent implements OnInit {
         this.userService.recomendarPerfil(selectedUser.id,this.recomendacion).subscribe(
         response => {
         console.log('Recomendar fue actualizado con éxito:', response);
-        alert ('ID: ' + selectedUser.id);
-        alert ('RECOMENDACIONES RESTA: ' + this.recomendacion);
       },
         error => {
           console.error('Error al actualizar la recomendacion:', error);
