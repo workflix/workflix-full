@@ -80,6 +80,8 @@ export class PerfilProfesionalComponent implements OnInit {
 
   onSubmit(formData: any): void {
     this.checkFormCompletion();
+    console.log('Estado del formulario:', this.perfilForm.valid);
+    console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
       if (this.formCompleted && this.perfilForm.valid) {
         
