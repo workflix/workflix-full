@@ -56,6 +56,16 @@ export class UserService {
     );
   }
 
+  getDestacadosPerfiles(): Observable<any[]> {
+    const url = `http://localhost:8080/usuarios`
+    return this.http.get<any[]>(`${url}/destacados`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching destacados perfiles:', error);
+        return throwError('Error fetching destacados perfiles');
+      })
+    );
+  }
+
 deleteUser(id: number): Observable<string> {
   const url = `http://localhost:8080/usuarios/eliminar/${id}`;
   return this.http.delete<string>(url, { responseType: 'text' as 'json' })
