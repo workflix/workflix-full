@@ -63,7 +63,11 @@ export class NavBarComponent {
     this.isNavbarCollapsed = !this.isNavbarCollapsed
   }
   
-  
+  closeNavbar(): void {
+    if (!this.isNavbarCollapsed) {
+      this.isNavbarCollapsed = true;
+    }
+  }
 
   
 
