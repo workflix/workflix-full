@@ -9,6 +9,7 @@ import { CarritoService } from '../../services/carrito.service';
 import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
 import { SelectedUserService } from '../../services/selected-user.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-tarjetas',
@@ -62,13 +63,15 @@ export class TarjetasComponent implements OnInit {
   }
 
   public addCart(user: User) {
-    if(user.tipo_usuario == 'cliente'){
-      console.log('Profesional almacenado correctamente:', user);
-      this._cartService.changeCart(user);
-    }else{
-      this.router.navigate(['/ingresar']);
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
+        console.log('Profesional almacenado correctamente:', user);
+        this._cartService.changeCart(user);
+    } else {
+        console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+        this.router.navigate(['/ingresar']);
     }
-  }
+}
+
 
   generateStars(recomendacion: number): string[] {
     const stars = [];

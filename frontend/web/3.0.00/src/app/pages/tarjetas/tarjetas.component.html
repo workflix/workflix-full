@@ -49,7 +49,7 @@
                   </p>
                 </div>
               </div>
-              @if (!this.currentUser) {
+              @if (!this.currentUser || this.currentUser) {
                 <div class="container mb-2">
                     <a class="like-btn align-middle rounded-pill p-2 mx-4 mb-2" (click)="addRecomendacion(user.id)" >
                       <i class="bi bi-hand-thumbs-up fs-4"></i>
