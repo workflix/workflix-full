@@ -78,7 +78,6 @@
 
                             <Button
                                 android:id="@+id/btnCargarImagen"
-                                style="@style/Widget.MaterialComponents.Button"
                                 android:layout_width="131dp"
                                 android:layout_height="60dp"
                                 android:backgroundTint="@color/verde1"
