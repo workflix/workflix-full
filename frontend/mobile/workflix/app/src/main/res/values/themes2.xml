@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">>
-    <style name="Theme.Workflix2" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Workflix2" parent="Theme.AppCompat.Light">
+        <item name="android:statusBarColor">@color/verde1</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="colorPrimary">@color/verde1</item>
+        <item name="colorPrimaryDark">#F57C00</item>
     </style>
 
 </resources>
