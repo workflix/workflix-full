@@ -55,5 +55,9 @@ public class UsuarioDAO implements IUsuarioInterface {
         String sql="update usuario set recomendacion=? where id=?";
         return template.update(sql,usuario.getRecomendacion(),usuario.getId());
     }
-
+    @Override
+    public List<Usuario> destacadosPerfil() {
+        String sql = "SELECT * FROM usuario ORDER BY recomendacion DESC, precio ASC LIMIT 5";
+        return template.query(sql, new BeanPropertyRowMapper<>(Usuario.class));
+    }
 }
