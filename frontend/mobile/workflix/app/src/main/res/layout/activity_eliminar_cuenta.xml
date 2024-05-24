@@ -65,7 +65,6 @@
 
     <Button
         android:id="@+id/button4"
-        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginTop="96dp"
