@@ -23,7 +23,7 @@ export class PerfilProfesionalComponent implements OnInit {
   error: string = '';
   currentUserId = "";
   profesiones: string[] = ['Albañil', 'Carpintero', 'Electricista', 'Gasista', 'Plomero',  'Pintor', 'Seguridad', 'Técnico'];
-
+  formCompleted: boolean = false;
 
 
   constructor(
