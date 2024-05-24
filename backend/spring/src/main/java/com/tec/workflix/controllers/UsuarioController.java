@@ -6,6 +6,7 @@ import java.util.Map;
 import com.tec.workflix.models.Usuario;
 import com.tec.workflix.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -66,6 +67,11 @@ public class UsuarioController {
             return "No se pudo actualizar el Perfil";
         }
         return "Se actualizó con éxito!";
+    }
+    @GetMapping("/destacados")
+    public ResponseEntity<List<Usuario>> getDestacadosPerfiles() {
+        List<Usuario> usuarios = service.destacadosPerfil();
+        return ResponseEntity.ok(usuarios);
     }
 
 
