@@ -55,6 +55,12 @@ public class Usuario {
         this.profesion = profesion;
         this.tipoUsuario = tipoUsuario;
     }
+    public Usuario(int id) {
+        this.id = id;
+    }
+
+    public Usuario() {
+    }
 
 
 
@@ -176,5 +182,6 @@ public class Usuario {
     public void setRecomendacion(Integer recomendacion) {
         this.recomendacion = recomendacion;
     }
+
 }
 
