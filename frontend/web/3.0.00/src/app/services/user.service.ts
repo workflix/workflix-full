@@ -46,6 +46,26 @@ export class UserService {
     );
   }
 
+  recomendarPerfil(id: number, recomendacion: number): Observable<string> {
+    const url = `http://localhost:8080/usuarios/recomendacion/${id}`;
+    const body = { recomendacion: recomendacion };
+    return this.http.put<string>(url, body, { responseType: 'text' as 'json' }).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError('Error al recomendar el usuario');
+      })
+    );
+  }
+
+  getDestacadosPerfiles(): Observable<any[]> {
+    const url = `http://localhost:8080/usuarios`
+    return this.http.get<any[]>(`${url}/destacados`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        console.error('Error fetching destacados perfiles:', error);
+        return throwError('Error fetching destacados perfiles');
+      })
+    );
+  }
+
 deleteUser(id: number): Observable<string> {
   const url = `http://localhost:8080/usuarios/eliminar/${id}`;
   return this.http.delete<string>(url, { responseType: 'text' as 'json' })

@@ -6,6 +6,7 @@ import java.util.Map;
 import com.tec.workflix.models.Usuario;
 import com.tec.workflix.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,6 +58,20 @@ public class UsuarioController {
             return "Registro No Eliminado!";
         }
         return "Registro Eliminado!";
+    }
+    @PutMapping("/recomendacion/{id}")
+    public String recomendarPerfil(@RequestBody Usuario usuario, @PathVariable int id, Model model){
+        usuario.setId(id);
+        int r= service.recomendarPerfil(usuario);
+        if (r==0){
+            return "No se pudo actualizar el Perfil";
+        }
+        return "Se actualizó con éxito!";
+    }
+    @GetMapping("/destacados")
+    public ResponseEntity<List<Usuario>> getDestacadosPerfiles() {
+        List<Usuario> usuarios = service.destacadosPerfil();
+        return ResponseEntity.ok(usuarios);
     }
 
 
