@@ -1,4 +1,4 @@
-import { Component, Inject, Input } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild, Inject, Input } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
@@ -14,9 +14,12 @@ import { CarritoService } from '../../services/carrito.service';
 })
 
 export class NavBarComponent {
+  
+  
 
 
-  constructor(private loginService:LoginService, private router:Router, private _cartService:CarritoService){}
+  constructor(private loginService:LoginService, private router:Router, private _cartService:CarritoService, private eRef: ElementRef
+  ){}
   public totalQuantity:number = 0;
   currentUser: any;
   logout(): void {
@@ -55,4 +58,11 @@ export class NavBarComponent {
   public cart(){ //Se usa para abrir o cerrar el carrito
     this.openCart = !this.openCart;
   }
+
+  
+  
+  
+
+  
+
 }
