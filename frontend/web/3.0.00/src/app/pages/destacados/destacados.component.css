@@ -1,10 +1,14 @@
-
 :host {
     display: block;
     margin-top: 60px; /* Ajusta esta propiedad para definir la distancia hacia abajo */
   }
 
-/* Estilos de la Home */
+.destacado {
+  height: 150px;
+  background-color: #1456DF;
+  color: #ffffff;
+  font-weight: bolder;
+  }
 
 .cabecera-tarjeta{
     background-color: #0A769D;
@@ -115,24 +119,7 @@ textarea:focus~label, textarea:valid~label{
   border: none;
 
 }
-like-btn {
-  color:#333333;
-  border: none;
- 
-}
 
-.like-btn:hover{
-  background-color: #c9f8e7;
-  border-radius: 2em;
-}
-
-.dislike-btn {
-  color:#333333;
-  transition: 0.2s;
-
-  border: none;
-}
-
-.dislike-btn:hover{
-  background-color: #ffd9d9;
+.custom-shadow {
+  box-shadow: 0 4px 8px rgba(96, 213, 171, 0.5), 0 6px 20px rgba(96, 213, 171, 0.5) !important;
 }

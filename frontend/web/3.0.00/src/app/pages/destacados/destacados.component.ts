@@ -1,62 +1,45 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-import { RouterModule } from '@angular/router';
-import { DetalleTarjeta } from '../detalle-tarjeta/detalle-tarjeta.component';
-import { CarritoService } from '../../services/carrito.service';
-import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
+import { LoginService } from '../../services/login.service';
+import { CarritoService } from '../../services/carrito.service';
 import { SelectedUserService } from '../../services/selected-user.service';
+import { Router } from '@angular/router';
+
+
 
 @Component({
-  selector: 'app-tarjetas',
+  selector: 'app-destacados',
   standalone: true,
-  templateUrl: './tarjetas.component.html',
-  styleUrls: ['./tarjetas.component.css'],
-  imports: [NavBarComponent, RouterModule, CommonModule, DetalleTarjeta]
+  imports: [CommonModule,],
+  templateUrl: './destacados.component.html',
+  styleUrl: './destacados.component.css'
 })
-export class TarjetasComponent implements OnInit {
-  title: string = "List the users";
-  test: string = "This is a test";
+
+export class DestacadosComponent implements OnInit {
+  destacadosUsuarios: User[] = [];
   currentUser: any;
   recomendacion: any;
-
-  users: User[] = [];
-  filteredUsers: User[] = [];
-  profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
-
-  @ViewChild('scrollContainer') scrollContainer!: ElementRef;
-
-  constructor(
-    private userService: UserService,
-    private route: ActivatedRoute,
-    private _cartService: CarritoService,
-    private router: Router,
-    private loginService: LoginService,
-    private selectedUserService: SelectedUserService
-  ) {}
+  constructor(private userService: UserService,private loginService: LoginService,private _cartService: CarritoService, private selectedUserService: SelectedUserService,
+    private router: Router,) {}
 
   ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(
-      users => {
-        this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
-        this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-        console.log('Users:', this.users);
-
+    this.userService.getDestacadosPerfiles().subscribe(
+      (data) => {
+        this.destacadosUsuarios = data;
+        console.log('Usuarios destacados:', this.destacadosUsuarios);
         this.loginService.getCurrentUser().subscribe(
           user => {
             this.currentUser = user;
           }
         );
       },
-      error => {
-        console.error('Error al obtener usuarios:', error);
+      (error) => {
+        console.error('Error al obtener los usuarios destacados:', error);
       }
     );
   }
-
   trackById(index: number, user: User): number {
     return user.id;
   }
@@ -75,7 +58,7 @@ export class TarjetasComponent implements OnInit {
   }
 
   addRecomendacion(userId: any){
-    const selectedUser = this.filteredUsers.find(user => user.id === userId);
+    const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion <= 4){
         this.recomendacion = selectedUser.recomendacion ++;
@@ -93,7 +76,7 @@ export class TarjetasComponent implements OnInit {
 
   }
   delRecomendacion(userId: any){
-    const selectedUser = this.filteredUsers.find(user => user.id === userId);
+    const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion >= 0){
         this.recomendacion = selectedUser.recomendacion --;
@@ -115,7 +98,7 @@ export class TarjetasComponent implements OnInit {
 
   public verDetalle(userId: number) {
     console.log('Ver detalle del usuario con ID:', userId);
-    const selectedUser = this.filteredUsers.find(user => user.id === userId);
+    const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
     if (selectedUser) {
       console.log('Usuario seleccionado:', selectedUser);
       this.selectedUserService.selectedUser = selectedUser; // Guardar el usuario seleccionado en el servicio
@@ -124,28 +107,5 @@ export class TarjetasComponent implements OnInit {
       console.error('No se encontró el usuario con ID:', userId);
     }
   }
-
-
-
-  filtrarPorProfesion(profesion: string) {
-    if (profesion === 'TODOS') {
-      this.filteredUsers = this.users; // Mostrar todos los usuarios
-    } else {
-      this.filteredUsers = this.users.filter(user => user.profesion.toLowerCase() === profesion.toLowerCase());
-    }
-  }
-
-  scrollLeft() {
-    this.scrollContainer.nativeElement.scrollBy({
-      left: -200,
-      behavior: 'smooth'
-    });
-  }
-
-  scrollRight() {
-    this.scrollContainer.nativeElement.scrollBy({
-      left: 200,
-      behavior: 'smooth'
-    });
-  }
 }
+

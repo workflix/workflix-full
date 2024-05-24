@@ -3,6 +3,7 @@ package com.tec.workflix.modelsDAO;
 import com.tec.workflix.interfaces.IUsuarioInterface;
 import com.tec.workflix.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -48,5 +49,16 @@ public class UsuarioDAO implements IUsuarioInterface {
     public int delete(int id) {
         String sql="delete from usuario where id=?";
         return template.update(sql,id);
+    }
+
+    @Override
+    public int recomendarPerfil(Usuario usuario){
+        String sql="update usuario set recomendacion=? where id=?";
+        return template.update(sql,usuario.getRecomendacion(),usuario.getId());
+    }
+    @Override
+    public List<Usuario> destacadosPerfil() {
+        String sql = "SELECT * FROM usuario ORDER BY recomendacion DESC, precio ASC LIMIT 5";
+        return template.query(sql, new BeanPropertyRowMapper<>(Usuario.class));
     }
 }
