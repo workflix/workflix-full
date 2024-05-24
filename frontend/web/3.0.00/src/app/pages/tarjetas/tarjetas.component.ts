@@ -104,6 +104,7 @@ export class TarjetasComponent implements OnInit {
     }
   }
   delRecomendacion(userId: any){
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     const selectedUser = this.filteredUsers.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion >= 0){
@@ -119,7 +120,10 @@ export class TarjetasComponent implements OnInit {
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }
-
+  }else {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/ingresar']);
+    }
   }
 
   public selectedUser: User | null = null;
