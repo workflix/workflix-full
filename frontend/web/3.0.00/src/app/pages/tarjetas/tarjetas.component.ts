@@ -73,6 +73,27 @@ export class TarjetasComponent implements OnInit {
     return stars;
   }
 
+  addRecomendacion(userId: any){
+    const selectedUser = this.filteredUsers.find(user => user.id === userId);
+    if (selectedUser) {
+      if(selectedUser.recomendacion <= 4){
+        this.recomendacion = selectedUser.recomendacion ++;
+        this.userService.recomendarPerfil(selectedUser.id,this.recomendacion).subscribe(
+        response => {
+        console.log('Recomendar fue actualizado con éxito:', response);
+        alert ('ID: ' + selectedUser.id);
+        alert ('RECOMENDACIONES SUMA: ' + this.recomendacion);
+      },
+        error => {
+          console.error('Error al actualizar la recomendacion:', error);
+        }
+      ) };
+    } else {
+      console.error('No se encontró el usuario con ID:', userId);
+    }
+
+  }
+
   public selectedUser: User | null = null;
 
   public verDetalle(userId: number) {
