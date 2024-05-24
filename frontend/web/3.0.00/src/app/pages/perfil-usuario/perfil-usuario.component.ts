@@ -40,9 +40,9 @@ export class PerfilUsuarioComponent implements OnInit {
       tipo_usuario: [false],
     });
 
-    /* this.perfilForm.valueChanges.subscribe(() => {
+    this.perfilForm.valueChanges.subscribe(() => {
       this.checkFormCompletion();
-    }); */
+    });
     
   }
 
