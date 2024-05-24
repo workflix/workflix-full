@@ -59,7 +59,9 @@ export class NavBarComponent {
     this.openCart = !this.openCart;
   }
 
-  
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed
+  }
   
   
 
