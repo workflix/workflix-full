@@ -3,6 +3,7 @@ package com.tec.workflix.modelsDAO;
 import com.tec.workflix.interfaces.IUsuarioInterface;
 import com.tec.workflix.models.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
