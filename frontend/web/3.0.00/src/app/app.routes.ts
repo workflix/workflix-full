@@ -27,7 +27,7 @@ export const routes: Routes = [
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
   { path: 'perfil-profesional', component: PerfilProfesionalComponent, canActivate: [authGuardIsProfesional] },
-  {path: 'advertencia', component: AdvertenciaComponent},
+  {path: 'advertencia', component: AdvertenciaComponent, canActivate: [authGuardIsProfesional] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
