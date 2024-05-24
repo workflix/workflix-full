@@ -93,6 +93,26 @@ export class TarjetasComponent implements OnInit {
     }
 
   }
+  delRecomendacion(userId: any){
+    const selectedUser = this.filteredUsers.find(user => user.id === userId);
+    if (selectedUser) {
+      if(selectedUser.recomendacion >= 0){
+        this.recomendacion = selectedUser.recomendacion --;
+        this.userService.recomendarPerfil(selectedUser.id,this.recomendacion).subscribe(
+        response => {
+        console.log('Recomendar fue actualizado con éxito:', response);
+        alert ('ID: ' + selectedUser.id);
+        alert ('RECOMENDACIONES RESTA: ' + this.recomendacion);
+      },
+        error => {
+          console.error('Error al actualizar la recomendacion:', error);
+        }
+      )};
+    } else {
+      console.error('No se encontró el usuario con ID:', userId);
+    }
+
+  }
 
   public selectedUser: User | null = null;
 
