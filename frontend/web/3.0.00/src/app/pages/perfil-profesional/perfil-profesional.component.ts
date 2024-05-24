@@ -44,6 +44,9 @@ export class PerfilProfesionalComponent implements OnInit {
       tipo_usuario: ['profesional']
 
     });
+    this.perfilForm.valueChanges.subscribe(() => {
+      this.checkFormCompletion();
+    });
 
   }
 
