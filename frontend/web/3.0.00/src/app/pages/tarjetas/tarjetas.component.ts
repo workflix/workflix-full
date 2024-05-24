@@ -65,6 +65,8 @@ export class TarjetasComponent implements OnInit {
     if(user.tipo_usuario == 'cliente'){
       console.log('Profesional almacenado correctamente:', user);
       this._cartService.changeCart(user);
+    }else{
+      this.router.navigate(['/ingresar']);
     }
   }
 
