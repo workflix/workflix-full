@@ -72,7 +72,7 @@ export class PerfilProfesionalComponent implements OnInit {
 
   onSubmit(formData: any): void {
     if (this.currentUser) {
-      if (this.perfilForm.valid) {
+      if (this.formCompleted && this.perfilForm.valid) {
         
         const newUserData = {
           nombre: formData.nombre,
