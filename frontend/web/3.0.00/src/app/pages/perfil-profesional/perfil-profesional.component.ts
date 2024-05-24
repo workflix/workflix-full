@@ -22,8 +22,8 @@ export class PerfilProfesionalComponent implements OnInit {
   usuario?: User;
   error: string = '';
   currentUserId = "";
-  profesiones: string[] = ['Albañil', 'Carpintero', 'Electricista', 'Gasista', 'Plomero',  'Pintor', 'Seguridad'];
-
+  profesiones: string[] = ['Albañil', 'Carpintero', 'Electricista', 'Gasista', 'Plomero',  'Pintor', 'Seguridad', 'Técnico'];
+  formCompleted: boolean = false;
 
 
   constructor(
@@ -43,6 +43,9 @@ export class PerfilProfesionalComponent implements OnInit {
       descripcion: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(200)]],
       tipo_usuario: ['profesional']
 
+    });
+    this.perfilForm.valueChanges.subscribe(() => {
+      this.checkFormCompletion();
     });
 
   }
@@ -66,13 +69,21 @@ export class PerfilProfesionalComponent implements OnInit {
         descripcion: user.descripcion,
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
+      this.checkFormCompletion();
     } 
     });
   }
 
+  checkFormCompletion(): void {
+    this.formCompleted = this.perfilForm.valid;
+  }
+
   onSubmit(formData: any): void {
+    this.checkFormCompletion();
+    console.log('Estado del formulario:', this.perfilForm.valid);
+    console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
-      if (this.perfilForm.valid) {
+      if (this.formCompleted && this.perfilForm.valid) {
         
         const newUserData = {
           nombre: formData.nombre,

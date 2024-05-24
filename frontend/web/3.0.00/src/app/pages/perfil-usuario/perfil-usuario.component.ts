@@ -14,12 +14,16 @@ import { User } from '../../models/user';
   templateUrl: './perfil-usuario.component.html',
   styleUrl: './perfil-usuario.component.css'
 })
+
 export class PerfilUsuarioComponent implements OnInit {
+
+
   currentUser: User | null = null;
   perfilForm: FormGroup;
   usuario?: User;
   error: string = '';
   currentUserId = "";
+  formCompleted: boolean = false;
 
   constructor(
     private loginService: LoginService,
@@ -34,12 +38,16 @@ export class PerfilUsuarioComponent implements OnInit {
       adress: ['', [Validators.required, Validators.maxLength(40)]],
       phone: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(25)]],
       tipo_usuario: [false],
-
     });
+
+    this.perfilForm.valueChanges.subscribe(() => {
+      this.checkFormCompletion();
+    });
+    
   }
 
   ngOnInit(): void {
-    
+    console.log('Inicializando componente');
     this.loginService.getCurrentUser().subscribe(user => {
       if (user){
       this.currentUser = user;
@@ -54,12 +62,21 @@ export class PerfilUsuarioComponent implements OnInit {
         phone: user.telefono,
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
+      this.checkFormCompletion();
     } 
     });
   }
+
+  checkFormCompletion(): void {
+    this.formCompleted = this.perfilForm.valid;
+  }
+
   onSubmit(formData: any): void {
+    this.checkFormCompletion();
+    console.log('Estado del formulario:', this.perfilForm.valid);
+    console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
-      if (this.perfilForm.valid) {
+      if (this.formCompleted && this.perfilForm.valid) {
         
 
         const newUserData = {
