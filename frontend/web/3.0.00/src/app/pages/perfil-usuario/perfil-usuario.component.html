@@ -132,7 +132,7 @@
                                        </div><br>
 
                                 <div class="d-grid gap-2 col-4 mx-auto">
-                                 <button class="boton-form btn-primary" type="submit" >Guardar Cambios</button>
+                                 <button class="boton-form btn-primary" type="submit" [ngClass]="{ 'disabled': !formCompleted || perfilForm.invalid }">Guardar Cambios</button>
                                  <button type="submit" class="boton2 btn-danger" (click)="deleteUser()">Eliminar cuenta</button>
                                  <p class="text-danger">La cuenta se eliminará permanentemente</p>
                                 </div>
