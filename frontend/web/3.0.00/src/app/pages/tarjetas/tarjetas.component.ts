@@ -74,7 +74,6 @@ export class TarjetasComponent implements OnInit {
     return stars;
   }
 
-
   addRecomendacion(userId: any){
     const selectedUser = this.filteredUsers.find(user => user.id === userId);
     if (selectedUser) {
