@@ -79,6 +79,7 @@ export class PerfilProfesionalComponent implements OnInit {
   }
 
   onSubmit(formData: any): void {
+    this.checkFormCompletion();
     if (this.currentUser) {
       if (this.formCompleted && this.perfilForm.valid) {
         
