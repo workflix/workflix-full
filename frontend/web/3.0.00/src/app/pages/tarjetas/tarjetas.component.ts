@@ -66,7 +66,7 @@ export class TarjetasComponent implements OnInit {
     if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
         console.log('Profesional almacenado correctamente:', user);
         this._cartService.changeCart(user);
-    }if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+    }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
       console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
       this.router.navigate(['/advertencia']);
     } else {
