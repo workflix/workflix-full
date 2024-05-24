@@ -82,7 +82,11 @@ export class DestacadosComponent implements OnInit {
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }
-  } else {
+  }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/advertencia']);
+  }
+  else {
     console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
     this.router.navigate(['/ingresar']);
     }
@@ -106,7 +110,11 @@ export class DestacadosComponent implements OnInit {
       console.error('No se encontró el usuario con ID:', userId);
     }
 
-  } else {
+  }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/advertencia']);
+  }
+   else {
     console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
     this.router.navigate(['/ingresar']);
     }
