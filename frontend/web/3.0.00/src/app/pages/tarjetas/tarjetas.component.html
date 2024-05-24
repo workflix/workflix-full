@@ -51,9 +51,6 @@
                   </p>
                 </div>
               </div>
-              <div class="d-grid gap-2">
-                <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle(user.id)" type="button" >Ver Detalle</button>
-              </div>
               @if (!this.currentUser) {
                 <div class="container mb-2">
                     <a class="like-btn align-middle rounded-pill p-2 mx-4 mb-2" (click)="addRecomendacion(user.id)" >
@@ -63,9 +60,11 @@
                     <i class="bi bi-hand-thumbs-down fs-4"></i>
                    </a>
                   </div>
+
                   <div class="d-grid gap-2">
                     <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle(user.id)" type="button" >Ver Detalle</button>
                   </div>
+                  
                   <div class="d-grid gap-2">
                     <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
                   </div>
