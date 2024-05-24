@@ -109,6 +109,11 @@ img {
     max-width: 30%;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 .d-grid {
     text-align: center;
   }
