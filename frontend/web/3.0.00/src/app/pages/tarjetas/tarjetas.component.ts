@@ -65,6 +65,14 @@ export class TarjetasComponent implements OnInit {
     this._cartService.changeCart(user);
   }
 
+  generateStars(recomendacion: number): string[] {
+    const stars = [];
+    for (let i = 0; i <= 4; i++) {
+      stars.push(i < recomendacion ? 'fas fa-star' : 'fa-regular fa-star');
+    }
+    return stars;
+  }
+
   public selectedUser: User | null = null;
 
   public verDetalle(userId: number) {
