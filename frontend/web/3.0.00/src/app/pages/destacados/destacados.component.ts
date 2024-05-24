@@ -66,6 +66,7 @@ export class DestacadosComponent implements OnInit {
   }
 
   addRecomendacion(userId: any){
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion <= 4){
@@ -81,7 +82,10 @@ export class DestacadosComponent implements OnInit {
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }
-
+  } else {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/ingresar']);
+    }
   }
   delRecomendacion(userId: any){
     const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
