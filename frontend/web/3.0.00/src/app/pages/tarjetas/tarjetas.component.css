@@ -115,3 +115,24 @@ textarea:focus~label, textarea:valid~label{
   border: none;
 
 }
+like-btn {
+  color:#333333;
+  border: none;
+ 
+}
+
+.like-btn:hover{
+  background-color: #c9f8e7;
+  border-radius: 2em;
+}
+
+.dislike-btn {
+  color:#333333;
+  transition: 0.2s;
+
+  border: none;
+}
+
+.dislike-btn:hover{
+  background-color: #ffd9d9;
+}
