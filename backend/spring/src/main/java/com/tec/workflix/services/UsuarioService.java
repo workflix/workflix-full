@@ -51,6 +51,10 @@ public class UsuarioService implements IUsuarioInterface {
     public int recomendarPerfil(Usuario usuario) {
         return dao.recomendarPerfil(usuario);
     }
+    @Override
+    public List<Usuario> destacadosPerfil() {
+        return dao.destacadosPerfil();
+    }
     // Login
     @Autowired
     IUsuarioRepository usuarioRepository;
@@ -69,4 +73,5 @@ public class UsuarioService implements IUsuarioInterface {
     public Usuario getUserDetailByEmail(String correo){
         return usuarioRepository.getUserDetailsByEmail(correo);
     }// Fin metodo para obtener detalle del usuario por correo
+
 }
