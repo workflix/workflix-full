@@ -62,7 +62,7 @@ export class PerfilUsuarioComponent implements OnInit {
         phone: user.telefono,
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
-      /* this.checkFormCompletion(); */
+      this.checkFormCompletion();
     } 
     });
   }
@@ -72,7 +72,7 @@ export class PerfilUsuarioComponent implements OnInit {
   }
 
   onSubmit(formData: any): void {
-    /* this.checkFormCompletion(); */
+    this.checkFormCompletion();
     console.log('Estado del formulario:', this.perfilForm.valid);
     console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
