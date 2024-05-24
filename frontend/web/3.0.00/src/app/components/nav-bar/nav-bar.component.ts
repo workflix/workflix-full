@@ -15,7 +15,7 @@ import { CarritoService } from '../../services/carrito.service';
 
 export class NavBarComponent {
   
-  
+  isNavbarCollapsed = true;
 
 
   constructor(private loginService:LoginService, private router:Router, private _cartService:CarritoService, private eRef: ElementRef
