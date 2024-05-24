@@ -13,5 +13,6 @@ public interface IUsuarioInterface {
     public int actualizarPerfil(Usuario usuario);
     public int delete(int id);
     public int recomendarPerfil(Usuario usuario);
-
+    public List<Usuario> destacadosPerfil();
 }
+
