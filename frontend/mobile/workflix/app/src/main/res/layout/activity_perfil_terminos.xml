@@ -181,7 +181,6 @@
 
                 <Button
                     android:id="@+id/btn_Cerrar_sesion"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
