@@ -69,6 +69,7 @@ export class PerfilProfesionalComponent implements OnInit {
         descripcion: user.descripcion,
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
+      this.checkFormCompletion();
     } 
     });
   }
