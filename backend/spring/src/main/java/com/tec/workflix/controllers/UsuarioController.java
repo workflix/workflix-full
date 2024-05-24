@@ -58,6 +58,15 @@ public class UsuarioController {
         }
         return "Registro Eliminado!";
     }
+    @PutMapping("/recomendacion/{id}")
+    public String recomendarPerfil(@RequestBody Usuario usuario, @PathVariable int id, Model model){
+        usuario.setId(id);
+        int r= service.recomendarPerfil(usuario);
+        if (r==0){
+            return "No se pudo actualizar el Perfil";
+        }
+        return "Se actualizó con éxito!";
+    }
 
 
 }
