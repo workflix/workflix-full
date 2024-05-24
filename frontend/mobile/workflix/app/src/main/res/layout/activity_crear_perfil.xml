@@ -212,7 +212,6 @@
 
                 <Button
                     android:id="@+id/btnEliminarPerfil"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="355dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
