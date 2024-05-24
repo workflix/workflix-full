@@ -21,6 +21,7 @@ export class TarjetasComponent implements OnInit {
   title: string = "List the users";
   test: string = "This is a test";
   currentUser: any;
+  recomendacion: any;
 
   users: User[] = [];
   filteredUsers: User[] = [];
