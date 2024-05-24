@@ -69,6 +69,12 @@ export class NavBarComponent {
     }
   }
 
-  
+  @HostListener('document:click', ['$event'])
+  handleOutsideClick(event: Event): void {
+  const target = event.target as HTMLElement;
+  if (!this.eRef.nativeElement.contains(target)) {
+    this.closeNavbar();
+  }
+ }
 
 }
