@@ -63,7 +63,8 @@ export class TarjetasComponent implements OnInit {
 
   public addCart(user: User) {
     if(user.tipo_usuario == 'cliente'){
-      
+      console.log('Profesional almacenado correctamente:', user);
+      this._cartService.changeCart(user);
     }
   }
 
