@@ -67,9 +67,9 @@ export class PerfilUsuarioComponent implements OnInit {
     });
   }
 
-  /* checkFormCompletion(): void {
+  checkFormCompletion(): void {
     this.formCompleted = this.perfilForm.valid;
-  } */
+  }
 
   onSubmit(formData: any): void {
     /* this.checkFormCompletion(); */
