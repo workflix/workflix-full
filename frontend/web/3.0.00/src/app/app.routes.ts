@@ -35,7 +35,7 @@ export const routes: Routes = [
   { path: 'detalle-tarjeta/:id', component: DetalleTarjeta },
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] },
-  { path: 'dashboard/service-create', component: ServiceCreateComponent },
+  { path: 'dashboard/service-create', component: ServiceCreateComponent, canActivate: [authGuardIsAdmin] },
   {path: '**', component: PageNotFoundComponent}
 
 

@@ -16,7 +16,7 @@ export class ServiceCreateComponent {
 
   serviceArray : any[] = [];
   error: string = '';
-  
+
   nombre : string ="";
   editingMode: number = 0;
   currentServiceId = "";
@@ -28,11 +28,10 @@ export class ServiceCreateComponent {
 
   onSubmit(nombre: string): void  {
     if(nombre){
-      this.serviceService.registerService(nombre).subscribe(
+      this.serviceService.createService(nombre).subscribe(
         response => {
-          console.log('Registro exitoso:', response);
+          console.log('Registro exitoso de servicio:', response);
           this.clearFieldsService();
-          this.router.navigate(['/dashboard'])
         },
         error => {
           console.error('No se pudo registrar correctamente:', error);
@@ -53,7 +52,6 @@ export class ServiceCreateComponent {
         response => {
           console.log ('Actualización exitosa:', response);
           this.clearFieldsService();
-          this.router.navigate(['/dashboard']);
         },
         error => {
           console.error('No se pudo actualizar correctamente:', error);
@@ -90,5 +88,5 @@ export class ServiceCreateComponent {
  clearFieldsService(){
   this.nombre = '';
  }
- 
+
 }

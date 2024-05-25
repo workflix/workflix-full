@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,10 +23,11 @@ export class DashboardComponent {
 
   status: boolean = false;
   clickEvent(){
-      this.status = !this.status;       
+      this.status = !this.status;
   }
 
   userArray : any[] = [];
+  serviceArray : any[] = [];
 
   nombre: string ="";
   apellido: string ="";
@@ -33,10 +35,12 @@ export class DashboardComponent {
   correo: string="";
   telefono: number | undefined = undefined;
   currentUserId = "";
+  currentDataId = "";
 
-  constructor(private http: HttpClient, private router: Router, private userService: UserService)
+  constructor(private http: HttpClient, private router: Router, private userService: UserService, private serviceServices:ServiceService)
   {
     this.getAllUsers();
+    this.getAllServices();
   }
 
   clearFieldsUser(){
@@ -54,6 +58,13 @@ export class DashboardComponent {
       console.log(resultData);
       this.userArray = resultData;
   });
+}
+
+getAllServices(){
+  this.serviceServices.getAllServices().subscribe((resultData: any)=>{
+    console.log(resultData);
+    this.serviceArray = resultData;
+  })
 }
 // Pasar datos de un componente a otro
 setUpdate(data: any){
@@ -79,4 +90,18 @@ deleteUser(data: any){
   });
 
 }
+setUpdateService(data: any){
+  if (data) {
+    this.nombre  = data.nombre;
+     this.currentDataId = data.id;
+     this.router.navigate(['/dashboard/service-create'], { state: { data: data } });
+    }else {
+      console.log('ERROR WHILE EDITING')
+    }
+}
+
+deleteService(data: any){ this.serviceServices.deleteService(data.id).subscribe((resultData: any)=>{
+  this.getAllServices();
+  this.router.navigate(['/dashboard'])
+})}
 }

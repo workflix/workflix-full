@@ -106,8 +106,49 @@
         <!--content-usuarios-end-->
 
         <!--content-servicios-->
-        <div  *ngIf="vista === 'servicios'">
-          <h1 class="mt-4">Servicios</h1>
+        <div *ngIf="vista === 'servicios'">
+          <div class="header">
+            @if (serviceArray.length > 0) {
+             <ng-container>
+              <h1 class="mt-4">Servicios registrados</h1>
+             </ng-container>
+            }@else {
+              <ng-template #noCustomers>
+                <h1 class="mt-4">No hay servicios registrados</h1>
+              </ng-template>
+            }
+
+             <button type="button" class="btn btn-success submitDashboard mov icono-b3" [routerLink]="'/dashboard/service-create'"> <i class="fas fa-plus"></i> Agregar servicio</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr class="content-table">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Opciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @for (service of serviceArray; track $index) {
+                          <tr>
+                              <td>{{ service.nombre }}</td>
+                              <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                  <button type="button" class="btn icono-b1" (click)="setUpdateService(service)" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                                      <i class="bi bi-pencil-fill"></i>
+                                  </button>
+                                  <button type="button" class="btn icono-b2" (click)="deleteService(service)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                      <i class="bi bi-trash-fill"></i>
+                                  </button>
+                                </div>
+                              </td>
+                          </tr>
+                      }
+                  </tbody>
+              </table>
+          </div>
+
         </div>
         <!--content-servicios-->
       </div>
@@ -116,59 +157,3 @@
   </div>
 
 </main>
-
-
-<!--
-<div class="container mx-auto" >
-  <div class="header">
-    @if (userArray.length > 0) {
-     <ng-container>
-       <h1>Usuarios registrados</h1>
-     </ng-container>
-    }@else {
-      <ng-template #noCustomers>
-        <h1>No hay usuarios registrados</h1>
-      </ng-template>
-    }
-
-     <button type="button" class="btn btn-success submitDashboard mov" [routerLink]="'/dashboard/user-create'"> <i class="fas fa-plus"></i> Agregar usuario</button>
-    </div>
-
-<table class="table">
-
-   <thead>
-
-   <tr>
-       <th scope="col">Nombre</th>
-       <th scope="col">Apellido</th>
-       <th scope="col">Direccion</th>
-       <th scope="col">Telefono</th>
-       <th scope="col">Opciones</th>
-     </tr>
-
-   </thead>
-
-   <tbody>
-@for (user of userArray; track $index) {
-       <tr>
-
-       <td>{{ user.nombre }}</td>
-       <td>{{ user.apellido }}</td>
-       <td>{{ user.direccion }}</td>
-       <td>{{ user.telefono }}</td>
-       <td>{{ user.descripcion}}</td>
-
-
-       <td>
-           <button type="button" class="btn btn-warning submitDashboard" (click)="setUpdate(user)">Edit</button>
-           <button type="button" class="btn btn-danger submitDashboard" (click)="deleteUser(user)">Delete</button>
-       </td>
-
-     </tr>
-    }
-   </tbody>
-
- </table>
-
-</div>
--->
