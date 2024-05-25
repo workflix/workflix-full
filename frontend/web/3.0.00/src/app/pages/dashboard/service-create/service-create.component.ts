@@ -16,6 +16,8 @@ export class ServiceCreateComponent {
 
   serviceArray : any[] = [];
   error: string = '';
+  alertMessage: string = '';
+  alertType: string = '';
 
   nombre : string ="";
   editingMode: number = 0;
@@ -28,10 +30,12 @@ export class ServiceCreateComponent {
 
   onSubmit(nombre: string): void  {
     if(nombre){
+      this.nombre = nombre;
       this.serviceService.createService(nombre).subscribe(
         response => {
           console.log('Registro exitoso de servicio:', response);
           this.clearFieldsService();
+          alert('Servicio creado correctamente')
         },
         error => {
           console.error('No se pudo registrar correctamente:', error);
