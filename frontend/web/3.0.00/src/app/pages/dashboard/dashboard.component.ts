@@ -35,6 +35,7 @@ export class DashboardComponent {
   correo: string="";
   telefono: number | undefined = undefined;
   currentUserId = "";
+  currentDataId = "";
 
   constructor(private http: HttpClient, private router: Router, private userService: UserService, private serviceServices:ServiceService)
   {
@@ -89,7 +90,15 @@ deleteUser(data: any){
   });
 
 }
-setUpdateService(data: any){}
+setUpdateService(data: any){
+  if (data) {
+    this.nombre  = data.nombre;
+     this.currentDataId = data.id;
+     this.router.navigate(['/dashboard/service-create'], { state: { data: data } });
+    }else {
+      console.log('ERROR WHILE EDITING')
+    }
+}
 
 deleteService(data: any){ this.serviceServices.deleteService(data.id).subscribe((resultData: any)=>{
   this.getAllServices();
