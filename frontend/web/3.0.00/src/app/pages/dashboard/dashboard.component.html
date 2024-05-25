@@ -106,8 +106,49 @@
         <!--content-usuarios-end-->
 
         <!--content-servicios-->
-        <div  *ngIf="vista === 'servicios'">
-          <h1 class="mt-4">Servicios</h1>
+        <div *ngIf="vista === 'servicios'">
+          <div class="header">
+            @if (serviceArray.length > 0) {
+             <ng-container>
+              <h1 class="mt-4">Servicios registrados</h1>
+             </ng-container>
+            }@else {
+              <ng-template #noCustomers>
+                <h1 class="mt-4">No hay servicios registrados</h1>
+              </ng-template>
+            }
+
+             <button type="button" class="btn btn-success submitDashboard mov icono-b3" [routerLink]="'/dashboard/service-create'"> <i class="fas fa-plus"></i> Agregar servicio</button>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table">
+                  <thead>
+                      <tr class="content-table">
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Opciones</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      @for (service of serviceArray; track $index) {
+                          <tr>
+                              <td>{{ service.nombre }}</td>
+                              <td>
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                  <button type="button" class="btn icono-b1" (click)="setUpdate(service)" data-bs-toggle="tooltip" data-bs-placement="top" title="Editar">
+                                      <i class="bi bi-pencil-fill"></i>
+                                  </button>
+                                  <button type="button" class="btn icono-b2" (click)="deleteUser(service)" data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar">
+                                      <i class="bi bi-trash-fill"></i>
+                                  </button>
+                                </div>
+                              </td>
+                          </tr>
+                      }
+                  </tbody>
+              </table>
+          </div>
+
         </div>
         <!--content-servicios-->
       </div>
