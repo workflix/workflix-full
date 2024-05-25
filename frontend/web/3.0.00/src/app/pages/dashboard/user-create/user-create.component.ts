@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { RegisterService } from '../../../services/register.service';
 import { UserService } from '../../../services/user.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-user-create',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule ],
   templateUrl: './user-create.component.html',
   styleUrl: './user-create.component.css'
 })
@@ -38,6 +39,7 @@ export class UserCreateComponent {
 
   onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
     if(nombre && apellido && correo && clave && telefono){
+      this.showAlert('Servicio creado correctamente', 'success');
      this.registerService.registerUser(nombre, apellido, correo, clave, telefono)
      .subscribe(
        response => {
@@ -49,10 +51,12 @@ export class UserCreateComponent {
        error => {
          console.error(error);
          console.log('No se pudo registrar correctamente: ' + error);
+        this.showAlert('No se pudo registrar correctamente', 'danger');
        }
      );
     }else{
      this.error = 'Debe completar todos los campos';
+    this.showAlert('Debe completar todos los campos', 'warning');
     }
  }
 
@@ -70,15 +74,17 @@ export class UserCreateComponent {
       response => {
         console.log('Actualizacion exitosa:', response);
         this.clearFieldsUser();
-        this.router.navigate(['/dashboard']);
+        this.showAlert('Servicio creado correctamente', 'success');
 
       },
       error => {
         console.error('No se pudo actualizar correctamente:', error);
+        this.showAlert('No se pudo registrar correctamente', 'danger');
       }
     );
   } else {
     this.error = 'Debe completar todos los campos';
+    this.showAlert('Debe completar todos los campos', 'warning');
   }
 }
 

@@ -24,7 +24,9 @@
               <div data-mdb-input-init class="form-outline mb-3">
                 <input [value]="telefono" type="tel" placeholder="Ingrese su telefono"  class="form-control form-control-lg" id="telefono" #telefonoInput required>
               </div>
-
+              <div *ngIf="alertMessage" class="alert" [ngClass]="'alert-' + alertType" role="alert">
+                {{ alertMessage }}
+              </div>
               <div class="text-center text-lg-start mt-4 pt-2 d-flex justify-content-center align-items-center">
                 @if (editingMode===0){
                   <p class="small fw-bold mt-2 pt-1 mb-0">
