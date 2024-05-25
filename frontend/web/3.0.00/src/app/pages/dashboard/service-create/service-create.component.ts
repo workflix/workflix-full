@@ -92,5 +92,8 @@ export class ServiceCreateComponent {
  clearFieldsService(){
   this.nombre = '';
  }
-
+ showAlert(message: string, type: string): void {
+  this.alertMessage = message;
+  this.alertType = type;
+}
 }
