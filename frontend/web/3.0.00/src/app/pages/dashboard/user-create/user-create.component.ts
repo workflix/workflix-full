@@ -16,7 +16,8 @@ import { UserService } from '../../../services/user.service';
 export class UserCreateComponent {
   userArray : any[] = [];
   error: string = '';
-
+  alertMessage: string = '';
+  alertType: string = '';
   nombre: string ="";
   apellido: string ="";
   direccion: string ="";
