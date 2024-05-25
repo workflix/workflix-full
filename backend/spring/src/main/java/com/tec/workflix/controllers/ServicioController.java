@@ -30,7 +30,7 @@ public class ServicioController {
         return "Se registró con éxito!";
     }
 
-    @PostMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{id}")
     public String save(@RequestBody Servicio servicio, @PathVariable int id, Model model) {
         servicio.setId(id);
         int r=service.edit(servicio);
