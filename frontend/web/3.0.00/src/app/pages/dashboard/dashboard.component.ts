@@ -27,6 +27,7 @@ export class DashboardComponent {
   }
 
   userArray : any[] = [];
+  serviceArray : any[] = [];
 
   nombre: string ="";
   apellido: string ="";
