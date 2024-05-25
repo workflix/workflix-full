@@ -45,9 +45,17 @@ export class DestacadosComponent implements OnInit {
   }
 
   public addCart(user: User) {
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     console.log('Profesional almacenado correctamente:', user);
     this._cartService.changeCart(user);
+  }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/advertencia']);
+  } else {
+      console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+      this.router.navigate(['/ingresar']);
   }
+}
 
   generateStars(recomendacion: number): string[] {
     const stars = [];
@@ -58,6 +66,7 @@ export class DestacadosComponent implements OnInit {
   }
 
   addRecomendacion(userId: any){
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion <= 4){
@@ -73,9 +82,18 @@ export class DestacadosComponent implements OnInit {
     } else {
       console.error('No se encontró el usuario con ID:', userId);
     }
-
+  }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/advertencia']);
   }
+  else {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/ingresar']);
+    }
+  }
+
   delRecomendacion(userId: any){
+    if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     const selectedUser = this.destacadosUsuarios.find(user => user.id === userId);
     if (selectedUser) {
       if(selectedUser.recomendacion >= 0){
@@ -92,6 +110,14 @@ export class DestacadosComponent implements OnInit {
       console.error('No se encontró el usuario con ID:', userId);
     }
 
+  }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/advertencia']);
+  }
+   else {
+    console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
+    this.router.navigate(['/ingresar']);
+    }
   }
 
   public selectedUser: User | null = null;

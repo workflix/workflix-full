@@ -115,6 +115,7 @@ textarea:focus~label, textarea:valid~label{
   border: none;
 
 }
+
 like-btn {
   color:#333333;
   border: none;

@@ -16,6 +16,7 @@ import { SiteComponent } from './pages/site/site.component';
 import { PerfilProfesionalComponent } from './pages/perfil-profesional/perfil-profesional.component';
 import { ServiceCreateComponent } from './pages/dashboard/service-create/service-create.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { AdvertenciaComponent } from './pages/advertencia/advertencia.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
   { path: 'perfil-profesional', component: PerfilProfesionalComponent, canActivate: [authGuardIsProfesional] },
+  {path: 'advertencia', component: AdvertenciaComponent, canActivate: [authGuardIsProfesional] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },

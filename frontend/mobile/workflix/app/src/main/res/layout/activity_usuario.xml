@@ -93,7 +93,6 @@
 
         <Button
             android:id="@+id/btnSaveUsuario"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/verde1"
@@ -108,7 +107,6 @@
 
         <Button
             android:id="@+id/btnEliminarUsuario"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/verde1"
@@ -123,7 +121,6 @@
 
         <Button
             android:id="@+id/btnVolverUsuario"
-            style="@style/Widget.MaterialComponents.Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/verde1"
