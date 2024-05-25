@@ -11,11 +11,11 @@
               <div class="text-center text-lg-start mt-4 pt-2 d-flex justify-content-center align-items-center">
                 @if (editingMode===0){
                   <p class="small fw-bold mt-2 pt-1 mb-0">
-                    <button type="submit" (click)="onSubmit(nombreInput.value)" class="btn btn-primary">Crear nuevo servicio</button>
+                    <button type="button" (click)="onSubmit(nombreInput.value)" class="btn btn-primary">Crear nuevo servicio</button>
                   </p>
                 }@else{
                   <p class="small fw-bold mt-2 pt-1 mb-0">
-                    <button type="submit" (click)="onSubmitUpdate(nombreInput.value)" class="btn btn-primary">Actualizar servicio</button>
+                    <button type="button" (click)="onSubmitUpdate(nombreInput.value)" class="btn btn-primary">Actualizar servicio</button>
                   </p>
                 }
               </div>
