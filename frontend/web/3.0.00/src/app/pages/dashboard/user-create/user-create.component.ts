@@ -128,5 +128,8 @@ if (this.nombre.length < 2 || this.apellido.length < 2 || this.correo.length < 5
     this.claveInput.nativeElement.value = '';
     this.telefonoInput.nativeElement.value = '';
  }
-
+ showAlert(message: string, type: string): void {
+  this.alertMessage = message;
+  this.alertType = type;
+}
 }
