@@ -87,6 +87,7 @@ deleteUser(data: any){
   this.userService.deleteUser(data.id).subscribe((resultData: any)=>
   {
       this.getAllUsers();
+      this.showAlert('Usuario eliminado correctamente', 'success');
       this.router.navigate(['/dashboard'])
   });
 

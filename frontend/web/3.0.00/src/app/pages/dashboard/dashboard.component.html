@@ -103,6 +103,9 @@
           </div>
 
         </div>
+        <div *ngIf="alertMessage" class="alert" [ngClass]="'alert-' + alertType" role="alert">
+          {{ alertMessage }}
+        </div>
         <!--content-usuarios-end-->
 
         <!--content-servicios-->
