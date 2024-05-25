@@ -56,13 +56,16 @@ export class ServiceCreateComponent {
         response => {
           console.log ('Actualización exitosa:', response);
           this.clearFieldsService();
+          this.showAlert('Servicio creado correctamente', 'success');
         },
         error => {
           console.error('No se pudo actualizar correctamente:', error);
+          this.showAlert('No se pudo registrar correctamente', 'danger');
         }
       );
     }else {
       this.error = 'Debe completar todos los campos';
+      this.showAlert('Debe completar todos los campos', 'warning');
     }
  }
 
