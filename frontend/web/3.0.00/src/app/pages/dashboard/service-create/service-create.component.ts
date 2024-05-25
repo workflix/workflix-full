@@ -32,7 +32,6 @@ export class ServiceCreateComponent {
         response => {
           console.log('Registro exitoso de servicio:', response);
           this.clearFieldsService();
-          this.router.navigate(['/dashboard'])
         },
         error => {
           console.error('No se pudo registrar correctamente:', error);
