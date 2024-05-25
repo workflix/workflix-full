@@ -89,6 +89,7 @@ deleteUser(data: any){
   });
 
 }
+setUpdateService(data: any){}
 
 deleteService(data: any){}
 }
