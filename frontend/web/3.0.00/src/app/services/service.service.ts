@@ -10,9 +10,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class ServiceService {
 
-  private urlServices = 'http://localhost:8080/api/v1/services';
-  private urlServicios = 'http://localhost:8080/servicios';
-  
+  private url = 'http://localhost:8080/servicios';
+
   constructor(private http: HttpClient) { }
 
   registerService(nombre: string): Observable<Service> {
@@ -21,7 +20,7 @@ export class ServiceService {
      .set('nombre', nombre);
 
      // Realizar la petición
-    return this.http.post<Service>(this.urlServices, {}, { params : params }).pipe(
+    return this.http.post<Service>(this.url, {}, { params : params }).pipe(
       tap(response => {
         console.log('Registro exitoso:', response);
       })
@@ -32,15 +31,15 @@ export class ServiceService {
   serviciosFiltrados: Service[] = [];
 
   getAllServices():Observable<Service[]>{
-    return this.http.get<Service[]>(this.urlServicios+'/listar');
+    return this.http.get<Service[]>(this.url+'/listar');
   }
 
   createService(nombre: string): Observable<Service> {
-    return this.http.post<Service>(this.urlServicios, { nombre: nombre });
+    return this.http.post<Service>(this.url, { nombre: nombre });
   }
-  
+
   getService(id: number): Observable<Service> {
-    return this.http.get<Service>(this.urlServicios + '/' + id);
+    return this.http.get<Service>(this.url + '/' + id);
   }
 
   updateService(id: number, bodyData: any): Observable<string> {
@@ -64,7 +63,7 @@ export class ServiceService {
 
   cargarServicios() {
     return new Promise<void>((resolve, reject) => {
-      this.http.get<Service[]>(this.urlServicios + '/listar').subscribe((resp: Service[]) => {
+      this.http.get<Service[]>(this.url + '/listar').subscribe((resp: Service[]) => {
         this.services = resp;
         resolve();
       });
@@ -82,7 +81,7 @@ export class ServiceService {
 
     this.serviciosFiltrados = this.services.filter( servicio => {
       return true;
-    }); 
+    });
     console.log(this.serviciosFiltrados);
   }
 
