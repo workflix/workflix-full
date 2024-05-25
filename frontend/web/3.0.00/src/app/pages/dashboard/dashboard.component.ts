@@ -36,7 +36,8 @@ export class DashboardComponent {
   telefono: number | undefined = undefined;
   currentUserId = "";
   currentDataId = "";
-
+  alertMessage: string = '';
+  alertType: string = '';
   constructor(private http: HttpClient, private router: Router, private userService: UserService, private serviceServices:ServiceService)
   {
     this.getAllUsers();
@@ -104,4 +105,9 @@ deleteService(data: any){ this.serviceServices.deleteService(data.id).subscribe(
   this.getAllServices();
   this.router.navigate(['/dashboard'])
 })}
+
+showAlert(message: string, type: string): void {
+  this.alertMessage = message;
+  this.alertType = type;
+}
 }

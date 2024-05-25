@@ -39,7 +39,7 @@ export class UserCreateComponent {
 
   onSubmit(nombre: string, apellido: string, correo: string, clave: string, telefono: string): void  {
     if(nombre && apellido && correo && clave && telefono){
-      this.showAlert('Servicio creado correctamente', 'success');
+      this.showAlert('Usuario creado correctamente', 'success');
      this.registerService.registerUser(nombre, apellido, correo, clave, telefono)
      .subscribe(
        response => {
@@ -74,7 +74,7 @@ export class UserCreateComponent {
       response => {
         console.log('Actualizacion exitosa:', response);
         this.clearFieldsUser();
-        this.showAlert('Servicio creado correctamente', 'success');
+        this.showAlert('Usuario creado correctamente', 'success');
 
       },
       error => {
