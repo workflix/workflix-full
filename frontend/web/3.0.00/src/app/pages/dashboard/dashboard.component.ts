@@ -91,5 +91,8 @@ deleteUser(data: any){
 }
 setUpdateService(data: any){}
 
-deleteService(data: any){}
+deleteService(data: any){ this.serviceServices.deleteService(data.id).subscribe((resultData: any)=>{
+  this.getAllServices();
+  this.router.navigate(['/dashboard'])
+})}
 }
