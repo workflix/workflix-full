@@ -28,7 +28,7 @@ export class ServiceCreateComponent {
 
   onSubmit(nombre: string): void  {
     if(nombre){
-      this.serviceService.registerService(nombre).subscribe(
+      this.serviceService.createService(nombre).subscribe(
         response => {
           console.log('Registro exitoso de servicio:', response);
           this.clearFieldsService();
