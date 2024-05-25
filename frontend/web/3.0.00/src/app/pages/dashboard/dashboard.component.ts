@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CommonModule } from '@angular/common';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,7 @@ export class DashboardComponent {
 
   status: boolean = false;
   clickEvent(){
-      this.status = !this.status;       
+      this.status = !this.status;
   }
 
   userArray : any[] = [];
@@ -34,7 +35,7 @@ export class DashboardComponent {
   telefono: number | undefined = undefined;
   currentUserId = "";
 
-  constructor(private http: HttpClient, private router: Router, private userService: UserService)
+  constructor(private http: HttpClient, private router: Router, private userService: UserService, private serviceServices:ServiceService)
   {
     this.getAllUsers();
   }
