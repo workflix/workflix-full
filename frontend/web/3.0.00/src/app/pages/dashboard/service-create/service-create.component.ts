@@ -16,7 +16,7 @@ export class ServiceCreateComponent {
 
   serviceArray : any[] = [];
   error: string = '';
-  
+
   nombre : string ="";
   editingMode: number = 0;
   currentServiceId = "";
@@ -30,7 +30,7 @@ export class ServiceCreateComponent {
     if(nombre){
       this.serviceService.registerService(nombre).subscribe(
         response => {
-          console.log('Registro exitoso:', response);
+          console.log('Registro exitoso de servicio:', response);
           this.clearFieldsService();
           this.router.navigate(['/dashboard'])
         },
@@ -90,5 +90,5 @@ export class ServiceCreateComponent {
  clearFieldsService(){
   this.nombre = '';
  }
- 
+
 }

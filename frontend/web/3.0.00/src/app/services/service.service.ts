@@ -14,19 +14,6 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  registerService(nombre: string): Observable<Service> {
-    // Crear parámetros para enviar en la URL
-    const params = new HttpParams()
-     .set('nombre', nombre);
-
-     // Realizar la petición
-    return this.http.post<Service>(this.url, {}, { params : params }).pipe(
-      tap(response => {
-        console.log('Registro exitoso:', response);
-      })
-    );
-  }
-
   services: Service[] = [];
   serviciosFiltrados: Service[] = [];
 
@@ -35,7 +22,7 @@ export class ServiceService {
   }
 
   createService(nombre: string): Observable<Service> {
-    return this.http.post<Service>(this.url, { nombre: nombre });
+    return this.http.post<Service>(this.url+'/agregar', { nombre: nombre });
   }
 
   getService(id: number): Observable<Service> {
