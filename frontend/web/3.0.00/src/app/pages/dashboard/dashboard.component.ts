@@ -89,4 +89,6 @@ deleteUser(data: any){
   });
 
 }
+
+deleteService(data: any){}
 }
