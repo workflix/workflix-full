@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { ServiceService } from '../../../services/service.service';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-service-create',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule ],
   templateUrl: './service-create.component.html',
   styleUrl: './service-create.component.css'
 })
@@ -30,19 +31,21 @@ export class ServiceCreateComponent {
 
   onSubmit(nombre: string): void  {
     if(nombre){
-      this.nombre = nombre;
+      this.showAlert('Servicio creado correctamente', 'success');
       this.serviceService.createService(nombre).subscribe(
         response => {
           console.log('Registro exitoso de servicio:', response);
           this.clearFieldsService();
-          alert('Servicio creado correctamente')
+          this.showAlert('Servicio creado correctamente', 'success');
         },
         error => {
           console.error('No se pudo registrar correctamente:', error);
+          // this.showAlert('No se pudo registrar correctamente', 'danger');
         }
       );
     }else{
       this.error = 'Debe completar todos los campos';
+      // this.showAlert('Debe completar todos los campos', 'warning');
     }
   }
 
