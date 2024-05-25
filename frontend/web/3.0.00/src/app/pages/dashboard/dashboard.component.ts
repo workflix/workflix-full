@@ -56,6 +56,13 @@ export class DashboardComponent {
       this.userArray = resultData;
   });
 }
+
+getAllServices(){
+  this.serviceServices.getAllServices().subscribe((resultData: any)=>{
+    console.log(resultData);
+    this.serviceArray = resultData;
+  })
+}
 // Pasar datos de un componente a otro
 setUpdate(data: any){
   if (data) {
