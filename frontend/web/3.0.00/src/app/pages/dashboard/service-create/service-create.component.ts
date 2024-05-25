@@ -52,7 +52,6 @@ export class ServiceCreateComponent {
         response => {
           console.log ('Actualización exitosa:', response);
           this.clearFieldsService();
-          this.router.navigate(['/dashboard']);
         },
         error => {
           console.error('No se pudo actualizar correctamente:', error);
