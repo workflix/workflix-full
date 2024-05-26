@@ -1,15 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Thanks for your order!</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <section>
-    <p>
-      We appreciate your business! If you have any questions, please email
-      <a href="mailto:orders@example.com">orders@example.com</a>.
-    </p>
-  </section>
-</body>
+  <head>
+    <title>¡Gracias por tu compra!</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  </head>
+  <body>
+    <section> <!--Tarjeta-->
+      <div class="card border-muted mt-5 mb-3 mx-auto" style="max-width: 50rem">
+      <div class="card text-center">
+        <div class="card-header mb-2">
+          Pago Aceptado
+        </div>
+        <div class="card-body">
+          <div> <!--Checkmark-->
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h5 class="card-title mb-5">¡Gracias por tu compra!</h5>
+          <p class="card-text">El pago se realizó correctamente. Te llegará un mail con la confirmación de la contratación.</p>
+          <p class="card-text mb-5">Nuestro Profesional se pondrá en contacto a la brevedad.</p>
+          <!--Botón Buscar-->
+          <a href="http://localhost:4200/home">
+            <button type="button" class="btn rounded-pill mb-5 boton-buscar" style="background-color: #60D5AB;">Buscar Profesionales</button>
+          </a>
+        </div>
+        <div class="card-footer text-muted">
+          <a href="http://localhost:4200/home">
+            <img class="mt-2" src="logo_workflix.png" alt="WorkFlix" height="30">
+          </a>
+        </div>
+      </div>
+      </div>
+    </section>
+  </body>
 </html>
