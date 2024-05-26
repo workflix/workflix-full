@@ -1,7 +1,15 @@
+## Tecnologías
 
-<p align="center">
- <a href="https://ibb.co/0tpbGxN"><img src="https://i.ibb.co/xHKT7Nv/logo-workflix.png" alt="logo-workflix" border="0" width="320" height="100"></a>
-</p>
+Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript - Docker - Stripe.
+
+### Versiones Utilizadas
+- Java 17.
+- Angular versión 17.1.2.
+- Node versión 21.6.1.
+- SpringBoot 3.1.4.
+- Boostrap 5.
+- Docker versión 26.0.1.
+
 <div>
 
  ![portada_site](https://github.com/workflix/workflix-full/assets/95662710/7f403f76-eb64-4e38-a614-608a6cf09aba)
@@ -66,7 +74,10 @@ Para levantar el frontend web, sigue estos pasos:
 2. ```
    npm install
    ```
-  
+ 3.
+    ```
+     npm start
+    ```
 
 ## Backend
 Dentro de la carpeta backend se encuentran dos carpetas:
@@ -110,17 +121,6 @@ Para levantar el backend web, sigue estos pasos:
     docker stop workflix-container
    ```
 
-## Tecnologías
-
-Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript - Docker.
-
-### Versiones Utilizadas
-- Java 17.
-- Angular versión 17.1.2.
-- Node versión 21.6.1.
-- SpringBoot 3.1.4.
-- Boostrap 5.
-- Docker versión 26.0.1.
 
 **Documentación**
 
