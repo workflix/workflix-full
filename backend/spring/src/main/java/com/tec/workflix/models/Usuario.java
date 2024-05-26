@@ -2,6 +2,9 @@ package com.tec.workflix.models;
 
 
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
@@ -38,6 +41,10 @@ public class Usuario {
     private String tipoUsuario;
     @Column(columnDefinition = "INTEGER DEFAULT 0")
     private Integer recomendacion;
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<UsuarioServicio> usuarioServicios;
+
     public Usuario(int id, String nombre, String apellido, String correo, String telefono, String clave, String direccion, String ciudad, String provincia, String descripcion, Integer recomendacion, Integer precio, String foto, String profesion, String tipoUsuario) {
         this.id = id;
         this.nombre = nombre;
