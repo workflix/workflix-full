@@ -14,6 +14,7 @@ import retrofit2.Response;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
+import tec.ispc.workflix.models.UsuarioServicio;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
 
@@ -22,6 +23,8 @@ public class CatalogoActivity extends AppCompatActivity {
     private CatalogoAdapter catalogoAdapter;
     private List<Usuario> listaDeUsuarios = new ArrayList<>();
     List<Servicio> listaDeServicios= new ArrayList<>();
+    List<UsuarioServicio> listaDeUsuarioServicios= new ArrayList<>();
+
 
 
     @Override
