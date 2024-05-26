@@ -12,6 +12,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.UsuarioService;
@@ -20,6 +21,8 @@ public class CatalogoActivity extends AppCompatActivity {
     private RecyclerView recyclerViewUsuarios;
     private CatalogoAdapter catalogoAdapter;
     private List<Usuario> listaDeUsuarios = new ArrayList<>();
+    List<Servicio> listaDeServicios= new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
