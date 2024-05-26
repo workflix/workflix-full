@@ -96,6 +96,17 @@ public class Perfil extends AppCompatActivity {
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
 
+
+        // Seteo los valores al perfil
+        tv_nombre.setText(nombre);
+        tv_apellido.setText(apellido);
+        tv_telefono.setText(telefono);
+        tv_correo.setText(correo);
+        tv_ciudad.setText(ciudad);
+        tv_descripcion.setText(descripcion);
+        tv_provincia.setText(provincia);
+        tv_profesion.setText(profesion);
+
         Spinner spinnerServicios = findViewById(R.id.spinnerServicios);
 
         // Muestra el botón correcto basado en el tipo de usuario
@@ -111,18 +122,6 @@ public class Perfil extends AppCompatActivity {
             // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
             Picasso.get().load(uriImagen).into(imagenFoto);
         }
-        // Seteo los valores al perfil
-        tv_nombre.setText(nombre);
-        tv_apellido.setText(apellido);
-        tv_telefono.setText(telefono);
-        tv_correo.setText(correo);
-        tv_ciudad.setText(ciudad);
-        tv_descripcion.setText(descripcion);
-        tv_provincia.setText(provincia);
-        tv_profesion.setText(profesion);
-
-
-
 
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {

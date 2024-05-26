@@ -53,5 +53,11 @@
     <string name="celularRegistro">Ingrese su celular</string>
 
     <string name="logo_app">Imagen de Logo de Workflix</string>
-
+    <string-array name="servicios_array">
+        <!-- Aquí agregar los nombres de los servicios -->
+        <item>Servicio 1</item>
+        <item>Servicio 2</item>
+        <item>Servicio 3</item>
+        <!-- Agrega más servicios según sea necesario -->
+    </string-array>
 </resources>
