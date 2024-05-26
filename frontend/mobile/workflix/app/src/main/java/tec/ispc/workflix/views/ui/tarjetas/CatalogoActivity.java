@@ -151,4 +151,11 @@ public class CatalogoActivity extends AppCompatActivity {
         }
         return usuariosConProfesion;
     }
+    private void verificarListasCargadas() {
+        if (serviciosCargados == 1 && usuarioServiciosCargados == 1) {
+            // Ambas listas están cargadas, ahora puedes continuar con la asignación de profesiones
+            asignarProfesiones(listaDeUsuarios, listaDeServicios, listaDeUsuarioServicios);
+            catalogoAdapter.setUsuarios(listaDeUsuarios);
+        }
+    }
 }
