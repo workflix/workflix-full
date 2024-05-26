@@ -7,5 +7,7 @@ public class Apis {
     public static UsuarioService getUsuarioService(){
         return Cliente.getCliente(Environment.URL_USUARIOS).create(UsuarioService.class);
     }
-
+    public static UsuarioServicioService getUsuarioServicioService(){
+        return Cliente.getCliente(Environment.URL_PRESTACIONES).create(UsuarioServicioService.class);
+    }
 }
