@@ -96,6 +96,8 @@ public class Perfil extends AppCompatActivity {
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
 
+        Spinner spinnerServicios = findViewById(R.id.spinnerServicios);
+
         // Muestra el botón correcto basado en el tipo de usuario
         if ("profesional".equalsIgnoreCase(tipo_usuario)) {
             tv_profesion.setVisibility(View.VISIBLE);
