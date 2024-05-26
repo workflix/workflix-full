@@ -102,6 +102,9 @@ public class Perfil extends AppCompatActivity {
         if ("profesional".equalsIgnoreCase(tipo_usuario)) {
             tv_profesion.setVisibility(View.VISIBLE);
         }
+        if (!profesion.isEmpty()) {
+            listServicio(spinnerServicios);
+        }
 
         if (!foto.isEmpty()) {
             Uri uriImagen = Uri.parse(foto);
