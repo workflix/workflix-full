@@ -169,7 +169,38 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+    public void listServicio(final Spinner spinner) {
+        servicioService = Apis.getServicioService();
+        Call<List<Servicio>> call = servicioService.getServicios();
+        call.enqueue(new Callback<List<Servicio>>() {
+            @Override
+            public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
+                if (response.isSuccessful()) {
+                    List<Servicio> listarServicio = response.body();
+                    if (listarServicio != null && !listarServicio.isEmpty()) {
+                        // Crear una lista de nombres de servicios
+                        List<String> nombresServicios = new ArrayList<>();
+                        // Agregar la opción "Selecciona tu servicio" al principio
+                        nombresServicios.add("Selecciona tu servicio");
+                        for (Servicio servicio : listarServicio) {
+                            nombresServicios.add(servicio.getNombre());
+                        }
 
+                        // Crear un ArrayAdapter para el Spinner
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(Perfil.this, android.R.layout.simple_spinner_item, nombresServicios);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        // Establecer el ArrayAdapter en el Spinner
+                        spinner.setAdapter(adapter);
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Servicio>> call, Throwable t) {
+                Log.e("Error no pude recuperar la lista de servicios:", t.getMessage());
+            }
+        });
+    }
     private String convertirImgString(Bitmap bitmap) {
         ByteArrayOutputStream array = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
