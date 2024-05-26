@@ -1,5 +1,7 @@
 package tec.ispc.workflix.views.ui.tarjetas;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -113,5 +115,40 @@ public class CatalogoActivity extends AppCompatActivity {
     }
     return usuariosNoAdmin;
 }
+    private List<Usuario> asignarProfesiones(List<Usuario> usuarios, List<Servicio> servicios, List<UsuarioServicio> usuarioServicios) {
+        List<Usuario> usuariosConProfesion = new ArrayList<>();
+        Log.d("DEBUG", "Número de usuarios: " + usuarios.size());
+        Log.d("DEBUG", "Número de servicios: " + servicios.size());
+        Log.d("DEBUG", "Número de usuarioServicios: " + usuarioServicios.size());
+        for (Usuario usuario : usuarios) {
+            boolean tieneProfesion = false;
+            for (Servicio servicio : servicios) {
+                for (UsuarioServicio usuarioServicio : usuarioServicios) {
+                    Log.d("DEBUG", "Comparando usuario_id: " + usuarioServicio.getUsuarioId() + " con " + usuario.getId());
+                    Log.d("DEBUG", "Comparando servicio_id: " + usuarioServicio.getServicioId() + " con " + servicio.getId());
+                    if (usuarioServicio.getUsuarioId() == usuario.getId() && usuarioServicio.getServicioId() == servicio.getId()) {
+                        Log.d("DEBUG", "Coincidencia encontrada");
+                        usuario.setProfesion(servicio.getNombre());
+                        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+                        if (preferences.contains("nombre" )) {
+                            int id = preferences.getInt("id",0);
+                            if (usuario.getId() == id){
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("profesion", usuario.getProfesion());
+                                editor.apply();
+                            }
+                        }
+                        tieneProfesion = true;
+                        break;
+                    }
+                }
 
+            }
+            if (!tieneProfesion) {
+                usuario.setProfesion("No tiene profesion");
+            }
+            usuariosConProfesion.add(usuario);
+        }
+        return usuariosConProfesion;
+    }
 }
