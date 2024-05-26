@@ -6,7 +6,5 @@ public class Environment {
     public static final String URL_USUARIOS=URL+"/usuarios/";
     public static final String URL_LOGIN=URL+"/api/v1/user/login";
     public static final String URL_REGISTER=URL+"/api/v1/user/register";
-    public static final String URL_PRESTACIONES=URL+"/prestaciones";
-
-
+    public static final String URL_PRESTACIONES=URL+"/prestaciones/";
 }
