@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -59,16 +60,31 @@ public class TarjetaAmpliadaActivity extends AppCompatActivity {
             contactarButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // Crea una Intent para realizar una llamada
-                    Intent intent = new Intent(Intent.ACTION_DIAL);
-                    intent.setData(Uri.parse("tel:" + telefono));
+                    // Crea una Intent para abrir WhatsApp
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    String whatsappUrl = "https://api.whatsapp.com/send?phone=" + telefono;
+                    intent.setData(Uri.parse(whatsappUrl));
 
                     // Comprueba si hay una aplicación que puede manejar la acción
                     if (intent.resolveActivity(getPackageManager()) != null) {
                         startActivity(intent);
+                    } else {
+                        // Opcional: Mostrar un mensaje si no se encuentra la aplicación
+                        Toast.makeText(TarjetaAmpliadaActivity.this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
                     }
                 }
             });
+//                public void onClick(View view) {
+//                    // Crea una Intent para realizar una llamada
+//                    Intent intent = new Intent(Intent.ACTION_DIAL);
+//                    intent.setData(Uri.parse("tel:" + telefono));
+//
+//                    // Comprueba si hay una aplicación que puede manejar la acción
+//                    if (intent.resolveActivity(getPackageManager()) != null) {
+//                        startActivity(intent);
+//                    }
+//                }
+//            });
 
 
 
