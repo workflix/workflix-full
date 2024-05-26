@@ -18,8 +18,10 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
@@ -28,13 +30,17 @@ import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
+import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
@@ -55,6 +61,7 @@ public class Perfil extends AppCompatActivity {
     private String rutaImagen;
     private String tipo_usuario;
 
+    ServicioService servicioService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +208,8 @@ public class Perfil extends AppCompatActivity {
             }
         });
     }
+
+
     private String convertirImgString(Bitmap bitmap) {
         ByteArrayOutputStream array = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
