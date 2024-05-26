@@ -1,10 +1,18 @@
+<!--<resources xmlns:tools="http://schemas.android.com/tools">-->
+<!--    &lt;!&ndash; Base application theme. &ndash;&gt;-->
+<!--    <style name="Theme.Workflix" parent="Base.Theme.Workflix" >-->
+<!--        <item name="android:windowContentOverlay">@null</item>-->
+<!--        &lt;!&ndash;<item name="android:windowFullscreen">true</item>&ndash;&gt;-->
+<!--        <item name="android:statusBarColor">@color/verde1</item>-->
+
+<!--    </style>-->
+<!--</resources>-->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Workflix" parent="Base.Theme.Workflix" >
-        <item name="android:windowContentOverlay">@null</item>
-        <!--<item name="android:windowFullscreen">true</item>-->
+    <style name="Base.Theme.Workflix" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@color/verde1</item>
-
     </style>
+
+<style name="Theme.Workflix" parent="Base.Theme.Workflix" />
 </resources>
 
