@@ -16,6 +16,7 @@ import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.models.UsuarioServicio;
 import tec.ispc.workflix.utils.Apis;
+import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.utils.UsuarioService;
 
 public class CatalogoActivity extends AppCompatActivity {
@@ -40,7 +41,26 @@ public class CatalogoActivity extends AppCompatActivity {
 
         obtenerListaDeUsuarios();
     }
-
+    public void listServicio() {
+        ServicioService servicioService= Apis.getServicioService();
+        Call<List<Servicio>> call=servicioService.getServicios();
+        call.enqueue(new Callback<List<Servicio>>() {
+            @Override
+            public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
+                if(response.isSuccessful()) {
+                    listaDeServicios = response.body();
+                    Log.d("listServicio", "Lista de servicios obtenida correctamente.");
+                    serviciosCargados++;
+                    // Verificar si ambas listas están cargadas
+                    verificarListasCargadas();
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Servicio>> call, Throwable t) {
+                Log.e("Error no pude recuperar la lista de servicios:",t.getMessage());
+            }
+        });
+    }
     private void obtenerListaDeUsuarios() {
         UsuarioService usuarioService = Apis.getUsuarioService();
         Call<List<Usuario>> call = usuarioService.getUsuarios();
