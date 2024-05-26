@@ -18,8 +18,11 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.squareup.picasso.Picasso;
@@ -28,13 +31,17 @@ import com.squareup.picasso.Picasso;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.utils.Apis;
+import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
@@ -54,7 +61,8 @@ public class Perfil extends AppCompatActivity {
     final int COD_FOTO = 20;
     private String rutaImagen;
     private String tipo_usuario;
-
+    private ArrayAdapter<String> adapter;
+    ServicioService servicioService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,16 +97,7 @@ public class Perfil extends AppCompatActivity {
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
 
-        // Muestra el botón correcto basado en el tipo de usuario
-        if ("profesional".equalsIgnoreCase(tipo_usuario)) {
-            tv_profesion.setVisibility(View.VISIBLE);
-        }
 
-        if (!foto.isEmpty()) {
-            Uri uriImagen = Uri.parse(foto);
-            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
-            Picasso.get().load(uriImagen).into(imagenFoto);
-        }
         // Seteo los valores al perfil
         tv_nombre.setText(nombre);
         tv_apellido.setText(apellido);
@@ -109,9 +108,21 @@ public class Perfil extends AppCompatActivity {
         tv_provincia.setText(provincia);
         tv_profesion.setText(profesion);
 
+        Spinner spinnerServicios = findViewById(R.id.spinnerServicios);
 
+        // Muestra el botón correcto basado en el tipo de usuario
+        if ("profesional".equalsIgnoreCase(tipo_usuario)) {
+            tv_profesion.setVisibility(View.VISIBLE);
+        }else {
+            spinnerServicios.setVisibility(View.VISIBLE);
+            listServicio(spinnerServicios);
+        }
 
-
+        if (!foto.isEmpty()) {
+            Uri uriImagen = Uri.parse(foto);
+            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
+            Picasso.get().load(uriImagen).into(imagenFoto);
+        }
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,6 +180,39 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+    public void listServicio(final Spinner spinner) {
+        servicioService = Apis.getServicioService();
+        Call<List<Servicio>> call = servicioService.getServicios();
+        call.enqueue(new Callback<List<Servicio>>() {
+            @Override
+            public void onResponse(Call<List<Servicio>> call, Response<List<Servicio>> response) {
+                if (response.isSuccessful()) {
+                    List<Servicio> listarServicio = response.body();
+                    if (listarServicio != null && !listarServicio.isEmpty()) {
+                        // Crear una lista de nombres de servicios
+                        List<String> nombresServicios = new ArrayList<>();
+                        // Agregar la opción "Selecciona tu servicio" al principio
+                        nombresServicios.add("Selecciona tu servicio");
+                        for (Servicio servicio : listarServicio) {
+                            nombresServicios.add(servicio.getNombre());
+                        }
+
+                        // Crear un ArrayAdapter para el Spinner
+                        ArrayAdapter<String> adapter = new ArrayAdapter<>(Perfil.this, android.R.layout.simple_spinner_item, nombresServicios);
+                        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        // Establecer el ArrayAdapter en el Spinner
+                        spinner.setAdapter(adapter);
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<List<Servicio>> call, Throwable t) {
+                Log.e("Error no pude recuperar la lista de servicios:", t.getMessage());
+            }
+        });
+    }
+
 
     private String convertirImgString(Bitmap bitmap) {
         ByteArrayOutputStream array = new ByteArrayOutputStream();
