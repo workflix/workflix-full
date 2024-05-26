@@ -6,7 +6,7 @@ import { CommonModule} from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user';
-
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-perfil-profesional',
@@ -22,7 +22,7 @@ export class PerfilProfesionalComponent implements OnInit {
   usuario?: User;
   error: string = '';
   currentUserId = "";
-  profesiones: string[] = ['Albañil', 'Carpintero', 'Electricista', 'Gasista', 'Plomero',  'Pintor', 'Seguridad', 'Técnico'];
+  profesiones: string[] = [];
   formCompleted: boolean = false;
 
 
@@ -30,7 +30,8 @@ export class PerfilProfesionalComponent implements OnInit {
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private serviceService: ServiceService
   ) {
     this.perfilForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
@@ -72,7 +73,17 @@ export class PerfilProfesionalComponent implements OnInit {
       this.checkFormCompletion();
     } 
     });
-  }
+  
+
+  this.serviceService.getServicesByName().subscribe(
+    (services: string[]) => {
+      this.profesiones = services;
+    },
+    error => {
+      console.error('Error al cargar los servicios:', error);
+    }
+  );
+}
 
   checkFormCompletion(): void {
     this.formCompleted = this.perfilForm.valid;
