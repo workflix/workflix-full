@@ -25,7 +25,8 @@ public class CatalogoActivity extends AppCompatActivity {
     List<Servicio> listaDeServicios= new ArrayList<>();
     List<UsuarioServicio> listaDeUsuarioServicios= new ArrayList<>();
 
-
+    private int serviciosCargados = 0;
+    private int usuarioServiciosCargados = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
