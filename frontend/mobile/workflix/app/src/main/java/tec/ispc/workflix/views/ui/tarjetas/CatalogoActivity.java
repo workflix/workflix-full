@@ -18,6 +18,7 @@ import tec.ispc.workflix.models.UsuarioServicio;
 import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.utils.UsuarioService;
+import tec.ispc.workflix.utils.UsuarioServicioService;
 
 public class CatalogoActivity extends AppCompatActivity {
     private RecyclerView recyclerViewUsuarios;
@@ -57,6 +58,26 @@ public class CatalogoActivity extends AppCompatActivity {
             }
             @Override
             public void onFailure(Call<List<Servicio>> call, Throwable t) {
+                Log.e("Error no pude recuperar la lista de servicios:",t.getMessage());
+            }
+        });
+    }
+    public void listUsuarioServicio() {
+        UsuarioServicioService usuarioServicioService= Apis.getUsuarioServicioService();
+        Call<List<UsuarioServicio>> call=usuarioServicioService.getUsuariosServicios();
+        call.enqueue(new Callback<List<UsuarioServicio>>() {
+            @Override
+            public void onResponse(Call<List<UsuarioServicio>> call, Response<List<UsuarioServicio>> response) {
+                if(response.isSuccessful()) {
+                    listaDeUsuarioServicios = response.body();
+                    Log.d("listUsuarioServicio", "Lista de Usuarioservicios obtenida correctamente.");
+                    usuarioServiciosCargados++;
+                    // Verificar si ambas listas están cargadas
+                    verificarListasCargadas();
+                }
+            }
+            @Override
+            public void onFailure(Call<List<UsuarioServicio>> call, Throwable t) {
                 Log.e("Error no pude recuperar la lista de servicios:",t.getMessage());
             }
         });
