@@ -18,6 +18,7 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -60,7 +61,7 @@ public class Perfil extends AppCompatActivity {
     final int COD_FOTO = 20;
     private String rutaImagen;
     private String tipo_usuario;
-
+    private ArrayAdapter<String> adapter;
     ServicioService servicioService;
 
     @Override
@@ -112,8 +113,8 @@ public class Perfil extends AppCompatActivity {
         // Muestra el botón correcto basado en el tipo de usuario
         if ("profesional".equalsIgnoreCase(tipo_usuario)) {
             tv_profesion.setVisibility(View.VISIBLE);
-        }
-        if (!profesion.isEmpty()) {
+        }else {
+            spinnerServicios.setVisibility(View.VISIBLE);
             listServicio(spinnerServicios);
         }
 
@@ -122,7 +123,6 @@ public class Perfil extends AppCompatActivity {
             // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
             Picasso.get().load(uriImagen).into(imagenFoto);
         }
-
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
