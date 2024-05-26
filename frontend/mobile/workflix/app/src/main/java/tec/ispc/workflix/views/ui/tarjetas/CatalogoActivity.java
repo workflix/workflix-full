@@ -28,9 +28,9 @@ public class CatalogoActivity extends AppCompatActivity {
     private List<Usuario> listaDeUsuarios = new ArrayList<>();
     List<Servicio> listaDeServicios= new ArrayList<>();
     List<UsuarioServicio> listaDeUsuarioServicios= new ArrayList<>();
-
     private int serviciosCargados = 0;
     private int usuarioServiciosCargados = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +84,7 @@ public class CatalogoActivity extends AppCompatActivity {
             }
         });
     }
+
     private void obtenerListaDeUsuarios() {
         UsuarioService usuarioService = Apis.getUsuarioService();
         Call<List<Usuario>> call = usuarioService.getUsuarios();
@@ -93,28 +94,36 @@ public class CatalogoActivity extends AppCompatActivity {
             public void onResponse(Call<List<Usuario>> call, Response<List<Usuario>> response) {
                 if (response.isSuccessful()) {
                     listaDeUsuarios = response.body();
-                   listaDeUsuarios = filtrarUsuariosNoAdmin(listaDeUsuarios);
+                    listaDeUsuarios = filtrarUsuariosNoAdmin(listaDeUsuarios);
+                    // Llamada síncrona a listServicio() antes de asignar profesiones
+
+                    listServicio();
+                    listUsuarioServicio();
+                    listaDeUsuarios = asignarProfesiones(listaDeUsuarios,listaDeServicios,listaDeUsuarioServicios);
                     catalogoAdapter.setUsuarios(listaDeUsuarios);
                 } else {
                     Toast.makeText(CatalogoActivity.this, "Error al obtener usuarios", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(Call<List<Usuario>> call, Throwable t) {
                 Log.e("Error al obtener lista de usuarios", t.getMessage());
             }
         });
     }
-   private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
-    List<Usuario> usuariosNoAdmin = new ArrayList<>();
-    for (Usuario usuario : usuarios) {
-        if ("profesional".equals(usuario.getTipo_usuario())) {
-            usuariosNoAdmin.add(usuario);
-        }
-    }
-    return usuariosNoAdmin;
-}
+
+    private List<Usuario> filtrarUsuariosNoAdmin(List<Usuario> usuarios) {
+         List<Usuario> usuariosNoAdmin = new ArrayList<>();
+         for (Usuario usuario : usuarios) {
+             if ("profesional".equals(usuario.getTipo_usuario())) {
+                 usuariosNoAdmin.add(usuario);
+             }
+         }
+
+         return usuariosNoAdmin;
+     }
+
+
     private List<Usuario> asignarProfesiones(List<Usuario> usuarios, List<Servicio> servicios, List<UsuarioServicio> usuarioServicios) {
         List<Usuario> usuariosConProfesion = new ArrayList<>();
         Log.d("DEBUG", "Número de usuarios: " + usuarios.size());
@@ -151,6 +160,7 @@ public class CatalogoActivity extends AppCompatActivity {
         }
         return usuariosConProfesion;
     }
+
     private void verificarListasCargadas() {
         if (serviciosCargados == 1 && usuarioServiciosCargados == 1) {
             // Ambas listas están cargadas, ahora puedes continuar con la asignación de profesiones
