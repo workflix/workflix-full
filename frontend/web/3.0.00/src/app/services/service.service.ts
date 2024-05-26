@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Service } from '../models/service';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -85,6 +85,15 @@ export class ServiceService {
         this.serviciosFiltrados.push(service);
         }
     })
+  }
+
+  getServicesByName(): Observable<string[]> {
+    return this.http.get<Service[]>(this.url+'/listar').pipe(
+      map((services: Service[]) => services.map(service => service.nombre)),
+      catchError((error: HttpErrorResponse) => {
+        return throwError('Error al obtener los servicios');
+      })
+    );
   }
 
 
