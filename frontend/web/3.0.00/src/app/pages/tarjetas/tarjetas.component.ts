@@ -170,11 +170,11 @@ export class TarjetasComponent implements OnInit {
 
 
 
-  filtrarPorProfesion(profesion: string) {
-    if (profesion === 'TODOS') {
+  filtrarPorProfesion(service: string) {
+    if (service === 'TODOS') {
       this.services // Mostrar todos los usuarios
     } else {
-      this.services = this.services.filter(service => service.nombre.toLowerCase() === profesion.toLowerCase());
+      this.services = this.services.filter(service => service.nombre.toLowerCase() === service.nombre.toLowerCase());
     }
   }
 
