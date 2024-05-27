@@ -33,8 +33,7 @@ export class TarjetasComponent implements OnInit {
   services: Service[] = [];
   filteredUsers: User[] = [];
   tieneProfesion: Boolean = false;
-  // profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
-
+  
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   constructor(
