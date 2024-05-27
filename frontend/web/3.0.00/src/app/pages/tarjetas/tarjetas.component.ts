@@ -32,7 +32,9 @@ export class TarjetasComponent implements OnInit {
   users: User[] = [];
   services: Service[] = [];
   filteredUsers: User[] = [];
-  profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
+  usuariosConProfesion: User[] = [];
+  tieneProfesion:Boolean = false;
+  // profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
@@ -85,7 +87,10 @@ this.userService.getAllUsers().subscribe(
 );
   }
 
-  asignarProfesiones(){}
+  asignarProfesiones(users: User[], services: Service[], usersServiceModel: UserServiceModel[]){
+  for (let usuario = 0; usuario < users.length; usuario++) {
+  }
+  }
 
   trackById(index: number, user: User): number {
     return user.id;
