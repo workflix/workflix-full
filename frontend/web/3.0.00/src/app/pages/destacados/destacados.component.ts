@@ -70,7 +70,25 @@ export class DestacadosComponent implements OnInit {
       }
     );
   }
-
+  asignarProfesiones(users: User[], services: Service[], usersServicesModel: UserServiceModel[]) {
+    for (let user of users) {
+      // console.log('Usuario:', user);
+      for (let service of services) {
+        // console.log('Servicio:', service);
+        for (let userServiceModel of usersServicesModel) {
+          // console.log('UserServiceModel:', userServiceModel);
+          if (userServiceModel.usuario_id === user.id && userServiceModel.servicio_id === service.id) {
+            // console.log(`Coincidencia encontrada: Usuario ID ${user.id} con Servicio ID ${service.id}`);
+            user.profesion = service.nombre;
+            // console.log(`Asignada profesión: ${service.nombre} al usuario ID ${user.id}`);
+          }
+        }
+      }
+    }
+    this.tieneProfesion = true;
+    // console.log('Profesiones asignadas:', users);
+  }
+  
   trackById(index: number, user: User): number {
     return user.id;
   }
