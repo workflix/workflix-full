@@ -48,6 +48,12 @@ export class TarjetasComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.serviceService.getAllServices().subscribe(
+      services=>{
+        this.services = services;
+        console.log('Services:', this.services.toString());
+      }
+    )
 
 
 // Usuarios y Servicios vinculados
@@ -166,9 +172,9 @@ export class TarjetasComponent implements OnInit {
 
   filtrarPorProfesion(profesion: string) {
     if (profesion === 'TODOS') {
-      this.filteredUsers = this.users; // Mostrar todos los usuarios
+      this.services // Mostrar todos los usuarios
     } else {
-      this.filteredUsers = this.users.filter(user => user.profesion.toLowerCase() === profesion.toLowerCase());
+      this.services = this.services.filter(service => service.nombre.toLowerCase() === profesion.toLowerCase());
     }
   }
 
