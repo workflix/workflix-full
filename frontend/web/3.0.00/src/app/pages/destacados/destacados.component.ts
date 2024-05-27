@@ -33,6 +33,24 @@ export class DestacadosComponent implements OnInit {
       (data) => {
         this.destacadosUsuarios = data;
         this.filteredUsers = this.destacadosUsuarios;
+  // Obtener servicios y usuarios vinculados después de obtener los usuarios
+  this.serviceService.getAllServices().subscribe(
+    services => {
+      this.services = services;
+
+      this.usersServicesService.getAllUsersServices().subscribe(
+        usersServicesModel => {
+          this.usersServicesArray = usersServicesModel;
+
+          // Asignar profesiones después de obtener todas las listas necesarias
+          this.asignarProfesiones(this.filteredUsers, this.services, this.usersServicesArray);
+        }
+      );
+    }
+  );
+
+
+
         this.loginService.getCurrentUser().subscribe(
           user => {
             this.currentUser = user;
