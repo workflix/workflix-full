@@ -50,6 +50,8 @@ export class TarjetasComponent implements OnInit {
     this.obtenerListaDeUsuarios();
   }
 
+
+
   obtenerListaDeUsuarios(){
     this.serviceService.getAllServices().subscribe(
       services=>{
@@ -82,6 +84,8 @@ this.userService.getAllUsers().subscribe(
   }
 );
   }
+
+  asignarProfesiones(){}
 
   trackById(index: number, user: User): number {
     return user.id;
