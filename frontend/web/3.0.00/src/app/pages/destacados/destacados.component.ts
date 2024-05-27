@@ -25,9 +25,12 @@ export class DestacadosComponent implements OnInit {
     private router: Router,) {}
 
   ngOnInit(): void {
+    this.obtenerListaDeUsuariosDestacados();
+
     this.userService.getDestacadosPerfiles().subscribe(
       (data) => {
         this.destacadosUsuarios = data;
+
         this.loginService.getCurrentUser().subscribe(
           user => {
             this.currentUser = user;
@@ -39,10 +42,11 @@ export class DestacadosComponent implements OnInit {
       }
     );
   }
+  obtenerUsuariosDestacados(){}
+
   trackById(index: number, user: User): number {
     return user.id;
   }
-
   public addCart(user: User) {
     if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
     console.log('Profesional almacenado correctamente:', user);
