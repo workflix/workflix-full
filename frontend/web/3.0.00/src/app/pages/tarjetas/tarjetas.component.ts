@@ -47,40 +47,40 @@ export class TarjetasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.obtenerListaDeUsuarios();
+  }
 
+  obtenerListaDeUsuarios(){
     this.serviceService.getAllServices().subscribe(
       services=>{
         this.services = services;
         console.log('Services:', this.services.toString());
       }
     )
-
-
 // Usuarios y Servicios vinculados
-    this.usersServicesService.getAllUsersServices().subscribe(
-      usersServiceModel=> {
-        this.usersServicesArray = usersServiceModel;
-        // alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
-      }
-    )
-
+this.usersServicesService.getAllUsersServices().subscribe(
+  usersServiceModel=> {
+    this.usersServicesArray = usersServiceModel;
+    // alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
+  }
+)
 // Todos los usuarios
-    this.userService.getAllUsers().subscribe(
-      users => {
-        this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
-        this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-        console.log('Users:', this.users.toString());
+this.userService.getAllUsers().subscribe(
+  users => {
+    this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
+    this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
+    console.log('Users:', this.users.toString());
 
-        this.loginService.getCurrentUser().subscribe(
-          user => {
-            this.currentUser = user;
-          }
-        );
-      },
-      error => {
-        console.error('Error al obtener usuarios:', error);
+    this.loginService.getCurrentUser().subscribe(
+      user => {
+        this.currentUser = user;
       }
     );
+  },
+  error => {
+    console.error('Error al obtener usuarios:', error);
+  }
+);
   }
 
   trackById(index: number, user: User): number {
