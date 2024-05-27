@@ -10,6 +10,10 @@ import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
 import { SelectedUserService } from '../../services/selected-user.service';
 import { of } from 'rxjs';
+import { UserServiceModel } from '../../models/userService';
+import { UserServiceService } from '../../services/user-service.service';
+import { Service } from '../../models/service';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-tarjetas',
@@ -24,7 +28,9 @@ export class TarjetasComponent implements OnInit {
   currentUser: any;
   recomendacion: any;
 
+  usersServicesArray: UserServiceModel [] = [];
   users: User[] = [];
+  services: Service[] = [];
   filteredUsers: User[] = [];
   profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
@@ -32,19 +38,38 @@ export class TarjetasComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
     private _cartService: CarritoService,
     private router: Router,
     private loginService: LoginService,
-    private selectedUserService: SelectedUserService
+    private selectedUserService: SelectedUserService,
+    private usersServicesService: UserServiceService,
+    private serviceService: ServiceService,
   ) {}
 
   ngOnInit(): void {
+
+    this.serviceService.getAllServices().subscribe(
+      services=>{
+        this.services = services;
+        console.log('Services:', this.services.toString());
+      }
+    )
+
+
+// Usuarios y Servicios vinculados
+    this.usersServicesService.getAllUsersServices().subscribe(
+      usersServiceModel=> {
+        this.usersServicesArray = usersServiceModel;
+        // alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
+      }
+    )
+
+// Todos los usuarios
     this.userService.getAllUsers().subscribe(
       users => {
         this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
         this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-        console.log('Users:', this.users);
+        console.log('Users:', this.users.toString());
 
         this.loginService.getCurrentUser().subscribe(
           user => {
@@ -145,11 +170,11 @@ export class TarjetasComponent implements OnInit {
 
 
 
-  filtrarPorProfesion(profesion: string) {
-    if (profesion === 'TODOS') {
-      this.filteredUsers = this.users; // Mostrar todos los usuarios
+  filtrarPorProfesion(service: string) {
+    if (service === 'TODOS') {
+      this.services // Mostrar todos los usuarios
     } else {
-      this.filteredUsers = this.users.filter(user => user.profesion.toLowerCase() === profesion.toLowerCase());
+      this.services = this.services.filter(service => service.nombre.toLowerCase() === service.nombre.toLowerCase());
     }
   }
 

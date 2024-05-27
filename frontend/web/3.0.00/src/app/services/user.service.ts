@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError  } from 'rxjs';
 import { User } from '../models/user';
 import { catchError } from 'rxjs/operators';
+import { Enviroment } from '../envs/environment';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class UserService {
 
-  private url:string='http://localhost:8080/usuarios';
+  private url:string= Enviroment.URL_USUARIOS;
   users: User[] = [];
   usuariosFiltrados: User[] = [];
 
@@ -19,7 +20,7 @@ export class UserService {
   getAllUsers():Observable<User[]>{
     return this.http.get<User[]>(this.url+'/listar');
   }
-  
+
   createUser(user:User):Observable<User>{
     return this.http.post<User>(this.url,user)
   }

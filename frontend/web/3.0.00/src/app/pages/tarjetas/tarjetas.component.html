@@ -7,8 +7,8 @@
       <button class="btn btn-primary rounded-pill mx-2 shadow mb-2 p-2 px-3" (click)="filtrarPorProfesion('TODOS')">
         Todos
       </button>
-      <button *ngFor="let profesion of profesiones" class="btn btn-primary mx-2 rounded-pill shadow mb-2 p-2 px-3" (click)="filtrarPorProfesion(profesion)">
-        {{ profesion }}
+      <button *ngFor="let service of services" class="btn btn-primary mx-2 rounded-pill shadow mb-2 p-2 px-3" (click)="filtrarPorProfesion(service.nombre)">
+        {{ service.nombre }}
       </button>
     </div>
     <i class="bi bi-chevron-compact-right position-absolute chevron-right" (click)="scrollRight()"></i>
