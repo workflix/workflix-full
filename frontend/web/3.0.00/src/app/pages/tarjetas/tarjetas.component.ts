@@ -13,6 +13,7 @@ import { of } from 'rxjs';
 import { UserServiceModel } from '../../models/userService';
 import { UserServiceService } from '../../services/user-service.service';
 import { Service } from '../../models/service';
+import { ServiceService } from '../../services/service.service';
 
 @Component({
   selector: 'app-tarjetas',
@@ -42,6 +43,7 @@ export class TarjetasComponent implements OnInit {
     private loginService: LoginService,
     private selectedUserService: SelectedUserService,
     private usersServicesService: UserServiceService,
+    private serviceService: ServiceService,
   ) {}
 
   ngOnInit(): void {
@@ -52,7 +54,7 @@ export class TarjetasComponent implements OnInit {
     this.usersServicesService.getAllUsersServices().subscribe(
       usersServiceModel=> {
         this.usersServicesArray = usersServiceModel;
-        alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
+        // alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
       }
     )
 
