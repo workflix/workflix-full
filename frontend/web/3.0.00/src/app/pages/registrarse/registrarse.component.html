@@ -95,11 +95,14 @@
             <button class="btn-success" mat-dialog-open (click)="openDialog()">Ver terminos y condiciones</button>
 
             <div class="checkbox-container">
-                <label for="miCheckbox">Aceptar términos y condiciones</label> <br>
-                <input type="checkbox" formControlName="aceptoTerminos" id="miCheckbox">
-            </div>
+                <div class="d-flex align-items-center text-nowrap">
+                  <input type="checkbox" formControlName="aceptoTerminos" id="miCheckbox" class="me-2">
+                  <p>Acepto términos y condiciones</p> 
+                </div>
+              </div>
+              <br>
 
-          <span class="text-danger" *ngIf="registrarForm?.get('aceptoTerminos')?.value === false">Debe aceptar términos para registrarse</span>
+          <span class="text-danger" *ngIf="registrarForm?.get('aceptoTerminos')?.value === false">* Debe aceptar términos para registrarse</span>
           </div>
 
           <!--Botón Registrarse-->
