@@ -21,12 +21,14 @@ export class DestacadosComponent implements OnInit {
   destacadosUsuarios: User[] = [];
   currentUser: any;
   recomendacion: any;
+  filteredUsers: User[] = [];
   constructor(private userService: UserService,private loginService: LoginService,private _cartService: CarritoService, private selectedUserService: SelectedUserService,
     private router: Router,) {}
 
   ngOnInit(): void {
     this.obtenerListaDeUsuariosDestacados();
-
+  }
+  obtenerListaDeUsuariosDestacados(){
     this.userService.getDestacadosPerfiles().subscribe(
       (data) => {
         this.destacadosUsuarios = data;
@@ -42,7 +44,6 @@ export class DestacadosComponent implements OnInit {
       }
     );
   }
-  obtenerUsuariosDestacados(){}
 
   trackById(index: number, user: User): number {
     return user.id;
