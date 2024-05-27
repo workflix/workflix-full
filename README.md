@@ -99,7 +99,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
 3. Then they give you Run, the `ORM` takes care of everything.
-4. (Optional) Users and services can be loaded and linked through the main.sql file located in `backend/spring/src/main/resources/db_script/main.sql`.
+4. (Optional) Users and services can be loaded and linked through the `main.sql` file located in `backend/spring/src/main/resources/db_script/main.sql`.
 
 ### Option 2 - From `DOCKER` - Start Web and Mobile Backend
 
