@@ -32,7 +32,6 @@ export class TarjetasComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private route: ActivatedRoute,
     private _cartService: CarritoService,
     private router: Router,
     private loginService: LoginService,
