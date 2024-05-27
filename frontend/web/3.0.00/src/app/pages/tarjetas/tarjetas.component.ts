@@ -115,7 +115,14 @@ obtenerListaDeUsuarios() {
   public addCart(user: User) {
     if (this.currentUser && this.currentUser.tipoUsuario === 'cliente') {
         console.log('Profesional almacenado correctamente:', user);
-        this._cartService.changeCart(user);
+        const cartValue = this._cartService.cart.getValue(); // Obtenemos el valor actual del BehaviorSubject
+        if (cartValue.length < 4) {
+            console.log('Usuario almacenado correctamente:', user);
+            this._cartService.changeCart(user);
+        } else {
+            alert('Solo puedes contratar a 4 servicios a la vez')
+            console.warn('No se pueden agregar más usuarios, el carrito está lleno.');
+        }
     }else if (this.currentUser && this.currentUser.tipoUsuario === 'profesional') {
       console.warn('Usuario no autenticado o no es cliente, redirigiendo a la página de login.');
       this.router.navigate(['/advertencia']);
