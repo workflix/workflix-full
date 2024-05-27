@@ -10,6 +10,8 @@ import { LoginService } from '../../services/login.service';
 import { CommonModule } from '@angular/common';
 import { SelectedUserService } from '../../services/selected-user.service';
 import { of } from 'rxjs';
+import { UserServiceModel } from '../../models/userService';
+import { UserServiceService } from '../../services/user-service.service';
 
 @Component({
   selector: 'app-tarjetas',
@@ -24,8 +26,8 @@ export class TarjetasComponent implements OnInit {
   currentUser: any;
   recomendacion: any;
 
+  usersServicesArray: UserServiceModel [] = [];
   users: User[] = [];
-  usersServices: UserService[] = [];
   filteredUsers: User[] = [];
   profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
@@ -36,15 +38,22 @@ export class TarjetasComponent implements OnInit {
     private _cartService: CarritoService,
     private router: Router,
     private loginService: LoginService,
-    private selectedUserService: SelectedUserService
+    private selectedUserService: SelectedUserService,
+    private usersServicesService: UserServiceService,
   ) {}
 
   ngOnInit(): void {
+    this.usersServicesService.getAllUsersServices().subscribe(
+      usersServiceModel=> {
+        this.usersServicesArray = usersServiceModel;
+        alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
+      }
+    )
     this.userService.getAllUsers().subscribe(
       users => {
         this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
         this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-        console.log('Users:', this.users);
+        console.log('Users:', this.users.toString());
 
         this.loginService.getCurrentUser().subscribe(
           user => {

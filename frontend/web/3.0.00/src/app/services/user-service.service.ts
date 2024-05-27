@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserService } from './user.service';
 import { Enviroment } from '../envs/environment';
+import { UserServiceModel } from '../models/userService';
 
 
 @Injectable({
@@ -14,7 +14,7 @@ export class UserServiceService {
 
   constructor(private http:HttpClient) { }
 
-  getAllUsersServices():Observable<UserService[]>{
-    return this.http.get<UserService[]>(this.url+'/listar');
+  getAllUsersServices():Observable<UserServiceModel[]>{
+    return this.http.get<UserServiceModel[]>(this.url+'/listar');
   }
 }

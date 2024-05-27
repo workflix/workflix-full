@@ -1,4 +1,4 @@
-export class UserService {
+export class UserServiceModel {
   id: number = 0;
   usuario_id:number = 0;
   servicio_id:number = 0;
