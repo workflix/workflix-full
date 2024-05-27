@@ -12,6 +12,7 @@ import { SelectedUserService } from '../../services/selected-user.service';
 import { of } from 'rxjs';
 import { UserServiceModel } from '../../models/userService';
 import { UserServiceService } from '../../services/user-service.service';
+import { Service } from '../../models/service';
 
 @Component({
   selector: 'app-tarjetas',
@@ -28,6 +29,7 @@ export class TarjetasComponent implements OnInit {
 
   usersServicesArray: UserServiceModel [] = [];
   users: User[] = [];
+  services: Service[] = [];
   filteredUsers: User[] = [];
   profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
@@ -43,12 +45,18 @@ export class TarjetasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
+
+
+// Usuarios y Servicios vinculados
     this.usersServicesService.getAllUsersServices().subscribe(
       usersServiceModel=> {
         this.usersServicesArray = usersServiceModel;
         alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
       }
     )
+
+// Todos los usuarios
     this.userService.getAllUsers().subscribe(
       users => {
         this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
