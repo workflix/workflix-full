@@ -51,60 +51,57 @@ export class TarjetasComponent implements OnInit {
     this.obtenerListaDeUsuarios();
   }
 
-obtenerListaDeUsuarios() {
-  // Todos los usuarios
-  this.userService.getAllUsers().subscribe(
-    users => {
-      this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
-      this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
+  obtenerListaDeUsuarios() {
+    // Todos los usuarios
+    this.userService.getAllUsers().subscribe(
+      users => {
+        this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
+        this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
+  
+        // Obtener servicios y usuarios vinculados después de obtener los usuarios
+        this.serviceService.getAllServices().subscribe(
+          services => {
+            this.services = services;
+  
+            this.usersServicesService.getAllUsersServices().subscribe(
+              usersServicesModel => {
+                this.usersServicesArray = usersServicesModel;
+  
+                // Asignar servicios después de obtener todas las listas necesarias
+                this.asignarServicios(this.filteredUsers, this.services, this.usersServicesArray);
+              }
+            );
+          }
+        );
+  
+        // Obtener el usuario actual
+        this.loginService.getCurrentUser().subscribe(
+          user => {
+            this.currentUser = user;
+          }
+        );
+      },
+      error => {
+        console.error('Error al obtener usuarios:', error);
+      }
+    );
+  }
 
-      // Obtener servicios y usuarios vinculados después de obtener los usuarios
-      this.serviceService.getAllServices().subscribe(
-        services => {
-          this.services = services;
 
-          this.usersServicesService.getAllUsersServices().subscribe(
-            usersServicesModel => {
-              this.usersServicesArray = usersServicesModel;
-
-              // Asignar profesiones después de obtener todas las listas necesarias
-              this.asignarProfesiones(this.filteredUsers, this.services, this.usersServicesArray);
-            }
-          );
-        }
-      );
-
-      // Obtener el usuario actual
-      this.loginService.getCurrentUser().subscribe(
-        user => {
-          this.currentUser = user;
-        }
-      );
-    },
-    error => {
-      console.error('Error al obtener usuarios:', error);
-    }
-  );
-}
-
-
-  asignarProfesiones(users: User[], services: Service[], usersServicesModel: UserServiceModel[]) {
+  asignarServicios(users: User[], services: Service[], usersServicesModel: UserServiceModel[]) {
     for (let user of users) {
-      // console.log('Usuario:', user);
-      for (let service of services) {
-        // console.log('Servicio:', service);
-        for (let userServiceModel of usersServicesModel) {
-          // console.log('UserServiceModel:', userServiceModel);
-          if (userServiceModel.usuario_id === user.id && userServiceModel.servicio_id === service.id) {
-            // console.log(`Coincidencia encontrada: Usuario ID ${user.id} con Servicio ID ${service.id}`);
-            user.profesion = service.nombre;
-            // console.log(`Asignada profesión: ${service.nombre} al usuario ID ${user.id}`);
+      user.servicios = [];
+      for (let userServiceModel of usersServicesModel) {
+        if (userServiceModel.usuario_id === user.id) {
+          const service = services.find(s => s.id === userServiceModel.servicio_id);
+          if (service) {
+            user.servicios.push(service);
           }
         }
       }
+      console.log(`User: ${user.nombre}, Servicios: ${user.servicios.map(s => s.nombre).join(', ')}`); // Línea de depuración
     }
     this.tieneProfesion = true;
-    // console.log('Profesiones asignadas:', users);
   }
 
 
@@ -195,11 +192,13 @@ obtenerListaDeUsuarios() {
 
 
 
-  filtrarPorProfesion(service: string) {
-    if (service === 'TODOS') {
-      this.services // Mostrar todos los usuarios
+  filtrarPorProfesion(serviceName: string) {
+    if (serviceName === 'TODOS') {
+      this.filteredUsers = this.users; // Mostrar todos los usuarios
     } else {
-      this.services = this.services.filter(service => service.nombre.toLowerCase() === service.nombre.toLowerCase());
+      this.filteredUsers = this.users.filter(user => 
+        user.servicios?.some(service => service.nombre.toLowerCase() === serviceName.toLowerCase())
+      );
     }
   }
 
