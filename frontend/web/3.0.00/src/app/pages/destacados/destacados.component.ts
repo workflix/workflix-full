@@ -28,6 +28,7 @@ export class DestacadosComponent implements OnInit {
   filteredUsers: User[] = [];
   services: Service[] = [];
   usersServicesArray: UserServiceModel [] = [];
+  tieneProfesion: Boolean = false;
 
   constructor(private userService: UserService,private loginService: LoginService,private _cartService: CarritoService, private selectedUserService: SelectedUserService,
     private router: Router, private usersServicesService: UserServiceService,
@@ -88,7 +89,7 @@ export class DestacadosComponent implements OnInit {
     this.tieneProfesion = true;
     // console.log('Profesiones asignadas:', users);
   }
-  
+
   trackById(index: number, user: User): number {
     return user.id;
   }
