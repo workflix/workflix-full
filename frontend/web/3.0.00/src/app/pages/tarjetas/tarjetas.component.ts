@@ -32,8 +32,7 @@ export class TarjetasComponent implements OnInit {
   users: User[] = [];
   services: Service[] = [];
   filteredUsers: User[] = [];
-  usuariosConProfesion: User[] = [];
-  tieneProfesion:Boolean = false;
+  tieneProfesion: Boolean = false;
   // profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
@@ -58,7 +57,6 @@ export class TarjetasComponent implements OnInit {
     this.serviceService.getAllServices().subscribe(
       services=>{
         this.services = services;
-        console.log('Services:', this.services.toString());
       }
     )
 // Usuarios y Servicios vinculados
@@ -73,8 +71,6 @@ this.userService.getAllUsers().subscribe(
   users => {
     this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
     this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-    console.log('Users:', this.users.toString());
-
     this.loginService.getCurrentUser().subscribe(
       user => {
         this.currentUser = user;
@@ -87,10 +83,26 @@ this.userService.getAllUsers().subscribe(
 );
   }
 
-  asignarProfesiones(users: User[], services: Service[], usersServiceModel: UserServiceModel[]){
-  for (let usuario = 0; usuario < users.length; usuario++) {
+  asignarProfesiones(users: User[], services: Service[], usersServicesModel: UserServiceModel[]) {
+    console.log('Asignando profesiones...');
+    for (let user of users) {
+      console.log('Usuario:', user);
+      for (let service of services) {
+        console.log('Servicio:', service);
+        for (let userServiceModel of usersServicesModel) {
+          console.log('UserServiceModel:', userServiceModel);
+          if (userServiceModel.usuario_id === user.id && userServiceModel.servicio_id === service.id) {
+            console.log(`Coincidencia encontrada: Usuario ID ${user.id} con Servicio ID ${service.id}`);
+            user.profesion = service.nombre;
+            console.log(`Asignada profesión: ${service.nombre} al usuario ID ${user.id}`);
+          }
+        }
+      }
+    }
+    this.tieneProfesion = true;
+    console.log('Profesiones asignadas:', users);
   }
-  }
+
 
   trackById(index: number, user: User): number {
     return user.id;
