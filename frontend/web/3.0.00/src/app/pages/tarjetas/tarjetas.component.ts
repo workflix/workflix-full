@@ -25,6 +25,7 @@ export class TarjetasComponent implements OnInit {
   recomendacion: any;
 
   users: User[] = [];
+  usersServices: UserService[] = [];
   filteredUsers: User[] = [];
   profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
