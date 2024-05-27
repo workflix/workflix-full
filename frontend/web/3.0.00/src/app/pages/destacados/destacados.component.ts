@@ -32,7 +32,7 @@ export class DestacadosComponent implements OnInit {
     this.userService.getDestacadosPerfiles().subscribe(
       (data) => {
         this.destacadosUsuarios = data;
-
+        this.filteredUsers = this.destacadosUsuarios;
         this.loginService.getCurrentUser().subscribe(
           user => {
             this.currentUser = user;
