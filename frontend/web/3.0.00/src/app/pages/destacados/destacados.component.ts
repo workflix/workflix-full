@@ -8,6 +8,8 @@ import { SelectedUserService } from '../../services/selected-user.service';
 import { Router } from '@angular/router';
 import { UserServiceModel } from '../../models/userService';
 import { Service } from '../../models/service';
+import { UserServiceService } from '../../services/user-service.service';
+import { ServiceService } from '../../services/service.service';
 
 
 
@@ -28,7 +30,8 @@ export class DestacadosComponent implements OnInit {
   usersServicesArray: UserServiceModel [] = [];
 
   constructor(private userService: UserService,private loginService: LoginService,private _cartService: CarritoService, private selectedUserService: SelectedUserService,
-    private router: Router,) {}
+    private router: Router, private usersServicesService: UserServiceService,
+    private serviceService: ServiceService,) {}
 
   ngOnInit(): void {
     this.obtenerListaDeUsuariosDestacados();
