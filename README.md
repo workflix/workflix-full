@@ -1,14 +1,14 @@
-## Tecnologías
+## Technologies
 
 Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript - Docker - Stripe.
 
-### Versiones Utilizadas
+### Versions Used
 - Java 17.
-- Angular versión 17.1.2.
-- Node versión 21.6.1.
+- Angular version 17.1.2.
+- Node version 21.6.1.
 - SpringBoot 3.1.4.
 - Boostrap 5.
-- Docker versión 26.0.1.
+- Docker version 26.0.1.
 
 <div>
 
@@ -18,12 +18,12 @@ Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - 
 
 
 
-Proyecto Worflix 2024
+Project Worflix 2024
 
-Incluye Sitio Web y App Móvil
+Includes Website and Mobile App
 </div>
 
-### Integrantes:
+### Members:
 
 _Scrum Master:_
 * ALVAREZ, Natalia Beatriz.
@@ -37,27 +37,27 @@ _Developer Team:_
 * LORENTI, Valentino.
 * TRONCOSO, Braian.
 
-Aclaraciones: 
+Clarifications: 
 
 ## Frontend
 
-Dentro de la carpeta frontend se encuentran dos carpetas:
+Inside the frontend folder there are two folders:
 * Mobile.
 * Web.
 
-## Instrucciones de Configuración y Ejecución
+## Configuration and Execution Instructions
 
-Dentro del proyecto Web se encuentran dos versiones:
+There are two versions of the Web project:
 
-- **2.0.23** (Correspondiente al proyecto Web 2023).
-- **3.0.00** (Correspondiente al proyecto Web actual y sobre el que estuvimos trabajando).
+- **2.0.23** (Corresponding to the Web 2023 project).
+- **3.0.00** (Corresponding to the current Web project we have been working on).
 
-### Levantar el Frontend Web
+### Start web frontend
 
-Para levantar el frontend web, sigue estos pasos:
+To build the web frontend, follow these steps:
 
-1. Ubícate en la carpeta `3.0.00`.
-2. Instala Angular CLI globalmente si no lo tienes instalado:
+1. Go to the `3.0.00` folder.
+2. Install Angular CLI globally if you don't have it installed:
    ```
    npm install -g @angular/cli
    ```
@@ -68,9 +68,9 @@ Para levantar el frontend web, sigue estos pasos:
    ng serve
    ```
 
-### Levantar la Pasarela del Backend web
+### Start web backend
 
-1. Ubícate en la carpeta servidor_pasarela dentro de `3.0.00`.
+1. Go to the servidor_pasarela inside `3.0.00`.
 2. ```
    npm install
    ```
@@ -80,15 +80,15 @@ Para levantar el frontend web, sigue estos pasos:
     ```
 
 ## Backend
-Dentro de la carpeta backend se encuentran dos carpetas:
-* Django (Correspondiente al proyecto Web 2023).
-* Spring (correspondiente al proyecto Mobile 2023, en el cual ahora estamos trabajando sobre el proyecto Web y Mobile actual para unificar tecnologías).
+Inside the backend folder there are two folders:
+* Django (Corresponding to the Web 2023 project).
+* Spring (corresponding to the Mobile 2023 project, in which we are now working on the current Web and Mobile project to unify technologies).
 
-### Opcion 1 - Desde el Intellij - Levantar el Backend Web y Mobile
+### Option 1 - From Intellij - Start Web and Mobile Backend
 
-Para levantar el backend web, sigue estos pasos:
-1. Ubícate en la carpeta spring dentro de `backend`.
-2. En el archivo `application.properties` nos vamos a conectar la aplicación a la base de datos.
+To set up the web backend, follow these steps:
+1. Go to the spring folder inside `backend`.
+2. In the `application.properties` file we are going to connect the application to the database.
 
 ```plaintext
 spring.datasource.url=jdbc:mysql://localhost:3306/workflix?createDatabaseIfNotExist=true
@@ -98,12 +98,12 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
-3. Luego le dan Run, el `ORM` se encarga de hacer todo.
+3. Then they give you Run, the `ORM` takes care of everything.
 
-### Opcion 2 - Desde `DOCKER` - Levantar el Backend Web y Mobile
+### Option 2 - From `DOCKER` - Start Web and Mobile Backend
 
-Para levantar el backend web, sigue estos pasos:
-1. Ubícate en la carpeta spring dentro de `backend`.
+To set up the web backend, follow these steps:
+1. Go to the spring folder inside `backend`.
 2. ```
    mvn clean package
    ```
@@ -116,13 +116,13 @@ Para levantar el backend web, sigue estos pasos:
 5. ```
    docker start workflix-container
    ```
-6. Para detener el contenedor:
+6. To stop the container:
    ```
     docker stop workflix-container
    ```
 
 
-**Documentación**
+**Documentation**
 
 * [Documento-IEEE830](https://github.com/workflix/workflix-full/wiki/Documento-IEEE830)
 * [Diagrama de Clases](https://github.com/workflix/workflix-full/wiki/Diagrama-de-Clases)
