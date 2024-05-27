@@ -6,6 +6,8 @@ import { LoginService } from '../../services/login.service';
 import { CarritoService } from '../../services/carrito.service';
 import { SelectedUserService } from '../../services/selected-user.service';
 import { Router } from '@angular/router';
+import { UserServiceModel } from '../../models/userService';
+import { Service } from '../../models/service';
 
 
 
@@ -22,6 +24,9 @@ export class DestacadosComponent implements OnInit {
   currentUser: any;
   recomendacion: any;
   filteredUsers: User[] = [];
+  services: Service[] = [];
+  usersServicesArray: UserServiceModel [] = [];
+
   constructor(private userService: UserService,private loginService: LoginService,private _cartService: CarritoService, private selectedUserService: SelectedUserService,
     private router: Router,) {}
 
