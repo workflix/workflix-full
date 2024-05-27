@@ -32,7 +32,8 @@ export class TarjetasComponent implements OnInit {
   users: User[] = [];
   services: Service[] = [];
   filteredUsers: User[] = [];
-  profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
+  tieneProfesion: Boolean = false;
+  // profesiones: string[] = ['Albañil', 'Electricista', 'Seguridad', 'Pintor', 'Carpintero' ,'Plomero', 'Gasista', 'Cerrajero', 'Mueblero', 'Piletero' ]; // Lista de profesiones
 
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
@@ -47,41 +48,65 @@ export class TarjetasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
-    this.serviceService.getAllServices().subscribe(
-      services=>{
-        this.services = services;
-        console.log('Services:', this.services.toString());
-      }
-    )
-
-
-// Usuarios y Servicios vinculados
-    this.usersServicesService.getAllUsersServices().subscribe(
-      usersServiceModel=> {
-        this.usersServicesArray = usersServiceModel;
-        // alert('recibiendo los servicios y usuarios vinculados: '+this.usersServicesArray)
-      }
-    )
-
-// Todos los usuarios
-    this.userService.getAllUsers().subscribe(
-      users => {
-        this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
-        this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-        console.log('Users:', this.users.toString());
-
-        this.loginService.getCurrentUser().subscribe(
-          user => {
-            this.currentUser = user;
-          }
-        );
-      },
-      error => {
-        console.error('Error al obtener usuarios:', error);
-      }
-    );
+    this.obtenerListaDeUsuarios();
   }
+
+obtenerListaDeUsuarios() {
+  // Todos los usuarios
+  this.userService.getAllUsers().subscribe(
+    users => {
+      this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
+      this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
+
+      // Obtener servicios y usuarios vinculados después de obtener los usuarios
+      this.serviceService.getAllServices().subscribe(
+        services => {
+          this.services = services;
+
+          this.usersServicesService.getAllUsersServices().subscribe(
+            usersServicesModel => {
+              this.usersServicesArray = usersServicesModel;
+
+              // Asignar profesiones después de obtener todas las listas necesarias
+              this.asignarProfesiones(this.filteredUsers, this.services, this.usersServicesArray);
+            }
+          );
+        }
+      );
+
+      // Obtener el usuario actual
+      this.loginService.getCurrentUser().subscribe(
+        user => {
+          this.currentUser = user;
+        }
+      );
+    },
+    error => {
+      console.error('Error al obtener usuarios:', error);
+    }
+  );
+}
+
+
+  asignarProfesiones(users: User[], services: Service[], usersServicesModel: UserServiceModel[]) {
+    for (let user of users) {
+      // console.log('Usuario:', user);
+      for (let service of services) {
+        // console.log('Servicio:', service);
+        for (let userServiceModel of usersServicesModel) {
+          // console.log('UserServiceModel:', userServiceModel);
+          if (userServiceModel.usuario_id === user.id && userServiceModel.servicio_id === service.id) {
+            // console.log(`Coincidencia encontrada: Usuario ID ${user.id} con Servicio ID ${service.id}`);
+            user.profesion = service.nombre;
+            // console.log(`Asignada profesión: ${service.nombre} al usuario ID ${user.id}`);
+          }
+        }
+      }
+    }
+    this.tieneProfesion = true;
+    // console.log('Profesiones asignadas:', users);
+  }
+
 
   trackById(index: number, user: User): number {
     return user.id;

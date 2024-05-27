@@ -28,7 +28,6 @@ export class DestacadosComponent implements OnInit {
     this.userService.getDestacadosPerfiles().subscribe(
       (data) => {
         this.destacadosUsuarios = data;
-        console.log('Usuarios destacados:', this.destacadosUsuarios);
         this.loginService.getCurrentUser().subscribe(
           user => {
             this.currentUser = user;
