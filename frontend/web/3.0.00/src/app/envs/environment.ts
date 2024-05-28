@@ -8,4 +8,5 @@ export class Enviroment {
   static URL_USUARIO_SERVICIO: string = this.URL_PRINCIPAL + '/prestaciones';
   static URL_USUARIOS:string = this.URL_PRINCIPAL+'/usuarios';
   static URL_LOGIN:string = this.URL_PRINCIPAL+'/api/v1/user/login';
+  static URL_REGISTER:string = this.URL_PRINCIPAL+'/api/v1/user/register';
 }
