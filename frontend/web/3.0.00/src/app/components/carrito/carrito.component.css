@@ -96,21 +96,23 @@
 }
 
 /* Button */
-.button {
-  background: #6394F8;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  display: block;
-  border-radius: 3px;
-  font-size: 16px;
-  margin: 25px 0 15px 0;
+.boton-contratar{
+  width: 100%;
 }
 
-.button:hover {
-  background: #81abfd !important;
+.boton-contratar:hover{
+  color: #ffffff;
+  background-color: #1FBABF !important;
+}
 
+.boton-cancelar{
+  border-color: #60D5AB !important;
+}
+
+.boton-cancelar:hover{
+  color: #ffffff;
+  background-color: #1FBABF !important;
+  border-color: #1FBABF !important;
 }
 
 /* Clearfix */

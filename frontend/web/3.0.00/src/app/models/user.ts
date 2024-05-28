@@ -1,3 +1,5 @@
+import { Service } from './service';
+
 export class User {
   id: number = 0;
   nombre: string = '';
@@ -16,6 +18,7 @@ export class User {
   profesion: string = '';
   precio:number = 0;
   recomendacion:number = 0;
+  servicios: Service[] = [];
   constructor(
       id: number,
       nombre: string,
@@ -51,6 +54,7 @@ export class User {
       this.profesion = profesion;
       this.recomendacion = recomendacion;
       this.precio = precio;
+      this.servicios = [];
 
   }
 }

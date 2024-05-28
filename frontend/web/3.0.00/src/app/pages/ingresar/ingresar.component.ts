@@ -18,6 +18,11 @@ export class IngresarComponent {
   constructor(private loginService: LoginService, private router: Router) {}
 
   onSubmit(email: string, password: string): void {
+    this.validacionesLogin(email,password);
+    this.logearse(email,password);
+  }
+
+  validacionesLogin(email:string, password:string){
     if (!email || !password) {
       this.error = 'Por favor ingresa el correo electrónico y la contraseña';
       return;
@@ -32,7 +37,23 @@ export class IngresarComponent {
       this.error = 'La contraseña debe tener al menos 6 caracteres';
       return;
     }
+  }
+  isValidEmail(email: string): boolean {
+    // Expresión regular para validar el formato del correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 
+  validateEmail(email: string): void {
+    if (!email) {
+      this.error = 'El correo electrónico es requerido.';
+    } else if (!this.isValidEmail(email)) {
+      this.error = 'Por favor ingresa un correo electrónico válido.';
+    } else {
+      this.error = ''; // Limpiar mensaje de error si la validación es exitosa
+    }
+  }
+  logearse(email:string, password:string){
     this.loginService.login(email, password).subscribe(
       (user) => {
         console.log('Inicio de sesión exitoso', user);
@@ -48,21 +69,5 @@ export class IngresarComponent {
         this.error = 'Nombre de usuario o contraseña incorrectas';
       }
     );
-  }
-
-  isValidEmail(email: string): boolean {
-    // Expresión regular para validar el formato del correo electrónico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  }
-
-  validateEmail(email: string): void {
-    if (!email) {
-      this.error = 'El correo electrónico es requerido.';
-    } else if (!this.isValidEmail(email)) {
-      this.error = 'Por favor ingresa un correo electrónico válido.';
-    } else {
-      this.error = ''; // Limpiar mensaje de error si la validación es exitosa
-    }
   }
 }
