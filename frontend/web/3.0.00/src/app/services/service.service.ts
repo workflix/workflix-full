@@ -4,13 +4,14 @@ import { map, tap } from 'rxjs/operators';
 import { Service } from '../models/service';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Enviroment } from '../envs/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceService {
 
-  private url = 'http://localhost:8080/servicios';
+  private url:string = Enviroment.URL_SERVICIOS;
 
   constructor(private http: HttpClient) { }
 
@@ -30,8 +31,7 @@ export class ServiceService {
   }
 
   updateService(id: number, bodyData: any): Observable<string> {
-    const url = `http://localhost:8080/servicios/actualizar/${id}`;
-    return this.http.put<string>(url, bodyData, { responseType: 'text' as 'json' }).pipe(
+    return this.http.put<string>(`${this.url}/actualizar/${id}`, bodyData, { responseType: 'text' as 'json' }).pipe(
       catchError((error: HttpErrorResponse)=> {
         return throwError('Error al actualizar el servicio');
       })
@@ -39,8 +39,7 @@ export class ServiceService {
   }
 
   deleteService(id: number): Observable<string> {
-    const url = `http://localhost:8080/servicios/eliminar/${id}`;
-    return this.http.delete<string>(url, { responseType: 'text' as 'json' })
+    return this.http.delete<string>(`${this.url}/eliminar/${id}`, { responseType: 'text' as 'json' })
      .pipe(
         catchError((error: HttpErrorResponse)=> {
           return throwError('Error al eliminar el servicio');
