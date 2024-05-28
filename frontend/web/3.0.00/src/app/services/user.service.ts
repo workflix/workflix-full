@@ -30,8 +30,7 @@ export class UserService {
   }
 
   updateUser(id: number, bodyData: any): Observable<string> {
-    const url = `http://localhost:8080/usuarios/actualizar/${id}`;
-    return this.http.put<string>(url, bodyData, { responseType: 'text' as 'json' }).pipe(
+    return this.http.put<string>(`${this.url}/actualizar/${id}`, bodyData, { responseType: 'text' as 'json' }).pipe(
       catchError((error: HttpErrorResponse) => {
         return throwError('Error al actualizar el usuario');
       })
@@ -39,8 +38,7 @@ export class UserService {
   }
 
   updateUserProfile(id: number, newData: any): Observable<string> {
-    const url = `http://localhost:8080/usuarios/perfil/${id}`;
-    return this.http.post<string>(url, newData, { responseType: 'text' as 'json' }).pipe(
+    return this.http.post<string>(`${this.url}/perfil/${id}`, newData, { responseType: 'text' as 'json' }).pipe(
       catchError((error: HttpErrorResponse) => {
         return throwError('Error al actualizar el perfil del usuario');
       })
@@ -48,9 +46,8 @@ export class UserService {
   }
 
   recomendarPerfil(id: number, recomendacion: number): Observable<string> {
-    const url = `http://localhost:8080/usuarios/recomendacion/${id}`;
     const body = { recomendacion: recomendacion };
-    return this.http.put<string>(url, body, { responseType: 'text' as 'json' }).pipe(
+    return this.http.put<string>(`${this.url}/recomendacion/${id}`, body, { responseType: 'text' as 'json' }).pipe(
       catchError((error: HttpErrorResponse) => {
         return throwError('Error al recomendar el usuario');
       })
@@ -67,8 +64,7 @@ export class UserService {
   }
 
 deleteUser(id: number): Observable<string> {
-  const url = `http://localhost:8080/usuarios/eliminar/${id}`;
-  return this.http.delete<string>(url, { responseType: 'text' as 'json' })
+  return this.http.delete<string>(`${this.url}/eliminar/${id}`, { responseType: 'text' as 'json' })
     .pipe(
       catchError((error: HttpErrorResponse) => {
         return throwError('Error al eliminar el usuario');
