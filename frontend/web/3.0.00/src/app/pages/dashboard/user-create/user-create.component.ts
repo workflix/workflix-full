@@ -51,7 +51,6 @@ export class UserCreateComponent {
        error => {
          console.error(error);
          console.log('No se pudo registrar correctamente: ' + error);
-        this.showAlert('No se pudo registrar correctamente', 'danger');
        }
      );
     }else{
@@ -74,12 +73,11 @@ export class UserCreateComponent {
       response => {
         console.log('Actualizacion exitosa:', response);
         this.clearFieldsUser();
-        this.showAlert('Usuario creado correctamente', 'success');
+        this.showAlert('Usuario actualizado correctamente', 'success');
 
       },
       error => {
         console.error('No se pudo actualizar correctamente:', error);
-        this.showAlert('No se pudo registrar correctamente', 'danger');
       }
     );
   } else {
