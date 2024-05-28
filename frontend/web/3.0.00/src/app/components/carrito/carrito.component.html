@@ -19,9 +19,11 @@
         <button type="button" class="btn btn-danger ml-4 rounded-pill" (click)="remove(item)">Cancelar</button>
       </li>
     </ul>
-  }
-  @if (totalQuantity > 0) {
-    <button type="button" class="btn btn-lg mx-auto rounded-pill" style="background-color: #60D5AB;" (click)="onProceedToPay()">Contratar</button>
-  }
+    }
+    @if (totalQuantity > 0) {
+    <div class="d-flex justify-content-center">
+      <button type="button" class="btn rounded-pill btn-contratar" style="background-color: #60D5AB;" (click)="onProceedToPay()">Contratar</button>
+    </div>
+    }
   </div> <!--end shopping-cart -->
 </div> <!--end container -->
