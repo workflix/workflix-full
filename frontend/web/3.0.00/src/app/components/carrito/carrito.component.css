@@ -96,26 +96,10 @@
 }
 
 /* Button */
-/*.button {
-  background: #6394F8;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  display: block;
-  border-radius: 3px;
-  font-size: 16px;
-  margin: 25px 0 15px 0;
-}
 
-.button:hover {
-  background: #81abfd !important;
-
-}*/
-
-.btn-contratar:hover{
+.boton-contratar:hover{
   color: #ffffff;
-  background-color: #1FBABF;
+  background-color: #1FBABF !important;
 }
 
 /* Clearfix */
