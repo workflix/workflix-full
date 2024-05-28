@@ -96,10 +96,23 @@
 }
 
 /* Button */
+.boton-contratar{
+  width: 100%;
+}
 
 .boton-contratar:hover{
   color: #ffffff;
   background-color: #1FBABF !important;
+}
+
+.boton-cancelar{
+  border-color: #60D5AB !important;
+}
+
+.boton-cancelar:hover{
+  color: #ffffff;
+  background-color: #1FBABF !important;
+  border-color: #1FBABF !important;
 }
 
 /* Clearfix */

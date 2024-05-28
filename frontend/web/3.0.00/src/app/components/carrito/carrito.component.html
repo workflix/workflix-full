@@ -1,9 +1,9 @@
 <div class="container">
   <div class="shopping-cart">
     <div class="shopping-cart-header">
-      <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">{{totalQuantity}}</span>
+      <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">  {{totalQuantity}}</span>
       <div class="shopping-cart-total">
-        <span class="lighter-text">Total:</span>
+        <span class="lighter-text">Total:  </span>
         <span class="main-color-text">${{totalPrice}}</span>
       </div>
     </div>
@@ -16,7 +16,7 @@
         <span class="item-name">{{item.nombre}} {{item.apellido}}</span>
         <span class="item-price">Precio ${{item.precio}}</span>
         <!-- <span class="item-quantity">Cantidad: {{item.cantidad}}</span> -->
-        <button type="button" class="btn btn-danger ml-4 rounded-pill" (click)="remove(item)">Cancelar</button>
+        <button type="button" class="btn ml-5 rounded-pill boton-cancelar" style="background-color: #fff;" (click)="remove(item)">Cancelar</button>
       </li>
     </ul>
     }
