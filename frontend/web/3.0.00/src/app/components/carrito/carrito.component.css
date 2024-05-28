@@ -96,7 +96,7 @@
 }
 
 /* Button */
-.button {
+/*.button {
   background: #6394F8;
   color: white;
   text-align: center;
@@ -111,6 +111,11 @@
 .button:hover {
   background: #81abfd !important;
 
+}*/
+
+.btn-contratar:hover{
+  color: #ffffff;
+  background-color: #1FBABF;
 }
 
 /* Clearfix */
