@@ -1,6 +1,17 @@
 ## Technologies
 
-Java - SpringBoot - Hibernate - Angular - MySQL - Android - Boostrap - NodeJs - TypeScript - Javascript - Docker - Stripe.
+![java-logo-org](https://github.com/workflix/workflix-full/assets/70522049/b97d584e-c949-4e9e-b755-aad5d18db34b)![spring-boot-logo-org](https://github.com/workflix/workflix-full/assets/70522049/63484bfb-635b-4a0a-8c94-6049121e4117)![hibernate-logo (1)](https://github.com/workflix/workflix-full/assets/70522049/f81cae6d-0844-44e1-9e18-6d63d447b659)![mysql-logo](https://github.com/workflix/workflix-full/assets/70522049/799f4400-b473-47d7-9fc8-55586ddec3c3)![nodeJS-logo](https://github.com/workflix/workflix-full/assets/70522049/4836e72f-fa6a-448a-8521-0be0ab96d7c4)![docker-logo](https://github.com/workflix/workflix-full/assets/70522049/b5ad4115-6611-4ede-a395-402d48c1992e)![android-logo](https://github.com/workflix/workflix-full/assets/70522049/da93a704-f45b-46c9-96f1-64e4643461df)![angular-17-logo](https://github.com/workflix/workflix-full/assets/70522049/80ce7810-ac2e-4ae8-a310-af376399ac19)![bootstrap-logo](https://github.com/workflix/workflix-full/assets/70522049/7d8ac35b-aec0-4af4-b190-9d8aa3eb219b)![typescript-logo](https://github.com/workflix/workflix-full/assets/70522049/2599aae0-34bf-4b46-b7fe-a0d3b3445569)![javascript-logo](https://github.com/workflix/workflix-full/assets/70522049/0220ee5d-7ae0-402c-8d11-16b7e8769d96)![stripe-payments](https://github.com/workflix/workflix-full/assets/70522049/ace909fc-497d-4e0c-9edf-fd6d2028bf0d)
+
+
+
+
+
+
+
+
+
+
+
 
 ### Versions Used
 - Java 17.
