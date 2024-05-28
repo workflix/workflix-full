@@ -58,8 +58,7 @@ export class UserService {
   }
 
   getDestacadosPerfiles(): Observable<any[]> {
-    const url = `http://localhost:8080/usuarios`
-    return this.http.get<any[]>(`${url}/destacados`).pipe(
+    return this.http.get<any[]>(`${this.url}/destacados`).pipe(
       catchError((error: HttpErrorResponse) => {
         console.error('Error fetching destacados perfiles:', error);
         return throwError('Error fetching destacados perfiles');
