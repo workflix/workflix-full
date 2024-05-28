@@ -71,24 +71,29 @@ openDialog() {
     if (this.registrarForm.valid) {
       const formData = this.registrarForm.value;
       const {fname, lname, mail, password, phone} = formData
+      this.registrarse(fname ,lname , mail, password, phone);
 
-      this.registerService.registerUser(fname, lname, mail, password, phone)
-        .subscribe({
-          next: (exito: User) => {
-
-            console.log('Usuario creado:', exito);
-
-            this.router.navigate(['/ingresar']);
-          },
-          error: (error: any) => {
-            this.router.navigate(['/ingresar']);
-            console.error('Error al crear usuario:', error);
-            console.log('No se pudo registrar correctamente: ' + error);
-          }
-        });
       }else{
         this.error = 'Debe completar todos los campos';
       }
+    }
+
+
+    registrarse(fname:any, lname:any, mail:any, password:any, phone:any){
+      this.registerService.registerUser(fname, lname, mail, password, phone)
+      .subscribe({
+        next: (exito: User) => {
+
+          console.log('Usuario creado:', exito);
+
+          this.router.navigate(['/ingresar']);
+        },
+        error: (error: any) => {
+          this.router.navigate(['/ingresar']);
+          console.error('Error al crear usuario:', error);
+          console.log('No se pudo registrar correctamente: ' + error);
+        }
+      });
     }
   }
 
