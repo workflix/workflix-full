@@ -221,4 +221,8 @@ export class TarjetasComponent implements OnInit {
       behavior: 'smooth'
     });
   }
+
+  getUserImage(user: User): string {
+    return user.foto ? `http://localhost:8080${user.foto}` : 'assets/images/profesional-1.jpg';
+  }
 }
