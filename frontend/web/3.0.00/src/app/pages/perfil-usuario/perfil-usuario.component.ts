@@ -46,6 +46,9 @@ export class PerfilUsuarioComponent implements OnInit {
     });
 
   }
+  onFileChange(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
     subirFoto(){
       {
         const uploadData = new FormData();
