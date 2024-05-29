@@ -82,6 +82,11 @@ public class UsuarioController {
     @PostMapping("/upload/{id}")
     public ResponseEntity<String> uploadImage(@PathVariable Integer id, @RequestParam("file") MultipartFile file) {
         try {
+            if (file.isEmpty()) {
+                return ResponseEntity.badRequest().body("Archivo vacío");
+            }
+            System.out.println("Subida de archivo para el usuario con ID: " + id);
+            System.out.println("Nombre del archivo: " + file.getOriginalFilename());
             // Guardar archivo en servidor
             Path path = Paths.get(UPLOAD_DIR + file.getOriginalFilename());
             Files.write(path, file.getBytes());
@@ -95,6 +100,7 @@ public class UsuarioController {
             return ResponseEntity.status(500).body("Error al subir la imagen.");
         }
     }
+
 }
 /*
    @PostMapping("/actualizar/{id}")
