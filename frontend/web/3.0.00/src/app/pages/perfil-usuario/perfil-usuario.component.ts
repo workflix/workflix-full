@@ -5,7 +5,7 @@ import { CommonModule} from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -29,7 +29,8 @@ export class PerfilUsuarioComponent implements OnInit {
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {
     this.perfilForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
@@ -43,7 +44,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.perfilForm.valueChanges.subscribe(() => {
       this.checkFormCompletion();
     });
-    
+
   }
 
   ngOnInit(): void {
@@ -53,7 +54,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.currentUser = user;
       console.log('Usuario Obtenido', user);
       this.usuario = user;
-      
+
       this.perfilForm.patchValue({
         nombre: user.nombre,
         apellido: user.apellido,
@@ -63,7 +64,7 @@ export class PerfilUsuarioComponent implements OnInit {
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
       this.checkFormCompletion();
-    } 
+    }
     });
   }
 
@@ -77,7 +78,7 @@ export class PerfilUsuarioComponent implements OnInit {
     console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
       if (this.formCompleted && this.perfilForm.valid) {
-        
+
 
         const newUserData = {
           nombre: formData.nombre,
@@ -85,11 +86,11 @@ export class PerfilUsuarioComponent implements OnInit {
           correo: formData.mail,
           direccion: formData.adress,
           telefono: formData.phone,
-          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,
 
         };
-  
-        
+
+
         this.userService.updateUserProfile(this.currentUser.id, newUserData).subscribe(
           response => {
             if (this.currentUser) {
