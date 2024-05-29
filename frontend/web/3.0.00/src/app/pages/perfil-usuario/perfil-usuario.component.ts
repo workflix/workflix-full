@@ -24,7 +24,7 @@ export class PerfilUsuarioComponent implements OnInit {
   error: string = '';
   currentUserId = "";
   formCompleted: boolean = false;
-
+  selectedFile: File;
   constructor(
     private loginService: LoginService,
     private formBuilder: FormBuilder,
