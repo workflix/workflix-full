@@ -6,6 +6,7 @@ import java.util.Map;
 import com.tec.workflix.models.Usuario;
 import com.tec.workflix.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +16,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.net.MalformedURLException;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.web.*;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
@@ -100,7 +104,21 @@ public class UsuarioController {
             return ResponseEntity.status(500).body("Error al subir la imagen.");
         }
     }
+    @GetMapping("/imagen/{nombreImagen}")
+    public ResponseEntity<Resource> getImagen(@PathVariable String nombreImagen) {
+        try {
+            Path path = Paths.get(UPLOAD_DIR + nombreImagen);
+            Resource resource = new UrlResource(path.toUri());
 
+            if(resource.exists() && resource.isReadable()) {
+                return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (MalformedURLException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
 /*
    @PostMapping("/actualizar/{id}")

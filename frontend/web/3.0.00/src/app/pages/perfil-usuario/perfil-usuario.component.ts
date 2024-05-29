@@ -62,11 +62,9 @@ export class PerfilUsuarioComponent implements OnInit {
       .subscribe(
         (response) => {
           console.log('Imagen subida exitosamente:', response);
-          // Aquí puedes manejar cualquier respuesta del servidor
         },
         (error) => {
           console.error('Error al cargar la imagen:', error);
-          // Aquí puedes manejar cualquier error
         }
       );
   }
