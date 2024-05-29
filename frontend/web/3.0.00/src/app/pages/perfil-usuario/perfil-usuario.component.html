@@ -67,8 +67,8 @@
                               <div class="position-relative me-2">
                                 <div class="pt-2 ms-2">
                                  <!-- user-profile.component.html -->
-                                  <input type="file" (change)="onFileChange($event)" />
-                                  <button (click)="subirFoto()"type="button">Subir Imagen</button>
+                                 <input type="file" (change)="onFileChanged($event)">
+                                 <button (click)="onUpload()">Subir Imagen</button>
                                  <a href="#" class="btn btn-danger btn-sm ms-2" title="Remove my profile image">
                                     <i class="bi bi-trash"></i>Eliminar foto
                                  </a>

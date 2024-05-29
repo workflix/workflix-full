@@ -24,13 +24,13 @@ export class PerfilUsuarioComponent implements OnInit {
   error: string = '';
   currentUserId = "";
   formCompleted: boolean = false;
+  selectedFile: File | null = null;
   constructor(
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
     private http: HttpClient,
-    private selectedFile: File,
   ) {
     this.perfilForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
@@ -46,20 +46,30 @@ export class PerfilUsuarioComponent implements OnInit {
     });
 
   }
-  onFileChange(event: any) {
+  onFileChanged(event: any) {
     this.selectedFile = event.target.files[0];
   }
-    subirFoto(){
-      {
-        const uploadData = new FormData();
-        uploadData.append('file', this.selectedFile, this.selectedFile.name);
-
-        this.http.post(`http://localhost:8080/usuarios/upload/${this.currentUserId}`, uploadData)
-          .subscribe(response => {
-            console.log('Imagen subida con éxito');
-          });
-      }
+  onUpload() {
+    if (!this.selectedFile) {
+      console.error('No se ha seleccionado ningún archivo.');
+      return;
     }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+
+    this.http.post('http://localhost:8080/usuarios/upload/'+this.currentUser?.id, formData)
+      .subscribe(
+        (response) => {
+          console.log('Imagen subida exitosamente:', response);
+          // Aquí puedes manejar cualquier respuesta del servidor
+        },
+        (error) => {
+          console.error('Error al cargar la imagen:', error);
+          // Aquí puedes manejar cualquier error
+        }
+      );
+  }
 
   ngOnInit(): void {
     console.log('Inicializando componente');
