@@ -15,7 +15,7 @@ import org.springframework.web.*;
 @CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping("/usuarios")
 public class UsuarioController {
-
+    private static String UPLOAD_DIR = "src/main/resources/static/images/";
     @Autowired
     private UsuarioService service;
 
