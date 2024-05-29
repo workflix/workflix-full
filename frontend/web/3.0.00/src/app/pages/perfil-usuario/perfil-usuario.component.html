@@ -66,10 +66,9 @@
                              <div class="col-md-8 col-lg-9">
                               <div class="position-relative me-2">
                                 <div class="pt-2 ms-2">
-                                 <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image">
-                                    <i class="bi bi-upload"></i>Buscar foto
-                                    <input type="file" id="profileImage" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;">
-                                 </a>
+                                 <!-- user-profile.component.html -->
+                                  <input type="file" (change)="onFileChange($event)" />
+                                  <button (click)="subirFoto()"type="button">Subir Imagen</button>
                                  <a href="#" class="btn btn-danger btn-sm ms-2" title="Remove my profile image">
                                     <i class="bi bi-trash"></i>Eliminar foto
                                  </a>
@@ -98,7 +97,7 @@
                                         <div *ngIf="perfilForm.get('apellido')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
                                      </div>
 
-                                        
+
                                      <label for="mail">Correo electrónico:</label><br>
                                      <input class="form-control" type="email" formControlName="mail" id="mail" name="mail" placeholder="Nuevo correo electrónico" value="{{this.currentUser.correo}}" required>
                                              <div *ngIf="perfilForm.get('mail')?.invalid && (perfilForm.get('mail')?.dirty || perfilForm.get('mail')?.touched)" class="text-danger">
@@ -106,7 +105,7 @@
                                                 <div *ngIf="perfilForm.get('mail')?.errors?.['minlength']">El correo electrónico debe tener más de 10 caracteres.</div>
                                                 <div *ngIf="perfilForm.get('mail')?.errors?.['pattern']">El formato de correo electrónico no coincide.</div>
                                              </div>
-                                           
+
 
                                      <label for="adress">Domicilio:</label><br>
                                      <input class="form-control" type="text" formControlName="adress" id="adress" placeholder="Nuevo domicilio" value="{{this.currentUser.direccion}}" required>
@@ -115,7 +114,7 @@
                                                 <div *ngIf="perfilForm.get('adress')?.errors?.['maxlength']">El domicilio debe tener un máximo de 40 caracteres.</div>
                                              </div>
 
-                                               
+
                                      <label for="phone">Teléfono:</label><br>
                                      <input class="form-control" type="tel" formControlName="phone" id="phone" placeholder="Nuevo teléfono" value="{{this.currentUser.telefono}}" required>
                                              <div *ngIf="perfilForm.get('phone')?.invalid && (perfilForm.get('phone')?.dirty || perfilForm.get('phone')?.touched)" class="text-danger">
