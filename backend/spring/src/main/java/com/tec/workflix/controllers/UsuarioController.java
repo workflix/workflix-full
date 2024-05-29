@@ -79,7 +79,22 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarios);
     }
 
+    @PostMapping("/upload/{id}")
+    public ResponseEntity<String> uploadImage(@PathVariable Integer id, @RequestParam("file") MultipartFile file) {
+        try {
+            // Guardar archivo en servidor
+            Path path = Paths.get(UPLOAD_DIR + file.getOriginalFilename());
+            Files.write(path, file.getBytes());
 
+            // Guardar ruta en base de datos
+            String imageUrl = "/images/" + file.getOriginalFilename();
+            service.updateUserProfileImage(id, imageUrl);
+
+            return ResponseEntity.ok("Imagen subida y ruta guardada con éxito.");
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body("Error al subir la imagen.");
+        }
+    }
 }
 /*
    @PostMapping("/actualizar/{id}")
