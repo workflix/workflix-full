@@ -5,7 +5,7 @@ import { CommonModule} from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -24,12 +24,14 @@ export class PerfilUsuarioComponent implements OnInit {
   error: string = '';
   currentUserId = "";
   formCompleted: boolean = false;
-
+  selectedFile: File | null = null;
+  imagenUrl: string = '';
   constructor(
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient,
   ) {
     this.perfilForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
@@ -43,7 +45,29 @@ export class PerfilUsuarioComponent implements OnInit {
     this.perfilForm.valueChanges.subscribe(() => {
       this.checkFormCompletion();
     });
-    
+
+  }
+  onFileChanged(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
+  onUpload() {
+    if (!this.selectedFile) {
+      console.error('No se ha seleccionado ningún archivo.');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+
+    this.http.post('http://localhost:8080/usuarios/upload/'+this.currentUser?.id, formData)
+      .subscribe(
+        (response) => {
+          console.log('Imagen subida exitosamente:', response);
+        },
+        (error) => {
+          console.error('Error al cargar la imagen:', error);
+        }
+      );
   }
 
   ngOnInit(): void {
@@ -53,7 +77,17 @@ export class PerfilUsuarioComponent implements OnInit {
       this.currentUser = user;
       console.log('Usuario Obtenido', user);
       this.usuario = user;
-      
+      const fotoUsuario = this.usuario.foto; // Debes obtener la ruta de la foto del usuario desde tu modelo
+      if (fotoUsuario) {
+        this.http.get('http://localhost:8080' + fotoUsuario, { responseType: 'blob' })
+          .subscribe((imagen: Blob) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              this.imagenUrl = reader.result as string;
+            };
+            reader.readAsDataURL(imagen);
+          });
+      }
       this.perfilForm.patchValue({
         nombre: user.nombre,
         apellido: user.apellido,
@@ -63,7 +97,7 @@ export class PerfilUsuarioComponent implements OnInit {
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
       this.checkFormCompletion();
-    } 
+    }
     });
   }
 
@@ -77,7 +111,7 @@ export class PerfilUsuarioComponent implements OnInit {
     console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
       if (this.formCompleted && this.perfilForm.valid) {
-        
+
 
         const newUserData = {
           nombre: formData.nombre,
@@ -85,11 +119,11 @@ export class PerfilUsuarioComponent implements OnInit {
           correo: formData.mail,
           direccion: formData.adress,
           telefono: formData.phone,
-          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,
 
         };
-  
-        
+
+
         this.userService.updateUserProfile(this.currentUser.id, newUserData).subscribe(
           response => {
             if (this.currentUser) {

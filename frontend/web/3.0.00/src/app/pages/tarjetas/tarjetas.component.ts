@@ -33,7 +33,7 @@ export class TarjetasComponent implements OnInit {
   services: Service[] = [];
   filteredUsers: User[] = [];
   tieneProfesion: Boolean = false;
-  
+
   @ViewChild('scrollContainer') scrollContainer!: ElementRef;
 
   constructor(
@@ -56,23 +56,23 @@ export class TarjetasComponent implements OnInit {
       users => {
         this.users = users.filter(user => user.tipo_usuario && user.tipo_usuario.toLowerCase() === 'profesional' && user.precio != null);
         this.filteredUsers = this.users; // Inicialmente, muestra todos los usuarios
-  
+
         // Obtener servicios y usuarios vinculados después de obtener los usuarios
         this.serviceService.getAllServices().subscribe(
           services => {
             this.services = services;
-  
+
             this.usersServicesService.getAllUsersServices().subscribe(
               usersServicesModel => {
                 this.usersServicesArray = usersServicesModel;
-  
+
                 // Asignar servicios después de obtener todas las listas necesarias
                 this.asignarServicios(this.filteredUsers, this.services, this.usersServicesArray);
               }
             );
           }
         );
-  
+
         // Obtener el usuario actual
         this.loginService.getCurrentUser().subscribe(
           user => {
@@ -202,7 +202,7 @@ export class TarjetasComponent implements OnInit {
     if (serviceName === 'TODOS') {
       this.filteredUsers = this.users; // Mostrar todos los usuarios
     } else {
-      this.filteredUsers = this.users.filter(user => 
+      this.filteredUsers = this.users.filter(user =>
         user.servicios?.some(service => service.nombre.toLowerCase() === serviceName.toLowerCase())
       );
     }

@@ -74,4 +74,9 @@ public class UsuarioService implements IUsuarioInterface {
         return usuarioRepository.getUserDetailsByEmail(correo);
     }// Fin metodo para obtener detalle del usuario por correo
 
+    public void updateUserProfileImage(Integer id, String imageUrl) {
+       Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        usuario.setFoto(imageUrl);
+        usuarioRepository.save(usuario);
+    }
 }
