@@ -56,6 +56,22 @@ export class PerfilProfesionalComponent implements OnInit {
   onFileChanged(event: any) {
     this.selectedFile = event.target.files[0];
   }
+  onUpload() {
+   
+
+    const formData = new FormData();
+    formData.append('file', this.selectedFile);
+
+    this.http.post('http://localhost:8080/usuarios/upload/'+this.currentUser?.id, formData)
+      .subscribe(
+        (response) => {
+          console.log('Imagen subida exitosamente:', response);
+        },
+        (error) => {
+          console.error('Error al cargar la imagen:', error);
+        }
+      );
+  }
   ngOnInit(): void {
 
     this.loginService.getCurrentUser().subscribe(user => {
