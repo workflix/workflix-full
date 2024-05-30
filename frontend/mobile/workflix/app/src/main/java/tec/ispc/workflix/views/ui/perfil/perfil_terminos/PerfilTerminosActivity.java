@@ -50,7 +50,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
                     .load(imageUrl)
                     .placeholder(R.drawable.placeholder) // Imagen de placeholder mientras carga
                     .error(R.drawable.profesional_1)     // Imagen de error si falla la carga
-                    .into(imagenFoto);
+                    .into(tv_foto);
         }
 
 
