@@ -81,7 +81,17 @@ export class PerfilProfesionalComponent implements OnInit {
       this.currentUser = user;
       console.log('Usuario Obtenido', user);
       this.usuario = user;
-
+      const fotoUsuario = this.usuario.foto; // Debes obtener la ruta de la foto del usuario desde tu modelo
+      if (fotoUsuario) {
+        this.http.get('http://localhost:8080' + fotoUsuario, { responseType: 'blob' })
+          .subscribe((imagen: Blob) => {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              this.imagenUrl = reader.result as string;
+            };
+            reader.readAsDataURL(imagen);
+          });
+      }
       this.perfilForm.patchValue({
         nombre: user.nombre,
         apellido: user.apellido,
