@@ -335,7 +335,117 @@ public class Perfil extends AppCompatActivity {
                         throw new RuntimeException(e);
                     }
                     break;
-                case COD_FOTO:
+                case COD_FOTO:    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tarjeta_ampliada);
+
+        // Recepcion de los datos que vienen del CataloAdapter
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String nombreCompleto = extras.getString("nombreCompleto");
+            String imagenURL = extras.getString("imagenURL");
+            String descripcion = extras.getString("descripcion");
+            String correo = extras.getString("correo");
+            String ciudad = extras.getString("ciudad");
+            String provincia = extras.getString("provincia");
+            String telefono = extras.getString("telefono");
+            String servicio = extras.getString("servicio");
+
+            // Se asignan los datos del profesional TextViews e ImageView
+            TextView perfilNombreTextView = findViewById(R.id.perfilNombre);
+            ImageView imagenFotoImageView = findViewById(R.id.imagenFoto);
+            TextView perfilDescripcionTextView = findViewById(R.id.perfilDescripcion);
+            TextView perfilCorreoTextView = findViewById(R.id.perfilCorreo);
+            TextView perfilCiudadTextView = findViewById(R.id.perfilCiudad);
+            TextView perfilProvinciaTextView = findViewById(R.id.perfilProvincia);
+            TextView perfilTelefonoTextView = findViewById(R.id.perfilTelefono);
+            TextView perfilServicioTextView = findViewById(R.id.perfilServicio);
+
+            // Envio de datos a la interfaz
+            perfilNombreTextView.setText(nombreCompleto);
+            Picasso.get().load(imagenURL).into(imagenFotoImageView);
+            perfilDescripcionTextView.setText(descripcion);
+            perfilCorreoTextView.setText(correo);
+            perfilCiudadTextView.setText(ciudad);
+            perfilProvinciaTextView.setText(provincia);
+            perfilTelefonoTextView.setText(telefono);
+            perfilServicioTextView.setText(servicio);
+
+            // Obtén el botón "Contactar" por su ID
+            Button contactarButton = findViewById(R.id.contactarButton);
+            contactarButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Crea una Intent para abrir WhatsApp
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    String whatsappUrl = "https://api.whatsapp.com/send?phone=" + telefono;
+                    intent.setData(Uri.parse(whatsappUrl));
+
+                    // Comprueba si hay una aplicación que puede manejar la acción
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                    } else {
+                        // Opcional: Mostrar un mensaje si no se encuentra la aplicación
+                        Toast.makeText(TarjetaAmpliadaActivity.this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tarjeta_ampliada);
+
+        // Recepcion de los datos que vienen del CataloAdapter
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String nombreCompleto = extras.getString("nombreCompleto");
+            String imagenURL = extras.getString("imagenURL");
+            String descripcion = extras.getString("descripcion");
+            String correo = extras.getString("correo");
+            String ciudad = extras.getString("ciudad");
+            String provincia = extras.getString("provincia");
+            String telefono = extras.getString("telefono");
+            String servicio = extras.getString("servicio");
+
+            // Se asignan los datos del profesional TextViews e ImageView
+            TextView perfilNombreTextView = findViewById(R.id.perfilNombre);
+            ImageView imagenFotoImageView = findViewById(R.id.imagenFoto);
+            TextView perfilDescripcionTextView = findViewById(R.id.perfilDescripcion);
+            TextView perfilCorreoTextView = findViewById(R.id.perfilCorreo);
+            TextView perfilCiudadTextView = findViewById(R.id.perfilCiudad);
+            TextView perfilProvinciaTextView = findViewById(R.id.perfilProvincia);
+            TextView perfilTelefonoTextView = findViewById(R.id.perfilTelefono);
+            TextView perfilServicioTextView = findViewById(R.id.perfilServicio);
+
+            // Envio de datos a la interfaz
+            perfilNombreTextView.setText(nombreCompleto);
+            Picasso.get().load(imagenURL).into(imagenFotoImageView);
+            perfilDescripcionTextView.setText(descripcion);
+            perfilCorreoTextView.setText(correo);
+            perfilCiudadTextView.setText(ciudad);
+            perfilProvinciaTextView.setText(provincia);
+            perfilTelefonoTextView.setText(telefono);
+            perfilServicioTextView.setText(servicio);
+
+            // Obtén el botón "Contactar" por su ID
+            Button contactarButton = findViewById(R.id.contactarButton);
+            contactarButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Crea una Intent para abrir WhatsApp
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    String whatsappUrl = "https://api.whatsapp.com/send?phone=" + telefono;
+                    intent.setData(Uri.parse(whatsappUrl));
+
+                    // Comprueba si hay una aplicación que puede manejar la acción
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                    } else {
+                        // Opcional: Mostrar un mensaje si no se encuentra la aplicación
+                        Toast.makeText(TarjetaAmpliadaActivity.this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+
                     MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
                         @Override
                         public void onScanCompleted(String s, Uri uri) {

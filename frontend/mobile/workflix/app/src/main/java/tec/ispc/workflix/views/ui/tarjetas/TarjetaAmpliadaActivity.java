@@ -74,24 +74,6 @@ public class TarjetaAmpliadaActivity extends AppCompatActivity {
                     }
                 }
             });
-//                public void onClick(View view) {
-//                    // Crea una Intent para realizar una llamada
-//                    Intent intent = new Intent(Intent.ACTION_DIAL);
-//                    intent.setData(Uri.parse("tel:" + telefono));
-//
-//                    // Comprueba si hay una aplicación que puede manejar la acción
-//                    if (intent.resolveActivity(getPackageManager()) != null) {
-//                        startActivity(intent);
-//                    }
-//                }
-//            });
-
-
-
-
-
-
-
         }
 
     }
