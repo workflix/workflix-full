@@ -41,10 +41,15 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         String apellido = preferences.getString("apellido", "");
         String telefono = preferences.getString("descripcion", "");
         String foto = preferences.getString("foto", "");
+
+
         if (!foto.isEmpty()) {
-            Uri uriImagen = Uri.parse(foto);
-            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
-            Picasso.get().load(uriImagen).into(tv_foto);
+            String imageUrl = cargarImagen(usuario);
+            Picasso.get()
+                    .load(imageUrl)
+                    .placeholder(R.drawable.placeholder) // Imagen de placeholder mientras carga
+                    .error(R.drawable.profesional_1)     // Imagen de error si falla la carga
+                    .into(imagenFoto);
         }
 
 
