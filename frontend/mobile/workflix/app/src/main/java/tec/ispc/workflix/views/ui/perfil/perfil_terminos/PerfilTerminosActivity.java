@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.perfil.Perfil;
 
@@ -97,5 +98,12 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     };
+    private String cargarImagen(Usuario usuario) {
+        if (usuario.getFoto() != null && !usuario.getFoto().isEmpty()) {
+            return tec.ispc.workflix.utils.Environment.URL + usuario.getFoto();
+        } else {
+            return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
+        }
+    }
 
 };
