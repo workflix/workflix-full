@@ -41,7 +41,8 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         String apellido = preferences.getString("apellido", "");
         String telefono = preferences.getString("descripcion", "");
         String foto = preferences.getString("foto", "");
-
+        Usuario usuario = new Usuario();
+        usuario.setFoto(foto);
 
         if (!foto.isEmpty()) {
             String imageUrl = cargarImagen(usuario);
