@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.models.Usuario;
 import tec.ispc.workflix.views.MainActivity;
 import tec.ispc.workflix.views.ui.perfil.Perfil;
 
@@ -24,7 +25,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
     private TextView tv_decripcion;
     ImageView tv_foto;
     private Button sign_out_btn;
-
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +41,16 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         String apellido = preferences.getString("apellido", "");
         String telefono = preferences.getString("descripcion", "");
         String foto = preferences.getString("foto", "");
+        Usuario usuario = new Usuario();
+        usuario.setFoto(foto);
+
         if (!foto.isEmpty()) {
-            Uri uriImagen = Uri.parse(foto);
-            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
-            Picasso.get().load(uriImagen).into(tv_foto);
+            String imageUrl = cargarImagen(usuario);
+            Picasso.get()
+                    .load(imageUrl)
+                    .placeholder(R.drawable.placeholder) // Imagen de placeholder mientras carga
+                    .error(R.drawable.profesional_1)     // Imagen de error si falla la carga
+                    .into(tv_foto);
         }
 
 
@@ -97,5 +104,12 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     };
+    private String cargarImagen(Usuario usuario) {
+        if (usuario.getFoto() != null && !usuario.getFoto().isEmpty()) {
+            return tec.ispc.workflix.utils.Environment.URL + usuario.getFoto();
+        } else {
+            return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
+        }
+    }
 
 };
