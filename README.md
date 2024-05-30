@@ -132,8 +132,16 @@ To set up the web backend, follow these steps:
    ```
     docker stop workflix-container
    ```
+### Start mobile frontend
 
+To build the mobile frontend, follow these steps:
 
+1. Go to the `mobile/workflix/` folder.
+2. Open the project at that level with your favorite ide.
+3. Now open the Environment class in the folder `mobile/workflix/app/src/main/java/tec/ispc/workflix/utils/`.
+4. change the URL variable to your local ip for example `public static final String URL="http://0.0.0.0:8080";`
+5. Then click on run and launch the project.
+   
 **Documentation**
 
 * [Documento-IEEE830](https://github.com/workflix/workflix-full/wiki/Documento-IEEE830)
