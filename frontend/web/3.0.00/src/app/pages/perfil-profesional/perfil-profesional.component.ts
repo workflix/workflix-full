@@ -53,7 +53,9 @@ export class PerfilProfesionalComponent implements OnInit {
     });
 
   }
-
+  onFileChanged(event: any) {
+    this.selectedFile = event.target.files[0];
+  }
   ngOnInit(): void {
 
     this.loginService.getCurrentUser().subscribe(user => {
