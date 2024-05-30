@@ -17,10 +17,10 @@ export class ChatService {
   conversation = new Subject<Message[]>();
 
   messageMap:any = {
-    Hi: "Hello",
-    "Who are you": "My name is Agular Bot",
-    "What is Angular": "Angular is the best framework ever",
-    default: "I can't understand. Can you please repeat"
+    Hola: "Hola mi loco",
+    "Quien sos?": "Soy un exclavo de la secta de workflix",
+    "Que secta?": "Los que viven acotando boludeces",
+    default: "No puedo responder a eso, preguntame otra cosa"
   };
 
   getBotAnswer(msg: string) {

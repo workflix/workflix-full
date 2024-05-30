@@ -1,14 +1,17 @@
-<h1>JSExpert Angular Chat Bot</h1>
-<ng-container *ngFor="let message of messages">
-<div class="message"
-[ngClass]="{ 'from': message.author === 'bot',
-'to': message.author === 'user' }">
-{{ message.content }}
+<div class="container d-flex flex-column align-items-center mt-5">
+  <h1>Bienvenido al chat de bot de Workflix</h1>
+  <div class="w-75">
+    <ng-container *ngFor="let message of messages">
+      <div class="message w-50 mx-auto"
+           [ngClass]="{ 'from': message.author === 'bot', 'to': message.author === 'user' }">
+        {{ message.content }}
+      </div>
+    </ng-container>
+    <label *ngIf="messages.length == 0; else dialogInfo" for="nameField" class="d-block text-center">Ingrese su mensaje</label>
+    <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" class="form-control my-2">
+    <button (click)="sendMessage()" class="btn btn-primary btn-block">Enviar</button>
+    <ng-template #dialogInfo>
+      <span class="float-right">Mensajes totales: {{messages.length}}</span>
+    </ng-template>
+  </div>
 </div>
-</ng-container>
-<label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label>
-<input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
-<button (click)="sendMessage()">Send</button>
-<ng-template #dialogInfo>
-<span [className]="'float-right'">Total messages: {{messages.length}}</span>
-</ng-template>
