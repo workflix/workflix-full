@@ -15,6 +15,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Usuario;
+import tec.ispc.workflix.utils.Environment;
 
 public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.CatalogoViewHolder> {
     private List<Usuario> listaDeUsuarios;
@@ -45,7 +46,12 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
         holder.perfilServicio.setText(usuario.getProfesion());
         holder.perfilNombre.setText(nombreCompleto);
         holder.perfilDescripcion.setText(usuario.getDescripcion());
-        Picasso.get().load(usuario.getFoto()).into(holder.imagenFoto);
+        String imageUrl = getUserImage(usuario);
+        Picasso.get()
+                .load(imageUrl)
+                .placeholder(R.drawable.placeholder) // Imagen de placeholder mientras carga
+                .error(R.drawable.profesional_1)     // Imagen de error si falla la carga
+                .into(holder.imagenFoto);
 
         holder.botonConsultar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +104,12 @@ public class CatalogoAdapter extends RecyclerView.Adapter<CatalogoAdapter.Catalo
         context.startActivity(intent);
     }
 
-
+    private String getUserImage(Usuario usuario) {
+        if (usuario.getFoto() != null && !usuario.getFoto().isEmpty()) {
+            return Environment.URL + usuario.getFoto();
+        } else {
+            return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
+        }
+    }
 
 }
