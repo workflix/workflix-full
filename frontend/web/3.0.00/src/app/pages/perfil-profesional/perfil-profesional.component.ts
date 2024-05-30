@@ -57,8 +57,10 @@ export class PerfilProfesionalComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
   onUpload() {
-   
-
+    if (!this.selectedFile) {
+      console.error('No se ha seleccionado ningún archivo.');
+      return;
+    }
     const formData = new FormData();
     formData.append('file', this.selectedFile);
 
