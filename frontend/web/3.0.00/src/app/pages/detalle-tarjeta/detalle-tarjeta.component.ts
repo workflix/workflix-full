@@ -37,4 +37,8 @@ export class DetalleTarjeta implements OnInit {
     // Lógica para dirigir a la pasarela de pago
     this.router.navigate(['/pasarela-pago']);
   }
+
+  getUserImage(profesional: User): string {
+    return profesional.foto ? `http://localhost:8080${profesional.foto}` : 'assets/images/sin_foto.webp';
+  }
 }

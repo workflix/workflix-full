@@ -4,11 +4,11 @@
     <div class="col-lg-4 col-md-6">
       <div class="card mb-3">
         <div class="card-header bg-primary text-white text-center">
-          <i class="bi bi-wrench-adjustable fs-2"></i> {{ profesional?.profesion }}
+          <i class="bi bi-wrench-adjustable fs-2"></i> {{ profesional?.profesion}}
         </div>
         <div class="card-body">
           <div class="d-flex justify-content-center mb-3">
-            <img src="assets/images/profesional-1.jpg" alt="Foto Perfil Profesional" class="img-fluid rounded-circle">
+            <img [src]="profesional ? getUserImage(profesional) : 'assets/images/sin_foto.webp'" alt="Foto Perfil Profesional" class="img-fluid rounded-circle">
           </div>
           <div class="text-center">
             <h5 class="card-title">{{ profesional?.nombre }} {{ profesional?.apellido }}</h5>
@@ -25,41 +25,41 @@
           <h5> Telefono: </h5>
         </div>
         <div>
-          <p>{{ profesional?.telefono }}</p> 
+          <p>{{ profesional?.telefono }}</p>
         </div>
 
         <div>
           <h5> Correo: </h5>
         </div>
         <div>
-          <p>{{ profesional?.correo }}</p> 
+          <p>{{ profesional?.correo }}</p>
         </div>
 
         <div>
           <h5> Direccion: </h5>
         </div>
         <div>
-          <p>{{ profesional?.direccion }}</p> 
+          <p>{{ profesional?.direccion }}</p>
         </div>
-      
+
         <div>
           <h4> Descripción: </h4>
         </div>
         <div>
-          <p>{{ profesional?.descripcion }}</p> 
+          <p>{{ profesional?.descripcion }}</p>
         </div>
-        
+
       </div>
     </div>
   </div>
-            
+
   <div class="banner">
     <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner">
     <div class="calificaciones-box">
       <div class="calificaciones-text">Calificaciones</div>
     </div>
   </div>
-</div> 
+</div>
 
 
 <!--VALORACIONES-->

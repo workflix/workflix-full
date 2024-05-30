@@ -182,5 +182,9 @@ export class DestacadosComponent implements OnInit {
       console.error('No se encontró el usuario con ID:', userId);
     }
   }
+
+  getUserImage(user: User): string {
+    return user.foto ? `http://localhost:8080${user.foto}` : 'assets/images/sin_foto.webp';
+  }
 }
 
