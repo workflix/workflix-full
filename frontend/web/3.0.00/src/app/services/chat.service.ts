@@ -9,9 +9,9 @@ export class Message {
   providedIn: 'root'
 })
 export class ChatService {
-  audioFile = new Audio(
-    "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3"
-  );
+  // audioFile = new Audio(
+  //   "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3"
+  // );
   constructor() {}
 
   conversation = new Subject<Message[]>();
@@ -29,14 +29,14 @@ export class ChatService {
     const botMessage = new Message("bot", this.getBotMessage(msg));
 
     setTimeout(() => {
-      this.playFile();
+      // this.playFile();
       this.conversation.next([botMessage]);
     }, 1500);
   }
 
-  playFile() {
-    this.audioFile.play();
-  }
+  // playFile() {
+  //   this.audioFile.play();
+  // }
 
   // playAudio() {
   //   this.playFile("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3");
