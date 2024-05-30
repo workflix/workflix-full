@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { LoginService } from '../../services/login.service';
 import { User } from '../../models/user';
 import { ServiceService } from '../../services/service.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-perfil-profesional',
@@ -24,14 +25,16 @@ export class PerfilProfesionalComponent implements OnInit {
   currentUserId = "";
   profesiones: string[] = [];
   formCompleted: boolean = false;
-
+  selectedFile: File | null = null;
+  imagenUrl: string = '';
 
   constructor(
     private loginService: LoginService,
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private serviceService: ServiceService
+    private serviceService: ServiceService,
+    private http: HttpClient,
   ) {
     this.perfilForm = this.formBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(40)]],
@@ -52,13 +55,13 @@ export class PerfilProfesionalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
+
     this.loginService.getCurrentUser().subscribe(user => {
       if (user){
       this.currentUser = user;
       console.log('Usuario Obtenido', user);
       this.usuario = user;
-      
+
       this.perfilForm.patchValue({
         nombre: user.nombre,
         apellido: user.apellido,
@@ -71,9 +74,9 @@ export class PerfilProfesionalComponent implements OnInit {
         tipo_usuario: user.tipo_usuario === 'profesional'
       });
       this.checkFormCompletion();
-    } 
+    }
     });
-  
+
 
   this.serviceService.getServicesByName().subscribe(
     (services: string[]) => {
@@ -95,7 +98,7 @@ export class PerfilProfesionalComponent implements OnInit {
     console.log('Valores del formulario:', this.perfilForm.value);
     if (this.currentUser) {
       if (this.formCompleted && this.perfilForm.valid) {
-        
+
         const newUserData = {
           nombre: formData.nombre,
           apellido: formData.apellido,
@@ -105,11 +108,11 @@ export class PerfilProfesionalComponent implements OnInit {
           profesion: formData.profesion ,
           precio: formData.precio,
           descripcion: formData.descripcion,
-          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,        
-        
+          tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,
+
         };
-  
-        
+
+
         this.userService.updateUserProfile(this.currentUser.id, newUserData).subscribe(
           response => {
             if (this.currentUser) {
@@ -140,7 +143,7 @@ export class PerfilProfesionalComponent implements OnInit {
       console.error('No hay un usuario actual.');
     }
   }
-  
+
 
   deleteUser(): void {
     if (this.currentUser) {
