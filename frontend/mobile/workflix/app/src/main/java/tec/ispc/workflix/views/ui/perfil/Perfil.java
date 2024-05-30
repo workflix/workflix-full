@@ -1,5 +1,6 @@
 package tec.ispc.workflix.views.ui.perfil;
 
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,6 +64,7 @@ public class Perfil extends AppCompatActivity {
     private String tipo_usuario;
     private ArrayAdapter<String> adapter;
     ServicioService servicioService;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +98,8 @@ public class Perfil extends AppCompatActivity {
         String foto = preferences.getString("foto","");
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
-
+        Usuario usuario = new Usuario();
+        usuario.setFoto(foto);
 
         // Seteo los valores al perfil
         tv_nombre.setText(nombre);
@@ -119,9 +122,12 @@ public class Perfil extends AppCompatActivity {
         }
 
         if (!foto.isEmpty()) {
-            Uri uriImagen = Uri.parse(foto);
-            // Usa una biblioteca como Picasso o Glide para cargar y mostrar la imagen
-            Picasso.get().load(uriImagen).into(imagenFoto);
+            String imageUrl = cargarImagen(usuario);
+            Picasso.get()
+                    .load(imageUrl)
+                    .placeholder(R.drawable.placeholder) // Imagen de placeholder mientras carga
+                    .error(R.drawable.profesional_1)     // Imagen de error si falla la carga
+                    .into(imagenFoto);
         }
 
         btnEliminarPerfil.setOnClickListener(new View.OnClickListener() {
@@ -212,16 +218,6 @@ public class Perfil extends AppCompatActivity {
             }
         });
     }
-
-
-    private String convertirImgString(Bitmap bitmap) {
-        ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
-        byte [] imagenByte = array.toByteArray();
-        String imagenString = Base64.encodeToString(imagenByte,Base64.DEFAULT);
-        return imagenString;
-    }
-
     public void updateUsuario(Usuario usuario,int id){
         usuarioService= Apis.getUsuarioService();
         Call<Usuario>call=usuarioService.actPerfil(usuario,id);
@@ -259,6 +255,21 @@ public class Perfil extends AppCompatActivity {
         Intent intent =new Intent(Perfil.this, MainActivity.class);
         startActivity(intent);
     }
+    private String cargarImagen(Usuario usuario) {
+        if (usuario.getFoto() != null && !usuario.getFoto().isEmpty()) {
+            return tec.ispc.workflix.utils.Environment.URL + usuario.getFoto();
+        } else {
+            return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
+        }
+    }
+    /*
+        private String convertirImgString(Bitmap bitmap) {
+        ByteArrayOutputStream array = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
+        byte [] imagenByte = array.toByteArray();
+        String imagenString = Base64.encodeToString(imagenByte,Base64.DEFAULT);
+        return imagenString;
+    }
 
     public void subirFoto(View view) {
         cargarImagen();
@@ -272,19 +283,18 @@ public class Perfil extends AppCompatActivity {
         alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                /*if(opciones[i].equals("Tomar Foto")){
-                    tomarFotografia();}*/
-                /*if{*/
-                    if ( opciones[i].equals("Cargar Imagen")){
+                (opciones[i].equals("Tomar Foto")){
+                    tomarFotografia();}
+                   if ( opciones[i].equals("Cargar Imagen")){
                         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                         intent.setType("image/");
                         startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
                     }else {
                         dialogInterface.dismiss();
                     }
-                /*}*/
             }
         });
+
         alertOpciones.show();
     }
 
@@ -338,5 +348,7 @@ public class Perfil extends AppCompatActivity {
 
         }
     }
+
+     */
 }
 
