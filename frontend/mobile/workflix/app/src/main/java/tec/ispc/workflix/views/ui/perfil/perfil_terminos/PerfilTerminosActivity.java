@@ -25,7 +25,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
     private TextView tv_decripcion;
     ImageView tv_foto;
     private Button sign_out_btn;
-
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
