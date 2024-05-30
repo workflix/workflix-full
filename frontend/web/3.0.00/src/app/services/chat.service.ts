@@ -16,7 +16,7 @@ export class ChatService {
 
   conversation = new Subject<Message[]>();
 
-  messageMap = {
+  messageMap:any = {
     Hi: "Hello",
     "Who are you": "My name is Agular Bot",
     "What is Angular": "Angular is the best framework ever",
@@ -38,9 +38,9 @@ export class ChatService {
     this.audioFile.play();
   }
 
-  playAudio() {
-    this.playFile("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3");
-  }
+  // playAudio() {
+  //   this.playFile("https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3");
+  // }
 
   getBotMessage(question: string) {
     let answer = this.messageMap[question];

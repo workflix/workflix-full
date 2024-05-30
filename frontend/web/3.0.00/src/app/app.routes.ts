@@ -17,6 +17,7 @@ import { PerfilProfesionalComponent } from './pages/perfil-profesional/perfil-pr
 import { ServiceCreateComponent } from './pages/dashboard/service-create/service-create.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AdvertenciaComponent } from './pages/advertencia/advertencia.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
@@ -36,8 +37,8 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/service-create', component: ServiceCreateComponent, canActivate: [authGuardIsAdmin] },
-  {path: '**', component: PageNotFoundComponent}
-
+  {path: 'chat', component: ChatComponent},
+  {path: '**', component: PageNotFoundComponent},
 
 ];
 
