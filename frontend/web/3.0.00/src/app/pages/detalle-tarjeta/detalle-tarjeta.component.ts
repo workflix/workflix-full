@@ -39,6 +39,6 @@ export class DetalleTarjeta implements OnInit {
   }
 
   getUserImage(profesional: User): string {
-    return profesional.foto ? `http://localhost:8080${profesional.foto}` : 'assets/images/sin-foto.webp';
+    return profesional.foto ? `http://localhost:8080${profesional.foto}` : 'assets/images/sin_foto.webp';
   }
 }
