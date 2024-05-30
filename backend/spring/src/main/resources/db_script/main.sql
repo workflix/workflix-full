@@ -1,3 +1,4 @@
+ -- Consulta para tabla usuario
 INSERT INTO workflix.usuario (id, apellido, ciudad, clave, correo, descripcion, direccion, foto, nombre, precio, provincia, telefono, tipo_usuario) VALUES
 (1, 'Gonzalez', 'Buenos Aires', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'gonzalez@mail.com', 'Experto en instalaciones de agua y gas', 'Av. Rivadavia 123', '/images/hombre_1.jpg', 'Eduardo', 50, 'Buenos Aires', '11223344', 'profesional'),
 (2, 'Lopez', 'Córdoba', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'lopez@mail.com', 'Electricista con años de experiencia', 'Av. San Martín 456', '/images/mujer_1.jpeg', 'María', 50, 'Córdoba', '22334455', 'profesional'),
