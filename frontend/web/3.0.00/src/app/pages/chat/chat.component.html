@@ -1,8 +1,8 @@
 <div class="container d-flex flex-column align-items-center mt-5">
-  <h1>Bienvenido al chat de bot de Workflix</h1>
-  <div class="w-75">
+  <h1 class="mt-5" style="color: #808180;">Bienvenido al chat de bot de Workflix</h1>
+  <div class="w-50">
     <ng-container *ngFor="let message of messages">
-      <div class="message w-50 mx-auto"
+      <div class="message w-100 mx-auto"
            [ngClass]="{ 'from': message.author === 'bot', 'to': message.author === 'user' }">
         {{ message.content }}
       </div>
