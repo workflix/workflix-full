@@ -184,7 +184,7 @@ export class DestacadosComponent implements OnInit {
   }
 
   getUserImage(user: User): string {
-    return user.foto ? `http://localhost:8080${user.foto}` : 'assets/images/profesional-1.jpg';
+    return user.foto ? `http://localhost:8080${user.foto}` : 'assets/images/sin_foto.webp';
   }
 }
 
