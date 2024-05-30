@@ -79,10 +79,8 @@
                                <div class="col-md-8 col-lg-9">
                                 <div class="position-relative me-2">
                                   <div class="pt-2 ms-2">
-                                   <a href="#" class="btn btn-primary btn-sm" title="Upload new profile image">
-                                      <i class="bi bi-upload"></i>Buscar foto
-                                      <input type="file" id="profileImage" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0;">
-                                   </a>
+                                    <input id="profileImage"  class="btn btn-primary btn-sm" type="file" (change)="onFileChanged($event)">
+                                    <button class="btn btn-success btn-sm ms-2"(click)="onUpload()">Subir Imagen</button>
                                    <a href="#" class="btn btn-danger btn-sm ms-2" title="Remove my profile image">
                                       <i class="bi bi-trash"></i>Eliminar foto
                                    </a>
