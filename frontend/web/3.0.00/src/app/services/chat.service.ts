@@ -18,6 +18,8 @@ export class ChatService {
     Hola: "Buen día, un gusto poder hablar con usted",
     "¿Cómo pago por los servicios?": "Aceptamos pagos a través de tarjeta de crédito, débito y transferencias bancarias.",
     "¿Puedo pedir más de un servicio a la vez?": "Claro, puedes seleccionar múltiples servicios en la misma solicitud.",
+    "¿Qué hago si un albañil me roba mis herramientas?": "Contacta inmediatamente a nuestro servicio al cliente para tomar las acciones necesarias.",
+    "¿Puedo reprogramar una cita?": "Sí, puedes reprogramar tu cita desde tu cuenta en nuestra página o contactando directamente al profesional contratado.",
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
