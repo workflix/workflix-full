@@ -30,7 +30,24 @@ export class ChatService {
     "¿Puedo obtener una factura por el servicio?": "¡Por supuesto! Todos nuestros servicios incluyen factura detallada para que tengas un registro completo.",
     "¿Ofrecen algún tipo de garantía por los servicios?": "Sí, ofrecemos garantía por nuestros servicios. ¡Tu satisfacción es nuestra prioridad!",
     "¿Cómo puedo saber si el profesional contratado está certificado?": "Todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente.",
-    default: "No puedo responder a eso, preguntame otra cosa"
+    "¿Cómo estas?": "Excelente y vos?",
+    "¿Te puedo hacer otra pregunta?": "Si, decime",
+    "preguntas": `Puedes preguntar cosas como:
+    "¿Cómo pago por los servicios?",
+    "¿Puedo pedir más de un servicio a la vez?",
+    "¿Qué hago si un albañil me roba mis herramientas?",
+    "¿Puedo reprogramar una cita?",
+    "¿Cómo puedo verificar la experiencia del profesional?",
+    "¿Qué pasa si no estoy satisfecho con el trabajo realizado?",
+    "¿Ofrecen servicios durante los fines de semana?",
+    "¿Cómo puedo dejar una reseña del servicio?",
+    "¿Los profesionales están asegurados?",
+    "¿Puedo solicitar un servicio para el mismo día?",
+    "¿Cómo puedo cancelar un servicio?",
+    "¿Puedo obtener una factura por el servicio?",
+    "¿Ofrecen algún tipo de garantía por los servicios?",
+    "¿Cómo puedo saber si el profesional contratado está certificado?"`,
+  default: "No puedo responder a eso, preguntame otra cosa o escribe 'preguntas' para ver las opciones disponibles."
   };
 
   getBotAnswer(msg: string) {
@@ -39,7 +56,6 @@ export class ChatService {
     const botMessage = new Message("bot", this.getBotMessage(msg));
 
     setTimeout(() => {
-      // this.playFile();
       this.conversation.next([botMessage]);
     }, 1500);
   }
