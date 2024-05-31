@@ -28,7 +28,8 @@ export class ChatService {
     "¿Puedo solicitar un servicio para el mismo día?": "La disponibilidad de servicios para el mismo día depende de la agenda de los profesionales. ¡Contáctanos para verificar la disponibilidad!",
     "¿Cómo puedo cancelar un servicio?": "Puedes cancelar tu servicio desde tu cuenta en nuestra página o llamando diectamente al profesional.",
     "¿Puedo obtener una factura por el servicio?": "¡Por supuesto! Todos nuestros servicios incluyen factura detallada para que tengas un registro completo.",
-        
+    "¿Ofrecen algún tipo de garantía por los servicios?": "Sí, ofrecemos garantía por nuestros servicios. ¡Tu satisfacción es nuestra prioridad!",
+    "¿Cómo puedo saber si el profesional contratado está certificado?": "Todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente.",    
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
