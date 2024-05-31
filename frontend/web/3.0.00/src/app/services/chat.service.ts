@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from "rxjs";
-
 export class Message {
   constructor(public author: string, public content: string) {}
 }
@@ -165,9 +164,67 @@ export class ChatService {
   }
 
 
+  getSimilarity(str1: string, str2: string): number {
+    // Convertir las cadenas a minúsculas y remover signos de puntuación
+    const normalizedStr1 = str1.toLowerCase().replace(/[¿?]/g, '').trim();
+    const normalizedStr2 = str2.toLowerCase().replace(/[¿?]/g, '').trim();
+
+    // Calcular la similitud usando la distancia de Levenshtein
+    const maxLength = Math.max(normalizedStr1.length, normalizedStr2.length);
+    const levenshteinDistance = this.getLevenshteinDistance(normalizedStr1, normalizedStr2);
+
+    // Calcular la similitud normalizada
+    const similarity = 1 - levenshteinDistance / maxLength;
+
+    return similarity;
+  }
+
+  getLevenshteinDistance(str1: string, str2: string): number {
+    const matrix = [];
+    const len1 = str1.length + 1;
+    const len2 = str2.length + 1;
+
+    for (let i = 0; i < len1; i++) {
+      matrix[i] = [i];
+    }
+
+    for (let j = 0; j < len2; j++) {
+      matrix[0][j] = j;
+    }
+
+    for (let i = 1; i < len1; i++) {
+      for (let j = 1; j < len2; j++) {
+        const cost = str1.charAt(i - 1) === str2.charAt(j - 1) ? 0 : 1;
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j - 1] + cost
+        );
+      }
+    }
+
+    return matrix[len1 - 1][len2 - 1];
+  }
+
   getBotMessage(question: string) {
-    let answer = this.messageMap[question];
-    return answer || this.messageMap["default"];
+    // Buscar la pregunta más similar en la base de datos
+    let maxSimilarity = 0;
+    let mostSimilarQuestion = '';
+
+    Object.keys(this.messageMap).forEach(existingQuestion => {
+      const similarity = this.getSimilarity(question, existingQuestion);
+      if (similarity > maxSimilarity) {
+        maxSimilarity = similarity;
+        mostSimilarQuestion = existingQuestion;
+      }
+    });
+
+    // Si la similitud supera un cierto umbral, devolver la respuesta correspondiente
+    if (maxSimilarity > 0.7) {
+      return this.messageMap[mostSimilarQuestion];
+    } else {
+      return this.messageMap["default"];
+    }
   }
 }
 
