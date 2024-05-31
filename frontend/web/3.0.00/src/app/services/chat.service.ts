@@ -20,6 +20,8 @@ export class ChatService {
     "¿Puedo pedir más de un servicio a la vez?": "Claro, puedes seleccionar múltiples servicios en la misma solicitud.",
     "¿Qué hago si un albañil me roba mis herramientas?": "Contacta inmediatamente a nuestro servicio al cliente para tomar las acciones necesarias.",
     "¿Puedo reprogramar una cita?": "Sí, puedes reprogramar tu cita desde tu cuenta en nuestra página o contactando directamente al profesional contratado.",
+    "¿Cómo puedo verificar la experiencia del profesional?": "Cada profesional tiene un perfil con sus calificaciones y comentarios de clientes anteriores.",
+    "¿Qué pasa si no estoy satisfecho con el trabajo realizado?": "Contacta con nuestro servicio al cliente para discutir la situación y encontrar una solución.",
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
