@@ -1,25 +1,40 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .message {
-  border-radius: 50px !important;
-  margin: 0 15px 20px !important;
-  padding: 10px 20px !important;
-  position: relative !important;
-  font-size: 20px !important;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px 0;
 }
-.message.to {
-  background-color: #2095FE !important;
-  color: #fff !important;
-  margin-left: 100px !important;
-  text-align: right !important;
+
+.from {
+  background-color: #f1f1f1;
+  text-align: left;
 }
-.message.from {
-  background-color: #E5E4E9 !important;
-  color: #363636 !important;
-  margin-right: 100px !important;
+
+.to {
+  background-color: #007bff;
+  color: white;
+  text-align: right;
 }
-.message.to + .message.to,
-.message.from + .message.from {
-  margin-top: -10px !important;
+
+.input-group {
+  display: flex;
+  align-items: center;
 }
-.container{
-  height: 100vh !important;
+
+.input-group .form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.btn .fas {
+  margin-right: 0;
 }

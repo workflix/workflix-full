@@ -1,15 +1,20 @@
 <div class="container d-flex flex-column align-items-center mt-5">
-  <h1 class="mt-5" style="color: #808180;">Bienvenido al chat de bot de Workflix</h1>
-  <div class="w-50">
+  <h1 class="mt-5" style="color: #808180;">ChatBot de Workflix</h1>
+  <div class="w-100">
     <ng-container *ngFor="let message of messages">
       <div class="message w-100 mx-auto"
            [ngClass]="{ 'from': message.author === 'bot', 'to': message.author === 'user' }">
         {{ message.content }}
       </div>
     </ng-container>
-    <label *ngIf="messages.length == 0; else dialogInfo" for="nameField" class="d-block text-center">Ingrese su mensaje</label>
-    <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" class="form-control my-2">
-    <button (click)="sendMessage()" class="btn btn-primary btn-block">Enviar</button>
+    <div class="input-group my-2">
+      <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" class="form-control" placeholder="Ingrese su mensaje">
+      <div class="input-group-append">
+        <button (click)="sendMessage()" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
     <ng-template #dialogInfo>
       <span class="float-right">Mensajes totales: {{messages.length}}</span>
     </ng-template>
