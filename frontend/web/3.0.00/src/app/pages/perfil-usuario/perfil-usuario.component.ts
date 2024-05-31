@@ -77,7 +77,7 @@ export class PerfilUsuarioComponent implements OnInit {
       this.currentUser = user;
       console.log('Usuario Obtenido', user);
       this.usuario = user;
-      const fotoUsuario = this.usuario.foto; 
+      const fotoUsuario = this.usuario.foto;
       if (fotoUsuario) {
         this.http.get('http://localhost:8080' + fotoUsuario, { responseType: 'blob' })
           .subscribe((imagen: Blob) => {
@@ -138,7 +138,7 @@ export class PerfilUsuarioComponent implements OnInit {
           }
           console.log('Perfil actualizado con éxito:', response);
           alert ('Los datos han sido actualizados correctamente');
-
+          this.loginService.logout();
         },
           error => {
             console.error('Error al actualizar el perfil:', error);
