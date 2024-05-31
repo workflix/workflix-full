@@ -26,7 +26,9 @@ export class ChatService {
     "¿Cómo puedo dejar una reseña del servicio?": "Después de completar el servicio, recibirás un enlace para dejar tu reseña y calificación.",
     "¿Los profesionales están asegurados?": "Sí, todos nuestros profesionales cuentan con seguro de responsabilidad civil para tu tranquilidad.",
     "¿Puedo solicitar un servicio para el mismo día?": "La disponibilidad de servicios para el mismo día depende de la agenda de los profesionales. ¡Contáctanos para verificar la disponibilidad!",
-    
+    "¿Cómo puedo cancelar un servicio?": "Puedes cancelar tu servicio desde tu cuenta en nuestra página o llamando diectamente al profesional.",
+    "¿Puedo obtener una factura por el servicio?": "¡Por supuesto! Todos nuestros servicios incluyen factura detallada para que tengas un registro completo.",
+        
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
