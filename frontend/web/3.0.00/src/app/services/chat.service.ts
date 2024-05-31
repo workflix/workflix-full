@@ -22,6 +22,8 @@ export class ChatService {
     "¿Puedo reprogramar una cita?": "Sí, puedes reprogramar tu cita desde tu cuenta en nuestra página o contactando directamente al profesional contratado.",
     "¿Cómo puedo verificar la experiencia del profesional?": "Cada profesional tiene un perfil con sus calificaciones y comentarios de clientes anteriores.",
     "¿Qué pasa si no estoy satisfecho con el trabajo realizado?": "Contacta con nuestro servicio al cliente para discutir la situación y encontrar una solución.",
+    "¿Ofrecen servicios durante los fines de semana?": "Sí, ofrecemos servicios los siete días de la semana. Verifica la disponibilidad en nuestra página.",
+    "¿Cómo puedo dejar una reseña del servicio?": "Después de completar el servicio, recibirás un enlace para dejar tu reseña y calificación.",
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
