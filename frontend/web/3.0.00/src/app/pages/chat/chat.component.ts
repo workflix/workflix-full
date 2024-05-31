@@ -20,6 +20,12 @@ export class ChatComponent implements OnInit {
 
   ngOnInit() {
       this.messages.push(new Message('bot', '¡Bienvenido! Puedes preguntar cosas como "¿Cómo pago por los servicios?" o "¿Puedo pedir más de un servicio a la vez?".'));
+      this.messages.push(new Message('bot', '"¿Qué hago si un albañil me roba mis herramientas?","¿Puedo reprogramar una cita?"'));
+      this.messages.push(new Message('bot', '"¿Cómo puedo verificar la experiencia del profesional?","¿Qué pasa si no estoy satisfecho con el trabajo realizado?"'));
+      this.messages.push(new Message('bot', '"¿Ofrecen servicios durante los fines de semana?","¿Cómo puedo dejar una reseña del servicio?"'));
+      this.messages.push(new Message('bot', '"¿Los profesionales están asegurados?","¿Puedo solicitar un servicio para el mismo día?"'));
+      this.messages.push(new Message('bot', '"¿Cómo puedo cancelar un servicio?","¿Puedo obtener una factura por el servicio?"'));
+      this.messages.push(new Message('bot', ' "¿Ofrecen algún tipo de garantía por los servicios?","¿Cómo puedo saber si el profesional contratado está certificado?"'));
 
       this.chatService.conversation.subscribe((val) => {
       this.messages = this.messages.concat(val);

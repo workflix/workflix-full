@@ -9,7 +9,7 @@ export class Message {
   providedIn: 'root'
 })
 export class ChatService {
- 
+
   constructor() {}
 
   conversation = new Subject<Message[]>();
@@ -29,7 +29,7 @@ export class ChatService {
     "¿Cómo puedo cancelar un servicio?": "Puedes cancelar tu servicio desde tu cuenta en nuestra página o llamando diectamente al profesional.",
     "¿Puedo obtener una factura por el servicio?": "¡Por supuesto! Todos nuestros servicios incluyen factura detallada para que tengas un registro completo.",
     "¿Ofrecen algún tipo de garantía por los servicios?": "Sí, ofrecemos garantía por nuestros servicios. ¡Tu satisfacción es nuestra prioridad!",
-    "¿Cómo puedo saber si el profesional contratado está certificado?": "Todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente.",    
+    "¿Cómo puedo saber si el profesional contratado está certificado?": "Todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente.",
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
