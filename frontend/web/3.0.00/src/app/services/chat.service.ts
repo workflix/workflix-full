@@ -24,6 +24,9 @@ export class ChatService {
     "¿Qué pasa si no estoy satisfecho con el trabajo realizado?": "Contacta con nuestro servicio al cliente para discutir la situación y encontrar una solución.",
     "¿Ofrecen servicios durante los fines de semana?": "Sí, ofrecemos servicios los siete días de la semana. Verifica la disponibilidad en nuestra página.",
     "¿Cómo puedo dejar una reseña del servicio?": "Después de completar el servicio, recibirás un enlace para dejar tu reseña y calificación.",
+    "¿Los profesionales están asegurados?": "Sí, todos nuestros profesionales cuentan con seguro de responsabilidad civil para tu tranquilidad.",
+    "¿Puedo solicitar un servicio para el mismo día?": "La disponibilidad de servicios para el mismo día depende de la agenda de los profesionales. ¡Contáctanos para verificar la disponibilidad!",
+    
     default: "No puedo responder a eso, preguntame otra cosa"
   };
 
