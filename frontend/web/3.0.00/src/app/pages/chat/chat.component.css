@@ -1,6 +1,16 @@
 .container {
-  max-width: 600px;
+  max-width: 80%;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  position: relative;
+}
+
+.chat-window {
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
 }
 
 .message {
@@ -20,9 +30,13 @@
   text-align: right;
 }
 
-.input-group {
-  display: flex;
-  align-items: center;
+.input-group-wrapper {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
 }
 
 .input-group .form-control {

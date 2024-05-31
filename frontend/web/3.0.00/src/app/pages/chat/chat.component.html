@@ -1,12 +1,14 @@
 <div class="container d-flex flex-column align-items-center mt-5">
-  <h1 class="mt-5" style="color: #808180;">ChatBot de Workflix</h1>
-  <div class="w-100">
+  <h1 class="mt-5" style="color: #808180;">Chatbot de Workflix</h1>
+  <div class="chat-window w-50">
     <ng-container *ngFor="let message of messages">
       <div class="message w-100 mx-auto"
            [ngClass]="{ 'from': message.author === 'bot', 'to': message.author === 'user' }">
         {{ message.content }}
       </div>
     </ng-container>
+  </div>
+  <div class="input-group-wrapper w-50">
     <div class="input-group my-2">
       <input [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text" class="form-control" placeholder="Ingrese su mensaje">
       <div class="input-group-append">
