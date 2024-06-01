@@ -1,62 +1,57 @@
 <button type="button" class="btn btn-primary volver-btn mb-3" (click)="btnVolver()">Volver</button>
 <div class="container">
   <div class="row">
-    <div class="col-lg-4 col-md-6">
-      <div class="card mb-3">
-        <div class="card-header bg-primary text-white text-center">
-          <i class="bi bi-wrench-adjustable fs-2"></i> {{ profesional?.profesion}}
-        </div>
-        <div class="card-body">
-          <div class="d-flex justify-content-center mb-3">
-            <img [src]="profesional ? getUserImage(profesional) : 'assets/images/sin_foto.webp'" alt="Foto Perfil Profesional" class="img-fluid rounded-circle">
+    <!-- Perfil Profesional -->
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body text-center">
+          <div class="position-relative mb-3">
+            <img [src]="profesional ? getUserImage(profesional) : 'assets/images/sin_foto.webp'" alt="Foto Perfil Profesional" class="img-fluid rounded-circle" style="width: 200px; height: 200px;">
           </div>
-          <div class="text-center">
-            <h5 class="card-title">{{ profesional?.nombre }} {{ profesional?.apellido }}</h5>
-          </div>
-          <button type="button" class="btn btn-success contratar-btn mt-3">Contratar</button>
+          <h4 class="card-title mb-1">{{ profesional?.nombre }} {{ profesional?.apellido }}</h4>
+          <p class="text-muted mb-2">{{ profesional?.profesion }}</p>
+          <!-- <button type="button" class="btn btn-success contratar-btn mt-3">Contratar</button> -->
         </div>
       </div>
     </div>
 
+    <!-- Información de Contacto -->
     <div class="col-lg-8 col-md-6">
-      <div class="mb-3">
-
-        <div>
-          <h5> Telefono: </h5>
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Información de Contacto</h5>
+          <div class="mb-3">
+            <strong>Teléfono:</strong>
+            <p>{{ profesional?.telefono }}</p>
+          </div>
+          <div class="mb-3">
+            <strong>Correo:</strong>
+            <p>{{ profesional?.correo }}</p>
+          </div>
+          <div class="mb-3">
+            <strong>Dirección:</strong>
+            <p>{{ profesional?.direccion }}</p>
+          </div>
+          <div class="mb-3">
+            <h5 class="card-title">Descripción</h5>
+            <p>{{ profesional?.descripcion }}</p>
+          </div>
         </div>
-        <div>
-          <p>{{ profesional?.telefono }}</p>
-        </div>
-
-        <div>
-          <h5> Correo: </h5>
-        </div>
-        <div>
-          <p>{{ profesional?.correo }}</p>
-        </div>
-
-        <div>
-          <h5> Direccion: </h5>
-        </div>
-        <div>
-          <p>{{ profesional?.direccion }}</p>
-        </div>
-
-        <div>
-          <h4> Descripción: </h4>
-        </div>
-        <div>
-          <p>{{ profesional?.descripcion }}</p>
-        </div>
-
       </div>
     </div>
   </div>
 
-  <div class="banner">
-    <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner">
-    <div class="calificaciones-box">
-      <div class="calificaciones-text">Calificaciones</div>
+  <!-- Banner de Calificaciones -->
+  <div class="banner mt-4 position-relative">
+    <img src="assets/images/valoracion_workflix.png" alt="Fondo del banner" class="img-fluid w-100 rounded">
+    <div class="calificaciones-box position-absolute top-50 start-50 translate-middle p-3 shadow bg-white">
+      <div class="text-center">
+        <ul class="mb-0 list-unstyled d-flex flex-row justify-content-center h5" style="color: #1d1f1d;">
+          <li *ngFor="let star of generateStars(profesional?.recomendacion)" class="mx-1">
+            <i [class]="star"></i>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
