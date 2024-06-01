@@ -15,22 +15,34 @@
       </div>
     </div>
 
-    <!-- Información de Contacto -->
+    <!-- Información de Contacto y Precio Inicial -->
     <div class="col-lg-8 col-md-6">
       <div class="card h-100 border-0 shadow-sm">
         <div class="card-body">
-          <h5 class="card-title">Información de Contacto</h5>
-          <div class="mb-3">
-            <strong>Teléfono:</strong>
-            <p>{{ profesional?.telefono }}</p>
-          </div>
-          <div class="mb-3">
-            <strong>Correo:</strong>
-            <p>{{ profesional?.correo }}</p>
-          </div>
-          <div class="mb-3">
-            <strong>Dirección:</strong>
-            <p>{{ profesional?.direccion }}</p>
+          <div class="row">
+            <!-- Información de Contacto -->
+            <div class="col-md-6">
+              <h5 class="card-title">Información de Contacto</h5>
+              <div class="mb-3">
+                <strong>Teléfono:</strong>
+                <p>{{ profesional?.telefono }}</p>
+              </div>
+              <div class="mb-3">
+                <strong>Correo:</strong>
+                <p>{{ profesional?.correo }}</p>
+              </div>
+              <div class="mb-3">
+                <strong>Dirección:</strong>
+                <p>{{ profesional?.direccion }}</p>
+              </div>
+            </div>
+            <!-- Precio Inicial -->
+            <div class="col-md-6">
+              <h5 class="card-title">Precio Inicial</h5>
+              <div class="mb-3">
+                <p class="fs-2">${{ profesional?.precio }}</p>
+              </div>
+            </div>
           </div>
           <div class="mb-3">
             <h5 class="card-title">Descripción</h5>
