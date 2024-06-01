@@ -98,7 +98,6 @@ export class PerfilProfesionalComponent implements OnInit {
         mail: user.correo,
         adress: user.direccion,
         phone: user.telefono,
-        profesion: user.profesion,
         precio: user.precio,
         descripcion: user.descripcion,
         tipo_usuario: user.tipo_usuario === 'profesional'
@@ -135,7 +134,6 @@ export class PerfilProfesionalComponent implements OnInit {
           correo: formData.mail,
           direccion: formData.adress,
           telefono: formData.phone,
-          profesion: formData.profesion ,
           precio: formData.precio,
           descripcion: formData.descripcion,
           tipoUsuario: formData.tipo_usuario ? 'profesional' : this.currentUser.tipoUsuario,
@@ -151,7 +149,6 @@ export class PerfilProfesionalComponent implements OnInit {
               this.currentUser.correo = newUserData.correo;
               this.currentUser.direccion = newUserData.direccion;
               this.currentUser.telefono = newUserData.telefono;
-              this.currentUser.profesion = newUserData.profesion;
               this.currentUser.precio = newUserData.precio;
               this.currentUser.descripcion = newUserData.descripcion;
               this.currentUser.tipoUsuario = newUserData.tipoUsuario

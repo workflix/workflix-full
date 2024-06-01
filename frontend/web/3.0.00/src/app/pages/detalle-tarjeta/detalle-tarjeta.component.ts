@@ -41,4 +41,12 @@ export class DetalleTarjeta implements OnInit {
   getUserImage(profesional: User): string {
     return profesional.foto ? `http://localhost:8080${profesional.foto}` : 'assets/images/sin_foto.webp';
   }
+  generateStars(recomendacion: any): string[] {
+    const stars = [];
+    for (let i = 0; i <= 4; i++) {
+      stars.push(i < recomendacion ? 'fas fa-star' : 'fa-regular fa-star');
+    }
+    return stars;
+  }
+
 }
