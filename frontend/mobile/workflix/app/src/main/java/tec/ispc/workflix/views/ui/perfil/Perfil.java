@@ -99,7 +99,7 @@ public class Perfil extends AppCompatActivity {
         String profesion = preferences.getString("profesion","");
         String foto = preferences.getString("foto","");
         String direccion = preferences.getString("direccion","direccion");
-        Integer precio = preferences.getInt("precio",0);
+        int precio = preferences.getInt("precio",0);
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
         Usuario usuario = new Usuario();
@@ -115,7 +115,7 @@ public class Perfil extends AppCompatActivity {
         tv_provincia.setText(provincia);
         tv_profesion.setText(profesion);
         tv_direccion.setText(direccion);
-        //  tv_precio.setText(precio);
+        tv_precio.setText(String.valueOf(precio));
 
         Spinner spinnerServicios = findViewById(R.id.spinnerServicios);
 
