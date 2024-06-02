@@ -50,7 +50,7 @@ import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 public class Perfil extends AppCompatActivity {
     ImageView imagenFoto;
     private UsuarioService usuarioService;
-    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
+    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto, tv_precio, tv_direccion;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
