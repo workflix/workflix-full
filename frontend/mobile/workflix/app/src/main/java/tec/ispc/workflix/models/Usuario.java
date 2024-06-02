@@ -52,7 +52,6 @@ public class Usuario {
     @SerializedName("profesion")
     @Expose
     private String profesion;
-    
     public Usuario(){};
 
     public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad
@@ -158,12 +157,13 @@ public class Usuario {
         this.profesion = profesion;
     }
 
-    public String getTipo_usuario() {
+
+    public String getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipo_usuario(String tipo_usuario) {
-        this.tipoUsuario= tipo_usuario;
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
     }
 
     public String getDireccion() {
@@ -173,4 +173,5 @@ public class Usuario {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+
 }

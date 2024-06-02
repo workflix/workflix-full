@@ -176,8 +176,6 @@ public class Perfil extends AppCompatActivity {
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
-            usuario.setFoto(rutaImagen);
-
 
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);

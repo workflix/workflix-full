@@ -164,7 +164,10 @@
                     android:onClick="irPerfilEditar"
                     android:text="@string/perfil"
                     android:textColor="@color/black"
-                    tools:ignore="UnknownId" />
+                    tools:ignore="UnknownId"
+                    android:visibility="gone"
+
+                    />
 
                 <Button
                     android:id="@+id/btn_Perfil_terminos_con"
