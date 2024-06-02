@@ -52,21 +52,27 @@ public class Usuario {
     @SerializedName("profesion")
     @Expose
     private String profesion;
+
+    @SerializedName("precio")
+    @Expose
+    private Integer precio;
     public Usuario(){};
 
-    public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad
-                   ,String direccion, String provincia, String profesion, String descripcion, String tipoUsuario){
+    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, String tipoUsuario, String ciudad, String provincia, String descripcion, String direccion, String foto, String profesion, Integer precio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.clave = clave;
         this.telefono = telefono;
         this.correo = correo;
+        this.tipoUsuario = tipoUsuario;
         this.ciudad = ciudad;
-        this.direccion = direccion;
         this.provincia = provincia;
         this.descripcion = descripcion;
+        this.direccion = direccion;
+        this.foto = foto;
         this.profesion = profesion;
-        this.tipoUsuario = tipoUsuario;
+        this.precio = precio;
     }
 
     public int getId() {
@@ -173,5 +179,31 @@ public class Usuario {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    public Integer getPrecio() {
+        return precio;
+    }
 
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", clave='" + clave + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
+                ", tipoUsuario='" + tipoUsuario + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", foto='" + foto + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", precio=" + precio +
+                '}';
+    }
 }
