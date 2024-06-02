@@ -159,7 +159,7 @@
                                 android:id="@+id/perfilDireccion"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:hint="Provincia"
+                                android:hint="Direccion"
                                 android:inputType="textPersonName"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/grey3" />
@@ -167,7 +167,7 @@
                                 android:id="@+id/perfilPrecio"
                                 android:layout_width="200dp"
                                 android:layout_height="wrap_content"
-                                android:hint="Provincia"
+                                android:hint="Precio"
                                 android:inputType="textPersonName"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/grey3" />

@@ -43,6 +43,8 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         String apellido = preferences.getString("apellido", "");
         String telefono = preferences.getString("descripcion", "");
         String foto = preferences.getString("foto", "");
+        String direccion = preferences.getString("direccion","");
+        //    Integer precio = preferences.getInt("precio",0);
         String tipo_usuario = preferences.getString("tipo_usuario", "");
 
         Usuario usuario = new Usuario();
@@ -97,6 +99,8 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("correo", null);
         editor.putString("descripcion", null);
         editor.putString("foto", null);
+        editor.putString("direccion", null);
+        //  editor.putInt("precio", 0);
         editor.putString("tipo_usuario", null);
         editor.apply();
         // Vuelvo al home

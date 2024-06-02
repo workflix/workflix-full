@@ -8,38 +8,30 @@ public class Usuario {
     @SerializedName("id")
     @Expose
     private int id;
-
     @SerializedName("nombre")
     @Expose
     private String nombre;
-
     @SerializedName("apellido")
     @Expose
     private String apellido;
-
     @SerializedName("clave")
     @Expose
     private String clave;
-
     @SerializedName("telefono")
     @Expose
     private String telefono;
-
     @SerializedName("correo")
     @Expose
     private String correo;
     @SerializedName("tipo_usuario")
     @Expose
     private String tipoUsuario;
-
     @SerializedName("ciudad")
     @Expose
     private String ciudad;
-
     @SerializedName("provincia")
     @Expose
     private String provincia;
-
     @SerializedName("descripcion")
     @Expose
     private String descripcion;

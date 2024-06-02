@@ -80,6 +80,8 @@ public class Perfil extends AppCompatActivity {
         tv_provincia = findViewById(R.id.perfilProvincia);
         tv_descripcion = findViewById(R.id.perfilDescripcion);
         tv_profesion = findViewById(R.id.perfilServicio);
+        tv_direccion = findViewById(R.id.perfilDireccion);
+        tv_precio = findViewById(R.id.perfilPrecio);
 
         btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
@@ -96,6 +98,8 @@ public class Perfil extends AppCompatActivity {
         String provincia = preferences.getString("provincia","");
         String profesion = preferences.getString("profesion","");
         String foto = preferences.getString("foto","");
+        String direccion = preferences.getString("direccion","direccion");
+        Integer precio = preferences.getInt("precio",0);
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
         Usuario usuario = new Usuario();
@@ -110,6 +114,8 @@ public class Perfil extends AppCompatActivity {
         tv_descripcion.setText(descripcion);
         tv_provincia.setText(provincia);
         tv_profesion.setText(profesion);
+        tv_direccion.setText(direccion);
+        //  tv_precio.setText(precio);
 
         Spinner spinnerServicios = findViewById(R.id.spinnerServicios);
 
@@ -155,6 +161,8 @@ public class Perfil extends AppCompatActivity {
                 editor.putString("provincia", null);
                 editor.putString("profesion", null);
                 editor.putString("foto", null);
+                editor.putString("direccion", null);
+                editor.putInt("precio", 0);
                 editor.putString("tipo_usuario", null);
                 editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);
@@ -176,7 +184,8 @@ public class Perfil extends AppCompatActivity {
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
-
+            usuario.setDireccion(tv_direccion.getText().toString());
+            usuario.setPrecio(Integer.valueOf(tv_precio.getText().toString()));
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
