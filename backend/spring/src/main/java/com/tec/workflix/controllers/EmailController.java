@@ -64,5 +64,23 @@ public class EmailController {
         }
     }
 
-
+    @PostMapping("/cambiar-clave")
+    public ResponseEntity<?> cambiarClave(@Valid @RequestBody Clave clave, BindingResult bindingResult) {
+        if(bindingResult.hasErrors()) {
+            return new ResponseEntity<>("Campos incorrectos", HttpStatus.BAD_REQUEST);
+        }
+        if(!clave.getClave().equals(clave.getConfirmarClave())) {
+            return new ResponseEntity<>("Las contraseñas no coinciden", HttpStatus.BAD_REQUEST);
+        }
+        Optional<Usuario> usuarioOptional = usuarioService.getByTokenPassword(clave.getTokenClave());
+        if (!usuarioOptional.isPresent()) {
+            return new ResponseEntity<>("No existe ningún usuario con esas credenciales", HttpStatus.NOT_FOUND);
+        }
+        Usuario usuario = usuarioOptional.get();
+        String nuevaClave = BCrypt.hashpw(clave.getClave(), BCrypt.gensalt());
+        usuario.setClave(nuevaClave);
+        usuario.setTokenClave(null);
+        usuarioService.save(usuario);
+        return new ResponseEntity("Contraseña actualizada correctamente", HttpStatus.OK);
+    }
 }
