@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
         // Inicializar botones antes de usarlos
         btn_home = view.findViewById(R.id.btn_home);
         btn_home2 = view.findViewById(R.id.btn_home2);
-
+        webView = view.findViewById(R.id.webview);
         // Obtener SharedPreferences en un Fragment
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String tipo_usuario = preferences.getString("tipo_usuario", "");

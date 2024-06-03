@@ -65,6 +65,10 @@
                     android:backgroundTint="@color/verde1"
                     android:text="@string/ver_profesionales"
                     android:textColor="@color/black" />
+                <WebView
+                    android:id="@+id/webview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
         </LinearLayout>
