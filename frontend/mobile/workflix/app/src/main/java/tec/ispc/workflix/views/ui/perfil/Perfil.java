@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
@@ -16,6 +17,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -31,13 +33,20 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
@@ -55,8 +64,6 @@ public class Perfil extends AppCompatActivity {
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
-    private String CARPETA_RAIZ="misImagenesPrueba/";
-    private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
     private String path;
     private Bitmap bitmap;
     final int COD_SELECCIONA = 10;
@@ -66,6 +73,7 @@ public class Perfil extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     ServicioService servicioService;
     private Context context;
+    private int currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +113,7 @@ public class Perfil extends AppCompatActivity {
         int id = preferences.getInt("id",0);
         Usuario usuario = new Usuario();
         usuario.setFoto(foto);
+        currentUser = id;
 
         // Seteo los valores al perfil
         tv_nombre.setText(nombre);
@@ -272,10 +281,110 @@ public class Perfil extends AppCompatActivity {
         }
     }
 
-public void subirFoto(){
-    Toast.makeText(Perfil.this,"Solo se puede actualizar desde el navegador",Toast.LENGTH_LONG).show();
+    private void subirFoto() {
+        final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
+        alertOpciones.setTitle("Seleccione una Opcion");
+        alertOpciones.setItems(opciones, (dialogInterface, i) -> {
+            if (opciones[i].equals("Cargar Imagen")) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/*");
+                startActivityForResult(intent.createChooser(intent, "Seleccionar aplicación: "), COD_SELECCIONA);
+            } else {
+                dialogInterface.dismiss();
+            }
+        });
+        alertOpciones.show();
+    }
 
-}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == COD_SELECCIONA && resultCode == RESULT_OK && data != null) {
+            Uri imageUri = data.getData();
+            if (imageUri != null) {
+                try {
+                    // Obtén el nombre del archivo y la extensión
+                    String fileName = getFileName(imageUri);
+
+                    // Sube la imagen al servidor
+                    subirImagenAlServidor(imageUri, fileName);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private String getFileName(Uri uri) {
+        String result = null;
+        if (uri.getScheme().equals("content")) {
+            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
+                if (cursor != null && cursor.moveToFirst()) {
+                    result = cursor.getString(cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME));
+                }
+            }
+        }
+        if (result == null) {
+            result = uri.getPath();
+            int cut = result.lastIndexOf('/');
+            if (cut != -1) {
+                result = result.substring(cut + 1);
+            }
+        }
+        return result;
+    }
+    private void subirImagenAlServidor(Uri imageUri, String fileName) throws IOException {
+        // Obtén la ruta del archivo desde el URI
+        InputStream inputStream = getContentResolver().openInputStream(imageUri);
+        byte[] bytes = getBytes(inputStream);
+
+        // Crear un archivo temporal para el Multipart
+        File tempFile = File.createTempFile(fileName, null, getCacheDir());
+        FileOutputStream fos = new FileOutputStream(tempFile);
+        fos.write(bytes);
+        fos.close();
+
+        // Crear la parte del archivo para Retrofit
+        RequestBody requestFile = RequestBody.create(MediaType.parse(getContentResolver().getType(imageUri)), tempFile);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", tempFile.getName(), requestFile);
+
+        // Crear Retrofit instance y hacer la solicitud
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(tec.ispc.workflix.utils.Environment.URL) // Cambia esto por tu IP o dominio
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .build();
+
+        UsuarioService usuarioService = retrofit.create(UsuarioService.class);
+        Call<String> call = usuarioService.uploadImage(currentUser, body);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(Perfil.this, "Imagen subida con éxito", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Perfil.this, "Error al subir imagen", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(Perfil.this, "Fallo en la subida de imagen", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private byte[] getBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
+
+        int len;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
+    }
 
 }
 
