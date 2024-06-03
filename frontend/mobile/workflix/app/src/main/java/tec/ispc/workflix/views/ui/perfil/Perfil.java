@@ -85,6 +85,7 @@ public class Perfil extends AppCompatActivity {
         if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
         }
+
         // Text views objetos
         tv_nombre = findViewById(R.id.perfilNombre);
         tv_apellido = findViewById(R.id.perfilApellido);
@@ -209,6 +210,17 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido
+            } else {
+                Toast.makeText(this, "Permiso denegado para leer el almacenamiento externo", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     public void listServicio(final Spinner spinner) {
         servicioService = Apis.getServicioService();
         Call<List<Servicio>> call = servicioService.getServicios();
@@ -285,11 +297,10 @@ public class Perfil extends AppCompatActivity {
             return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
         }
     }
-
-    private void subirFoto() {
+    public void subirFoto(View view) {
         final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
         final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
-        alertOpciones.setTitle("Seleccione una Opcion");
+        alertOpciones.setTitle("Seleccione una Opción");
         alertOpciones.setItems(opciones, (dialogInterface, i) -> {
             if (opciones[i].equals("Cargar Imagen")) {
                 Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -305,91 +316,62 @@ public class Perfil extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == COD_SELECCIONA && resultCode == RESULT_OK && data != null) {
-            Uri imageUri = data.getData();
-            if (imageUri != null) {
-                try {
-                    // Obtén el nombre del archivo y la extensión
-                    String fileName = getFileName(imageUri);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case COD_SELECCIONA:
+                    if (data != null && data.getData() != null) {
+                        Uri miPath = data.getData();
+                        Log.d("DEBUG", "URI de la imagen seleccionada: " + miPath.toString());
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), miPath);
+                            imagenFoto.setImageBitmap(bitmap);
 
-                    // Sube la imagen al servidor
-                    subirImagenAlServidor(imageUri, fileName);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                            // Guardar la imagen en un archivo temporal y subirla
+                            // Generar un nombre de archivo único usando timestamp
+                            String uniqueFileName = "temp_image_" + System.currentTimeMillis() + ".jpg";
+                            File tempFile = new File(getCacheDir(), uniqueFileName);
+                            try (FileOutputStream out = new FileOutputStream(tempFile)) {
+                                bitmap.compress(Bitmap.CompressFormat.JPEG, 85, out);
+                            }
+                            uploadFile(tempFile);
+                        } catch (IOException e) {
+                            Log.e("DEBUG", "Error al cargar la imagen: " + e.getMessage());
+                            e.printStackTrace();
+                            //                Toast.makeText(this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Log.e("DEBUG", "Data o URI es nulo");
+                        //          Toast.makeText(this, "No se ha seleccionado ninguna imagen", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
             }
         }
     }
 
-    private String getFileName(Uri uri) {
-        String result = null;
-        if (uri.getScheme().equals("content")) {
-            try (Cursor cursor = getContentResolver().query(uri, null, null, null, null)) {
-                if (cursor != null && cursor.moveToFirst()) {
-                    result = cursor.getString(cursor.getColumnIndexOrThrow(OpenableColumns.DISPLAY_NAME));
-                }
-            }
-        }
-        if (result == null) {
-            result = uri.getPath();
-            int cut = result.lastIndexOf('/');
-            if (cut != -1) {
-                result = result.substring(cut + 1);
-            }
-        }
-        return result;
-    }
-    private void subirImagenAlServidor(Uri imageUri, String fileName) throws IOException {
-        // Obtén la ruta del archivo desde el URI
-        InputStream inputStream = getContentResolver().openInputStream(imageUri);
-        byte[] bytes = getBytes(inputStream);
+    private void uploadFile(File file) {
+        usuarioService = Apis.getUsuarioService();
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
 
-        // Crear un archivo temporal para el Multipart
-        File tempFile = File.createTempFile(fileName, null, getCacheDir());
-        FileOutputStream fos = new FileOutputStream(tempFile);
-        fos.write(bytes);
-        fos.close();
-
-        // Crear la parte del archivo para Retrofit
-        RequestBody requestFile = RequestBody.create(MediaType.parse(getContentResolver().getType(imageUri)), tempFile);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("file", tempFile.getName(), requestFile);
-
-        // Crear Retrofit instance y hacer la solicitud
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(tec.ispc.workflix.utils.Environment.URL) // Cambia esto por tu IP o dominio
-                .addConverterFactory(ScalarsConverterFactory.create())
-                .build();
-
-        UsuarioService usuarioService = retrofit.create(UsuarioService.class);
         Call<String> call = usuarioService.uploadImage(currentUser, body);
         call.enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if (response.isSuccessful()) {
-                    Toast.makeText(Perfil.this, "Imagen subida con éxito", Toast.LENGTH_SHORT).show();
+                    String imageUrl = response.body();
+                    tv_foto.setText(imageUrl);
+                    Toast.makeText(Perfil.this, "Imagen subida exitosamente", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Perfil.this, "Error al subir imagen", Toast.LENGTH_SHORT).show();
+                    //       Toast.makeText(Perfil.this, "Error al subir la imagen", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
-                Toast.makeText(Perfil.this, "Fallo en la subida de imagen", Toast.LENGTH_SHORT).show();
+                Log.e("DEBUG", "Fallo en la subida de la imagen: " + t.getMessage());
+               // Toast.makeText(Perfil.this, "Fallo en la subida de la imagen: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
-
-    private byte[] getBytes(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
-        int bufferSize = 1024;
-        byte[] buffer = new byte[bufferSize];
-
-        int len;
-        while ((len = inputStream.read(buffer)) != -1) {
-            byteBuffer.write(buffer, 0, len);
-        }
-        return byteBuffer.toByteArray();
-    }
-
 }
-
