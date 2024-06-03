@@ -16,6 +16,7 @@ export class ChatService {
   messageMap:any = {
     Hola: "Hola, puedes hacerme la pregunta que quieras sino sabes cual escribe 'preguntas'.",
     "¿Cómo pago por los servicios?": "Aceptamos pagos a través de tarjeta de crédito, débito y transferencias bancarias.",
+    "¿Cómo pago un servicio?": "Aceptamos pagos a través de tarjeta de crédito, débito y transferencias bancarias.",
     "¿Puedo pedir más de un servicio a la vez?": "Claro, puedes seleccionar múltiples servicios en la misma solicitud.",
     "¿Qué hago si un albañil me roba mis herramientas?": "Contacta inmediatamente a nuestro servicio al cliente para tomar las acciones necesarias.",
     "¿Puedo reprogramar una cita?": "Sí, puedes reprogramar tu cita desde tu cuenta en nuestra página o contactando directamente al profesional contratado.",
@@ -36,6 +37,7 @@ export class ChatService {
     "¿De dónde descargo la app?": "Desde nuestra site, puedes descargar la aplicación móvil: www.workflix.com.ar/site",
     "¿Cómo encuentro un profesional?": "En la página principal encontrarás el profesional que necesites y puedes filtrarlo de acuerdo al rubro que estás buscando",
     "¿Es seguro contratar un profesional?": "Por supuesto, todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente. ",
+    "¿Qué puedo preguntar?": "Puedes preguntar lo que quieras con respecto a nuestros servicios. Si tienes dudas escribe la palabra 'preguntas'",
     "Buenos días": "Buen día! ¿En qué puedo ayudarte?",
     "Buen dia": "Buen día! ¿En qué puedo ayudarte?",
     "¿Cómo estas?": "Excelente y vos?",
