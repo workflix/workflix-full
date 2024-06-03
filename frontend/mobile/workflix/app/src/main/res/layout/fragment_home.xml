@@ -65,6 +65,17 @@
                     android:backgroundTint="@color/verde1"
                     android:text="@string/ver_profesionales"
                     android:textColor="@color/black" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Desliza hacia arriba para usar la versión web"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:padding="16dp" />
                 <WebView
                     android:id="@+id/webview"
                     android:layout_width="match_parent"
