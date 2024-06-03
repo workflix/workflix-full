@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface IUsuarioRepository extends CrudRepository<Usuario,Integer> {
@@ -31,4 +32,9 @@ public interface IUsuarioRepository extends CrudRepository<Usuario,Integer> {
                         @Param("correo") String correo,
                         @Param("clave") String clave,
                         @Param("telefono") String telefono);
+
+    @Query(value = "SELECT * FROM usuario WHERE correo = :correo", nativeQuery = true)
+    Optional<Usuario> findByEmail(@Param("correo") String correo);
+
+
 }
