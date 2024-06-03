@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.Button;
 
 import tec.ispc.workflix.R;
@@ -19,7 +20,7 @@ import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 public class HomeFragment extends Fragment {
     private Button btn_home;
     private Button btn_home2;
-
+    private WebView webView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
