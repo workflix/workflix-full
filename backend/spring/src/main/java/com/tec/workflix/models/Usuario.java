@@ -219,6 +219,7 @@ public class Usuario {
                 ", tipoUsuario='" + tipoUsuario + '\'' +
                 ", recomendacion=" + recomendacion +
                 ", usuarioServicios=" + usuarioServicios +
+                ", tokenClave='" + tokenClave + '\'' +
                 '}';
     }
 }
