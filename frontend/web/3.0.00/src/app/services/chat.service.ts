@@ -34,6 +34,8 @@ export class ChatService {
     "¿Puedo pagar en efectivo?": "Si, se puede pagar en efectivo. Ten en cuenta que abonando de esta manera no contarás con nuestra garantía",
     "¿De dónde descargo la aplicación móvil?": "Desde nuestra site, puedes descargar la aplicación móvil: www.workflix.com.ar/site",
     "¿De dónde descargo la app?": "Desde nuestra site, puedes descargar la aplicación móvil: www.workflix.com.ar/site",
+    "¿Cómo encuentro un profesional?": "En la página principal encontrarás el profesional que necesites y puedes filtrarlo de acuerdo al rubro que estás buscando",
+    "¿Es seguro contratar un profesional?": "Por supuesto, todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente. ",
     "Buenos días": "Buen día! ¿En qué puedo ayudarte?",
     "Buen dia": "Buen día! ¿En qué puedo ayudarte?",
     "¿Cómo estas?": "Excelente y vos?",
