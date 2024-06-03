@@ -32,10 +32,12 @@ public class HomeFragment extends Fragment {
         btn_home = view.findViewById(R.id.btn_home);
         btn_home2 = view.findViewById(R.id.btn_home2);
         webView = view.findViewById(R.id.webview);
-
+        // Habilitar js
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
+        // Asegurarse de que los links se abran en el WebView y no en el navegador
+        webView.setWebViewClient(new WebViewClient());
         // Obtener SharedPreferences en un Fragment
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String tipo_usuario = preferences.getString("tipo_usuario", "");
