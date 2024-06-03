@@ -40,11 +40,28 @@ public class UsuarioDAO implements IUsuarioInterface {
         return template.update(sql,usuario.getNombre(), usuario.getApellido(), usuario.getClave(), usuario.getTelefono(), usuario.getCorreo(),usuario.getId());
     }
     @Override
-    public int actualizarPerfil(Usuario usuario){
-        String sql="update usuario set nombre=?, apellido=?, telefono=?, correo=?, direccion=?, ciudad=?, provincia=?, profesion=?, descripcion=?, precio=?, tipo_usuario=?,  foto=? where id=?";
-    return template.update(sql,usuario.getNombre(),usuario.getApellido(),usuario.getTelefono(),usuario.getCorreo(), usuario.getDireccion() ,usuario.getCiudad(), usuario.getProvincia()
-    ,usuario.getProfesion(),usuario.getDescripcion(),usuario.getPrecio(),usuario.getTipoUsuario(),usuario.getFoto(),usuario.getId());
+    public int actualizarPerfil(Usuario usuario) {
+        // Verificar y establecer un valor por defecto para tipoUsuario en el servidor
+        if (usuario.getTipoUsuario() == null || usuario.getTipoUsuario().isEmpty()) {
+            usuario.setTipoUsuario("profesional"); // Cambia "default_type" por el valor por defecto que desees
+        }
+
+        String sql = "UPDATE usuario SET nombre=?, apellido=?, telefono=?, correo=?, direccion=?, ciudad=?, provincia=?, descripcion=?, precio=?, tipo_usuario=? WHERE id=?";
+        return template.update(sql,
+                usuario.getNombre(),
+                usuario.getApellido(),
+                usuario.getTelefono(),
+                usuario.getCorreo(),
+                usuario.getDireccion(),
+                usuario.getCiudad(),
+                usuario.getProvincia(),
+                usuario.getDescripcion(),
+                usuario.getPrecio(),
+                usuario.getTipoUsuario(),
+                usuario.getId()
+        );
     }
+
     @Override
     public int delete(int id) {
         String sql="delete from usuario where id=?";

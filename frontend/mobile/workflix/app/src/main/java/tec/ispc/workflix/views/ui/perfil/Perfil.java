@@ -45,12 +45,13 @@ import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
+import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
     ImageView imagenFoto;
     private UsuarioService usuarioService;
-    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto;
+    private TextView tv_nombre, tv_apellido, tv_correo, tv_telefono, tv_ciudad, tv_profesion, tv_provincia, tv_descripcion, tv_foto, tv_precio, tv_direccion;
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
@@ -80,6 +81,8 @@ public class Perfil extends AppCompatActivity {
         tv_provincia = findViewById(R.id.perfilProvincia);
         tv_descripcion = findViewById(R.id.perfilDescripcion);
         tv_profesion = findViewById(R.id.perfilServicio);
+        tv_direccion = findViewById(R.id.perfilDireccion);
+        tv_precio = findViewById(R.id.perfilPrecio);
 
         btnActualizarPerfil = findViewById(R.id.btnActualizarPerfil);
         btnEliminarPerfil = findViewById(R.id.btnEliminarPerfil);
@@ -96,6 +99,8 @@ public class Perfil extends AppCompatActivity {
         String provincia = preferences.getString("provincia","");
         String profesion = preferences.getString("profesion","");
         String foto = preferences.getString("foto","");
+        String direccion = preferences.getString("direccion","direccion");
+        int precio = preferences.getInt("precio",0);
         tipo_usuario = preferences.getString("tipo_usuario", "");
         int id = preferences.getInt("id",0);
         Usuario usuario = new Usuario();
@@ -110,15 +115,18 @@ public class Perfil extends AppCompatActivity {
         tv_descripcion.setText(descripcion);
         tv_provincia.setText(provincia);
         tv_profesion.setText(profesion);
+        tv_direccion.setText(direccion);
+        tv_precio.setText(String.valueOf(precio));
 
         Spinner spinnerServicios = findViewById(R.id.spinnerServicios);
 
         // Muestra el botón correcto basado en el tipo de usuario
         if ("profesional".equalsIgnoreCase(tipo_usuario)) {
-            tv_profesion.setVisibility(View.VISIBLE);
-        }else {
+            tv_profesion.setVisibility(View.GONE);
             spinnerServicios.setVisibility(View.VISIBLE);
             listServicio(spinnerServicios);
+        }else {
+            spinnerServicios.setVisibility(View.GONE);
         }
 
         if (!foto.isEmpty()) {
@@ -155,6 +163,8 @@ public class Perfil extends AppCompatActivity {
                 editor.putString("provincia", null);
                 editor.putString("profesion", null);
                 editor.putString("foto", null);
+                editor.putString("direccion", null);
+                editor.putInt("precio", 0);
                 editor.putString("tipo_usuario", null);
                 editor.apply();
                 Intent intent =new Intent(Perfil.this, MainActivity.class);
@@ -176,9 +186,8 @@ public class Perfil extends AppCompatActivity {
             usuario.setProvincia(tv_provincia.getText().toString());
             usuario.setProfesion(tv_profesion.getText().toString());
             usuario.setDescripcion(tv_descripcion.getText().toString());
-            usuario.setFoto(rutaImagen);
-
-
+            usuario.setDireccion(tv_direccion.getText().toString());
+            usuario.setPrecio(Integer.valueOf(tv_precio.getText().toString()));
             updateUsuario(usuario,Integer.valueOf(id));
             Intent intent =new Intent(Perfil.this, PerfilTerminosActivity.class);
             startActivity(intent);
@@ -262,203 +271,11 @@ public class Perfil extends AppCompatActivity {
             return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
         }
     }
-    /*
-        private String convertirImgString(Bitmap bitmap) {
-        ByteArrayOutputStream array = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,array);
-        byte [] imagenByte = array.toByteArray();
-        String imagenString = Base64.encodeToString(imagenByte,Base64.DEFAULT);
-        return imagenString;
-    }
 
-    public void subirFoto(View view) {
-        cargarImagen();
-    }
+public void subirFoto(){
+    Toast.makeText(Perfil.this,"Solo se puede actualizar desde el navegador",Toast.LENGTH_LONG).show();
 
-    private void cargarImagen() {
+}
 
-        final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
-        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
-        alertOpciones.setTitle("Seleccione una Opcion");
-        alertOpciones.setItems(opciones, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                (opciones[i].equals("Tomar Foto")){
-                    tomarFotografia();}
-                   if ( opciones[i].equals("Cargar Imagen")){
-                        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        intent.setType("image/");
-                        startActivityForResult(intent.createChooser(intent,"Seleccionar aplicación: "),COD_SELECCIONA);
-                    }else {
-                        dialogInterface.dismiss();
-                    }
-            }
-        });
-
-        alertOpciones.show();
-    }
-
-    private void tomarFotografia() {
-        File fileImagen = new File(Environment.getExternalStorageDirectory(),RUTA_IMAGEN);
-        boolean isCreada = fileImagen.exists();
-        String nombreImagen = "";
-        if (isCreada==false){
-            isCreada=fileImagen.mkdirs();
-        }
-        if (isCreada==true){
-            nombreImagen = (System.currentTimeMillis()/1000)+".jpg";
-        }
-        path = Environment.getExternalStorageDirectory()+File.separator+RUTA_IMAGEN+File.separator+nombreImagen;
-
-        File imagen = new File(path);
-
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(imagen));
-        startActivityForResult(intent,COD_FOTO);
-    };
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==RESULT_OK){
-            switch (requestCode){
-                case COD_SELECCIONA:
-                    Uri miPath = data.getData();
-                    // Guarda la URI de la imagen para su posterior uso
-                    rutaImagen = miPath.toString();
-                    // Guarda "rutaImagen" en la base de datos o en SharedPreferences
-                    //imagen.setImageURI(miPath);
-                    try {
-                        bitmap=MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(),miPath);
-                        imagenFoto.setImageBitmap(bitmap);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                    break;
-                case COD_FOTO:    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarjeta_ampliada);
-
-        // Recepcion de los datos que vienen del CataloAdapter
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String nombreCompleto = extras.getString("nombreCompleto");
-            String imagenURL = extras.getString("imagenURL");
-            String descripcion = extras.getString("descripcion");
-            String correo = extras.getString("correo");
-            String ciudad = extras.getString("ciudad");
-            String provincia = extras.getString("provincia");
-            String telefono = extras.getString("telefono");
-            String servicio = extras.getString("servicio");
-
-            // Se asignan los datos del profesional TextViews e ImageView
-            TextView perfilNombreTextView = findViewById(R.id.perfilNombre);
-            ImageView imagenFotoImageView = findViewById(R.id.imagenFoto);
-            TextView perfilDescripcionTextView = findViewById(R.id.perfilDescripcion);
-            TextView perfilCorreoTextView = findViewById(R.id.perfilCorreo);
-            TextView perfilCiudadTextView = findViewById(R.id.perfilCiudad);
-            TextView perfilProvinciaTextView = findViewById(R.id.perfilProvincia);
-            TextView perfilTelefonoTextView = findViewById(R.id.perfilTelefono);
-            TextView perfilServicioTextView = findViewById(R.id.perfilServicio);
-
-            // Envio de datos a la interfaz
-            perfilNombreTextView.setText(nombreCompleto);
-            Picasso.get().load(imagenURL).into(imagenFotoImageView);
-            perfilDescripcionTextView.setText(descripcion);
-            perfilCorreoTextView.setText(correo);
-            perfilCiudadTextView.setText(ciudad);
-            perfilProvinciaTextView.setText(provincia);
-            perfilTelefonoTextView.setText(telefono);
-            perfilServicioTextView.setText(servicio);
-
-            // Obtén el botón "Contactar" por su ID
-            Button contactarButton = findViewById(R.id.contactarButton);
-            contactarButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Crea una Intent para abrir WhatsApp
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    String whatsappUrl = "https://api.whatsapp.com/send?phone=" + telefono;
-                    intent.setData(Uri.parse(whatsappUrl));
-
-                    // Comprueba si hay una aplicación que puede manejar la acción
-                    if (intent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(intent);
-                    } else {
-                        // Opcional: Mostrar un mensaje si no se encuentra la aplicación
-                        Toast.makeText(TarjetaAmpliadaActivity.this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tarjeta_ampliada);
-
-        // Recepcion de los datos que vienen del CataloAdapter
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            String nombreCompleto = extras.getString("nombreCompleto");
-            String imagenURL = extras.getString("imagenURL");
-            String descripcion = extras.getString("descripcion");
-            String correo = extras.getString("correo");
-            String ciudad = extras.getString("ciudad");
-            String provincia = extras.getString("provincia");
-            String telefono = extras.getString("telefono");
-            String servicio = extras.getString("servicio");
-
-            // Se asignan los datos del profesional TextViews e ImageView
-            TextView perfilNombreTextView = findViewById(R.id.perfilNombre);
-            ImageView imagenFotoImageView = findViewById(R.id.imagenFoto);
-            TextView perfilDescripcionTextView = findViewById(R.id.perfilDescripcion);
-            TextView perfilCorreoTextView = findViewById(R.id.perfilCorreo);
-            TextView perfilCiudadTextView = findViewById(R.id.perfilCiudad);
-            TextView perfilProvinciaTextView = findViewById(R.id.perfilProvincia);
-            TextView perfilTelefonoTextView = findViewById(R.id.perfilTelefono);
-            TextView perfilServicioTextView = findViewById(R.id.perfilServicio);
-
-            // Envio de datos a la interfaz
-            perfilNombreTextView.setText(nombreCompleto);
-            Picasso.get().load(imagenURL).into(imagenFotoImageView);
-            perfilDescripcionTextView.setText(descripcion);
-            perfilCorreoTextView.setText(correo);
-            perfilCiudadTextView.setText(ciudad);
-            perfilProvinciaTextView.setText(provincia);
-            perfilTelefonoTextView.setText(telefono);
-            perfilServicioTextView.setText(servicio);
-
-            // Obtén el botón "Contactar" por su ID
-            Button contactarButton = findViewById(R.id.contactarButton);
-            contactarButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Crea una Intent para abrir WhatsApp
-                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                    String whatsappUrl = "https://api.whatsapp.com/send?phone=" + telefono;
-                    intent.setData(Uri.parse(whatsappUrl));
-
-                    // Comprueba si hay una aplicación que puede manejar la acción
-                    if (intent.resolveActivity(getPackageManager()) != null) {
-                        startActivity(intent);
-                    } else {
-                        // Opcional: Mostrar un mensaje si no se encuentra la aplicación
-                        Toast.makeText(TarjetaAmpliadaActivity.this, "WhatsApp no está instalado.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-
-                    MediaScannerConnection.scanFile(this, new String[]{path}, null, new MediaScannerConnection.OnScanCompletedListener() {
-                        @Override
-                        public void onScanCompleted(String s, Uri uri) {
-                            Log.i("Ruta de almacenamiento","Path: "+path);
-                        }
-                    });
-                    bitmap = BitmapFactory.decodeFile(path);
-                    imagenFoto.setImageBitmap(bitmap);
-            }
-
-        }
-    }
-
-     */
 }
 

@@ -111,6 +111,8 @@ public class LoginActivity extends AppCompatActivity {
                             String provincia = response.isNull("provincia") ? "" : response.getString("provincia");
                             String profesion = response.isNull("profesion") ? "" : response.getString("profesion");
                             String foto = response.isNull("foto") ? "" : response.getString("foto");
+                            String direccion = response.isNull("direccion") ? "" : response.getString("direccion");
+                            int precio = response.isNull("precio") ? 0 : response.getInt("precio");
                             // Verificar si el campo tipo_usuario está presente
                             String tipo_usuario = (String) response.get("tipoUsuario");
                             if (tipo_usuario == null) {
@@ -133,6 +135,8 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("descripcion",descripcion);
                             editor.putString("provincia",provincia);
                             editor.putString("profesion",profesion);
+                            editor.putInt("precio", precio);
+                            editor.putString("direccion", direccion);
                             editor.putString("foto",foto);
                             editor.putString("tipo_usuario",tipo_usuario);
 

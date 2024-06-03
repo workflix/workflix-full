@@ -26,6 +26,7 @@ public class PerfilTerminosActivity extends AppCompatActivity {
     ImageView tv_foto;
     private Button sign_out_btn;
     private Context context;
+    private Button btn_Perfil_terminos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,12 +36,17 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         tv_apellido = findViewById(R.id.apellidoProf);
         tv_decripcion = findViewById(R.id.descripcion);
         tv_foto = (ImageView) findViewById(R.id.imagenProf);
+        btn_Perfil_terminos = findViewById(R.id.btn_Perfil_terminos);
 
         SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String nombre = preferences.getString("nombre", ""); // El segundo parámetro es un valor por defecto si la clave no se encuentra
         String apellido = preferences.getString("apellido", "");
         String telefono = preferences.getString("descripcion", "");
         String foto = preferences.getString("foto", "");
+        String direccion = preferences.getString("direccion","");
+        //    Integer precio = preferences.getInt("precio",0);
+        String tipo_usuario = preferences.getString("tipo_usuario", "");
+
         Usuario usuario = new Usuario();
         usuario.setFoto(foto);
 
@@ -53,6 +59,12 @@ public class PerfilTerminosActivity extends AppCompatActivity {
                     .into(tv_foto);
         }
 
+        // Cambiar visibilidad de btn_home según tipo_usuario
+        if ("profesional".equalsIgnoreCase(tipo_usuario)) {
+            btn_Perfil_terminos.setVisibility(View.VISIBLE);
+        } else {
+            btn_Perfil_terminos.setVisibility(View.GONE);
+        }
 
         tv_nombre.setText(nombre);
         tv_apellido.setText(apellido);
@@ -87,6 +99,8 @@ public class PerfilTerminosActivity extends AppCompatActivity {
         editor.putString("correo", null);
         editor.putString("descripcion", null);
         editor.putString("foto", null);
+        editor.putString("direccion", null);
+        //  editor.putInt("precio", 0);
         editor.putString("tipo_usuario", null);
         editor.apply();
         // Vuelvo al home

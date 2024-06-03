@@ -1,7 +1,9 @@
 package tec.ispc.workflix.utils;
 import java.util.List;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.PUT;
 import tec.ispc.workflix.models.Usuario;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -13,10 +15,10 @@ public interface UsuarioService {
     @POST("agregar")
     Call<Usuario>addUsuario(@Body Usuario usuario);
 
-    @POST("actualizar/{id}")
+    @PUT("actualizar/{id}")
     Call<Usuario>updateUsuario(@Body Usuario usuario,@Path("id") int id);
 
-    @POST("eliminar/{id}")
+    @DELETE("eliminar/{id}")
     Call<Usuario>deleteUsuario(@Path("id")int id);
 
     @POST("perfil/{id}")

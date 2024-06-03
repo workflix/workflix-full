@@ -190,5 +190,26 @@ public class Usuario {
         this.recomendacion = recomendacion;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", correo='" + correo + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", clave='" + clave + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", foto='" + foto + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", tipoUsuario='" + tipoUsuario + '\'' +
+                ", recomendacion=" + recomendacion +
+                ", usuarioServicios=" + usuarioServicios +
+                '}';
+    }
 }
 
