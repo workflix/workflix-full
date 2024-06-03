@@ -45,6 +45,7 @@ import tec.ispc.workflix.utils.Apis;
 import tec.ispc.workflix.utils.ServicioService;
 import tec.ispc.workflix.utils.UsuarioService;
 import tec.ispc.workflix.views.MainActivity;
+import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 
 public class Perfil extends AppCompatActivity {
@@ -271,7 +272,10 @@ public class Perfil extends AppCompatActivity {
         }
     }
 
+public void subirFoto(){
+    Toast.makeText(Perfil.this,"Solo se puede actualizar desde el navegador",Toast.LENGTH_LONG).show();
 
+}
 
 }
 
