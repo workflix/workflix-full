@@ -42,7 +42,7 @@ public class Usuario {
     @Column(columnDefinition = "INTEGER DEFAULT 0")
     private Integer recomendacion;
     @Column
-    private tokenClave;
+    private String tokenClave;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<UsuarioServicio> usuarioServicios;
