@@ -14,6 +14,7 @@ import android.webkit.WebView;
 import android.widget.Button;
 
 import tec.ispc.workflix.R;
+import tec.ispc.workflix.utils.Environment;
 import tec.ispc.workflix.views.ui.tarjetas.CatalogoActivity;
 import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 import android.webkit.WebSettings;
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
 
         // Asegurarse de que los links se abran en el WebView y no en el navegador
         webView.setWebViewClient(new WebViewClient());
+        webView.loadUrl(Environment.URL+"/chat");
         // Obtener SharedPreferences en un Fragment
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String tipo_usuario = preferences.getString("tipo_usuario", "");
