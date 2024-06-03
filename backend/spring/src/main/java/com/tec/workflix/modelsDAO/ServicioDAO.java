@@ -42,7 +42,12 @@ public class ServicioDAO implements IServicioInterface {
 
     @Override
     public int delete(int id) {
-        String sql="delete from servicio where id=?";
-        return template.update(sql,id);
+        // Primero eliminamos los registros de Usuario_Servicio asociados al usuario
+        String deleteUsuarioServicioQuery = "delete from usuario_servicio where servicio_id = ?";
+        template.update(deleteUsuarioServicioQuery, id);
+
+        // Luego eliminamos el usuario
+        String deleteServicioQuery = "delete from servicio where id = ?";
+        return template.update(deleteServicioQuery, id);
     }
 }
