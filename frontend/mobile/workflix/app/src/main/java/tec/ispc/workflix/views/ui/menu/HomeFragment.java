@@ -17,9 +17,11 @@ import tec.ispc.workflix.R;
 import tec.ispc.workflix.utils.Environment;
 import tec.ispc.workflix.views.ui.tarjetas.CatalogoActivity;
 import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
+import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import androidx.appcompat.app.AppCompatActivity;
 public class HomeFragment extends Fragment {
     private Button btn_home;
     private Button btn_home2;
@@ -70,5 +72,14 @@ public class HomeFragment extends Fragment {
         });
 
         return view;
+    }
+    @Override
+    public void onBackPressed() {
+        // Permitir la navegación hacia atrás en el WebView
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
     }
 }
