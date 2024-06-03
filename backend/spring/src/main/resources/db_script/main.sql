@@ -29,7 +29,9 @@ INSERT INTO workflix.usuario (id, apellido, ciudad, clave, correo, descripcion, 
 (27, 'Santos', 'San Luis', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'santos@mail.com', 'Albañil con habilidades en reformas y construcciones', 'Calle San Martín 456',  '/images/sin_foto.webp', 'Laura', 70, 'San Luis', '77889900', 'profesional'),
 (28, 'Castillo', 'San Juan', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'castillo@mail.com', 'Pintor experto en técnicas modernas de pintura', 'Av. Rivadavia 789', '/images/sin_foto.webp', 'Gabriel', 70, 'San Juan', '88990011', 'profesional'),
 (29, 'Mora', 'Santa Fe', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'mora@mail.com', 'Carpintero con habilidades en muebles a medida', 'Calle Belgrano 123',  '/images/sin_foto.webp', 'Valentina', 90, 'Santa Fe', '99001122', 'profesional'),
-(30, 'Silva', 'Chubut', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'silva@mail.com', 'Electricista con experiencia en mantenimiento industrial', 'Av. 9 de Julio 456',  '/images/sin_foto.webp', 'Martín', 90, 'Chubut', '00112233', 'profesional');
+(30, 'Silva', 'Chubut', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'silva@mail.com', 'Electricista con experiencia en mantenimiento industrial', 'Av. 9 de Julio 456',  '/images/sin_foto.webp', 'Martín', 90, 'Chubut', '00112233', 'profesional'),
+(31, 'Admin', 'Marte', '$2a$10$tFFe96nGfgkTtJKUxnh/W.DZ3OjplnYshrTCP.WrvMZpISsvzd7TW', 'admin@mail.com', 'Electricista con experiencia en mantenimiento industrial', 'Av. 9 de Julio 456',  '/images/root.png', 'Admin', 90, 'Chubut', '00112233', 'admin');
+
 
  -- Consulta para tabla servicio
 INSERT INTO `workflix`.`servicio` (`nombre`) VALUES
