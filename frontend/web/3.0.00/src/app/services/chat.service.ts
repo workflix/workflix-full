@@ -29,6 +29,10 @@ export class ChatService {
     "¿Puedo obtener una factura por el servicio?": "¡Por supuesto! Todos nuestros servicios incluyen factura detallada para que tengas un registro completo.",
     "¿Ofrecen algún tipo de garantía por los servicios?": "Sí, ofrecemos garantía por nuestros servicios. ¡Tu satisfacción es nuestra prioridad!",
     "¿Cómo puedo saber si el profesional contratado está certificado?": "Todos nuestros profesionales cuentan con las certificaciones necesarias para realizar trabajos de forma segura y eficiente.",
+    "¿Puedo contactar con un profesional directamente?": "Claro, puedes hacerlo a desde la aplicación móvil a través de Whatsapp",
+    "¿Puedo hablar con atención al cliente?": "Por supuesto, te puedes poner en contacto con atención al cliente a través de la página de Contacto",
+    "¿Puedo pagar en efectivo?": "Si, se puede pagar en efectivo. Ten en cuenta que abonando de esta manera no contarás con nuestra garantía",
+    "¿De dónde descargo la aplicación móvil?": "Desde nuestra site, puedes descargar la aplicación móvil: www.workflix.com.ar/site",
     "¿Cómo estas?": "Excelente y vos?",
     "¿Te puedo hacer otra pregunta?": "Si, decime",
     "preguntas": `Puedes preguntar cosas como:
