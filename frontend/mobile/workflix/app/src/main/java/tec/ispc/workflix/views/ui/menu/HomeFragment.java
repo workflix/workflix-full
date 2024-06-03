@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment implements OnBackPressedListener {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(Environment.URL + "/chat");
+        webView.loadUrl(Environment.URL_WEB);
 
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String tipo_usuario = preferences.getString("tipo_usuario", "");
