@@ -16,7 +16,9 @@ import android.widget.Button;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.views.ui.tarjetas.CatalogoActivity;
 import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
-
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 public class HomeFragment extends Fragment {
     private Button btn_home;
     private Button btn_home2;
@@ -30,6 +32,10 @@ public class HomeFragment extends Fragment {
         btn_home = view.findViewById(R.id.btn_home);
         btn_home2 = view.findViewById(R.id.btn_home2);
         webView = view.findViewById(R.id.webview);
+
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
         // Obtener SharedPreferences en un Fragment
         SharedPreferences preferences = getActivity().getSharedPreferences("user_data", Context.MODE_PRIVATE);
         String tipo_usuario = preferences.getString("tipo_usuario", "");
