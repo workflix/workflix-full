@@ -5,10 +5,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
@@ -16,6 +19,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -31,13 +35,20 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 import tec.ispc.workflix.R;
 import tec.ispc.workflix.models.Servicio;
 import tec.ispc.workflix.models.Usuario;
@@ -55,8 +66,6 @@ public class Perfil extends AppCompatActivity {
     private Button sign_out_btn;
     private Button btnEliminarPerfil;
     private Button btnActualizarPerfil;
-    private String CARPETA_RAIZ="misImagenesPrueba/";
-    private String RUTA_IMAGEN=CARPETA_RAIZ+"misFotos";
     private String path;
     private Bitmap bitmap;
     final int COD_SELECCIONA = 10;
@@ -66,11 +75,16 @@ public class Perfil extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     ServicioService servicioService;
     private Context context;
-
+    private int currentUser;
+    private static final int PERMISSION_REQUEST_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_perfil);
+        context = this;
+        if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+        }
 
         // Text views objetos
         tv_nombre = findViewById(R.id.perfilNombre);
@@ -105,6 +119,7 @@ public class Perfil extends AppCompatActivity {
         int id = preferences.getInt("id",0);
         Usuario usuario = new Usuario();
         usuario.setFoto(foto);
+        currentUser = id;
 
         // Seteo los valores al perfil
         tv_nombre.setText(nombre);
@@ -195,6 +210,17 @@ public class Perfil extends AppCompatActivity {
         }
     });
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido
+            } else {
+                Toast.makeText(this, "Permiso denegado para leer el almacenamiento externo", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     public void listServicio(final Spinner spinner) {
         servicioService = Apis.getServicioService();
         Call<List<Servicio>> call = servicioService.getServicios();
@@ -271,11 +297,81 @@ public class Perfil extends AppCompatActivity {
             return "android.resource://" + context.getPackageName() + "/" + R.drawable.profesional_1;
         }
     }
+    public void subirFoto(View view) {
+        final CharSequence[] opciones = {"Cargar Imagen", "Cancelar"};
+        final AlertDialog.Builder alertOpciones = new AlertDialog.Builder(Perfil.this);
+        alertOpciones.setTitle("Seleccione una Opción");
+        alertOpciones.setItems(opciones, (dialogInterface, i) -> {
+            if (opciones[i].equals("Cargar Imagen")) {
+                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                intent.setType("image/*");
+                startActivityForResult(intent.createChooser(intent, "Seleccionar aplicación: "), COD_SELECCIONA);
+            } else {
+                dialogInterface.dismiss();
+            }
+        });
+        alertOpciones.show();
+    }
 
-public void subirFoto(){
-    Toast.makeText(Perfil.this,"Solo se puede actualizar desde el navegador",Toast.LENGTH_LONG).show();
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            switch (requestCode) {
+                case COD_SELECCIONA:
+                    if (data != null && data.getData() != null) {
+                        Uri miPath = data.getData();
+                        Log.d("DEBUG", "URI de la imagen seleccionada: " + miPath.toString());
+                        try {
+                            bitmap = MediaStore.Images.Media.getBitmap(getApplicationContext().getContentResolver(), miPath);
+                            imagenFoto.setImageBitmap(bitmap);
 
+                            // Guardar la imagen en un archivo temporal y subirla
+                            // Generar un nombre de archivo único usando timestamp
+                            String uniqueFileName = "temp_image_" + System.currentTimeMillis() + ".jpg";
+                            File tempFile = new File(getCacheDir(), uniqueFileName);
+                            try (FileOutputStream out = new FileOutputStream(tempFile)) {
+                                bitmap.compress(Bitmap.CompressFormat.JPEG, 85, out);
+                            }
+                            uploadFile(tempFile);
+                        } catch (IOException e) {
+                            Log.e("DEBUG", "Error al cargar la imagen: " + e.getMessage());
+                            e.printStackTrace();
+                            //                Toast.makeText(this, "Error al cargar la imagen", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Log.e("DEBUG", "Data o URI es nulo");
+                        //          Toast.makeText(this, "No se ha seleccionado ninguna imagen", Toast.LENGTH_SHORT).show();
+                    }
+                    break;
+            }
+        }
+    }
+
+    private void uploadFile(File file) {
+        usuarioService = Apis.getUsuarioService();
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
+
+        Call<String> call = usuarioService.uploadImage(currentUser, body);
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if (response.isSuccessful()) {
+                    String imageUrl = response.body();
+                    tv_foto.setText(imageUrl);
+                    Toast.makeText(Perfil.this, "Imagen subida exitosamente", Toast.LENGTH_SHORT).show();
+                } else {
+                    //       Toast.makeText(Perfil.this, "Error al subir la imagen", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.e("DEBUG", "Fallo en la subida de la imagen: " + t.getMessage());
+               // Toast.makeText(Perfil.this, "Fallo en la subida de la imagen: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 }
-
-}
-
