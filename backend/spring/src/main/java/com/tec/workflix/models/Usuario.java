@@ -41,6 +41,8 @@ public class Usuario {
     private String tipoUsuario;
     @Column(columnDefinition = "INTEGER DEFAULT 0")
     private Integer recomendacion;
+    @Column
+    private tokenClave;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<UsuarioServicio> usuarioServicios;
@@ -68,8 +70,6 @@ public class Usuario {
 
     public Usuario() {
     }
-
-
 
     public int getId() {
         return id;
