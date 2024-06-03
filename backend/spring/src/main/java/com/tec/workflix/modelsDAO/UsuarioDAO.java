@@ -61,11 +61,15 @@ public class UsuarioDAO implements IUsuarioInterface {
                 usuario.getId()
         );
     }
-
     @Override
     public int delete(int id) {
-        String sql="delete from usuario where id=?";
-        return template.update(sql,id);
+        // Primero eliminamos los registros de Usuario_Servicio asociados al usuario
+        String deleteUsuarioServicioQuery = "delete from usuario_servicio where usuario_id = ?";
+        template.update(deleteUsuarioServicioQuery, id);
+
+        // Luego eliminamos el usuario
+        String deleteUsuarioQuery = "delete from usuario where id = ?";
+        return template.update(deleteUsuarioQuery, id);
     }
 
     @Override
