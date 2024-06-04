@@ -10,4 +10,5 @@ export class Enviroment {
   static URL_LOGIN:string = this.URL_PRINCIPAL+'/api/v1/user/login';
   static URL_REGISTER:string = this.URL_PRINCIPAL+'/api/v1/user/register';
   static URL_SERVICIOS:string = this.URL_PRINCIPAL+'/servicios';
+  static URL_CLAVES:string = this.URL_PRINCIPAL+'/correo-clave';
 }
