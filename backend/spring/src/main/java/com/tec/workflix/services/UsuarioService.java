@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 
@@ -47,7 +48,14 @@ public class UsuarioService implements IUsuarioInterface {
     public int actualizarPerfil(Usuario usuario) {
         return  dao.actualizarPerfil(usuario);
     }
-
+    @Override
+    public int recomendarPerfil(Usuario usuario) {
+        return dao.recomendarPerfil(usuario);
+    }
+    @Override
+    public List<Usuario> destacadosPerfil() {
+        return dao.destacadosPerfil();
+    }
     // Login
     @Autowired
     IUsuarioRepository usuarioRepository;
@@ -66,4 +74,34 @@ public class UsuarioService implements IUsuarioInterface {
     public Usuario getUserDetailByEmail(String correo){
         return usuarioRepository.getUserDetailsByEmail(correo);
     }// Fin metodo para obtener detalle del usuario por correo
+
+    public void updateUserProfileImage(Integer id, String imageUrl) {
+       Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        usuario.setFoto(imageUrl);
+        usuarioRepository.save(usuario);
+    }
+
+    public Optional<Usuario> getByEmail(String correo){
+        try {
+            //Obtener el usuario por correo
+            return usuarioRepository.findByEmail(correo);
+        } catch (Exception e) {
+            System.err.println("Error al obtener el correo: " + e.getMessage());
+            throw e;
+        }
+    }
+
+    public void save(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
+
+    public Optional<Usuario> getByTokenPassword(String tokenClave){
+        try {
+            //Obtener el token por correo
+            return usuarioRepository.findByTokenPassword(tokenClave);
+        } catch (Exception e) {
+            System.err.println("Error al obtener el token: " + e.getMessage());
+            throw e;
+        }
+    }
 }

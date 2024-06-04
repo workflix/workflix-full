@@ -78,7 +78,6 @@
 
                             <Button
                                 android:id="@+id/btnCargarImagen"
-                                style="@style/Widget.MaterialComponents.Button"
                                 android:layout_width="131dp"
                                 android:layout_height="60dp"
                                 android:backgroundTint="@color/verde1"
@@ -95,7 +94,7 @@
                                 android:layout_marginTop="16dp"
                                 android:scaleType="centerCrop"
                                 app:shapeAppearance="@style/circular"
-                                app:srcCompat="@drawable/perfil_imagen" />
+                                 />
                         </LinearLayout>
 
                         <LinearLayout
@@ -156,6 +155,22 @@
                                 android:inputType="textPersonName"
                                 android:textColor="@color/black"
                                 android:textColorHint="@color/grey3" />
+                            <EditText
+                                android:id="@+id/perfilDireccion"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Direccion"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/grey3" />
+                            <EditText
+                                android:id="@+id/perfilPrecio"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:hint="Precio"
+                                android:inputType="textPersonName"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/grey3" />
 
                         </LinearLayout>
 
@@ -180,7 +195,19 @@
                     android:hint="Servicio"
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/grey3" />
+                    android:textColorHint="@color/grey3"
+                    android:visibility="gone"
+                    />
+
+                <Spinner
+                    android:id="@+id/spinnerServicios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:entries="@array/servicios_array"
+                    android:visibility="gone"
+                    />
 
                 <EditText
                     android:id="@+id/perfilDescripcion"
@@ -200,7 +227,6 @@
 
                 <Button
                     android:id="@+id/btnActualizarPerfil"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="355dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"
@@ -212,7 +238,6 @@
 
                 <Button
                     android:id="@+id/btnEliminarPerfil"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="355dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center_horizontal"

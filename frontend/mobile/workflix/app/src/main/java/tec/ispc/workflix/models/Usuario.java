@@ -8,38 +8,30 @@ public class Usuario {
     @SerializedName("id")
     @Expose
     private int id;
-
     @SerializedName("nombre")
     @Expose
     private String nombre;
-
     @SerializedName("apellido")
     @Expose
     private String apellido;
-
     @SerializedName("clave")
     @Expose
     private String clave;
-
     @SerializedName("telefono")
     @Expose
     private String telefono;
-
     @SerializedName("correo")
     @Expose
     private String correo;
-    @SerializedName("is_admin")
+    @SerializedName("tipo_usuario")
     @Expose
-    private boolean is_admin;
-
+    private String tipoUsuario;
     @SerializedName("ciudad")
     @Expose
     private String ciudad;
-
     @SerializedName("provincia")
     @Expose
     private String provincia;
-
     @SerializedName("descripcion")
     @Expose
     private String descripcion;
@@ -52,45 +44,28 @@ public class Usuario {
     @SerializedName("profesion")
     @Expose
     private String profesion;
-    
+
+    @SerializedName("precio")
+    @Expose
+    private Integer precio;
     public Usuario(){};
 
-    public Usuario(int id, String nombre, String apellido, String telefono, String correo, String ciudad
-                   ,String direccion, String provincia, String profesion, String descripcion){
+    public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, String tipoUsuario, String ciudad, String provincia, String descripcion, String direccion, String foto, String profesion, Integer precio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.clave = clave;
         this.telefono = telefono;
         this.correo = correo;
+        this.tipoUsuario = tipoUsuario;
         this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.descripcion = descripcion;
         this.direccion = direccion;
-        this.provincia = provincia;
-        this.descripcion = descripcion;
-        this.profesion = profesion;
-    }
-   /* public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin){
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.clave = clave;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.is_admin = is_admin;
-    }*/
-   /* public Usuario(int id, String nombre, String apellido, String clave, String telefono, String correo, boolean is_admin, String ciudad, String provincia, String descripcion, String foto, String profesion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.clave = clave;
-        this.telefono = telefono;
-        this.correo = correo;
-        this.is_admin = is_admin;
-        this.ciudad = ciudad;
-        this.provincia = provincia;
-        this.descripcion = descripcion;
         this.foto = foto;
         this.profesion = profesion;
-    }*/
+        this.precio = precio;
+    }
 
     public int getId() {
         return id;
@@ -140,14 +115,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public boolean isIs_admin() {
-        return is_admin;
-    }
-
-    public void setIs_admin(boolean is_admin) {
-        this.is_admin = is_admin;
-    }
-
     public String getCiudad() {
         return ciudad;
     }
@@ -186,5 +153,49 @@ public class Usuario {
 
     public void setProfesion(String profesion) {
         this.profesion = profesion;
+    }
+
+
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    public Integer getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Integer precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", clave='" + clave + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
+                ", tipoUsuario='" + tipoUsuario + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", foto='" + foto + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", precio=" + precio +
+                '}';
     }
 }

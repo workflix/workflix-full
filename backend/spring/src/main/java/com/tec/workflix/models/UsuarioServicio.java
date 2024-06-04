@@ -44,8 +44,4 @@ public class UsuarioServicio {
     public void setServicio(Servicio servicio) {
         this.servicio = servicio;
     }
-
-
-
-
 }

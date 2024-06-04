@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".views.ui.login.LoginActivity">
+    tools:context=".views.ui.auth.login.LoginActivity">
 
 
     <ScrollView
@@ -73,7 +73,6 @@
 
                 <Button
                     android:id="@+id/sign_in_btn"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
@@ -170,7 +169,6 @@
 
                     <Button
                         android:id="@+id/irRegistro"
-                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_gravity="center_horizontal"

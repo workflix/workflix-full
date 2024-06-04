@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".views.ui.catalogo.CatalogoActivity">
+    tools:context=".views.ui.tarjetas.CatalogoActivity">
 
     <!-- Logo -->
 

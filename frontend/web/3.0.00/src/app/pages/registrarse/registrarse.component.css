@@ -17,6 +17,11 @@
   align-items: center;  
 }
 
+.checkbox-container p {
+  vertical-align: middle;
+  margin-bottom: 0; 
+  line-height: 1.5; 
+}
 
 .boton-form{
   background: #60D5AB;

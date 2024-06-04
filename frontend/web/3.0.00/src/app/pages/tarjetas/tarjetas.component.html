@@ -1,57 +1,88 @@
 <div class="container-fluid">
-    <!-- SECTION PROFESIONALES -->
-    <section id="profesionales">
-      <div class="container-fluid">
-        <div class="row">
-          <!-- Tarjeta del Profesional -->
-          @for(user of users; track trackById){
-            <div class="item-box plo col-12 col-md-6 col-lg-3 text-center mb-5">
-              <div class="card shadow bg-light" style="border-radius: 20px 0px 40px 40px; border:none;">
-                <div class="card-header rounded-pill cabecera-tarjeta">
-                  <!--{{}} <i class="fa-solid fa-wrench"></i>-->
-                  <h6>Plomero</h6>
-                </div>
-                <div class="card-body">
-                  <h1 class="card-title"></h1>
-                  <div class="row mt-2">
-                    <div class="col-4 col-md-4 ms-2">
-                      <!--<img src="./assets/images/{{t.imagen}}" class="rounded-circle mt-2" width="90" height="90" alt="">-->
-                      <img src="assets/images/profesional-1.jpg" class="rounded-circle mt-2" width="90" height="90" alt="...">
-                    </div>
-                    <div class="col-7 col-md-7 align-self-center text-start">
-                      <h6>{{user.nombre}} {{user.apellido}}</h6>
-                      <hr>
-                      <div class="col-7 col-md-7 align-self-center text-center">
-                        <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
-                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                          <li><i class="fas fa-star fa-xs mx-1"></i></li>
-                          <li><i class="fa-regular fa-star fa-xs mx-1"></i></li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="d-grid gap-3 m-2">
-                    <div class="p-2 bg-white border my-3 mx-2 rounded">
-                      <p class="card-text">
-                      {{user.descripcion}} {{user.telefono}}
-                      </p>
-                    </div>
-                  </div>
-                  <div class="d-grid gap-2">
-                    <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle()" type="button" >Ver Detalle</button>
-                  </div>
-                  <div class="d-grid gap-2">
-                    <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
-                  </div>
+  <!-- SECCIÓN DE FILTROS DE PROFESIONES -->
+  <section id="filtro-profesiones" class="mb-4 p-4 d-flex justify-content-center">
+    <div class="container col-12-lg col-6-md">
+    <i class="bi bi-chevron-compact-left position-absolute chevron-left" (click)="scrollLeft()"></i>
+    <div class="d-flex flex-row overflow-auto" #scrollContainer>
+      <button class="rounded-pill badge
+      btn-primary mt-3 mb-3 p-3 mx-2 shadow" (click)="filtrarPorProfesion('TODOS')">
+        Todos
+      </button>
+      <button *ngFor="let service of services" class="rounded-pill badge
+      btn-primary mt-3 mb-3 p-3 mx-2 shadow" (click)="filtrarPorProfesion(service.nombre)">
+        {{ service.nombre }}
+      </button>
+    </div>
+    <i class="bi bi-chevron-compact-right position-absolute chevron-right" (click)="scrollRight()"></i>
+  </div>
+  </section>
+  <!-- SECCION DE FILTROS PROFESIONALES -->
+  <section id="profesionales">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Tarjeta del Profesional -->
+        <div *ngFor="let user of filteredUsers; trackBy: trackById;" class="item-box plo col-12 col-md-6 col-lg-3 text-center mb-5">
+          <div class="card shadow bg-light" style="border-radius: 20px 0px 40px 40px; border:none;">
+            <div class="card-header rounded-pill cabecera-tarjeta">
+              <div *ngIf="user.servicios.length > 0" class="badge">
+                <div *ngFor="let servicio of user.servicios; let i = index">
+                  <i class="fa-solid fa-wrench"></i> {{ user.profesion }} {{ servicio.nombre }}<span *ngIf="i < user.servicios.length - 1">, </span>
                 </div>
               </div>
             </div>
-            <!-- FIN Tarjeta del Profesional -->
-        }
+            <div class="card-body">
+              <h1 class="card-title"></h1>
+              <div class="row mt-2">
+                <div class="col-4 col-md-4 ms-2">
+                  <img [src]="getUserImage(user)" class="rounded-circle mt-2" width="90" height="90" [alt]="user.nombre" />
+                </div>
+                <div class="col-7 col-md-7 align-self-center text-start">
+                  <h6>{{user.nombre}} {{user.apellido}}</h6>
+                  <hr>
+                  <div class="col-7 col-md-7 align-self-center text-center">
+                    <ul class="mb-0 list-unstyled d-flex flex-row h5" style="color: #1d1f1d;">
+                      <li *ngFor="let star of generateStars(user.recomendacion)" class="mx-1">
+                        <i [class]="star"></i>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="d-grid gap-3 m-2">
+                <div class="p-2 bg-white border my-3 mx-2 rounded">
+                  <p class="card-text">
+                    {{user.descripcion}}
+                  </p>
+                  <p class="card-text fs-3 text-dark">
+                   $ {{user.precio}}
+                  </p>
+                </div>
+              </div>
+                <div class="container mb-2">
+                    <a class="like-btn align-middle rounded-pill p-2 mx-4 mb-2" (click)="addRecomendacion(user.id)" >
+                      <i class="bi bi-hand-thumbs-up fs-4"></i>
+                    </a>
+                   <a class="dislike-btn align-middle rounded-pill p-2 mx-4 mb-2" (click)="delRecomendacion(user.id)">
+                    <i class="bi bi-hand-thumbs-down fs-4"></i>
+                   </a>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <button class="boton-cards-1 align-middle mb-2" (click)="verDetalle(user.id)" type="button" >Ver Detalle</button>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <button class="boton-cards align-middle" (click)="addCart(user)" type="button" >Contratar</button>
+                  </div>
+            </div>
+          </div>
         </div>
-        <!--Close Row -->
+        <!-- FIN Tarjeta del Profesional -->
       </div>
-    </section>
+      <!--Close Row -->
+    </div>
+  </section>
+  <div *ngIf="selectedUser">
+    <app-detalle-tarjeta [profesional]="selectedUser"></app-detalle-tarjeta>
   </div>
+</div>

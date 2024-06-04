@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import tec.ispc.workflix.R;
@@ -12,18 +13,19 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
-import android.os.Handler;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardActivity;
-import tec.ispc.workflix.views.ui.dashboard_admin.DashboardAdminActivity;
-import tec.ispc.workflix.views.ui.login.LoginActivity;
+import tec.ispc.workflix.utils.Environment;
+import tec.ispc.workflix.utils.OnBackPressedListener;
+import tec.ispc.workflix.views.ui.dashboard.DashboardAdminActivity;
+import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
-import tec.ispc.workflix.views.ui.perfil_terminos.PerfilTerminosActivity;
+import tec.ispc.workflix.views.ui.perfil.perfil_terminos.PerfilTerminosActivity;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -61,23 +63,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setCustomView(R.layout.custom_toolbar);
     };
 
-  public void mostrarElementos(){
-      SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-      boolean isAdmin = preferences.getBoolean("is_admin", /*Valor por defecto nulo:*/ false);
+    public void mostrarElementos() {
+        SharedPreferences preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
+        String isUser = preferences.getString("tipo_usuario", "");
 
-      NavigationView navigationView = findViewById(R.id.nav_view);
-      if (preferences.contains("nombre")) {
-          navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
-      if (isAdmin) {
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
-      }else if(!isAdmin) {
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-      }
-      } else {
-          navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
-          navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);}};
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        if (preferences.contains("nombre")) {
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+            if ("admin".equals(isUser)) {
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(true);
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+            } if ("profesional".equals(isUser)) {
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            }
+            if ("cliente".equals(isUser)) {
+                navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(true);
+                navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            }
+        } else {
+            navigationView.getMenu().findItem(R.id.dashboard_admin).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_perfil_terminos).setVisible(false);
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -109,6 +118,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (itemId == R.id.nav_contact_mail) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactMail()).commit();
         }
+
+        else if (itemId == R.id.nav_web) {
+            //Ir a página web de Workflix
+            String url = Environment.URL_WEB;
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
+            return true;
+        }
         else if (itemId == R.id.nav_about) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AboutFragment()).commit();
         } else if (itemId == R.id.nav_logout) {
@@ -129,4 +146,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void onPointerCaptureChanged(boolean hasCapture) {
         super.onPointerCaptureChanged(hasCapture);
     }
+
 };

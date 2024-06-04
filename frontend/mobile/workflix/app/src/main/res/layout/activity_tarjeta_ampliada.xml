@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".views.ui.catalogo.TarjetaAmpliadaActivity">
+    tools:context=".views.ui.tarjetas.TarjetaAmpliadaActivity">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imagenFoto"
@@ -22,15 +22,15 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/verde1"
-        android:text="Contactar"
+        android:text="Contactar por Whatsapp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.916" />
-
+        app:layout_constraintVertical_bias="0.916"
+        />
     <Button
         android:id="@+id/btnVolverCatalogo"
         android:layout_width="0dp"
@@ -139,7 +139,7 @@
         android:background="@color/azul"
         android:text="Servicio del Profesional"
         android:textAlignment="center"
-        android:textSize="22dp"
+        android:textSize="18dp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

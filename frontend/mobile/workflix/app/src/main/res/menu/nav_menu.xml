@@ -48,12 +48,16 @@
         android:title="">
 
         <menu>
-            <item
-                android:id="@+id/nav_logout"
-                android:icon="@drawable/nav_logout"
-                android:title="Salir"/>
-        </menu>
+              <item
+                  android:id="@+id/nav_web"
+                  android:icon="@drawable/workflix_web_vector"
+                  android:title="Ir a versión web"/>
+              <item
+                  android:id="@+id/nav_logout"
+                  android:icon="@drawable/nav_logout"
+                  android:title="Salir"/>
+          </menu>
 
-    </item>
-   
-</menu>
+      </item>
+
+  </menu>

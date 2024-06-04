@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".views.ui.perfil_terminos.PerfilTerminosActivity">
+    tools:context=".views.ui.perfil.perfil_terminos.PerfilTerminosActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -154,7 +154,6 @@
 
                 <Button
                     android:id="@+id/btn_Perfil_terminos"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
@@ -165,11 +164,13 @@
                     android:onClick="irPerfilEditar"
                     android:text="@string/perfil"
                     android:textColor="@color/black"
-                    tools:ignore="UnknownId" />
+                    tools:ignore="UnknownId"
+                    android:visibility="gone"
+
+                    />
 
                 <Button
                     android:id="@+id/btn_Perfil_terminos_con"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"
@@ -183,7 +184,6 @@
 
                 <Button
                     android:id="@+id/btn_Cerrar_sesion"
-                    style="@style/Widget.MaterialComponents.Button"
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_gravity="center_horizontal"

@@ -1,3 +1,4 @@
+
 <nav  class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-expand-lg  fixed-top">
 
   <div class="container-fluid ms-2 me-2">
@@ -5,17 +6,20 @@
         <img src="./assets/images/logo_workflix.png" alt="WorkFlix" height="35">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" (click)="toggleNavbar()" [attr.aria-expanded]="!isNavbarCollapsed" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" [class.show]="!isNavbarCollapsed" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-3">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/home'" routerLinkActive="active" >Home</a>
+          <a class="nav-link" [routerLink]="'/chat'" routerLinkActive="active">Asistente virtual</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/home'" routerLinkActive="active" (click)="closeNavbar()" >Home</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" >Contacto</a>
+          <a class="nav-link" [routerLink]="'/contacto'" routerLinkActive="active" (click)="closeNavbar()" >Contacto</a>
           <!--<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -27,13 +31,13 @@
 
         <ng-container >
               @if (this.currentUser) {
-                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()">Logout</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="logout()" (click)="closeNavbar()">Logout</a></li>
                 <a class="nombre-usu nav-link" >{{ currentUser.nombre }}</a>
                 @if (this.currentUser.tipoUsuario === 'admin') {
-                  <li class="nav-item"><a class="nav-link" [routerLink]="'/dashboard'">Dashboard</a></li>
+                  <li class="nav-item"><a class="nav-link" [routerLink]="'/dashboard'" (click)="closeNavbar()">Dashboard</a></li>
                 }
                 @if (this.currentUser.tipoUsuario === 'cliente') {
-                  <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-usuario'">Perfil</a></li>
+                  <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-usuario'" (click)="closeNavbar()">Perfil</a></li>
                   <li class="nav-item pt-2">
                     <a class="nav-item" id="cart" (click)="cart()"><i class="fa fa-shopping-cart"></i> <span class="badge">{{totalQuantity}}</span></a>
                   </li>
@@ -43,11 +47,11 @@
                   }
                 }
                 @if (this.currentUser.tipoUsuario === 'profesional') {
-                  <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-profesional'">Perfil</a></li>
+                  <li class="nav-item"><a class="nav-link" [routerLink]="'/perfil-profesional'" (click)="closeNavbar()">Perfil</a></li>
                 }
               }@else {
-                <li class="nav-item"><a class="nav-link" [routerLink]="'/registrarse'"  >Creá tu cuenta</a></li>
-                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" >Ingresá</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/registrarse'" (click)="closeNavbar()" (click)="closeNavbar()" >Creá tu cuenta</a></li>
+                <li class="nav-item"><a class="nav-link" [routerLink]="'/ingresar'" (click)="closeNavbar()" (click)="closeNavbar()" >Ingresá</a></li>
               }
         </ng-container>
 

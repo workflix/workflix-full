@@ -2,6 +2,9 @@ package com.tec.workflix.models;
 
 
 import jakarta.persistence.*;
+
+import java.util.List;
+
 @Entity
 @Table(name = "Usuario")
 public class Usuario {
@@ -34,9 +37,41 @@ public class Usuario {
     private String foto;
     @Column
     private String profesion;
-    @Column(name = "tipo_usuario", nullable = true, columnDefinition = "VARCHAR(255) DEFAULT NULL")
-    private String tipoUsuario; // Nuevo atributo para el tipo de usuario
+    @Column(name = "tipo_usuario", columnDefinition = "VARCHAR(255) DEFAULT 'cliente'")
+    private String tipoUsuario;
+    @Column(columnDefinition = "INTEGER DEFAULT 0")
+    private Integer recomendacion;
+    @Column
+    private String tokenClave;
 
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<UsuarioServicio> usuarioServicios;
+
+    public Usuario(int id, String nombre, String apellido, String correo, String telefono, String clave, String direccion, String ciudad, String provincia, String descripcion, Integer precio, String foto, String profesion, String tipoUsuario, Integer recomendacion, String tokenClave) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.telefono = telefono;
+        this.clave = clave;
+        this.direccion = direccion;
+        this.ciudad = ciudad;
+        this.provincia = provincia;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.foto = foto;
+        this.profesion = profesion;
+        this.tipoUsuario = tipoUsuario;
+        this.recomendacion = recomendacion;
+        this.tokenClave = tokenClave;
+    }
+
+    public Usuario(int id) {
+        this.id = id;
+    }
+
+    public Usuario() {
+    }
 
     public int getId() {
         return id;
@@ -149,4 +184,43 @@ public class Usuario {
     public void setPrecio(Integer precio) {
         this.precio = precio;
     }
+    public Integer getRecomendacion() {
+        return recomendacion;
+    }
+
+    public void setRecomendacion(Integer recomendacion) {
+        this.recomendacion = recomendacion;
+    }
+
+    public String getTokenClave() {
+        return tokenClave;
+    }
+
+    public void setTokenClave(String tokenClave) {
+        this.tokenClave = tokenClave;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", correo='" + correo + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", clave='" + clave + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", ciudad='" + ciudad + '\'' +
+                ", provincia='" + provincia + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", precio=" + precio +
+                ", foto='" + foto + '\'' +
+                ", profesion='" + profesion + '\'' +
+                ", tipoUsuario='" + tipoUsuario + '\'' +
+                ", recomendacion=" + recomendacion +
+                ", usuarioServicios=" + usuarioServicios +
+                ", tokenClave='" + tokenClave + '\'' +
+                '}';
+    }
 }
+

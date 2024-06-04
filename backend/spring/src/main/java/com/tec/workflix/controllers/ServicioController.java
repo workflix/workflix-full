@@ -1,9 +1,7 @@
 package com.tec.workflix.controllers;
 
 import com.tec.workflix.models.Servicio;
-import com.tec.workflix.models.Usuario;
 import com.tec.workflix.services.ServicioService;
-import com.tec.workflix.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +30,7 @@ public class ServicioController {
         return "Se registró con éxito!";
     }
 
-    @PostMapping("/actualizar/{id}")
+    @PutMapping("/actualizar/{id}")
     public String save(@RequestBody Servicio servicio, @PathVariable int id, Model model) {
         servicio.setId(id);
         int r=service.edit(servicio);
@@ -41,12 +39,12 @@ public class ServicioController {
         }
         return "Se actualizó con éxito!";
     }
-    @PostMapping("/eliminar/{id}")
-    public String delete(@PathVariable int id,Model model) {
-        int r=service.delete(id);
-        if(r==0) {
-            return "Registro Servicio No Eliminado!";
+    @DeleteMapping("/eliminar/{id}")
+    public String delete(@PathVariable int id, Model model) {
+        int r = service.delete(id);
+        if (r == 0) {
+            return "Registro No Eliminado!";
         }
-        return "Registro Servicio Eliminado!";
+        return "Registro Eliminado!";
     }
 }

@@ -1,3 +1,5 @@
+import { Service } from './service';
+
 export class User {
   id: number = 0;
   nombre: string = '';
@@ -11,8 +13,12 @@ export class User {
   descripcion: string = '';
   foto: string = '';
   tipoUsuario: string = '';
+  tipo_usuario: string = '';
   cantidad: number = 0;
+  profesion: string = '';
   precio:number = 0;
+  recomendacion:number = 0;
+  servicios: Service[] = [];
   constructor(
       id: number,
       nombre: string,
@@ -26,7 +32,10 @@ export class User {
       descripcion: string,
       foto: string,
       tipoUsuario: string,
+      tipo_usuario: string,
       cantidad: number,
+      profesion: string,
+      recomendacion:number,
       precio:number) {
       this.id = id;
       this.nombre = nombre;
@@ -40,8 +49,12 @@ export class User {
       this.descripcion = descripcion;
       this.foto = foto;
       this.tipoUsuario = tipoUsuario;
+      this.tipo_usuario = tipo_usuario;
       this.cantidad = cantidad;
+      this.profesion = profesion;
+      this.recomendacion = recomendacion;
       this.precio = precio;
+      this.servicios = [];
 
   }
 }

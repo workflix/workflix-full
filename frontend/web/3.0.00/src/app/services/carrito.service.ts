@@ -7,7 +7,7 @@ import { User } from '../models/user';
 })
 export class CarritoService {
 
-  private cart = new BehaviorSubject<Array<User>>([]); // Usa User en lugar de IItem
+  public cart = new BehaviorSubject<Array<User>>([]); // Usa User en lugar de IItem
   public currentDataCart$ = this.cart.asObservable();
 
   constructor() { }
