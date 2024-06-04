@@ -41,11 +41,13 @@ public class Usuario {
     private String tipoUsuario;
     @Column(columnDefinition = "INTEGER DEFAULT 0")
     private Integer recomendacion;
+    @Column
+    private String tokenClave;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private List<UsuarioServicio> usuarioServicios;
 
-    public Usuario(int id, String nombre, String apellido, String correo, String telefono, String clave, String direccion, String ciudad, String provincia, String descripcion, Integer recomendacion, Integer precio, String foto, String profesion, String tipoUsuario) {
+    public Usuario(int id, String nombre, String apellido, String correo, String telefono, String clave, String direccion, String ciudad, String provincia, String descripcion, Integer precio, String foto, String profesion, String tipoUsuario, Integer recomendacion, String tokenClave) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -56,20 +58,20 @@ public class Usuario {
         this.ciudad = ciudad;
         this.provincia = provincia;
         this.descripcion = descripcion;
-        this.recomendacion = recomendacion;
         this.precio = precio;
         this.foto = foto;
         this.profesion = profesion;
         this.tipoUsuario = tipoUsuario;
+        this.recomendacion = recomendacion;
+        this.tokenClave = tokenClave;
     }
+
     public Usuario(int id) {
         this.id = id;
     }
 
     public Usuario() {
     }
-
-
 
     public int getId() {
         return id;
@@ -190,6 +192,14 @@ public class Usuario {
         this.recomendacion = recomendacion;
     }
 
+    public String getTokenClave() {
+        return tokenClave;
+    }
+
+    public void setTokenClave(String tokenClave) {
+        this.tokenClave = tokenClave;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
@@ -209,6 +219,7 @@ public class Usuario {
                 ", tipoUsuario='" + tipoUsuario + '\'' +
                 ", recomendacion=" + recomendacion +
                 ", usuarioServicios=" + usuarioServicios +
+                ", tokenClave='" + tokenClave + '\'' +
                 '}';
     }
 }

@@ -17,6 +17,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.net.MalformedURLException;
+import java.util.Optional;
+
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.web.*;
@@ -118,6 +120,12 @@ public class UsuarioController {
         } catch (MalformedURLException e) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @GetMapping("/buscar/")
+    public ResponseEntity<Usuario> getByEmail(@RequestParam String correo) {
+        Optional<Usuario> usuario = service.getByEmail(correo);
+        return usuario.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 }
 /*

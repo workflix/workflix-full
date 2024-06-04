@@ -18,6 +18,7 @@ import { ServiceCreateComponent } from './pages/dashboard/service-create/service
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { AdvertenciaComponent } from './pages/advertencia/advertencia.component';
 import { ChatComponent } from './pages/chat/chat.component';
+import { CambiarClaveComponent } from './pages/recuperar-clave/cambiar-clave.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'site', pathMatch: 'full' },
@@ -28,7 +29,7 @@ export const routes: Routes = [
   { path: 'tarjetas', component: TarjetasComponent },
   { path: 'perfil-usuario', component: PerfilUsuarioComponent, canActivate: [authGuardIsCliente] },
   { path: 'perfil-profesional', component: PerfilProfesionalComponent, canActivate: [authGuardIsProfesional] },
-  {path: 'advertencia', component: AdvertenciaComponent, canActivate: [authGuardIsProfesional] },
+  { path: 'advertencia', component: AdvertenciaComponent, canActivate: [authGuardIsProfesional] },
   { path: 'contacto', component: ContactoComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'recuperar-clave', component: RecuperarClaveComponent },
@@ -37,8 +38,9 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent , canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/user-create', component: UserCreateComponent, canActivate: [authGuardIsAdmin] },
   { path: 'dashboard/service-create', component: ServiceCreateComponent, canActivate: [authGuardIsAdmin] },
-  {path: 'chat', component: ChatComponent},
-  {path: '**', component: PageNotFoundComponent},
+  { path: 'chat', component: ChatComponent},
+  { path: 'recuperar-clave/cambiar-clave/:tokenClave', component: CambiarClaveComponent},
+  { path: '**', component: PageNotFoundComponent},
 
 ];
 
