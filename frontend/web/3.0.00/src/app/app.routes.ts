@@ -40,7 +40,7 @@ export const routes: Routes = [
   { path: 'dashboard/service-create', component: ServiceCreateComponent, canActivate: [authGuardIsAdmin] },
   { path: 'chat', component: ChatComponent},
   { path: 'recuperar-clave/cambiar-clave/:tokenClave', component: CambiarClaveComponent},
-  {path: '**', component: PageNotFoundComponent},
+  { path: '**', component: PageNotFoundComponent},
 
 ];
 
