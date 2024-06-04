@@ -36,5 +36,6 @@ public interface IUsuarioRepository extends CrudRepository<Usuario,Integer> {
     @Query(value = "SELECT * FROM usuario WHERE correo = :correo", nativeQuery = true)
     Optional<Usuario> findByEmail(@Param("correo") String correo);
 
-
+    @Query(value = "SELECT * FROM usuario WHERE token_clave = :tokenClave", nativeQuery = true)
+    Optional<Usuario> findByTokenPassword(@Param("tokenClave") String tokenClave);
 }
