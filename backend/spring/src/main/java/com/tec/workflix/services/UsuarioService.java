@@ -95,7 +95,13 @@ public class UsuarioService implements IUsuarioInterface {
         usuarioRepository.save(usuario);
     }
 
-
-
-
+    public Optional<Usuario> getByTokenPassword(String tokenClave){
+        try {
+            //Obtener el token por correo
+            return usuarioRepository.findByTokenPassword(tokenClave);
+        } catch (Exception e) {
+            System.err.println("Error al obtener el token: " + e.getMessage());
+            throw e;
+        }
+    }
 }
