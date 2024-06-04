@@ -1,1 +1,33 @@
-<p>cambiar-clave works!</p>
+<div class="center-form">
+    <form [formGroup]="restablecerClave" (ngSubmit)="onChangePassword()">
+      <div class="form">
+        <h2 class="encabezado-2">Restablece Contraseña</h2>
+        <label for="password">Contraseña:</label>
+        <div class="controls">
+          <input
+            formControlName="password"
+            type="password"
+            id="password"
+            placeholder="Ingrese su contraseña"
+            class="form-control p-3 mb-3 bg-white rounded"
+            required
+          />
+        </div>
+        <label for="confirmPassword">Confirmar contraseña:</label>
+        <div class="controls">
+          <input
+            formControlName="confirmPassword"
+            type="password"
+            id="confirmPassword"
+            placeholder="Ingrese de nuevo su contraseña"
+            class="form-control p-3 mb-3 bg-white rounded"
+            required
+          />
+        </div>
+        <div>
+          <button type="submit" class="boton-form">Recuperar contraseña</button>
+          <button type="button" class="boton-form2" (click)="volver()">Volver</button>
+        </div>
+      </div>
+    </form>
+  </div>
