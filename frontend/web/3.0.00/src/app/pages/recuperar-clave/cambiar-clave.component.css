@@ -1,0 +1,84 @@
+:host {
+    display: block;
+    margin-top: 90px; 
+  }
+  
+  .mensaje-recupera {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6c757d;
+  margin: 20px 0 20px 0;
+  
+  }
+  
+  label {
+    font-size: 14px;
+    color: #0A769D;
+  }
+  
+  .center-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 100px;
+  }
+  
+  .boton-form{
+    background: #60D5AB;
+    background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
+    width: 100%;
+    border:none;
+    color:#fff;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 10px auto;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .boton-form2{
+    background: #0A769D;
+    background: -webkit-linear-gradient(to right, #0A769D, #60D5AB);
+    width: 100%;
+    border:none;
+    color:#fff;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 10px auto;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  .boton-form:hover{
+    background: #1FBABF;
+  }
+  
+  .boton-form2:hover{
+    background-color: #60D5AB;
+  }
+  
+  .form{
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .controls{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  
+  .encabezado-2{
+    text-align: center;
+    margin: 10px 0 20px 0;
+    font-weight: 300;
+    color: #6c757d;
+  }
+  
+  @media screen  and (max-width: 450px)  {
+    .center-form {
+      margin-bottom: 30px;
+    }
+  }
