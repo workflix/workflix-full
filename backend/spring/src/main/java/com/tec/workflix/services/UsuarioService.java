@@ -90,4 +90,12 @@ public class UsuarioService implements IUsuarioInterface {
             throw e;
         }
     }
+
+    public void save(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
+
+
+
+
 }
