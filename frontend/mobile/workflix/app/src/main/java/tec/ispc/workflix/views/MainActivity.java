@@ -13,12 +13,15 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
+import tec.ispc.workflix.utils.Environment;
+import tec.ispc.workflix.utils.OnBackPressedListener;
 import tec.ispc.workflix.views.ui.dashboard.DashboardAdminActivity;
 import tec.ispc.workflix.views.ui.auth.login.LoginActivity;
 import tec.ispc.workflix.views.ui.menu.*;
@@ -118,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (itemId == R.id.nav_web) {
             //Ir a página web de Workflix
-            String url = "http://localhost:4200/home";
+            String url = Environment.URL_WEB;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
             startActivity(intent);
             return true;
