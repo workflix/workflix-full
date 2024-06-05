@@ -19,6 +19,7 @@ export class User {
   precio:number = 0;
   recomendacion:number = 0;
   servicios: Service[] = [];
+  tokenClave: string = '';
   constructor(
       id: number,
       nombre: string,
@@ -36,7 +37,8 @@ export class User {
       cantidad: number,
       profesion: string,
       recomendacion:number,
-      precio:number) {
+      precio:number,
+      tokenClave: string) {
       this.id = id;
       this.nombre = nombre;
       this.apellido = apellido;
@@ -55,6 +57,6 @@ export class User {
       this.recomendacion = recomendacion;
       this.precio = precio;
       this.servicios = [];
-
+      this.tokenClave = tokenClave;  
   }
 }
