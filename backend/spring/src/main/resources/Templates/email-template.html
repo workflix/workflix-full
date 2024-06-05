@@ -1,14 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Recuperar Contraseña</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restablecer contraseña</title>
 </head>
-<body>
-<h2>Restablecer contraseña</h2>
-<h3>Hola <span th:text="${usuarioNombre} + ' ' + ${usuarioApellido}"></span></h3>
-<h4>Haz click en el siguiente enlace para acceder a tu cuenta</h4>
-<a th:href="@{${url}}"><button>Ir a mi cuenta</button></a>
+<body style="font-family: Arial, sans-serif; background-color: #f8f9fa; margin: 0; padding: 0;">
+<div style="max-width: 600px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; background-color: #fff;">
+    <div style="text-align: center;">
+        <img src="https://i.ibb.co/xHKT7Nv/logo-workflix.png" alt="Logo de Workflix" style="width: 320px; height: 100px; margin-bottom: 20px;">
+    </div>
+    <p style="text-align: center; color: #555;">Hola <span th:text="${usuarioNombre} + ' ' + ${usuarioApellido}"></span>,</p>
+    <p style="text-align: center; color: #555;">Hemos recibido una solicitud para restablecer la contraseña de tu cuenta. Haz clic en el siguiente enlace para acceder a tu cuenta:</p>
+    <div style="text-align: center; margin: 20px 0;">
+        <a th:href="@{${url}}" style="display: inline-block; padding: 10px 20px; background-color: #60D5AB; color: #fff; text-decoration: none; border-radius: 5px;">Ir a mi cuenta</a>
+    </div>
+    <p style="text-align: center; color: #555; margin-top: 20px;">Si no solicitaste restablecer la contraseña, puedes ignorar este mensaje.</p>
+</div>
 </body>
 </html>
