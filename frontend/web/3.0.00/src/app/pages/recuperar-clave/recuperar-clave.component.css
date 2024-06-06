@@ -3,13 +3,13 @@
   margin-top: 90px;
 }
 
-.mensaje-recupera {
+.mensaje-recuperar {
 display: flex;
+text-align: center;
 justify-content: center;
 align-items: center;
 color: #6c757d;
-margin: 20px 0 20px 0;
-
+margin: 10px 0 10px 0;
 }
 
 label {
