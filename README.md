@@ -150,6 +150,8 @@ To build the mobile frontend, follow these steps:
 * [Diagrama Relacional](https://github.com/workflix/workflix-full/wiki/Diagrama-Relacional)
 * [Diagrama de Casos de Uso](https://github.com/workflix/workflix-full/wiki/Diagrama-Casos-de-Uso)
 * [Mapa del Sitio](https://github.com/workflix/workflix-full/wiki/Mapa-del-Sitio)
+* [Documento IEEE830](https://github.com/workflix/workflix-full/wiki/Documento-IEEE830)
+* [Elevator Pitch](https://github.com/workflix/workflix-full/wiki/Elevator-Pitch)
 
 
 

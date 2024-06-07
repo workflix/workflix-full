@@ -16,6 +16,8 @@ import { ActivatedRoute } from '@angular/router';
 export class CambiarClaveComponent {
 
   restablecerClave: FormGroup;
+  passwordFieldType: string = 'password';
+  confirmPasswordFieldType: string = 'password';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -53,6 +55,14 @@ export class CambiarClaveComponent {
         console.error(err); // Registrar el error en la consola
       }
     );
+  }
+
+  togglePasswordVisibility(field: string) {
+    if (field === 'password') {
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
+    } else if (field === 'confirmPassword') {
+      this.confirmPasswordFieldType = this.confirmPasswordFieldType === 'password' ? 'text' : 'password';
+    }
   }
 
   volver(): void {
